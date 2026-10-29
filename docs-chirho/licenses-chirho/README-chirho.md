@@ -131,5 +131,7 @@ Axes retained after subsetting:
 
 ## Other third-party material
 
-The photographs and the grain tile are generated for this project, not licensed from anyone. See
-`perffection-website-guide-chirho.md` for how they were produced.
+Project artwork is separate from the third-party fonts above. See the public
+[asset inventory](../source-chirho/assets-and-notices-chirho.md) for its recorded
+provenance and release-rights status. Generation for a project does not by itself
+establish redistribution rights or remove applicable provider/input conditions.
