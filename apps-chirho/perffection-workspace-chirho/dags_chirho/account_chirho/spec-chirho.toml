@@ -1,0 +1,14 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+schema_chirho = "dag-spec-v0-chirho"
+intent_chirho = "Show the authenticated viewer her Account page: change her password, keep a recovery code, close her account — each a cairn auth road, offered only once that road is on the pin — and her AI-assistant connections, held (no control) until the engine's own-keys read is bound."
+surface_chirho = { ins_chirho = ["request: http_request_v1"], outs_chirho = ["page: html_partial_v1"] }
+structure_chirho = [
+  "one pure renderer off the authenticated request; no read, no effect, nothing of hers on the wire",
+  "each form posts straight to its cairn auth road with her session and returns here; the product carries no secret and no credential-side authority",
+]
+behaviors_chirho = [
+  "anonymous requests are refused before this DAG runs",
+  "a road that is not bound renders no form; the held page names the operator path instead",
+  "her connections are held until the own-keys read is bound: no list, no disconnect, never an empty list for an unavailable one",
+  "no password is ever echoed; the close form needs her password and a typed consent",
+]

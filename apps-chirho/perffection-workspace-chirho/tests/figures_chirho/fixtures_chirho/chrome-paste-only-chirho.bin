@@ -1,0 +1,24 @@
+------WebKitFormBoundaryxbhM9L4xskIEayk0
+Content-Disposition: form-data; name="csv_file_chirho"; filename=""
+Content-Type: application/octet-stream
+
+
+------WebKitFormBoundaryxbhM9L4xskIEayk0
+Content-Disposition: form-data; name="csv_chirho"
+
+month,kind,money_in,costs,jobs
+2026-03,Pies,77,,
+
+------WebKitFormBoundaryxbhM9L4xskIEayk0
+Content-Disposition: form-data; name="currency_chirho"
+
+USD
+------WebKitFormBoundaryxbhM9L4xskIEayk0
+Content-Disposition: form-data; name="note_chirho"
+
+from my books
+------WebKitFormBoundaryxbhM9L4xskIEayk0
+Content-Disposition: form-data; name="expected_version_chirho"
+
+0
+------WebKitFormBoundaryxbhM9L4xskIEayk0--

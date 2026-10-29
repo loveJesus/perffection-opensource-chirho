@@ -1,0 +1,73 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+<!doctype html>
+<html lang="{{ model_chirho.copy_chirho.lang_chirho }}" dir="{{ model_chirho.copy_chirho.dir_chirho }}">
+{% include "partials_chirho/head_first_light_chirho.html" %}
+<body class="first-light-chirho login-page-chirho">
+  <div class="sky-stars-chirho page-stars-chirho" aria-hidden="true"><div class="stars-far-chirho"></div><div class="stars-near-chirho"></div></div>
+  <a class="login-skip-chirho" href="#auth-content-chirho">{{ model_chirho.copy_chirho.skip_chirho }}</a>
+  {% include "partials_chirho/site_nav_chirho.html" %}
+  <main class="login-layout-chirho" id="auth-content-chirho" tabindex="-1">
+    <section class="login-intro-chirho" aria-labelledby="auth-heading-chirho"{% if model_chirho.notice_chirho.is_some() %} role="alert"{% endif %}>
+      <h1 id="auth-heading-chirho">{{ model_chirho.introduction_chirho.heading_chirho }}</h1>
+      <p>{{ model_chirho.introduction_chirho.body_chirho }}</p>
+      <a class="login-help-link-chirho" href="/app-chirho/perffection/help-chirho">{{ model_chirho.common_copy_chirho.help_label_chirho }}</a>
+    </section>
+    <section class="login-card-chirho" aria-labelledby="auth-heading-chirho">
+      {% for notice_chirho in model_chirho.fragment_notices_chirho %}
+      <section id="{{ notice_chirho.fragment_chirho }}" class="login-notice-chirho" role="alert" aria-labelledby="{{ notice_chirho.fragment_chirho }}-heading-chirho" tabindex="-1">
+        <h2 id="{{ notice_chirho.fragment_chirho }}-heading-chirho">{{ notice_chirho.heading_chirho }}</h2>
+        <p>{{ notice_chirho.body_chirho }}</p>
+        <a href="{{ model_chirho.login_action_chirho }}">{{ model_chirho.common_copy_chirho.dismiss_notice_chirho }}</a>
+      </section>
+      {% endfor %}
+      {% if model_chirho.challenge_chirho.is_some() || model_chirho.signin_chirho %}
+      <form method="post" action="{% if model_chirho.signin_chirho %}{{ model_chirho.login_action_chirho }}{% else %}{{ model_chirho.register_action_chirho }}{% endif %}">
+        {% if model_chirho.signin_chirho %}
+        <input type="hidden" name="redirect_chirho" value="{{ model_chirho.workspace_redirect_chirho }}">
+        {% else %}
+        <input type="hidden" name="kind_chirho" value="user">
+        {% endif %}
+        <label class="login-field-chirho" for="auth-username-chirho">
+          <span>{{ model_chirho.copy_chirho.username_label_chirho }}</span>
+          <input id="auth-username-chirho" type="text" dir="ltr" name="username_chirho" autocomplete="username" autocapitalize="none" spellcheck="false" aria-describedby="auth-username-help-chirho" required>
+          <small id="auth-username-help-chirho">{{ model_chirho.copy_chirho.username_help_chirho }}</small>
+        </label>
+        <label class="login-field-chirho" for="auth-password-chirho">
+          <span>{{ model_chirho.common_copy_chirho.credential_label_chirho }}</span>
+          <input id="auth-password-chirho" type="password" dir="ltr" name="credential_chirho" autocomplete="{% if model_chirho.signin_chirho %}current-password{% else %}new-password{% endif %}" aria-describedby="auth-password-help-chirho" required>
+          <small id="auth-password-help-chirho">{% if model_chirho.signin_chirho %}{{ model_chirho.common_copy_chirho.credential_help_chirho }}{% else %}{{ model_chirho.copy_chirho.new_password_help_chirho }}{% endif %}</small>
+        </label>
+        {% if let Some(challenge_chirho) = model_chirho.challenge_chirho.as_ref() %}
+        <input type="hidden" name="human_check_token_chirho" value="{{ challenge_chirho.token_chirho }}">
+        <label class="login-field-chirho" for="auth-answer-chirho">
+          <span>{{ model_chirho.copy_chirho.challenge_label_chirho }}: {{ challenge_chirho.question_chirho }}</span>
+          <input id="auth-answer-chirho" type="text" dir="ltr" inputmode="numeric" name="human_check_chirho" autocomplete="off" aria-describedby="auth-challenge-help-chirho" required>
+          <small id="auth-challenge-help-chirho">{{ model_chirho.copy_chirho.challenge_help_chirho }}</small>
+        </label>
+        {% endif %}
+        <button class="login-submit-chirho" type="submit">{% if model_chirho.signin_chirho %}{{ model_chirho.copy_chirho.signin_submit_chirho }}{% else %}{{ model_chirho.copy_chirho.signup_submit_chirho }}{% endif %}</button>
+      </form>
+      {% if model_chirho.signin_chirho %}
+      <p class="login-help-chirho">{{ model_chirho.copy_chirho.availability_prompt_chirho }} <a href="{{ model_chirho.register_action_chirho }}">{{ model_chirho.copy_chirho.availability_link_chirho }}</a></p>
+      {% endif %}
+      {% else %}
+      <div class="login-help-chirho">
+        {% if let Some(next_route_chirho) = model_chirho.next_route_chirho.as_ref() %}
+        <a href="{{ next_route_chirho }}">{{ model_chirho.copy_chirho.continue_chirho }}</a>
+        {% else %}
+        <a href="{{ model_chirho.login_action_chirho }}">{{ model_chirho.copy_chirho.signin_submit_chirho }}</a>
+        {% endif %}
+        {% if model_chirho.start_again_chirho %}
+        <a href="{{ model_chirho.register_action_chirho }}">{{ model_chirho.copy_chirho.start_again_chirho }}</a>
+        {% endif %}
+      </div>
+      {% endif %}
+      <aside class="login-help-chirho" aria-labelledby="auth-help-heading-chirho">
+        <h2 id="auth-help-heading-chirho">{{ model_chirho.copy_chirho.help_heading_chirho }}</h2>
+        <p>{{ model_chirho.copy_chirho.help_body_chirho }}</p>
+      </aside>
+    </section>
+  </main>
+  {% include "partials_chirho/site_footer_chirho.html" %}
+</body>
+</html>

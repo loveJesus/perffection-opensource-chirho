@@ -1,0 +1,8 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Append one retained private page version as a new optimistic current version for this authenticated viewer."
+behaviors_chirho = [
+  "derives app and viewer authority from the authenticated host context",
+  "appends only when the exact current version matches and the earlier target remains retained",
+  "returns the exact new current state without granting publication authority",
+]

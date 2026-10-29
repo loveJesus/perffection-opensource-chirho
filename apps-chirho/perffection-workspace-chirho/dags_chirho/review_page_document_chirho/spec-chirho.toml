@@ -1,0 +1,5 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+schema_chirho = "dag-spec-v0-chirho"
+intent_chirho = "Review imported page content in the private editor without changing saved state."
+surface_chirho = { ins_chirho = ["request: http_request_v1"], outs_chirho = ["page: html_partial_v1"] }
+behaviors_chirho = ["anonymous requests are refused", "only bounded typed page content is reviewed", "review has no write effect", "explicit save reuses the existing optimistic viewer-state door"]

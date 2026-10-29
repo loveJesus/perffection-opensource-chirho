@@ -1,0 +1,22 @@
+{
+  "meters_chirho": [
+    {
+      "resource_chirho": "publications-chirho",
+      "unit_chirho": "intent-chirho",
+      "per_user_limit_chirho": 48,
+      "window_ms_chirho": 86400000,
+      "overage_chirho": "FailClosedChirho"
+    }
+  ],
+  "actions_chirho": [
+    {
+      "section_chirho": "publication-intent-chirho",
+      "action_chirho": "intend-chirho",
+      "effect_chirho": "publication_intent_chirho",
+      "allow_anonymous_chirho": false,
+      "charges_chirho": [
+        { "resource_chirho": "publications-chirho", "amount_chirho": 1 }
+      ]
+    }
+  ]
+}

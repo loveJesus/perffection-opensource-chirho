@@ -1,0 +1,190 @@
+{
+  "page_title_chirho": "What's in it · Perffection",
+  "page_description_chirho": "The Perffection business-platform direction, and the website you can begin with today: business intelligence, connected work and AI assistance, with availability stated plainly.",
+  "hero_chirho": {
+    "skip_label_chirho": "Skip to the page",
+    "mark_chirho": "What's in it",
+    "headline_lines_chirho": [
+      "Your work, together.",
+      "One useful step at a time."
+    ],
+    "lead_chirho": "The purpose is bigger than a website: software that helps you run your business, understand it and look after people. We are starting with a beautiful page. Here is what you can use by invitation now, and what we’re working toward.",
+    "image_chirho": "shop-inside-chirho.jpg",
+    "image_small_chirho": "shop-inside-small-chirho.jpg",
+    "primary_label_chirho": "See the first step",
+    "primary_href_chirho": "/app-chirho/perffection/#examples-chirho",
+    "secondary_label_chirho": "Meet the foundation",
+    "secondary_href_chirho": "/app-chirho/perffection/trust-chirho"
+  },
+  "inventory_chirho": {
+    "mark_chirho": "What you can build on",
+    "heading_chirho": "Today’s beginning. The wider purpose.",
+    "note_chirho": "Included means part of the website release, available by invitation. Planned means the wider business platform: not an available tool, a promised date or a purchase offer.",
+    "groups_chirho": [
+      {
+        "heading_chirho": "Your page",
+        "intro_chirho": "What your visitors see.",
+        "items_chirho": [
+          {
+            "name_chirho": "Your name and what you do",
+            "note_chirho": "A clear headline and a few words about you, set beautifully.",
+            "status_chirho": "Included"
+          },
+          {
+            "name_chirho": "Your services",
+            "note_chirho": "Each with a short description, laid out so people find what they came for.",
+            "status_chirho": "Included"
+          },
+          {
+            "name_chirho": "Tap to call, tap to email",
+            "note_chirho": "Your number becomes a call button, and your email address opens a new message.",
+            "status_chirho": "Included"
+          },
+          {
+            "name_chirho": "Your hours and details",
+            "note_chirho": "Opening hours, an address, or anything else people should know, right beside how to reach you.",
+            "status_chirho": "Included"
+          },
+          {
+            "name_chirho": "Right on every screen",
+            "note_chirho": "Laid out for phones, tablets and computers without you lifting a finger.",
+            "status_chirho": "Included"
+          },
+          {
+            "name_chirho": "Ready for search engines",
+            "note_chirho": "Your name and your summary are what search engines read about you.",
+            "status_chirho": "Included"
+          }
+        ]
+      },
+      {
+        "heading_chirho": "Your editor",
+        "intro_chirho": "How you make it, and change it.",
+        "items_chirho": [
+          {
+            "name_chirho": "Five questions, with examples",
+            "note_chirho": "Your name, your headline, a few words, your services and how to reach you: one at a time, or all at once.",
+            "status_chirho": "Included"
+          },
+          {
+            "name_chirho": "A preview before anyone sees it",
+            "note_chirho": "See exactly what your visitors will see before it goes live.",
+            "status_chirho": "Included"
+          },
+          {
+            "name_chirho": "Publish when you are ready",
+            "note_chirho": "One press and it is live at its own address on perffection.com.",
+            "status_chirho": "Included"
+          },
+          {
+            "name_chirho": "Earlier versions kept",
+            "note_chirho": "Changed your mind? Put an earlier version back.",
+            "status_chirho": "Included"
+          },
+          {
+            "name_chirho": "Your words, yours to keep",
+            "note_chirho": "Download a copy of your page's words and details whenever you like.",
+            "status_chirho": "Included"
+          }
+        ]
+      },
+      {
+        "heading_chirho": "Taken care of",
+        "intro_chirho": "The website details we look after.",
+        "items_chirho": [
+          {
+            "name_chirho": "Hosting and the padlock",
+            "note_chirho": "Your page is served securely over HTTPS from the first day.",
+            "status_chirho": "Included"
+          },
+          {
+            "name_chirho": "Updates and upkeep",
+            "note_chirho": "No plugins to install, nothing to renew, nothing to patch.",
+            "status_chirho": "Included"
+          },
+          {
+            "name_chirho": "Nothing slipped in",
+            "note_chirho": "Published pages tell browsers to refuse scripts, reducing the code a visitor’s browser can run.",
+            "status_chirho": "Included"
+          },
+          {
+            "name_chirho": "No tracking of your visitors",
+            "note_chirho": "No analytics widgets, no advertising code, nothing watching the people who visit you.",
+            "status_chirho": "Included"
+          },
+          {
+            "name_chirho": "Light and quick",
+            "note_chirho": "No scripts to load, so your page opens quickly, even on a phone in a queue.",
+            "status_chirho": "Included"
+          },
+          {
+            "name_chirho": "Said once, shown everywhere",
+            "note_chirho": "Your business name fills the top of the page, the footer and the browser tab from one answer.",
+            "status_chirho": "Included"
+          },
+          {
+            "name_chirho": "Your own AI assistant",
+            "note_chirho": "The page API has been tested locally. Customer access needs an assistant key with enforced limits before we can offer it.",
+            "status_chirho": "Being prepared",
+            "coming_next_chirho": true
+          }
+        ]
+      },
+      {
+        "heading_chirho": "The business beyond the page",
+        "intro_chirho": "Where we’re headed, on Cairn’s foundation. These tools are not open to customers yet.",
+        "items_chirho": [
+          {
+            "name_chirho": "Business intelligence",
+            "note_chirho": "Bring your figures together, understand which work pays its way and ask questions that help you make considered decisions.",
+            "status_chirho": "Planned",
+            "coming_next_chirho": true
+          },
+          {
+            "name_chirho": "Customer records and everyday work",
+            "note_chirho": "Keep enquiries, orders, notes and follow-ups connected, with access appropriate to the people doing the work.",
+            "status_chirho": "Planned",
+            "coming_next_chirho": true
+          },
+          {
+            "name_chirho": "AI-built business tools",
+            "note_chirho": "Describe a useful tool or workflow for your business, review the result and choose what it may do. Platform AI and your own agent are both part of the direction.",
+            "status_chirho": "Planned",
+            "coming_next_chirho": true
+          },
+          {
+            "name_chirho": "Connections to your existing tools",
+            "note_chirho": "Connect the information you already keep, rather than make a fresh copy for each job. Accounts, email and payments belong in the wider plan; no payment service is open here today.",
+            "status_chirho": "Planned",
+            "coming_next_chirho": true
+          },
+          {
+            "name_chirho": "Room for the communities you serve",
+            "note_chirho": "A future white-label offering for people who want to serve their own customers and communities on this foundation.",
+            "status_chirho": "Planned",
+            "coming_next_chirho": true
+          }
+        ]
+      }
+    ]
+  },
+  "fold_chirho": {
+    "summary_chirho": "For the person helping with your software",
+    "intro_chirho": "The plain-words lines above, as things a developer can check in a few minutes:",
+    "points_chirho": [
+      "Pages are server-rendered HTML and CSS. Every response carries a Content-Security-Policy with script-src 'none', and no page contains a script element.",
+      "Every request a page makes goes to its own address: no fonts, pictures or scripts from anyone else.",
+      "An owner's page is a structured document, and the workspace downloads it as JSON.",
+      "Publishing is a signed, recorded release, and earlier published content can be put back. That does not undo an external disclosure or restore every earlier design.",
+      "The wider customer-records, business-intelligence and automation surfaces above are planned, not shipped APIs. They belong on Cairn’s reviewed execution path, not a separate product backend."
+    ]
+  },
+  "close_chirho": {
+    "mark_chirho": "Begin with the website",
+    "heading_chirho": "A useful beginning, made with care.",
+    "body_chirho": "The website is open by invitation. If you have one, sign in and begin with your name. The wider platform will grow from the same purpose: helping you do good work and look after the people who depend on it.",
+    "signin_label_chirho": "Sign in",
+    "secondary_label_chirho": "Meet the foundation",
+    "secondary_href_chirho": "/app-chirho/perffection/trust-chirho"
+  }
+}

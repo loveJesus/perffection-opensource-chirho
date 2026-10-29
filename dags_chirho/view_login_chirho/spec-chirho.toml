@@ -1,0 +1,11 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "dag-spec-v0-chirho"
+intent_chirho = "Render the public issued-account sign-in page; credentials are submitted directly to canonical Cairn auth."
+surface_chirho = { ins_chirho = ["request: http_request_v1"], outs_chirho = ["page: html_partial_v1"] }
+structure_chirho = [
+  "Pure template render only; no identity, storage or publication effect.",
+]
+behaviors_chirho = [
+  "A bodyless GET displays the sign-in form with a fixed authenticated-workspace redirect.",
+  "Request content cannot alter the form action or be reflected into HTML.",
+]

@@ -1,0 +1,88 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+{%- import "partials_chirho/field_state_chirho.html" as field_state_chirho -%}
+<!doctype html>
+<html lang="{{ model_chirho.copy_chirho.lang_chirho }}" dir="{{ model_chirho.copy_chirho.dir_chirho }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ model_chirho.chrome_chirho.page_description_chirho }}">
+  <title>{{ model_chirho.chrome_chirho.page_title_chirho }}</title>
+  <link rel="stylesheet" href="/app-assets-chirho/perffection-workspace/by-name-chirho/{{ model_chirho.chrome_chirho.stylesheet_name_chirho }}">
+</head>
+<body class="workspace-page-chirho">
+  {% include "partials_chirho/site_nav_chirho.html" %}
+
+  <main class="workspace-shell-chirho">
+    {% include "partials_chirho/carrier_refusals_chirho.html" %}
+    <section class="workspace-intro-chirho" aria-labelledby="import-heading-chirho">
+      <div>
+        <p class="workspace-eyebrow-chirho{% if model_chirho.notice_chirho.is_some() %} workspace-eyebrow-alert-chirho{% endif %}">{{ model_chirho.status_chirho }}</p>
+        <h1 id="import-heading-chirho">{{ model_chirho.copy_chirho.import_chirho.heading_chirho }}</h1>
+        <p class="workspace-lede-chirho">{{ model_chirho.copy_chirho.import_chirho.lede_chirho }}</p>
+      </div>
+      {% if model_chirho.review_action_chirho.is_some() %}
+        <p class="workspace-version-chirho">{{ model_chirho.copy_chirho.import_chirho.current_version_label_chirho }} <strong>{{ model_chirho.expected_version_chirho }}</strong></p>
+      {% endif %}
+    </section>
+
+    {% if let Some(notice_chirho) = model_chirho.notice_chirho.as_ref() %}
+      <section class="workspace-errors-chirho" role="alert" aria-labelledby="import-errors-heading-chirho">
+        <h2 id="import-errors-heading-chirho">{{ model_chirho.copy_chirho.import_chirho.rejection_heading_chirho }}</h2>
+        {% if model_chirho.review_action_chirho.is_some() %}
+          <ul>
+            <li><a href="#page-document-import-chirho">{{ model_chirho.copy_chirho.import_chirho.document_label_chirho }}</a>: {{ notice_chirho }}</li>
+          </ul>
+        {% else %}
+          <p>{{ notice_chirho }}</p>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if let Some(review_action_chirho) = model_chirho.review_action_chirho.as_ref() %}
+      <form class="workspace-form-chirho" method="post" action="{{ review_action_chirho }}">
+        {% include "partials_chirho/form_caller_key_chirho.html" %}
+        <input type="hidden" name="expected_version_chirho" value="{{ model_chirho.expected_version_chirho }}">
+
+        <section class="workspace-panel-chirho" aria-labelledby="import-document-heading-chirho">
+          <div class="workspace-panel-heading-chirho">
+            <p>{{ model_chirho.copy_chirho.import_chirho.panel_number_chirho }}</p>
+            <div>
+              <h2 id="import-document-heading-chirho">{{ model_chirho.copy_chirho.import_chirho.panel_heading_chirho }}</h2>
+              <p>{{ model_chirho.copy_chirho.import_chirho.panel_intro_chirho }}</p>
+            </div>
+          </div>
+
+          <div class="workspace-field-chirho">
+            <label for="page-document-import-chirho">{{ model_chirho.copy_chirho.import_chirho.document_label_chirho }}</label>
+            <textarea id="page-document-import-chirho" class="workspace-export-json-chirho" name="page_document_chirho" rows="18" maxlength="{{ model_chirho.max_document_characters_chirho }}" spellcheck="false" required{% call field_state_chirho::attrs_chirho((model_chirho.document_field_chirho)) %}{% endcall %}>{{ model_chirho.document_json_chirho }}</textarea>
+            <small id="page-document-import-help-chirho">{{ model_chirho.copy_chirho.import_chirho.document_help_chirho }}</small>
+            {% call field_state_chirho::messages_chirho((model_chirho.document_field_chirho)) %}{% endcall %}
+          </div>
+        </section>
+
+        <footer class="workspace-save-chirho">
+          <p>{{ model_chirho.copy_chirho.import_chirho.review_boundary_chirho }}</p>
+          <button type="submit">{{ model_chirho.copy_chirho.import_chirho.review_label_chirho }}</button>
+        </footer>
+      </form>
+    {% else %}
+      <section class="workspace-unavailable-chirho" role="status">
+        <h2>{{ model_chirho.failure_heading_chirho }}</h2>
+        <p>{{ model_chirho.failure_body_chirho }}</p>
+        {% if let Some(reopen_href_chirho) = model_chirho.reopen_href_chirho.as_ref() %}
+          <p><a href="{{ reopen_href_chirho }}">{{ model_chirho.copy_chirho.import_chirho.reopen_label_chirho }}</a></p>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    <p class="workspace-export-actions-chirho"><a href="{{ model_chirho.back_href_chirho }}">{{ model_chirho.copy_chirho.import_chirho.back_label_chirho }}</a></p>
+
+    <aside id="workspace-help-chirho" class="workspace-help-chirho" aria-labelledby="workspace-help-heading-chirho">
+      <h2 id="workspace-help-heading-chirho">{{ model_chirho.copy_chirho.import_chirho.help_heading_chirho }}</h2>
+      <p>{{ model_chirho.copy_chirho.import_chirho.help_body_chirho }}</p>
+    </aside>
+  </main>
+
+  {% include "partials_chirho/site_footer_chirho.html" %}
+</body>
+</html>

@@ -1,0 +1,5 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+schema_chirho = "dag-spec-v0-chirho"
+intent_chirho = "Read the authenticated viewer current version for a data-only recovery form."
+surface_chirho = { ins_chirho = ["request: http_request_v1"], outs_chirho = ["page: html_partial_v1"] }
+behaviors_chirho = ["anonymous requests are refused", "unverifiable state is not treated as empty", "no write or publication occurs"]

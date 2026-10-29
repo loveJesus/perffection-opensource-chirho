@@ -1,0 +1,28 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+{# A return page after Stripe's hosted Checkout (credit-purchase-chirho.md). It proves nothing and shows no balance; it
+   points to the Credits page, which shows whatever the ledger has posted. -#}
+<!doctype html>
+<html lang="{{ model_chirho.copy_chirho.lang_chirho }}" dir="{{ model_chirho.copy_chirho.dir_chirho }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ model_chirho.chrome_chirho.page_description_chirho }}">
+  <title>{{ model_chirho.chrome_chirho.page_title_chirho }}</title>
+  <link rel="stylesheet" href="/app-assets-chirho/perffection-workspace/by-name-chirho/{{ model_chirho.chrome_chirho.stylesheet_name_chirho }}">
+</head>
+<body class="workspace-page-chirho">
+  {% include "partials_chirho/site_nav_chirho.html" %}
+
+  <main class="workspace-shell-chirho">
+    <section class="workspace-intro-chirho" aria-labelledby="credits-return-heading-chirho">
+      <div>
+        <p class="workspace-eyebrow-chirho">{{ model_chirho.copy_chirho.eyebrow_chirho }}</p>
+        <h1 id="credits-return-heading-chirho">{{ model_chirho.heading_chirho }}</h1>
+        <p class="workspace-lede-chirho">{{ model_chirho.body_chirho }}</p>
+      </div>
+    </section>
+
+    <p class="workspace-publication-note-chirho"><a href="{{ model_chirho.credits_href_chirho }}">{{ model_chirho.copy_chirho.return_link_chirho }}</a></p>
+  </main>
+</body>
+</html>

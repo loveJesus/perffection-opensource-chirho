@@ -1,0 +1,90 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+{# The Credits page (credit-purchase-chirho.md). It shows only what the credit view port reported: an unavailable read
+   renders a plain notice and no number. While purchases are held there is no purchase control, only the packs. -#}
+<!doctype html>
+<html lang="{{ model_chirho.copy_chirho.lang_chirho }}" dir="{{ model_chirho.copy_chirho.dir_chirho }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ model_chirho.chrome_chirho.page_description_chirho }}">
+  <title>{{ model_chirho.chrome_chirho.page_title_chirho }}</title>
+  <link rel="stylesheet" href="/app-assets-chirho/perffection-workspace/by-name-chirho/{{ model_chirho.chrome_chirho.stylesheet_name_chirho }}">
+</head>
+<body class="workspace-page-chirho">
+  {% include "partials_chirho/site_nav_chirho.html" %}
+
+  <main class="workspace-shell-chirho">
+    <section class="workspace-intro-chirho" aria-labelledby="credits-heading-chirho">
+      <div>
+        <p class="workspace-eyebrow-chirho">{{ model_chirho.copy_chirho.eyebrow_chirho }}</p>
+        <h1 id="credits-heading-chirho">{{ model_chirho.copy_chirho.heading_chirho }}</h1>
+        <p class="workspace-lede-chirho">{{ model_chirho.copy_chirho.lede_chirho }}</p>
+      </div>
+    </section>
+
+    <section class="workspace-panel-chirho" aria-labelledby="credits-balance-heading-chirho">
+      <div class="workspace-panel-heading-chirho">
+        <p>{{ model_chirho.copy_chirho.balance_number_chirho }}</p>
+        <div>
+          <h2 id="credits-balance-heading-chirho">{{ model_chirho.copy_chirho.balance_heading_chirho }}</h2>
+        </div>
+      </div>
+      {% if let Some(balance_chirho) = model_chirho.balance_chirho.as_ref() %}
+        <div class="workspace-history-item-chirho"><div><h3>{{ balance_chirho }}</h3></div></div>
+      {% else %}
+        <p class="workspace-history-empty-chirho"><strong>{{ model_chirho.copy_chirho.unavailable_heading_chirho }}</strong> {{ model_chirho.copy_chirho.unavailable_body_chirho }}</p>
+      {% endif %}
+    </section>
+
+    <section class="workspace-panel-chirho" aria-labelledby="credits-packs-heading-chirho">
+      <div class="workspace-panel-heading-chirho">
+        <p>{{ model_chirho.copy_chirho.packs_number_chirho }}</p>
+        <div>
+          <h2 id="credits-packs-heading-chirho">{{ model_chirho.copy_chirho.packs_heading_chirho }}</h2>
+          <p>{{ model_chirho.copy_chirho.packs_intro_chirho }}</p>
+        </div>
+      </div>
+      <ul class="workspace-history-list-chirho">
+        {% for pack_chirho in model_chirho.packs_chirho %}
+          <li class="workspace-history-item-chirho"><div><h3>{{ pack_chirho }}</h3></div></li>
+        {% endfor %}
+      </ul>
+      <p class="workspace-publication-note-chirho">{{ model_chirho.copy_chirho.purchases_held_chirho }}</p>
+    </section>
+
+    <section class="workspace-history-chirho" aria-labelledby="credits-history-heading-chirho">
+      <header class="workspace-history-heading-chirho">
+        <div>
+          <p>{{ model_chirho.copy_chirho.history_number_chirho }}</p>
+          <h2 id="credits-history-heading-chirho">{{ model_chirho.copy_chirho.history_heading_chirho }}</h2>
+        </div>
+      </header>
+
+      {% if let Some(history_chirho) = model_chirho.history_chirho.as_ref() %}
+        {% if history_chirho.is_empty() %}
+          <p class="workspace-history-empty-chirho">{{ model_chirho.copy_chirho.history_empty_chirho }}</p>
+        {% else %}
+          <ol class="workspace-history-list-chirho">
+            {% for entry_chirho in history_chirho %}
+              <li class="workspace-history-item-chirho">
+                <div>
+                  <p><time datetime="{{ entry_chirho.date_chirho }}">{{ entry_chirho.date_chirho }}</time></p>
+                  <h3>{{ entry_chirho.kind_chirho }}</h3>
+                  <span>{{ entry_chirho.amount_chirho }}</span>
+                </div>
+              </li>
+            {% endfor %}
+          </ol>
+          {% if let Some(more_chirho) = model_chirho.history_more_chirho.as_ref() %}
+            <p class="workspace-history-empty-chirho">{{ more_chirho }}</p>
+          {% endif %}
+        {% endif %}
+      {% else %}
+        <p class="workspace-history-empty-chirho">{{ model_chirho.copy_chirho.history_unavailable_chirho }}</p>
+      {% endif %}
+    </section>
+
+    <p class="workspace-publication-note-chirho"><a href="{{ model_chirho.home_href_chirho }}">{{ model_chirho.copy_chirho.back_label_chirho }}</a></p>
+  </main>
+</body>
+</html>

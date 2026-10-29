@@ -1,0 +1,7 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Render why an approval form could not be sent; live exactly when the intent branch is skipped."
+behaviors_chirho = [
+  "classifies the same bytes as the intent builder with the one shared parser",
+  "returns the Skipped stone for a valid form",
+]

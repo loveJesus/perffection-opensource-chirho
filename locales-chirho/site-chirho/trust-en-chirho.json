@@ -1,0 +1,120 @@
+{
+  "page_title_chirho": "Trust · Perffection",
+  "page_description_chirho": "Why Perffection is built on Cairn: controlled actions, signed records and care for private work. What those foundations mean today, and the limits we will not hide.",
+  "hero_chirho": {
+    "skip_label_chirho": "Skip to the page",
+    "mark_chirho": "Trust",
+    "headline_lines_chirho": [
+      "Trust is a responsibility.",
+      "Not a decoration."
+    ],
+    "lead_chirho": "Useful software may be entrusted with real work and real people’s information. That deserves more than reassuring words. Cairn is the engine underneath Perffection, built around controlled actions and records you can inspect. Here is what that means for our first website release.",
+    "image_chirho": "door-night-chirho.jpg",
+    "image_small_chirho": "door-night-small-chirho.jpg",
+    "primary_label_chirho": "See what's in it",
+    "primary_href_chirho": "/app-chirho/perffection/craft-chirho",
+    "secondary_label_chirho": "Fair questions",
+    "secondary_href_chirho": "/app-chirho/perffection/#questions-chirho"
+  },
+  "protects_chirho": {
+    "mark_chirho": "The foundation",
+    "heading_chirho": "Care where it matters.",
+    "note_chirho": "Cairn supplies the execution, identity and storage boundaries. Perffection is how we bring them to your business, beginning with the website.",
+    "points_chirho": [
+      {
+        "title_chirho": "App code has boundaries",
+        "body_chirho": "Cairn runs application code without ambient file or network access. Declared effects pass through reviewed doors; code does not gain authority just because an AI wrote it."
+      },
+      {
+        "title_chirho": "Publishing leaves a record",
+        "body_chirho": "The released version has a signed publication record. Changes are something to inspect, not something you must simply take our word for."
+      },
+      {
+        "title_chirho": "A small browser surface",
+        "body_chirho": "Today’s published pages travel over HTTPS, tell browsers to refuse scripts and need no plugins for you to patch."
+      },
+      {
+        "title_chirho": "Private until you publish",
+        "body_chirho": "Your drafts are yours alone, behind your sign-in."
+      },
+      {
+        "title_chirho": "You approve every change",
+        "body_chirho": "Nothing reaches your visitors until you press Publish."
+      },
+      {
+        "title_chirho": "Earlier versions kept",
+        "body_chirho": "If something goes wrong, put an earlier version back."
+      }
+    ]
+  },
+  "visitors_chirho": {
+    "mark_chirho": "Your visitors",
+    "heading_chirho": "Nothing following them around.",
+    "note_chirho": "The people who visit your website deserve consideration too. These are the rules of the published pages available today, not a claim about every future business tool.",
+    "points_chirho": [
+      {
+        "title_chirho": "No tracking",
+        "body_chirho": "No advertising code, analytics widgets or third-party scripts are placed on your published page."
+      },
+      {
+        "title_chirho": "No borrowed parts",
+        "body_chirho": "Everything your page needs comes from its own address, so no other company learns who visited."
+      },
+      {
+        "title_chirho": "Nothing to fill in",
+        "body_chirho": "The published page available today has contact links, not a visitor-data form. Future customer-record tools will need their own privacy boundaries."
+      },
+      {
+        "title_chirho": "Business intelligence without a surveillance pitch",
+        "body_chirho": "Understanding your own business should not mean treating people as something to harvest. That is the principle we want to carry into the planned business tools."
+      }
+    ]
+  },
+  "limits_chirho": {
+    "mark_chirho": "Honest limits",
+    "heading_chirho": "What we will not pretend.",
+    "note_chirho": "A page about trust should say where its promises stop.",
+    "points_chirho": [
+      {
+        "title_chirho": "Good foundations are not infallibility",
+        "body_chirho": "Nothing online is unbreakable. Looking after the service, learning from faults and putting them right remain our work."
+      },
+      {
+        "title_chirho": "Going back has edges",
+        "body_chirho": "Restoring earlier published words is not the same as undoing a payment, recalling an email or erasing something somebody has seen. We will not use one to promise the other."
+      },
+      {
+        "title_chirho": "Opening step by step",
+        "body_chirho": "The website opens by invitation. Customer records, business intelligence, broader AI tools, payments and your own domain are not open here yet."
+      },
+      {
+        "title_chirho": "Geo hosting is still ahead",
+        "body_chirho": "Today Perffection runs on one host. Cairn’s general business-app replication and failover are still being built; a multi-region plan is not a claim of live resilience."
+      },
+      {
+        "title_chirho": "If a line here stops being true",
+        "body_chirho": "That is our fault, and we will correct the work and this page in the open."
+      }
+    ]
+  },
+  "fold_chirho": {
+    "summary_chirho": "For the person helping with your software",
+    "intro_chirho": "Everything above can be checked without asking us:",
+    "points_chirho": [
+      "These public display routes carry a Content-Security-Policy with script-src 'none'. Their rendered HTML contains no script element.",
+      "Open the network panel: every request a page makes goes to its own address.",
+      "Send a request body to any public page: it answers 405 and stores nothing.",
+      "A release cannot give a page a power or a running cost the owner did not approve; one that asks for either is refused before it goes live.",
+      "Saved drafts are sealed in storage and read through the verified viewer boundary. Publishing is a signed, recorded release.",
+      "Broader business-app deployment, money and integrations need their own evidence. The first website release does not certify those future workflows."
+    ]
+  },
+  "close_chirho": {
+    "mark_chirho": "A place to begin",
+    "heading_chirho": "Good work deserves care.",
+    "body_chirho": "We’re beginning with the website and taking the wider platform forward. If you have an invitation, welcome. We hope the work will be useful to you, and we intend to speak plainly about what it can and cannot do.",
+    "signin_label_chirho": "Sign in",
+    "secondary_label_chirho": "See what's in it",
+    "secondary_href_chirho": "/app-chirho/perffection/craft-chirho"
+  }
+}

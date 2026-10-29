@@ -1,0 +1,36 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV)
+# Product-local two-root fixture. No hosted address, system path, credential, TLS or access log.
+# The browser harness supplies loopback admin/storage configuration and substitutes these ports.
+
+http://127.0.0.1:8787 {
+	bind 127.0.0.1
+	encode zstd gzip
+	header ?Cache-Control "private, no-store"
+
+	@bare_chirho path /
+	@login_get_chirho {
+		method GET HEAD
+		path /auth-chirho/login-chirho
+	}
+	@tenant_chirho path /auth-chirho/* /app-chirho/perffection-workspace /app-chirho/perffection-workspace/* /app-assets-chirho/perffection-workspace /app-assets-chirho/perffection-workspace/* /healthz-chirho /healthz
+	@public_chirho path /app-chirho/* /app-assets-chirho/*
+
+	route {
+		redir @bare_chirho /app-chirho/perffection/login-chirho 302
+		redir @login_get_chirho /app-chirho/perffection/login-chirho{?query} 302
+		handle @tenant_chirho {
+			reverse_proxy 127.0.0.1:8788
+		}
+		handle @public_chirho {
+			reverse_proxy 127.0.0.1:8789 {
+				header_up -Cookie
+				header_up -Authorization
+			}
+		}
+		respond 404
+	}
+	handle_errors {
+		header Cache-Control "private, no-store"
+		respond "" {err.status_code}
+	}
+}

@@ -1,0 +1,15 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "dag-spec-v0-chirho"
+intent_chirho = "Turn the authenticated viewer's explicit approval into one signed publication intent, or hand the form back with a reason."
+surface_chirho = { ins_chirho = ["request: http_request_v1"], outs_chirho = ["page: html_partial_v1"] }
+structure_chirho = [
+  "the request feeds two pure builders that parse the same form with one shared parser, so exactly one branch is live",
+  "the intent branch reaches the blessed template-app-deploy door with a version binding, the approval base the Publishing page showed her, and no document; the door re-reads her verified head",
+  "the rejection branch reaches no effect",
+  "a builtin phi merges the one live page and the private typed response remains private at the sink",
+]
+behaviors_chirho = [
+  "anonymous requests are refused before this DAG runs",
+  "a stale version binding or a moved approval base is refused by the door before anything public is written; identical form bytes replay the original receipt",
+  "the answer is queued, never live; the applier and the status road carry the outcome",
+]

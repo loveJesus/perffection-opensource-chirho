@@ -1,0 +1,274 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+//
+// Sign-in and the branded auth view on FIRST LIGHT: the town's night, and the one door that is open,
+// a cream panel with the gold button. Shared by `login_chirho.html` and `auth_chirho.html`.
+// Workflow: spec-chirho/workflows-chirho/invite-beta-chirho/public-signin-chirho.md.
+//
+// Kept from the account layout it replaces, on purpose:
+// - real auth returns and reloads land on a refusal fragment, so the rail stays in normal flow (its
+//   translated height must never cover a refusal or the next field), and notices show by :target;
+// - scroll behaviour is instant and padded, so a fragment lands where it can be read.
+
+html {
+  scroll-behavior: auto;
+  scroll-padding-block-start: 1rem;
+}
+
+.login-page-chirho {
+  position: relative;
+  isolation: isolate;
+  min-block-size: 100svh;
+  background: linear-gradient(180deg, var(--night-deep-chirho) 0%, #070a26 45%, var(--night-chirho) 80%, var(--night-blue-chirho) 100%);
+  color: var(--starlight-chirho);
+}
+
+.page-stars-chirho {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.login-page-chirho .site-nav-chirho {
+  position: relative;
+  flex-wrap: wrap;
+  animation: none;
+  --fl-rail-veil-chirho: 0.9;
+}
+
+.login-page-chirho .site-nav-links-chirho {
+  flex-wrap: wrap;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+.login-page-chirho .site-nav-links-chirho a {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.login-skip-chirho {
+  position: fixed;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 0.75rem;
+  z-index: 120;
+  max-inline-size: calc(100% - 1.5rem);
+  padding: 0.7rem 1.1rem;
+  border-radius: 3px;
+  background: var(--sun-gold-chirho);
+  color: var(--ink-night-chirho);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.login-skip-chirho:focus {
+  transform: none;
+}
+
+.login-layout-chirho {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(2rem, 6vw, 6rem);
+  max-inline-size: var(--page-max-chirho);
+  min-block-size: 78vh;
+  margin-inline: auto;
+  padding: clamp(3.5rem, 9vh, 6rem) var(--gutter-chirho) clamp(4rem, 10vh, 7rem);
+}
+
+.login-layout-chirho :is(p, small, h1, h2, h3, a, button, label) {
+  overflow-wrap: anywhere;
+}
+
+.login-layout-chirho :is(form, aside, [role="alert"]) {
+  scroll-margin-block-start: 1rem;
+}
+
+// ---- the words on the night -------------------------------------------------------------------------
+.login-intro-chirho {
+  display: grid;
+  min-inline-size: 0;
+  gap: 1.4rem;
+  align-content: start;
+}
+
+.login-eyebrow-chirho {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--window-gold-chirho);
+  font-family: var(--face-serif-chirho);
+  font-style: italic;
+  font-size: var(--size-eyebrow-chirho);
+}
+
+.login-eyebrow-chirho::before {
+  content: "";
+  inline-size: 2.6rem;
+  block-size: 1px;
+  background: currentColor;
+  opacity: 0.75;
+}
+
+.login-intro-chirho h1 {
+  font-family: var(--face-serif-chirho);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 4.6vw, 4.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.005em;
+  overflow-wrap: anywhere;
+}
+
+.login-intro-chirho p {
+  max-inline-size: 32rem;
+  color: #d6daf6;
+  font-size: var(--size-lead-chirho);
+  line-height: 1.55;
+}
+
+.login-intro-chirho a {
+  justify-self: start;
+  color: var(--starlight-chirho);
+  text-decoration: underline;
+  text-decoration-color: rgba(246, 197, 107, 0.7);
+  text-underline-offset: 0.22em;
+}
+
+// ---- the open door: a cream panel ---------------------------------------------------------------------
+.login-card-chirho {
+  min-inline-size: 0;
+  padding: clamp(1.4rem, 3vw, 2.6rem);
+  border-block-start: 3px solid var(--window-gold-chirho);
+  background: #fbf3e6;
+  color: var(--ink-night-chirho);
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.7);
+  // The ring that shows where the keyboard is: wine on this cream, gold on the night around it.
+  --focus-ring-chirho: var(--wine-ink-chirho);
+}
+
+.login-card-chirho a {
+  color: var(--ink-night-chirho);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.login-card-chirho a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.login-notice-chirho {
+  display: none;
+  gap: 0.6rem;
+  margin-block-end: 1.6rem;
+  padding: 1rem 1.1rem;
+  border-inline-start: 3px solid var(--wine-ink-chirho);
+  background: #fffaf2;
+}
+
+.login-notice-chirho:target {
+  display: grid;
+}
+
+// A calm notice (the password is set): the same card, marked with first light's gold instead of the refusals' wine.
+.login-notice-ok-chirho {
+  border-inline-start-color: var(--window-gold-chirho);
+}
+
+// It is a status, never a control: the browser focuses it when the page lands on its fragment, and the card's wine
+// keyboard ring would frame good news like a refusal. Screen readers still announce it (role="status").
+.login-notice-ok-chirho:focus-visible {
+  outline: none;
+}
+
+.login-notice-chirho h2 {
+  font-family: var(--face-serif-chirho);
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.login-card-chirho form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+// Label, field and help text share one column edge, so every line of a field reads as one unit.
+.login-field-chirho {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.login-field-chirho > span {
+  font-weight: 600;
+}
+
+.login-field-chirho input {
+  inline-size: 100%;
+  min-inline-size: 0;
+  min-block-size: 3rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid rgba(18, 21, 46, 0.5);
+  border-radius: 3px;
+  background: #fffdf8;
+  color: var(--ink-night-chirho);
+  font: inherit;
+  font-size: max(1rem, 1em);
+}
+
+.login-field-chirho input:hover {
+  border-color: rgba(18, 21, 46, 0.8);
+}
+
+.login-field-chirho small {
+  color: var(--ink-soft-chirho);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.login-submit-chirho {
+  justify-self: start;
+  min-block-size: 3.25rem;
+  padding: 0.85rem 1.6rem;
+  border: 0;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #ffe3a6 0%, var(--window-gold-chirho) 55%, #e9a94a 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 0 0 1px rgba(120, 72, 10, 0.3);
+  color: #1f1405;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-submit-chirho:hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 0 0 1px rgba(120, 72, 10, 0.45), 0 12px 28px -14px rgba(233, 169, 74, 0.9);
+}
+
+.login-help-chirho {
+  display: grid;
+  gap: 0.5rem;
+  margin-block-start: 2.2rem;
+  padding-block-start: 1.4rem;
+  border-block-start: 1px solid var(--line-day-chirho);
+  color: var(--ink-soft-chirho);
+}
+
+.login-help-chirho h2 {
+  color: var(--ink-night-chirho);
+  font-family: var(--face-serif-chirho);
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+
+.login-help-chirho h3 {
+  margin-block-start: 0.7rem;
+  color: var(--ink-night-chirho);
+  font-family: var(--face-serif-chirho);
+  font-weight: 400;
+  font-size: 1.15rem;
+}
+
+@media (max-width: 50rem) {
+  .login-layout-chirho {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

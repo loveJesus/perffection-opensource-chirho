@@ -1,0 +1,171 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+{%- import "partials_chirho/field_state_chirho.html" as field_state_chirho -%}
+{%- import "partials_chirho/new_address_form_chirho.html" as new_address_form_chirho -%}
+<!doctype html>
+<html lang="{{ model_chirho.copy_chirho.lang_chirho }}" dir="{{ model_chirho.copy_chirho.dir_chirho }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ model_chirho.chrome_chirho.page_description_chirho }}">
+  <title>{{ model_chirho.chrome_chirho.page_title_chirho }}</title>
+  <link rel="stylesheet" href="/app-assets-chirho/perffection-workspace/by-name-chirho/{{ model_chirho.chrome_chirho.stylesheet_name_chirho }}">
+</head>
+<body class="workspace-page-chirho">
+  {% include "partials_chirho/site_nav_chirho.html" %}
+
+  <main class="workspace-shell-chirho">
+    {% include "partials_chirho/carrier_refusals_chirho.html" %}
+    <section class="workspace-intro-chirho" aria-labelledby="publication-heading-chirho">
+      <div>
+        <p class="workspace-eyebrow-chirho">{{ model_chirho.status_chirho }}</p>
+        <h1 id="publication-heading-chirho">{{ model_chirho.copy_chirho.publication_chirho.heading_chirho }}</h1>
+        <p class="workspace-lede-chirho">{{ model_chirho.copy_chirho.publication_chirho.lede_chirho }}</p>
+        {% if model_chirho.available_chirho %}
+          <p class="workspace-saved-version-chirho">{{ model_chirho.saved_version_line_chirho }}{% if model_chirho.publishable_version_chirho.is_some() %} <a href="{{ model_chirho.review_href_chirho }}">{{ model_chirho.copy_chirho.publication_chirho.review_link_label_chirho }}</a>{% endif %}</p>
+        {% endif %}
+      </div>
+    </section>
+
+    {% if !model_chirho.available_chirho %}
+      <section class="workspace-unavailable-chirho" role="status">
+        <h2>{{ model_chirho.copy_chirho.publication_chirho.unavailable_heading_chirho }}</h2>
+        <p>{{ model_chirho.status_chirho }}</p>
+        <p><a href="/app-chirho/perffection-workspace/">{{ model_chirho.copy_chirho.publication_chirho.back_label_chirho }}</a></p>
+      </section>
+    {% else %}
+      {# The address she chose was refused: said once here with a link to the field, and again
+         beside the field in the new-address form below (publication_status_chirho.rs). #}
+      {% if model_chirho.publish_action_chirho.is_some() && !model_chirho.address_notices_chirho.is_empty() %}
+        {% call field_state_chirho::summary_chirho("publication-address-refused-heading-chirho", (model_chirho.copy_chirho.publication_chirho.address_refused_heading_chirho), (model_chirho.copy_chirho.publication_chirho.address_refused_body_chirho), (model_chirho.address_notices_chirho)) %}{% endcall %}
+      {% endif %}
+      {% if model_chirho.sites_chirho.is_empty() %}
+        <section class="workspace-panel-chirho" aria-labelledby="publication-empty-heading-chirho">
+          <div class="workspace-panel-heading-chirho">
+            <p>01</p>
+            <div>
+              <h2 id="publication-empty-heading-chirho">{{ model_chirho.copy_chirho.publication_chirho.not_published_heading_chirho }}</h2>
+              <p>{{ model_chirho.copy_chirho.publication_chirho.not_published_body_chirho }}</p>
+              {% if model_chirho.publish_action_chirho.is_none() %}
+                <p>{{ model_chirho.copy_chirho.publication_chirho.operator_publish_body_chirho }}</p>
+              {% endif %}
+            </div>
+          </div>
+          <p class="workspace-publication-note-chirho">{{ model_chirho.copy_chirho.publication_chirho.retention_note_chirho }}</p>
+        </section>
+      {% endif %}
+      {% for site_chirho in model_chirho.sites_chirho %}
+        <section class="workspace-panel-chirho" aria-labelledby="publication-site-{{ loop.index }}-heading-chirho">
+          <div class="workspace-panel-heading-chirho">
+            <p>{{ loop.index }}</p>
+            <div>
+              <h2 id="publication-site-{{ loop.index }}-heading-chirho">{{ site_chirho.slug_chirho }}</h2>
+              {% if site_chirho.held_chirho %}
+                <p>{{ model_chirho.copy_chirho.publication_chirho.address_label_chirho }}:
+                  {% if site_chirho.is_live_chirho %}<a href="{{ site_chirho.address_chirho }}">{{ site_chirho.address_chirho }}</a>{% else %}{{ site_chirho.address_chirho }}{% endif %}
+                </p>
+              {% else %}
+                <p>{{ model_chirho.copy_chirho.publication_chirho.address_tried_note_chirho }}</p>
+              {% endif %}
+            </div>
+          </div>
+
+          {% if let Some(live_version_chirho) = site_chirho.live_version_chirho %}
+            <p class="workspace-version-chirho">{{ model_chirho.copy_chirho.publication_chirho.live_version_label_chirho }} <strong>{{ live_version_chirho }}</strong></p>
+          {% endif %}
+
+          {% if let Some(publish_action_chirho) = model_chirho.publish_action_chirho.as_ref() %}
+            {% if site_chirho.can_republish_chirho %}
+              {% if let Some(version_chirho) = model_chirho.publishable_version_chirho %}
+                <form class="workspace-form-chirho workspace-publish-form-chirho" method="post" action="{{ publish_action_chirho }}" aria-labelledby="publication-republish-{{ loop.index }}-heading-chirho">
+                  {% include "partials_chirho/form_caller_key_chirho.html" %}
+                  <h3 id="publication-republish-{{ loop.index }}-heading-chirho">{{ model_chirho.copy_chirho.publication_chirho.republish_heading_chirho }}</h3>
+                  <input type="hidden" name="kind_chirho" value="republish-chirho">
+                  <input type="hidden" name="slug_chirho" value="{{ site_chirho.slug_chirho }}">
+                  <input type="hidden" name="version_chirho" value="{{ version_chirho }}">
+                  <input type="hidden" name="base_publication_chirho" value="{{ site_chirho.approval_base_chirho }}">
+                  <footer class="workspace-save-chirho">
+                    <p>{{ site_chirho.consent_chirho }}</p>
+                    <button type="submit">{{ model_chirho.republish_button_label_chirho }}</button>
+                  </footer>
+                </form>
+              {% endif %}
+            {% else %}
+              {% if let Some(live_is_saved_line_chirho) = site_chirho.live_is_saved_line_chirho %}
+                <p class="workspace-saved-version-chirho">{{ live_is_saved_line_chirho }}</p>
+              {% endif %}
+            {% endif %}
+          {% endif %}
+
+          {% if !site_chirho.pending_chirho.is_empty() %}
+            <section class="workspace-publication-pending-chirho" role="status" aria-labelledby="publication-pending-{{ loop.index }}-heading-chirho">
+              <h3 id="publication-pending-{{ loop.index }}-heading-chirho">{{ model_chirho.copy_chirho.publication_chirho.pending_heading_chirho }}</h3>
+              <p>{{ model_chirho.copy_chirho.publication_chirho.pending_body_chirho }}</p>
+              <ul>
+                {% for event_chirho in site_chirho.pending_chirho %}
+                  <li>{{ event_chirho.kind_label_chirho }}{% if let Some(version_chirho) = event_chirho.version_chirho %} · {{ model_chirho.copy_chirho.export_chirho.version_label_chirho }} {{ version_chirho }}{% endif %} · {{ event_chirho.outcome_label_chirho }}</li>
+                {% endfor %}
+              </ul>
+              {% if model_chirho.publish_action_chirho.is_some() %}
+                <p>{{ model_chirho.copy_chirho.publication_chirho.pending_wait_chirho }}</p>
+              {% endif %}
+            </section>
+          {% endif %}
+
+          <section class="workspace-history-chirho" aria-labelledby="publication-history-{{ loop.index }}-heading-chirho">
+            <header class="workspace-history-heading-chirho">
+              <div>
+                <h3 id="publication-history-{{ loop.index }}-heading-chirho">{{ model_chirho.copy_chirho.publication_chirho.history_heading_chirho }}</h3>
+              </div>
+              <p>{{ model_chirho.copy_chirho.publication_chirho.history_intro_chirho }}</p>
+            </header>
+            {% if site_chirho.history_chirho.is_empty() %}
+              <p class="workspace-history-empty-chirho">{{ model_chirho.copy_chirho.publication_chirho.history_empty_chirho }}</p>
+            {% else %}
+              <ol class="workspace-history-list-chirho">
+                {% for event_chirho in site_chirho.history_chirho %}
+                  <li class="workspace-history-item-chirho">
+                    <div>
+                      <p>{{ event_chirho.kind_label_chirho }}{% if let Some(version_chirho) = event_chirho.version_chirho %} · {{ model_chirho.copy_chirho.export_chirho.version_label_chirho }} {{ version_chirho }}{% endif %}</p>
+                      {% if let Some(detail_chirho) = event_chirho.detail_chirho %}<span>{{ detail_chirho }}</span>{% endif %}
+                    </div>
+                    <strong class="workspace-history-current-chirho">{{ event_chirho.outcome_label_chirho }}</strong>
+                    {% if let Some(publish_action_chirho) = model_chirho.publish_action_chirho.as_ref() %}
+                      {% if let Some(rollback_params_chirho) = event_chirho.rollback_params_chirho.as_ref() %}
+                        <form method="post" action="{{ publish_action_chirho }}">
+                          {% include "partials_chirho/form_caller_key_chirho.html" %}
+                          <input type="hidden" name="kind_chirho" value="rollback-chirho">
+                          <input type="hidden" name="slug_chirho" value="{{ site_chirho.slug_chirho }}">
+                          <input type="hidden" name="params_hash_chirho" value="{{ rollback_params_chirho }}">
+                          <input type="hidden" name="base_publication_chirho" value="{{ site_chirho.approval_base_chirho }}">
+                          {% if let Some(version_chirho) = event_chirho.version_chirho %}<input type="hidden" name="version_chirho" value="{{ version_chirho }}">{% endif %}
+                          <button type="submit">{% if let Some(rollback_button_chirho) = event_chirho.rollback_button_chirho.as_ref() %}{{ rollback_button_chirho }}{% endif %}</button>
+                        </form>
+                      {% endif %}
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ol>
+            {% endif %}
+          </section>
+          <p class="workspace-publication-note-chirho">{{ model_chirho.copy_chirho.publication_chirho.retention_note_chirho }}</p>
+        </section>
+      {% endfor %}
+
+      {% if let Some(publish_action_chirho) = model_chirho.publish_action_chirho.as_ref() %}
+        {% if model_chirho.new_address_form_chirho %}
+          {% if let Some(version_chirho) = model_chirho.publishable_version_chirho %}
+            {% call new_address_form_chirho::form_chirho((publish_action_chirho), (model_chirho.new_address_number_chirho), (version_chirho), (model_chirho.dark_base_chirho), (model_chirho.refused_address_chirho), (model_chirho.address_field_chirho), (model_chirho.publish_button_label_chirho), (model_chirho.copy_chirho.publication_chirho)) %}{% endcall %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endif %}
+
+    <aside id="workspace-help-chirho" class="workspace-help-chirho" aria-labelledby="workspace-help-heading-chirho">
+      <h2 id="workspace-help-heading-chirho">{{ model_chirho.copy_chirho.publication_chirho.help_heading_chirho }}</h2>
+      <p>{{ model_chirho.copy_chirho.publication_chirho.help_body_chirho }}</p>
+    </aside>
+  </main>
+
+  {% include "partials_chirho/site_footer_chirho.html" %}
+</body>
+</html>

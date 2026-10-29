@@ -1,0 +1,175 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+{%- import "partials_chirho/field_state_chirho.html" as field_state_chirho -%}
+<!doctype html>
+<html lang="{{ model_chirho.copy_chirho.lang_chirho }}" dir="{{ model_chirho.copy_chirho.dir_chirho }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ model_chirho.chrome_chirho.page_description_chirho }}">
+  <title>{{ model_chirho.chrome_chirho.page_title_chirho }}</title>
+  <link rel="stylesheet" href="/app-assets-chirho/perffection-workspace/by-name-chirho/{{ model_chirho.chrome_chirho.stylesheet_name_chirho }}">
+</head>
+<body class="workspace-page-chirho">
+  {% include "partials_chirho/site_nav_chirho.html" %}
+
+  <main class="workspace-shell-chirho">
+    {% include "partials_chirho/carrier_refusals_chirho.html" %}
+    <section class="workspace-intro-chirho" aria-labelledby="draft-heading-chirho">
+      <div>
+        <p class="workspace-eyebrow-chirho{% if !model_chirho.is_brief_chirho() %} workspace-eyebrow-alert-chirho{% endif %}">{{ model_chirho.status_chirho }}</p>
+        <h1 id="draft-heading-chirho">{{ model_chirho.copy_chirho.draft_chirho.heading_chirho }}</h1>
+        <p class="workspace-lede-chirho">{{ model_chirho.copy_chirho.draft_chirho.lede_chirho }}</p>
+        {#- The model carries this line only beside a live brief form (DraftPageV1Chirho::with_credits_chirho). -#}
+        {% if let Some(credits_chirho) = model_chirho.credits_chirho.as_ref() %}
+          {% match credits_chirho %}
+            {% when DraftCreditsChirho::KnownChirho with { label_chirho, balance_chirho } %}
+              <p class="workspace-publication-note-chirho" id="draft-credits-chirho">{{ label_chirho }} <strong>{{ balance_chirho }}</strong></p>
+            {% when DraftCreditsChirho::UnavailableChirho with { sentence_chirho } %}
+              <p class="workspace-publication-note-chirho" id="draft-credits-chirho">{{ sentence_chirho }}</p>
+          {% endmatch %}
+        {% endif %}
+      </div>
+    </section>
+
+    {% match model_chirho.kind_chirho %}
+      {% when DraftPageKindChirho::BriefChirho %}
+        {% if let Some(brief_action_chirho) = model_chirho.brief_action_chirho.as_ref() %}
+          {% if !model_chirho.form_chirho.notices_chirho.is_empty() %}
+            {% call field_state_chirho::summary_chirho("draft-rejected-heading-chirho", (model_chirho.copy_chirho.draft_chirho.rejected_heading_chirho), (model_chirho.copy_chirho.draft_chirho.rejected_body_chirho), (model_chirho.form_chirho.notices_chirho)) %}{% endcall %}
+          {% endif %}
+          <form class="workspace-form-chirho" method="post" action="{{ brief_action_chirho }}">
+            {% include "partials_chirho/form_caller_key_chirho.html" %}
+            <section class="workspace-panel-chirho" aria-labelledby="draft-brief-heading-chirho">
+              <div class="workspace-panel-heading-chirho">
+                <p>{{ model_chirho.copy_chirho.draft_chirho.panel_number_chirho }}</p>
+                <div>
+                  <h2 id="draft-brief-heading-chirho">{{ model_chirho.copy_chirho.draft_chirho.panel_heading_chirho }}</h2>
+                  <p>{{ model_chirho.copy_chirho.draft_chirho.panel_intro_chirho }}</p>
+                </div>
+              </div>
+              <div class="workspace-field-chirho">
+                <label for="draft-business-name-chirho">{{ model_chirho.copy_chirho.draft_chirho.business_name_label_chirho }}</label>
+                <input id="draft-business-name-chirho" name="business_name_chirho" maxlength="{{ model_chirho.business_name_max_chirho }}" value="{{ model_chirho.form_chirho.words_chirho.business_name_chirho }}" autocomplete="organization" required{% call field_state_chirho::attrs_chirho((model_chirho.form_chirho.business_name_chirho)) %}{% endcall %}>
+                <small id="draft-business-name-help-chirho">{{ model_chirho.copy_chirho.draft_chirho.business_name_help_chirho }}</small>
+                {% call field_state_chirho::messages_chirho((model_chirho.form_chirho.business_name_chirho)) %}{% endcall %}
+              </div>
+              <div class="workspace-field-chirho">
+                <label for="draft-about-chirho">{{ model_chirho.copy_chirho.draft_chirho.about_label_chirho }}</label>
+                <textarea id="draft-about-chirho" name="about_chirho" rows="5" maxlength="{{ model_chirho.about_max_chirho }}" required{% call field_state_chirho::attrs_chirho((model_chirho.form_chirho.about_chirho)) %}{% endcall %}>{{ model_chirho.form_chirho.words_chirho.about_chirho }}</textarea>
+                <small id="draft-about-help-chirho">{{ model_chirho.copy_chirho.draft_chirho.about_help_chirho }}</small>
+                {% call field_state_chirho::messages_chirho((model_chirho.form_chirho.about_chirho)) %}{% endcall %}
+              </div>
+              <div class="workspace-field-chirho">
+                <label for="draft-audience-chirho">{{ model_chirho.copy_chirho.draft_chirho.audience_label_chirho }}</label>
+                <input id="draft-audience-chirho" name="audience_chirho" maxlength="{{ model_chirho.audience_max_chirho }}" value="{{ model_chirho.form_chirho.words_chirho.audience_chirho }}"{% call field_state_chirho::attrs_chirho((model_chirho.form_chirho.audience_chirho)) %}{% endcall %}>
+                <small id="draft-audience-help-chirho">{{ model_chirho.copy_chirho.draft_chirho.audience_help_chirho }}</small>
+                {% call field_state_chirho::messages_chirho((model_chirho.form_chirho.audience_chirho)) %}{% endcall %}
+              </div>
+              <div class="workspace-field-chirho">
+                <label for="draft-tone-chirho">{{ model_chirho.copy_chirho.draft_chirho.tone_label_chirho }}</label>
+                <select id="draft-tone-chirho" name="tone_chirho">
+                  {% for tone_chirho in model_chirho.tones_chirho %}
+                    <option value="{{ tone_chirho.value_chirho }}"{% if tone_chirho.selected_chirho %} selected{% endif %}>{{ tone_chirho.label_chirho }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <fieldset class="workspace-panel-chirho workspace-service-chirho" aria-describedby="draft-services-help-chirho">
+                <legend>{{ model_chirho.copy_chirho.draft_chirho.services_label_chirho }}</legend>
+                <p id="draft-services-help-chirho">{{ model_chirho.copy_chirho.draft_chirho.services_help_chirho }}</p>
+                {% for slot_chirho in model_chirho.form_chirho.services_chirho %}
+                  <div class="workspace-field-chirho">
+                    <label for="draft-service-{{ slot_chirho.index_chirho }}-chirho">{{ slot_chirho.label_chirho }}</label>
+                    <input id="draft-service-{{ slot_chirho.index_chirho }}-chirho" name="service_{{ slot_chirho.index_chirho }}_chirho" maxlength="{{ model_chirho.service_max_chirho }}" value="{{ slot_chirho.value_chirho }}"{% call field_state_chirho::attrs_chirho((slot_chirho.field_chirho)) %}{% endcall %}>
+                    {% call field_state_chirho::messages_chirho((slot_chirho.field_chirho)) %}{% endcall %}
+                  </div>
+                {% endfor %}
+              </fieldset>
+              {# One of the pair is required, so the rule and its message live on the group and are
+                 described into both controls (draft_brief_form_chirho.rs). #}
+              <fieldset class="workspace-field-group-chirho" aria-describedby="draft-contact-method-help-chirho{% if model_chirho.form_chirho.contact_method_group_chirho.is_invalid_chirho() %} {{ model_chirho.form_chirho.contact_method_group_chirho.message_id_chirho }}{% endif %}">
+                <legend>{{ model_chirho.copy_chirho.draft_chirho.contact_method_label_chirho }}</legend>
+                <p id="draft-contact-method-help-chirho" class="workspace-field-group-help-chirho">{{ model_chirho.copy_chirho.draft_chirho.contact_method_help_chirho }}</p>
+                {% call field_state_chirho::messages_chirho((model_chirho.form_chirho.contact_method_group_chirho)) %}{% endcall %}
+                <div class="workspace-field-chirho">
+                  <label for="draft-contact-phone-chirho">{{ model_chirho.copy_chirho.draft_chirho.contact_phone_label_chirho }}</label>
+                  <input id="draft-contact-phone-chirho" type="tel" name="contact_phone_chirho" maxlength="{{ model_chirho.contact_phone_max_chirho }}" value="{{ model_chirho.form_chirho.words_chirho.contact_phone_chirho }}" autocomplete="tel"{% call field_state_chirho::attrs_chirho((model_chirho.form_chirho.contact_phone_chirho)) %}{% endcall %}>
+                  <small id="draft-contact-phone-help-chirho">{{ model_chirho.copy_chirho.draft_chirho.contact_phone_help_chirho }}</small>
+                  {% call field_state_chirho::messages_chirho((model_chirho.form_chirho.contact_phone_chirho)) %}{% endcall %}
+                </div>
+                <div class="workspace-field-chirho">
+                  <label for="draft-contact-email-chirho">{{ model_chirho.copy_chirho.draft_chirho.contact_email_label_chirho }}</label>
+                  <input id="draft-contact-email-chirho" type="email" name="contact_email_chirho" maxlength="{{ model_chirho.contact_email_max_chirho }}" value="{{ model_chirho.form_chirho.words_chirho.contact_email_chirho }}" autocomplete="email"{% call field_state_chirho::attrs_chirho((model_chirho.form_chirho.contact_email_chirho)) %}{% endcall %}>
+                  {% call field_state_chirho::messages_chirho((model_chirho.form_chirho.contact_email_chirho)) %}{% endcall %}
+                </div>
+              </fieldset>
+              <div class="workspace-field-chirho">
+                <label for="draft-contact-details-chirho">{{ model_chirho.copy_chirho.draft_chirho.contact_details_label_chirho }}</label>
+                <input id="draft-contact-details-chirho" name="contact_details_chirho" maxlength="{{ model_chirho.contact_details_max_chirho }}" value="{{ model_chirho.form_chirho.words_chirho.contact_details_chirho }}"{% call field_state_chirho::attrs_chirho((model_chirho.form_chirho.contact_details_chirho)) %}{% endcall %}>
+                <small id="draft-contact-details-help-chirho">{{ model_chirho.copy_chirho.draft_chirho.contact_details_help_chirho }}</small>
+                {% call field_state_chirho::messages_chirho((model_chirho.form_chirho.contact_details_chirho)) %}{% endcall %}
+              </div>
+              <footer class="workspace-save-chirho">
+                <p>{{ model_chirho.copy_chirho.draft_chirho.boundary_chirho }}</p>
+                <button type="submit">{{ model_chirho.copy_chirho.draft_chirho.submit_chirho }}</button>
+              </footer>
+            </section>
+          </form>
+        {% else %}
+          <section class="workspace-panel-chirho" aria-labelledby="draft-held-heading-chirho">
+            <div class="workspace-panel-heading-chirho">
+              <p>{{ model_chirho.copy_chirho.draft_chirho.panel_number_chirho }}</p>
+              <div>
+                <h2 id="draft-held-heading-chirho">{{ model_chirho.copy_chirho.draft_chirho.held_heading_chirho }}</h2>
+                <p>{{ model_chirho.copy_chirho.draft_chirho.held_body_chirho }}</p>
+              </div>
+            </div>
+            <p class="workspace-publication-note-chirho"><a href="{{ model_chirho.editor_href_chirho }}">{{ model_chirho.copy_chirho.draft_chirho.editor_link_chirho }}</a></p>
+          </section>
+        {% endif %}
+      {% when DraftPageKindChirho::HasPageChirho with { version_chirho } %}
+        <section class="workspace-panel-chirho" aria-labelledby="draft-has-page-heading-chirho">
+          <div class="workspace-panel-heading-chirho">
+            <p>{{ model_chirho.copy_chirho.draft_chirho.panel_number_chirho }}</p>
+            <div>
+              <h2 id="draft-has-page-heading-chirho">{{ model_chirho.copy_chirho.draft_chirho.has_page_heading_chirho }}</h2>
+              <p>{{ model_chirho.copy_chirho.draft_chirho.has_page_body_chirho }}</p>
+              <p class="workspace-version-chirho">{{ model_chirho.copy_chirho.editor_chirho.current_version_label_chirho }} <strong>{{ version_chirho }}</strong></p>
+            </div>
+          </div>
+          <p class="workspace-publication-note-chirho"><a href="{{ model_chirho.editor_href_chirho }}">{{ model_chirho.copy_chirho.draft_chirho.editor_link_chirho }}</a></p>
+        </section>
+      {% when DraftPageKindChirho::RejectedChirho with { notice_chirho } %}
+        <section class="workspace-errors-chirho" role="alert" aria-labelledby="draft-rejected-heading-chirho">
+          <h2 id="draft-rejected-heading-chirho">{{ model_chirho.copy_chirho.draft_chirho.rejected_heading_chirho }}</h2>
+          <p>{{ notice_chirho }}</p>
+          <p><a href="{{ model_chirho.brief_href_chirho }}">{{ model_chirho.copy_chirho.draft_chirho.brief_link_chirho }}</a></p>
+        </section>
+      {% when DraftPageKindChirho::RefusedChirho with { notice_chirho } %}
+        <section class="workspace-errors-chirho" role="status" aria-labelledby="draft-refused-heading-chirho">
+          <h2 id="draft-refused-heading-chirho">{{ model_chirho.copy_chirho.draft_chirho.not_drafted_heading_chirho }}</h2>
+          <p>{{ notice_chirho }}</p>
+          <p><a href="{{ model_chirho.brief_href_chirho }}">{{ model_chirho.copy_chirho.draft_chirho.brief_link_chirho }}</a> · <a href="{{ model_chirho.editor_href_chirho }}">{{ model_chirho.copy_chirho.draft_chirho.editor_link_chirho }}</a></p>
+        </section>
+      {% when DraftPageKindChirho::NotDraftedChirho %}
+        <section class="workspace-errors-chirho" role="status" aria-labelledby="draft-not-drafted-heading-chirho">
+          <h2 id="draft-not-drafted-heading-chirho">{{ model_chirho.copy_chirho.draft_chirho.not_drafted_heading_chirho }}</h2>
+          <p>{{ model_chirho.copy_chirho.draft_chirho.not_drafted_body_chirho }}</p>
+          <p><a href="{{ model_chirho.brief_href_chirho }}">{{ model_chirho.copy_chirho.draft_chirho.brief_link_chirho }}</a> · <a href="{{ model_chirho.editor_href_chirho }}">{{ model_chirho.copy_chirho.draft_chirho.editor_link_chirho }}</a></p>
+        </section>
+      {% when DraftPageKindChirho::UnavailableChirho %}
+        <section class="workspace-unavailable-chirho" role="status">
+          <h2>{{ model_chirho.copy_chirho.draft_chirho.unavailable_heading_chirho }}</h2>
+          <p>{{ model_chirho.copy_chirho.draft_chirho.unavailable_body_chirho }}</p>
+          <p><a href="{{ model_chirho.editor_href_chirho }}">{{ model_chirho.copy_chirho.draft_chirho.editor_link_chirho }}</a></p>
+        </section>
+    {% endmatch %}
+
+    <aside id="workspace-help-chirho" class="workspace-help-chirho" aria-labelledby="workspace-help-heading-chirho">
+      <h2 id="workspace-help-heading-chirho">{{ model_chirho.copy_chirho.draft_chirho.help_heading_chirho }}</h2>
+      <p>{{ model_chirho.copy_chirho.draft_chirho.help_body_chirho }}</p>
+    </aside>
+  </main>
+
+  {% include "partials_chirho/site_footer_chirho.html" %}
+</body>
+</html>

@@ -1,0 +1,243 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+//
+// The sky. Each band paints its own stretch of ONE continuous gradient, and every band ends on the
+// colour the next one starts with, so scrolling down the page is daybreak, readable everywhere:
+// with or without scroll timelines, with reduced motion, and in print. Text colour belongs to the
+// band, chosen for that band's ground, never driven by scroll position.
+//
+//   hero      night-deep -> night
+//   secure    night -> night-blue -> blue-hour            (Secure: the night)
+//   dawn      blue-hour -> violet -> plum -> rose -> apricot -> honey   (Abundant: the dawn)
+//   morning   honey -> cream -> day                       (Easy: the morning)
+//   day       day                                          (examples, questions)
+//   closing   the town in full morning
+//   footer    day -> dusk -> night: open before you are, and after you close
+
+.hero-chirho {
+  position: relative;
+  isolation: isolate;
+  min-block-size: 100svh;
+  display: grid;
+  align-items: center;
+  padding-block: clamp(7rem, 16vh, 10rem) clamp(4rem, 10vh, 7rem);
+  overflow: clip;
+  background: linear-gradient(180deg, var(--night-deep-chirho) 0%, #070a26 55%, var(--night-chirho) 100%);
+  color: var(--starlight-chirho);
+}
+
+.band-night-chirho {
+  position: relative;
+  isolation: isolate;
+  padding-block: var(--band-pad-chirho);
+  background: linear-gradient(180deg, var(--night-chirho) 0%, var(--night-blue-chirho) 58%, var(--blue-hour-chirho) 100%);
+  color: var(--starlight-chirho);
+}
+
+.band-dawn-chirho {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding-block: var(--band-pad-chirho) calc(var(--band-pad-chirho) * 1.2);
+  background: linear-gradient(
+    180deg,
+    var(--blue-hour-chirho) 0%,
+    var(--dawn-violet-chirho) 20%,
+    var(--dawn-plum-chirho) 40%,
+    var(--dawn-rose-chirho) 62%,
+    var(--dawn-apricot-chirho) 84%,
+    var(--morning-honey-chirho) 100%
+  );
+  color: var(--starlight-chirho);
+}
+
+.band-morning-chirho {
+  position: relative;
+  isolation: isolate;
+  padding-block: var(--band-pad-chirho);
+  background: linear-gradient(180deg, var(--morning-honey-chirho) 0%, var(--morning-cream-chirho) 38%, var(--day-chirho) 100%);
+  color: var(--ink-night-chirho);
+}
+
+.band-day-chirho {
+  position: relative;
+  isolation: isolate;
+  padding-block: var(--band-pad-chirho);
+  background: var(--day-chirho);
+  color: var(--ink-night-chirho);
+}
+
+.footer-night-chirho {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding-block: clamp(7rem, 18vh, 11rem) 2.5rem;
+  background: linear-gradient(180deg, #fdeedd 0%, #f3c9a4 14%, var(--dawn-rose-chirho) 30%, var(--dawn-violet-chirho) 52%, var(--night-chirho) 78%, var(--night-deep-chirho) 100%);
+  color: var(--starlight-mute-chirho);
+}
+
+// ---- stars: two seamless tiles, far and near ---------------------------------------------------
+.sky-stars-chirho {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: clip;
+}
+
+.stars-far-chirho,
+.stars-near-chirho {
+  position: absolute;
+  inset: -20% 0 0;
+  background-repeat: repeat;
+}
+
+.stars-far-chirho {
+  background-image: url("/app-assets-chirho/perffection/by-name-chirho/stars-far-chirho.png");
+  background-size: 768px 768px;
+  opacity: 0.9;
+}
+
+.stars-near-chirho {
+  background-image: url("/app-assets-chirho/perffection/by-name-chirho/stars-near-chirho.png");
+  background-size: 1024px 1024px;
+  opacity: 0.85;
+}
+
+// The footer's stars come out only in its lower, darker half.
+.footer-night-chirho .sky-stars-chirho {
+  inset-block-start: 45%;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 40%);
+}
+
+// ---- the town: a 16:9 frame that covers the hero the way object-fit: cover would ----------------
+// The poster (a still) and the wake sheet (36 frames of night becoming dawn) must line up to the
+// pixel, and a background sprite cannot use object-fit. So both live in one frame box sized from
+// the hero's own container units, anchored like object-position: 68% 62%.
+.hero-town-chirho {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  container-type: size;
+  overflow: clip;
+  pointer-events: none;
+}
+
+// Wide screens see the whole floating island: the frame is never zoomed past the hero's width plus
+// a little, sits on the hero's bottom edge, and its top melts into the CSS night above it.
+.hero-frame-chirho {
+  --frame-w-chirho: max(100cqw, 100cqh * 1.7911 * 0.86);
+  position: absolute;
+  inline-size: var(--frame-w-chirho);
+  aspect-ratio: 1920 / 1072;
+  inset-inline-start: calc((100cqw - var(--frame-w-chirho)) * 0.68);
+  inset-block-end: 0;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 16%);
+}
+
+.hero-poster-chirho {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+// The wake: 36 frames in two sheets of 6 x 3 (the engine refuses any asset over 1 MiB). The first
+// half plays, then the second sheet, stacked on top, takes over at the midpoint.
+.hero-wake-chirho {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.wake-a-chirho,
+.wake-b-chirho {
+  position: absolute;
+  inset: 0;
+  background-size: 600% 300%;
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+}
+
+.wake-a-chirho {
+  background-image: url("/app-assets-chirho/perffection/by-name-chirho/town-wake-a-chirho.jpg");
+}
+
+.wake-b-chirho {
+  background-image: url("/app-assets-chirho/perffection/by-name-chirho/town-wake-b-chirho.jpg");
+  opacity: 0;
+}
+
+// The calm sky on the reading side: a scrim that keeps the headline's contrast whatever the frame.
+.hero-town-chirho::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(3, 4, 26, 0.86) 0%, rgba(3, 4, 26, 0.62) 30%, rgba(3, 4, 26, 0.12) 58%, rgba(3, 4, 26, 0) 72%),
+    linear-gradient(180deg, rgba(3, 4, 26, 0.5) 0%, rgba(3, 4, 26, 0) 22%, rgba(3, 4, 26, 0) 78%, var(--night-chirho) 100%);
+}
+
+// Mist: two slow, soft veils over the cloud sea. Gradients, not blur filters: a full-width blur
+// costs a real frame budget, four soft gradients cost almost nothing.
+.hero-mist-chirho {
+  position: absolute;
+  inset: auto -20% 0;
+  block-size: 42%;
+  background:
+    radial-gradient(60% 70% at 30% 80%, rgba(180, 190, 255, 0.16), transparent 70%),
+    radial-gradient(50% 60% at 75% 90%, rgba(200, 205, 255, 0.12), transparent 70%);
+}
+
+@media (max-width: 1000px) {
+  // A phone or a tablet sees the town first, as a picture under the nav, then the words in the night below it.
+  .hero-chirho {
+    align-items: start;
+    padding-block: calc(4.5rem + min(58vw, 560px)) clamp(3rem, 8vh, 5rem);
+  }
+
+  .hero-wake-chirho {
+    background-image: url("/app-assets-chirho/perffection/by-name-chirho/town-dawn-chirho.jpg");
+    background-size: 100% 100%;
+  }
+
+  .wake-a-chirho,
+  .wake-b-chirho {
+    display: none;
+  }
+
+  .hero-town-chirho {
+    container-type: inline-size;
+  }
+
+  .hero-town-chirho::after {
+    background: linear-gradient(180deg, rgba(3, 4, 26, 0.5) 0, rgba(3, 4, 26, 0) 5rem, rgba(3, 4, 26, 0) calc(3.5rem + min(50vw, 480px)), var(--night-deep-chirho) calc(4.5rem + min(72vw, 690px)));
+  }
+
+  .hero-frame-chirho {
+    --frame-w-chirho: min(168cqw, 1240px);
+    inset-block: 3.5rem auto;
+    inset-inline-start: calc((100cqw - var(--frame-w-chirho)) * 0.7);
+    mask-image: linear-gradient(180deg, #000 70%, transparent 96%);
+  }
+}
+
+// Grain on the dawn: the longest, smoothest gradient on the page is where banding would show, and a
+// soft-light grain tile dithers it away while keeping the colours their own.
+.band-dawn-chirho::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("/app-assets-chirho/perffection/by-name-chirho/tooth-chirho.png") repeat;
+  background-size: 160px 160px;
+  mix-blend-mode: soft-light;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+// Phones take the lighter dawn still; tablets keep the full one, which the stacked frame shows large.
+@media (max-width: 600px) {
+  .hero-wake-chirho {
+    background-image: url("/app-assets-chirho/perffection/by-name-chirho/town-dawn-small-chirho.jpg");
+  }
+}

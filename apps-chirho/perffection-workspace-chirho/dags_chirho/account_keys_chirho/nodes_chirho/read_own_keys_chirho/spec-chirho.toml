@@ -1,0 +1,8 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV)
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Read the signed-in viewer's own keys through the engine's own-keys road, read-only."
+behaviors_chirho = [
+  "the engine derives the viewer from her browser session, never from the request; a key cannot read it",
+  "answers her rows, possibly none, or unavailable with no rows; never the key, its hash, its seq or its session",
+  "grants no revoke, issue or other authority",
+]

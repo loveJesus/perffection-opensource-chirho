@@ -1,0 +1,8 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Render the write door's typed answer as the JSON figures save outcome."
+behaviors_chirho = [
+  "answers a verified append as saved with the new version, her figures exactly as stored and their report",
+  "answers a typed conflict as a stale-version refusal carrying the head version",
+  "never answers saved for an answer that could not be verified",
+]

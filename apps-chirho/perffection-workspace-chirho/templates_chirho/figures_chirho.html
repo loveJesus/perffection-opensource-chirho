@@ -1,0 +1,176 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+{# Her figures (src/figures_flow_chirho/figures_page_chirho.rs): the report of her saved version, then two forms: paste
+   them (her saved figures stay in that box), or choose a CSV file. Both post to the review, never straight to a save.
+   No script. Workflow: spec-chirho/workflows-chirho/invite-beta-chirho/her-figures-chirho.md #}
+{%- import "partials_chirho/figures_fields_chirho.html" as figures_fields_chirho -%}
+<!doctype html>
+<html lang="{{ model_chirho.copy_chirho.lang_chirho }}" dir="{{ model_chirho.copy_chirho.dir_chirho }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ model_chirho.chrome_chirho.page_description_chirho }}">
+  <title>{{ model_chirho.chrome_chirho.page_title_chirho }}</title>
+  <link rel="stylesheet" href="/app-assets-chirho/perffection-workspace/by-name-chirho/{{ model_chirho.chrome_chirho.stylesheet_name_chirho }}">
+</head>
+<body class="workspace-page-chirho">
+  {% include "partials_chirho/site_nav_chirho.html" %}
+
+  <main class="workspace-shell-chirho">
+    {% include "partials_chirho/carrier_refusals_chirho.html" %}
+    <section class="workspace-intro-chirho" aria-labelledby="figures-heading-chirho">
+      <div>
+        <p class="workspace-eyebrow-chirho">{{ model_chirho.status_chirho }}</p>
+        <h1 id="figures-heading-chirho">{{ model_chirho.copy_chirho.figures_chirho.heading_chirho }}</h1>
+        <p class="workspace-lede-chirho">{{ model_chirho.copy_chirho.figures_chirho.lede_chirho }}</p>
+      </div>
+    </section>
+
+    {% if let Some((notice_chirho, kind_chirho)) = model_chirho.notice_chirho.as_ref() %}
+      <p class="workspace-figures-notice-chirho workspace-figures-notice-{{ kind_chirho }}-chirho" role="status">{{ notice_chirho }}</p>
+    {% endif %}
+
+    {% if let Some(report_chirho) = model_chirho.report_chirho.as_ref() %}
+      <section class="workspace-panel-chirho" aria-labelledby="figures-report-heading-chirho">
+        <div class="workspace-panel-heading-chirho">
+          <p>{{ model_chirho.copy_chirho.figures_chirho.report_number_chirho }}</p>
+          <div>
+            <h2 id="figures-report-heading-chirho">{{ model_chirho.copy_chirho.figures_chirho.report_heading_chirho }}</h2>
+            <p>{{ model_chirho.copy_chirho.figures_chirho.report_intro_chirho }}</p>
+          </div>
+        </div>
+        {% if !report_chirho.complete_chirho %}
+          <p class="workspace-figures-note-chirho">{{ model_chirho.copy_chirho.figures_chirho.incomplete_note_chirho }}</p>
+        {% endif %}
+        {% if !report_chirho.note_chirho.is_empty() %}
+          <p class="workspace-figures-note-chirho">{{ model_chirho.copy_chirho.figures_chirho.note_label_chirho }}: {{ report_chirho.note_chirho }}</p>
+        {% endif %}
+        <div class="workspace-table-scroll-chirho" role="region" tabindex="0" aria-labelledby="figures-kinds-caption-chirho">
+          <table class="workspace-figures-table-chirho">
+            <caption id="figures-kinds-caption-chirho">{{ model_chirho.copy_chirho.figures_chirho.by_kind_caption_chirho }} ({{ report_chirho.currency_chirho }})</caption>
+            <thead>
+              <tr>
+                <th scope="col">{{ model_chirho.copy_chirho.figures_chirho.kind_column_chirho }}</th>
+                <th scope="col">{{ model_chirho.copy_chirho.figures_chirho.money_in_column_chirho }}</th>
+                <th scope="col">{{ model_chirho.copy_chirho.figures_chirho.costs_column_chirho }}</th>
+                <th scope="col">{{ model_chirho.copy_chirho.figures_chirho.margin_column_chirho }}</th>
+                <th scope="col">{{ model_chirho.copy_chirho.figures_chirho.share_column_chirho }}</th>
+                <th scope="col">{{ model_chirho.copy_chirho.figures_chirho.per_job_column_chirho }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row_chirho in report_chirho.kinds_chirho %}
+                <tr>
+                  <th scope="row">{{ row_chirho.kind_chirho }}</th>
+                  <td>{{ row_chirho.money_in_chirho }}</td>
+                  <td>{{ row_chirho.costs_chirho }}</td>
+                  <td>{{ row_chirho.margin_chirho }}</td>
+                  <td>{{ row_chirho.share_chirho }}</td>
+                  <td>{{ row_chirho.per_job_chirho }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row">{{ model_chirho.copy_chirho.figures_chirho.total_label_chirho }}</th>
+                <td>{{ report_chirho.total_money_in_chirho }}</td>
+                <td colspan="4"></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="workspace-table-scroll-chirho" role="region" tabindex="0" aria-labelledby="figures-months-caption-chirho">
+          <table class="workspace-figures-table-chirho">
+            <caption id="figures-months-caption-chirho">{{ model_chirho.copy_chirho.figures_chirho.by_month_caption_chirho }} ({{ report_chirho.currency_chirho }})</caption>
+            <thead>
+              <tr>
+                <th scope="col">{{ model_chirho.copy_chirho.figures_chirho.month_column_chirho }}</th>
+                <th scope="col">{{ model_chirho.copy_chirho.figures_chirho.money_in_column_chirho }}</th>
+                <th scope="col">{{ model_chirho.copy_chirho.figures_chirho.costs_column_chirho }}</th>
+                <th scope="col">{{ model_chirho.copy_chirho.figures_chirho.margin_column_chirho }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row_chirho in report_chirho.months_chirho %}
+                <tr>
+                  <th scope="row" class="workspace-figures-month-chirho">{{ row_chirho.month_chirho }}</th>
+                  <td>{{ row_chirho.money_in_chirho }}</td>
+                  <td>{{ row_chirho.costs_chirho }}</td>
+                  <td>{{ row_chirho.margin_chirho }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% if !report_chirho.flags_chirho.is_empty() %}
+          <h3>{{ model_chirho.copy_chirho.figures_chirho.flags_heading_chirho }}</h3>
+          <ul class="workspace-figures-flags-chirho">
+            {% for flag_chirho in report_chirho.flags_chirho %}
+              <li>{% if !flag_chirho.kind_chirho.is_empty() %}<strong>{{ flag_chirho.kind_chirho }}</strong>: {% endif %}{{ flag_chirho.sentence_chirho }}{% if !flag_chirho.months_chirho.is_empty() %} ({{ flag_chirho.months_chirho }}){% endif %}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </section>
+    {% else if model_chirho.unavailable_chirho %}
+      <section class="workspace-unavailable-chirho" role="status">
+        <h2>{{ model_chirho.copy_chirho.figures_chirho.report_heading_chirho }}</h2>
+        <p>{{ model_chirho.copy_chirho.figures_chirho.unavailable_chirho }}</p>
+      </section>
+    {% endif %}
+
+    {#- Two ways to bring her figures, each its own form: what she pastes, or a file she chooses. The file
+        form sends an empty paste, never her saved figures, so choosing a file never collides with them,
+        and nothing here clears or chooses for her. -#}
+    <form class="workspace-form-chirho" method="post" action="{{ model_chirho.review_action_chirho }}">
+      {% include "partials_chirho/form_caller_key_chirho.html" %}
+      <section class="workspace-panel-chirho" aria-labelledby="figures-paste-heading-chirho">
+        <div class="workspace-panel-heading-chirho">
+          <p>{{ model_chirho.copy_chirho.figures_chirho.paste_number_chirho }}</p>
+          <div>
+            <h2 id="figures-paste-heading-chirho">{{ model_chirho.copy_chirho.figures_chirho.paste_heading_chirho }}</h2>
+            <p>{{ model_chirho.copy_chirho.figures_chirho.paste_intro_chirho }}</p>
+          </div>
+        </div>
+        <div class="workspace-field-chirho">
+          <label for="figures-csv-chirho">{{ model_chirho.copy_chirho.figures_chirho.csv_label_chirho }}</label>
+          <textarea id="figures-csv-chirho" name="csv_chirho" rows="12" spellcheck="false" placeholder="{{ model_chirho.csv_header_chirho }}" aria-describedby="figures-csv-help-chirho">{{ model_chirho.form_chirho.csv_chirho }}</textarea>
+          <small id="figures-csv-help-chirho">{{ model_chirho.copy_chirho.figures_chirho.csv_help_chirho }}</small>
+        </div>
+        {% call figures_fields_chirho::meta_chirho("paste", (model_chirho.form_chirho.expected_version_chirho), (model_chirho.form_chirho.currency_chirho), (model_chirho.form_chirho.note_chirho), (model_chirho.copy_chirho.figures_chirho)) %}{% endcall %}
+        <footer class="workspace-save-chirho">
+          <button type="submit">{{ model_chirho.copy_chirho.figures_chirho.review_submit_chirho }}</button>
+        </footer>
+      </section>
+    </form>
+
+    <form class="workspace-form-chirho" method="post" action="{{ model_chirho.review_action_chirho }}" enctype="multipart/form-data">
+      {% include "partials_chirho/form_caller_key_chirho.html" %}
+      <input type="hidden" name="csv_chirho" value="">
+      <section class="workspace-panel-chirho" aria-labelledby="figures-file-heading-chirho">
+        <div class="workspace-panel-heading-chirho">
+          <p>{{ model_chirho.copy_chirho.figures_chirho.file_number_chirho }}</p>
+          <div>
+            <h2 id="figures-file-heading-chirho">{{ model_chirho.copy_chirho.figures_chirho.file_heading_chirho }}</h2>
+            <p>{{ model_chirho.copy_chirho.figures_chirho.file_intro_chirho }}</p>
+          </div>
+        </div>
+        <div class="workspace-field-chirho">
+          <label for="figures-file-chirho">{{ model_chirho.copy_chirho.figures_chirho.file_label_chirho }}</label>
+          <input id="figures-file-chirho" name="csv_file_chirho" type="file" accept=".csv,text/csv" aria-describedby="figures-file-help-chirho" required>
+          <small id="figures-file-help-chirho">{{ model_chirho.copy_chirho.figures_chirho.file_help_chirho }}</small>
+        </div>
+        {% call figures_fields_chirho::meta_chirho("file", (model_chirho.form_chirho.expected_version_chirho), (model_chirho.form_chirho.currency_chirho), (model_chirho.form_chirho.note_chirho), (model_chirho.copy_chirho.figures_chirho)) %}{% endcall %}
+        <footer class="workspace-save-chirho">
+          <button type="submit">{{ model_chirho.copy_chirho.figures_chirho.review_file_submit_chirho }}</button>
+        </footer>
+      </section>
+    </form>
+
+    <aside id="workspace-help-chirho" class="workspace-help-chirho" aria-labelledby="workspace-help-heading-chirho">
+      <h2 id="workspace-help-heading-chirho">{{ model_chirho.copy_chirho.figures_chirho.help_heading_chirho }}</h2>
+      <p>{{ model_chirho.copy_chirho.figures_chirho.help_body_chirho }}</p>
+    </aside>
+  </main>
+
+  {% include "partials_chirho/site_footer_chirho.html" %}
+</body>
+</html>

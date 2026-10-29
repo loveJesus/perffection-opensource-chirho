@@ -1,0 +1,8 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Read this viewer's publication intents and the platform's verified applied records, read-only."
+behaviors_chirho = [
+  "derives app and viewer authority from the authenticated host context",
+  "returns publication status without granting publication, mutation or platform authority",
+  "fails closed on an applied record that does not verify against the platform signer",
+]

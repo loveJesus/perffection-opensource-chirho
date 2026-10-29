@@ -1,0 +1,33 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+{#- The new-address form, one shape wherever it is offered: the Publishing page, and the publish
+    door's refusal page when the name she asked for is another account's. It always publishes HER
+    saved version from the dark base; only the name is hers to choose. Call sites group each
+    argument (see field_state_chirho.html for why). -#}
+{%- import "partials_chirho/field_state_chirho.html" as field_state_chirho -%}
+{%- macro form_chirho(action_chirho, number_chirho, version_chirho, dark_base_chirho, value_chirho, field_chirho, button_label_chirho, copy_chirho) -%}
+<form class="workspace-form-chirho workspace-publish-form-chirho" method="post" action="{{ action_chirho }}">
+  {% include "partials_chirho/form_caller_key_chirho.html" %}
+  <section class="workspace-panel-chirho" aria-labelledby="publication-new-address-heading-chirho">
+    <div class="workspace-panel-heading-chirho">
+      <p>{{ number_chirho }}</p>
+      <div>
+        <h2 id="publication-new-address-heading-chirho">{{ copy_chirho.new_address_heading_chirho }}</h2>
+        <p>{{ copy_chirho.form_intro_chirho }}</p>
+      </div>
+    </div>
+    <input type="hidden" name="kind_chirho" value="publish-chirho">
+    <input type="hidden" name="version_chirho" value="{{ version_chirho }}">
+    <input type="hidden" name="base_publication_chirho" value="{{ dark_base_chirho }}">
+    <div class="workspace-field-chirho">
+      <label for="publish-slug-chirho">{{ copy_chirho.slug_label_chirho }}</label>
+      <input id="publish-slug-chirho" name="slug_chirho" maxlength="48" pattern="[a-z0-9]([a-z0-9\-]{0,46}[a-z0-9])?" title="{{ copy_chirho.slug_title_chirho }}" value="{{ value_chirho }}" autocomplete="off" spellcheck="false" required{% call field_state_chirho::attrs_chirho((field_chirho)) %}{% endcall %}>
+      <small id="publish-slug-help-chirho">{{ copy_chirho.slug_help_chirho }}</small>
+      {% call field_state_chirho::messages_chirho((field_chirho)) %}{% endcall %}
+    </div>
+    <footer class="workspace-save-chirho">
+      <p>{{ copy_chirho.retention_note_chirho }}</p>
+      <button type="submit">{{ button_label_chirho }}</button>
+    </footer>
+  </section>
+</form>
+{%- endmacro -%}

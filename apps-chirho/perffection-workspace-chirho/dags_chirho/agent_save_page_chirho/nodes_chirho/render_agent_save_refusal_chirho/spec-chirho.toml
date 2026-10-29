@@ -1,0 +1,8 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV)
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Render the JSON refusal for a body that must not be written, or skip."
+behaviors_chirho = [
+  "names every invalid field with the validator's own code and saves nothing",
+  "never echoes the submitted body",
+  "emits the Skipped stone when the write branch is the live one",
+]

@@ -1,0 +1,8 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Render the verified publication status as plain words: live, on its way, refused."
+behaviors_chirho = [
+  "renders engine refusal tokens as customer sentences and never an engine code",
+  "renders an unverifiable read as an actionless page",
+  "shows no control for a capability that does not exist yet",
+]

@@ -1,0 +1,8 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Render the verified current private page document as copyable and downloadable JSON."
+behaviors_chirho = [
+  "renders the exact current version as the PageDocumentV2 JSON the publication path consumes",
+  "renders missing state as an actionless page that says nothing is saved yet",
+  "renders malformed state actionless and never echoes unverified bytes",
+]

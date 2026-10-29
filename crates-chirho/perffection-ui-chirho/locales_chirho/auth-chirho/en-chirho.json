@@ -1,0 +1,52 @@
+{
+  "lang_chirho": "en",
+  "dir_chirho": "ltr",
+  "preview_marker_chirho": "Your website starts here",
+  "page_description_chirho": "Your account and private workspace with Perffection.",
+  "signup_chirho": {
+    "heading_chirho": "A home for your business.",
+    "body_chirho": "Choose a private username and password to start your website. Your draft stays private until you choose to publish it."
+  },
+  "signin_chirho": {
+    "heading_chirho": "Welcome back.",
+    "body_chirho": "Sign in with the username you chose and your current password to return to your workspace."
+  },
+  "success_chirho": {
+    "heading_chirho": "Your account is ready.",
+    "body_chirho": "Now sign in with the username and password you just chose. There is no account number to copy."
+  },
+  "unavailable_chirho": {
+    "heading_chirho": "We couldn't complete that request.",
+    "body_chirho": "Please wait before trying again. If you already completed account creation, try signing in with the details you chose."
+  },
+  "username_label_chirho": "Private username",
+  "username_help_chirho": "Use the same username each time you sign in. This is not your email address or your public website address.",
+  "new_password_help_chirho": "Choose a long, unique password and save it in your password manager. Never send anyone your password.",
+  "challenge_label_chirho": "A quick human check",
+  "challenge_help_chirho": "Enter the answer to the question shown. This check can only be used once.",
+  "signup_submit_chirho": "Create my account",
+  "signin_submit_chirho": "Sign in",
+  "availability_prompt_chirho": "New to Perffection?",
+  "availability_link_chirho": "Check account availability",
+  "start_again_chirho": "Open a fresh signup form",
+  "continue_chirho": "Continue to sign in",
+  "skip_chirho": "Skip to account form or status",
+  "help_heading_chirho": "Keep your sign-in details safe",
+  "help_body_chirho": "Save your username and password in your password manager. If you are unsure whether account creation finished, try signing in first; don't create another account to recover saved work.",
+  "refusals_chirho": {
+    "too-many-requests-chirho": {"heading_chirho": "Please pause a moment.", "body_chirho": "We can't accept another request right now. Wait before trying again."},
+    "request-malformed-chirho": {"heading_chirho": "Please check your details.", "body_chirho": "We couldn't accept that form. Check your username and password requirements, then open a fresh form when you are ready."},
+    "registration-disabled-chirho": {"heading_chirho": "New accounts aren't open here yet.", "body_chirho": "If you already have an account, you can still sign in."},
+    "registration-token-required-chirho": {"heading_chirho": "This signup isn't available here.", "body_chirho": "This location isn't accepting open signup. If you already have an account, sign in instead."},
+    "registration-unavailable-chirho": {"heading_chirho": "Account creation is unavailable right now.", "body_chirho": "Please wait before trying again. If account creation may have finished, try signing in with the details you chose first."},
+    "registration-cohort-full-chirho": {"heading_chirho": "We're at capacity for new accounts.", "body_chirho": "We can't open another account right now. Existing customers can still sign in."},
+    "human-check-required-chirho": {"heading_chirho": "Please complete the human check.", "body_chirho": "Open a fresh signup form and answer the question before submitting it."},
+    "human-check-rejected-chirho": {"heading_chirho": "That human check didn't work.", "body_chirho": "Open a fresh signup form and answer its question. Don't resend the previous form."},
+    "grant-unsupported-chirho": {"heading_chirho": "Please use the current signup form.", "body_chirho": "That form isn't supported. Open a fresh signup form to continue."},
+    "credential-required-chirho": {"heading_chirho": "A password is needed.", "body_chirho": "Choose a password on a fresh signup form before submitting it."},
+    "owner-registration-unsupported-chirho": {"heading_chirho": "Please use the current signup form.", "body_chirho": "That account request isn't supported here. Open a fresh signup form to continue."},
+    "human-check-unavailable-chirho": {"heading_chirho": "The human check is unavailable.", "body_chirho": "Please wait, then open a fresh signup form. No answer can be submitted without a check."},
+    "auth-rate-limited-chirho": {"heading_chirho": "Too many sign-in attempts.", "body_chirho": "Please wait about {wait_minutes_chirho} minutes, then try again. Use your current username and password when you return."},
+    "invalid-credential-chirho": {"heading_chirho": "We couldn't sign you in.", "body_chirho": "Check your username and password, then try again. If you changed your password, use the new one."}
+  }
+}

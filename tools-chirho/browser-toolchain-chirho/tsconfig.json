@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "target": "ESNext",
+    "module": "Preserve",
+    "moduleResolution": "Bundler",
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "types": [
+      "bun-types",
+      "node"
+    ],
+    "paths": {
+      "playwright-core": [
+        "./node_modules/playwright-core"
+      ]
+    }
+  },
+  "files": [
+    "../browser-chirho/signup-browser-check-chirho.ts",
+    "../browser-chirho/signup-check-chirho.ts",
+    "../browser-chirho/public-auth-check-chirho.ts",
+    "../browser-chirho/reviewed-product-check-chirho.ts",
+    "../local-runtime-chirho/local-ingress-chirho.test.ts",
+    "../../scripts-chirho/tests-chirho/cairn-runtime-chirho.test.ts",
+    "../../scripts-chirho/tests-chirho/browser-runtime-chirho.test.ts"
+  ]
+}

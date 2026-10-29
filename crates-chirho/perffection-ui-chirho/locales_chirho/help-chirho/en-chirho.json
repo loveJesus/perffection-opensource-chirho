@@ -1,0 +1,101 @@
+{
+  "lang_chirho": "en",
+  "dir_chirho": "ltr",
+  "page_title_chirho": "Help with your website · Perffection",
+  "page_description_chirho": "Find your way through saving, previewing, publishing and recovering your Perffection page.",
+  "eyebrow_chirho": "A little help, whenever you need it",
+  "heading_chirho": "Your next step, explained.",
+  "introduction_chirho": "Keep your words, check your page, and know what happens before you put it online. Choose the part you need help with.",
+  "skip_label_chirho": "Skip to help topics",
+  "topics_label_chirho": "Help topics",
+  "start_heading_chirho": "Back to your website",
+  "start_body_chirho": "You can read this guide without an account. To work on your own page, sign in first, then open your workspace.",
+  "workspace_label_chirho": "Open your workspace",
+  "signin_needed_chirho": "Sign-in required",
+  "back_to_topics_chirho": "Back to topics",
+  "access_chirho": {
+    "heading_chirho": "Sign in and get back to work",
+    "introduction_chirho": "Use the sign-in name and password for your existing account. A new account would not bring your saved work with it.",
+    "steps_chirho": [
+      "Enter the sign-in name for your existing account. This is not your email address or your public website address.",
+      "Use your current password. If you changed it, the earlier password will no longer work.",
+      "If you have tried several times, pause before trying again. Never send anyone your password."
+    ],
+    "question_chirho": "What if I have lost my sign-in details?",
+    "answer_chirho": "Check your password manager for your sign-in name and current password. Automatic recovery of lost access is not available yet. Creating another account will not recover the work saved in your existing one.",
+    "action_label_chirho": "Go to sign in"
+  },
+  "save_chirho": {
+    "heading_chirho": "Save a private draft",
+    "introduction_chirho": "Editing changes the form. Saving creates a private version you can return to. Neither action publishes your page.",
+    "steps_chirho": [
+      "Add your business name, a headline, an introduction and at least one complete service. Include a phone number or email address customers may use.",
+      "Choose Save and check the saved version shown on the returned page.",
+      "If a field needs attention, your submitted words stay in the editor. Correct the highlighted fields and save again."
+    ],
+    "question_chirho": "What if another window saved a newer version?",
+    "answer_chirho": "The newer saved version is kept. Your attempted words remain in the form so you can compare and edit them. Check what you want to keep before saving again; do not reload before copying any unsaved words you still need.",
+    "action_label_chirho": "Open the editor"
+  },
+  "publish_chirho": {
+    "heading_chirho": "Preview, then publish",
+    "introduction_chirho": "Preview shows your saved draft. The Publishing page is where you approve the version and address other people will see.",
+    "steps_chirho": [
+      "Save your changes, then open Preview. Check the wording and the contact details.",
+      "Open Publishing, review the saved version and choose an available address. Read the publication notice before approving.",
+      "A version on its way is still being processed. Reload Publishing to check progress. Once it is marked live, open the public address to check it.",
+      "For later changes, save and preview again, then approve the update on Publishing. Saving alone does not update the public page."
+    ],
+    "question_chirho": "What if publication is refused or the address changed?",
+    "answer_chirho": "Read the reason on Publishing. Choose another address if yours is unavailable. If a newer version was saved or published, reopen Publishing and review it before approving again. A refused update does not replace the page already live.",
+    "action_label_chirho": "Open Publishing"
+  },
+  "history_chirho": {
+    "heading_chirho": "Undo the right change",
+    "introduction_chirho": "Restoring a private draft and rolling back a public page are two different actions.",
+    "steps_chirho": [
+      "To recover earlier words, choose a version in the editor's saved history. Restoring it creates a new private version; it does not change the public page.",
+      "Preview the restored draft. If you want it online, approve it separately on Publishing.",
+      "To return the public address to earlier published content, choose an available rollback on Publishing and wait until that entry is live."
+    ],
+    "question_chirho": "Can every earlier version always be restored?",
+    "answer_chirho": "Use the versions currently offered in your history. Keep a downloaded copy of content you need to retain. A rollback brings back your published words with today's page design; it does not bring back an older design.",
+    "action_label_chirho": "Open your saved history"
+  },
+  "export_chirho": {
+    "heading_chirho": "Keep a copy of your words",
+    "introduction_chirho": "Copy my page document downloads the content of one saved version. Treat it as your own document, especially if it contains contact details.",
+    "steps_chirho": [
+      "Save the version you want to keep, then open Copy my page document and download it.",
+      "To bring that content back later, open Recover page content and paste the document.",
+      "Review the imported words in the editor. Nothing is saved or published until you explicitly choose those actions."
+    ],
+    "question_chirho": "Is this a backup of my whole account?",
+    "answer_chirho": "No. It contains the page's words and contact fields, not your password, account, complete version history, publication permissions or website software.",
+    "action_label_chirho": "Open Copy my page document"
+  },
+  "own_agent_chirho": {
+    "heading_chirho": "Write with your own agent",
+    "introduction_chirho": "You can bring an answer from the AI you already use. Our public guide tells it the shape your page needs.",
+    "steps_chirho": [
+      "Give your agent the guide and the business information you want to use. Never share your Perffection password or access keys.",
+      "In your workspace, open Use your own AI and paste its answer. This is different from restoring an exported page document.",
+      "Review and correct the words in the editor before saving. Saving does not publish your page."
+    ],
+    "question_chirho": "Does this use my Perffection AI credits?",
+    "answer_chirho": "No platform AI call is made on this path. Your own agent or provider may charge under its terms. You remain in control of what you save and publish.",
+    "action_label_chirho": "Read the guide for your agent"
+  },
+  "privacy_chirho": {
+    "heading_chirho": "Know what becomes public",
+    "introduction_chirho": "Your workspace draft is not your public website. Publication is the separate act that makes the approved page content public.",
+    "steps_chirho": [
+      "Before publishing, check that the words, phone number and email address are intended for the public.",
+      "Never put passwords, access codes, private customer records or payment details in your page content.",
+      "Assume published content can be copied. Replacing or rolling back the page does not erase earlier copies or every retained published object."
+    ],
+    "question_chirho": "Should I send a password when asking for help?",
+    "answer_chirho": "No. Describe what you were trying to do and the message you saw. Remove passwords, access codes and private customer details from anything you share.",
+    "action_label_chirho": "Read about trust and current limits"
+  }
+}

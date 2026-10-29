@@ -1,0 +1,95 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+//
+// "What's in it" on FIRST LIGHT: the list, set like the price list on a shop counter. A double rule
+// opens each part, leader dots run from the name to its status, and the status is set in the display
+// italic where a price would be. Workflow: spec-chirho/workflows-chirho/first-light-authoring-chirho.md
+
+.inventory-head-chirho {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.inventory-head-chirho .eyebrow-chirho {
+  color: var(--wine-ink-chirho);
+}
+
+.inventory-head-chirho .band-body-chirho {
+  margin-inline: auto;
+  color: var(--ink-soft-chirho);
+}
+
+.inventory-groups-chirho {
+  display: grid;
+  gap: clamp(3.5rem, 8vh, 5.5rem);
+  max-inline-size: 50rem;
+  margin: clamp(3rem, 8vh, 5.5rem) auto 0;
+}
+
+.inventory-group-heading-chirho {
+  font-family: var(--face-serif-chirho);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2rem, 2.2vw + 1rem, 2.8rem);
+  line-height: 1.05;
+  text-align: center;
+}
+
+.inventory-group-intro-chirho {
+  margin-block-start: 0.35rem;
+  color: var(--ink-soft-chirho);
+  text-align: center;
+}
+
+.inventory-list-chirho {
+  margin: 1.5rem 0 0;
+  border-block-start: 3px double rgba(18, 21, 46, 0.55);
+}
+
+.inventory-item-chirho {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 0.9rem;
+  padding-block: 1rem 1.15rem;
+  border-block-end: 1px solid var(--line-day-chirho);
+}
+
+.inventory-name-chirho {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  font-family: var(--face-serif-chirho);
+  font-size: clamp(1.3rem, 0.6vw + 1.12rem, 1.6rem);
+  line-height: 1.2;
+}
+
+// The leader: dots from the name to its status, as on a price list.
+.inventory-name-chirho::after {
+  content: "";
+  flex: 1;
+  min-inline-size: 1.5rem;
+  border-block-end: 2px dotted rgba(18, 21, 46, 0.32);
+  transform: translateY(-0.28em);
+}
+
+.inventory-status-chirho {
+  margin: 0;
+  align-self: baseline;
+  font-family: var(--face-serif-chirho);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--wine-ink-chirho);
+  white-space: nowrap;
+}
+
+.inventory-note-chirho {
+  grid-column: 1 / -1;
+  max-inline-size: 40rem;
+  margin: 0.3rem 0 0;
+  color: var(--ink-soft-chirho);
+  line-height: 1.55;
+}
+
+.inventory-item-coming-chirho .inventory-status-chirho,
+.inventory-item-coming-chirho .inventory-name-chirho {
+  color: var(--rose-ink-chirho);
+}

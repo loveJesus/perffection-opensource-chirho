@@ -1,0 +1,9 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV)
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Render the Account page with her connections from the own-keys read, each live one with a Disconnect form."
+behaviors_chirho = [
+  "each row names the app it reaches and what it may do; no key material appears",
+  "a Disconnect form only for a live row, posting to the engine's revoke road and returning here",
+  "an answer that is not a verified list renders as unavailable, never as none",
+  "offers no control to create a connection",
+]

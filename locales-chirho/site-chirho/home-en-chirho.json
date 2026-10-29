@@ -1,0 +1,381 @@
+{
+  "page_title_chirho": "Perffection · A home for your business online",
+  "page_description_chirho": "Useful software for the business you are building. Begin with a beautiful website; discover the Cairn-powered vision for business intelligence, connected work and accountable AI. Opening by invitation.",
+  "hero_chirho": {
+    "skip_label_chirho": "Skip to the page",
+    "mark_chirho": "A home for your business online",
+    "headline_lines_chirho": [
+      "Your business,",
+      "with room",
+      "to grow."
+    ],
+    "lead_chirho": "A good website is a beginning. We’re building a home for the software that helps you run your business, understand it, and serve people well. Beautiful on the outside, with care and accountability in the foundations.",
+    "primary_label_chirho": "See the bigger picture",
+    "primary_href_chirho": "#platform-chirho",
+    "secondary_label_chirho": "Where you can begin",
+    "secondary_href_chirho": "#easy-chirho",
+    "pillars_label_chirho": "What we are building on",
+    "pillars_chirho": [
+      {
+        "label_chirho": "Secure",
+        "href_chirho": "#secure-chirho"
+      },
+      {
+        "label_chirho": "Abundant",
+        "href_chirho": "#abundant-chirho"
+      },
+      {
+        "label_chirho": "Easy",
+        "href_chirho": "#easy-chirho"
+      }
+    ],
+    "quiet_note_chirho": "Our first step is a business website. Opening by invitation.",
+    "signin_label_chirho": "Have an invitation? Sign in"
+  },
+  "platform_chirho": {
+    "mark_chirho": "The bigger picture",
+    "heading_chirho": "More than a shop window.",
+    "body_chirho": "A business has people to look after, work to keep moving and decisions to make. Perffection’s destination is software that brings those things together, with AI to help and you in charge. The website is our first release. Here is the wider work we’re building toward.",
+    "examples_chirho": [
+      {
+        "title_chirho": "Understand your business",
+        "body_chirho": "Which work pays its way? Where are customers getting stuck? Bring your figures into view, ask useful questions and see what is working. Business intelligence that helps you make a considered decision, not another dashboard to babysit."
+      },
+      {
+        "title_chirho": "Bring your work together",
+        "body_chirho": "Customer records, enquiries, orders and follow-ups belong beside one another. We want the software to fit the way you work, and connect with tools you already use, rather than make you copy the same facts from place to place."
+      },
+      {
+        "title_chirho": "Make room for good work",
+        "body_chirho": "AI could help prepare your marketing, notice a missed follow-up or build a useful tool for your team. You should be able to see what it proposes and choose what it may do, with more time left for the people you serve."
+      }
+    ],
+    "note_chirho": "These wider tools are not open to customers yet. We’re beginning with the website, and building toward a business platform on Cairn, the engine underneath Perffection."
+  },
+  "secure_chirho": {
+    "mark_chirho": "Secure",
+    "heading_chirho": "Trust should have something to stand on.",
+    "body_chirho": "When software touches your work, trust matters more than a reassuring badge. Cairn confines application code, checks its permitted actions and keeps signed records. Perffection brings that foundation to the person running the business. In today’s website release, your drafts are private and publishing is your decision.",
+    "points_chirho": [
+      {
+        "title_chirho": "Your say-so matters",
+        "body_chirho": "Saving a draft does not publish it. You choose when your words go live."
+      },
+      {
+        "title_chirho": "Actions with a record",
+        "body_chirho": "Publishing leaves a signed record of the version released. There is something to inspect, not just a promise that it happened."
+      },
+      {
+        "title_chirho": "Boundaries before shortcuts",
+        "body_chirho": "Cairn runs app code without ambient access to files or the network. Effects go through declared, reviewed doors."
+      },
+      {
+        "title_chirho": "Private until you publish",
+        "body_chirho": "Your saved drafts stay behind your sign-in. Your published page is public, so choose what you share with care."
+      },
+      {
+        "title_chirho": "A way to put things right",
+        "body_chirho": "You can restore earlier published words. That is useful, but it cannot take back what somebody has already seen."
+      }
+    ]
+  },
+  "abundant_chirho": {
+    "mark_chirho": "Abundant",
+    "heading_chirho": "Let the tools serve the work.",
+    "body_chirho": "Good software should help you notice what needs attention, make a wiser choice and take care of people. That is the direction of our business tools. The first step is simpler: a welcoming page that says what you do and makes it easy to reach you.",
+    "proof_chirho": "More activity is not always better work. We want the platform to make useful things clearer and needless chores smaller, without promising what your business will earn.",
+    "proof_source_chirho": "",
+    "path_chirho": [
+      {
+        "step_chirho": "Begin",
+        "title_chirho": "A place to welcome people",
+        "body_chirho": "Available by invitation today: your website, your services and a clear way for people to get in touch."
+      },
+      {
+        "step_chirho": "Connect",
+        "title_chirho": "The work behind the page",
+        "body_chirho": "Planned: bring customer information and the work you do for them into the same place, with useful connections to your existing tools."
+      },
+      {
+        "step_chirho": "Understand",
+        "title_chirho": "A clearer view of your business",
+        "body_chirho": "Planned: business intelligence and AI assistance to help you spot what matters and consider the next good step."
+      }
+    ]
+  },
+  "easy_chirho": {
+    "mark_chirho": "Easy · the first step",
+    "heading_chirho": "Begin with something useful.",
+    "body_chirho": "Today you can make a business website, one question at a time, with an example in every box. Preview your words, save them privately and publish when you are ready. It is a modest beginning, made with care, and not the limit of what we’re building.",
+    "steps_label_chirho": "The five questions",
+    "steps_chirho": [
+      "Your name",
+      "Your headline",
+      "A few words",
+      "Your services",
+      "How to reach you"
+    ],
+    "decide_label_chirho": "You decide",
+    "decide_chirho": [
+      {
+        "title_chirho": "What your page says",
+        "body_chirho": "Your words, your services and how to reach you, in your own voice."
+      },
+      {
+        "title_chirho": "When a change goes live",
+        "body_chirho": "Nothing reaches your visitors until you press Publish."
+      },
+      {
+        "title_chirho": "Which version stays",
+        "body_chirho": "Choose from the earlier versions offered in your publishing history."
+      }
+    ],
+    "handled_label_chirho": "Taken care of",
+    "handled_chirho": [
+      {
+        "title_chirho": "Said once, shown everywhere",
+        "body_chirho": "Type your business name once and it appears at the top of your page, in the footer and on the browser tab. Type your number once and it becomes a tap-to-call button."
+      },
+      {
+        "title_chirho": "Safety without the chores",
+        "body_chirho": "We handle hosting, HTTPS and upkeep. You do not need to install or maintain plugins for this page."
+      },
+      {
+        "title_chirho": "Right on every screen",
+        "body_chirho": "Every page lays itself out for phones, tablets and computers, and stays light so it opens quickly."
+      },
+      {
+        "title_chirho": "Being prepared: your AI assistant",
+        "body_chirho": "The page API is built and tested locally. Opening it to your own assistant still needs a key that enforces the limits you choose. That door is not open to customers yet."
+      }
+    ],
+    "question_image_chirho": "easy-question-chirho.jpg",
+    "question_alt_chirho": "The Perffection editor asking: What is your business called? The answer, Juniper Street Bakehouse, is typed in.",
+    "question_caption_chirho": "The real editor, one question at a time.",
+    "result_image_chirho": "easy-result-chirho.jpg",
+    "result_alt_chirho": "The finished page: Juniper Street Bakehouse, with the headline A better morning starts on Juniper Street and a Get in touch button.",
+    "result_caption_chirho": "The page your visitors see.",
+    "phone_image_chirho": "easy-phone-chirho.jpg",
+    "phone_alt_chirho": "The same bakery page on a phone."
+  },
+  "lab_chirho": {
+    "mark_chirho": "Examples",
+    "folio_chirho": "Examples",
+    "heading_chirho": "A beautiful beginning.",
+    "note_chirho": "Three invented businesses, nine completely different characters. Pick one and watch the whole page change: lettering, layout, colour and mood. These are design studies; today every page starts from one refined design.",
+    "trade_legend_chirho": "Pick a direction",
+    "trades_chirho": [
+      {
+        "key_chirho": "bakehouse-chirho",
+        "tab_label_chirho": "Bakehouse",
+        "tab_note_chirho": "Weekend preorders",
+        "url_chirho": "juniper-street.example",
+        "shop_name_chirho": "Juniper Street Bakehouse",
+        "shop_meta_chirho": "Wed–Sun · 7:00–2:00",
+        "eyebrow_chirho": "Saturday bread",
+        "headline_chirho": "A better morning starts on Juniper Street.",
+        "body_chirho": "Naturally leavened bread, laminated pastry, and a calm neighbourhood counter. Reserve the weekend bake before Friday noon.",
+        "cta_chirho": "Reserve Saturday bread",
+        "image_chirho": "bakehouse-chirho.jpg",
+        "image_alt_chirho": "Dark-crusted sourdough loaves resting on a worn timber counter in low morning light.",
+        "items_chirho": [
+          {
+            "name_chirho": "Country loaf",
+            "note_chirho": "Naturally leavened · 900 g",
+            "price_chirho": "$9"
+          },
+          {
+            "name_chirho": "Morning box",
+            "note_chirho": "Four rotating pastries",
+            "price_chirho": "$22"
+          },
+          {
+            "name_chirho": "Table bread",
+            "note_chirho": "Olive oil and sea salt",
+            "price_chirho": "$7"
+          }
+        ],
+        "foot_left_chirho": "Invented for this page",
+        "foot_right_chirho": "Fort Myers, Florida",
+        "designs_chirho": [
+          {
+            "key_chirho": "morning-broadsheet-chirho",
+            "name_chirho": "Morning Broadsheet",
+            "blurb_chirho": "Newsprint, ruled columns, leader dots"
+          },
+          {
+            "key_chirho": "marmalade-riso-chirho",
+            "name_chirho": "Marmalade Riso",
+            "blurb_chirho": "Two-ink overprint, halftone, poster type"
+          },
+          {
+            "key_chirho": "velvet-oven-chirho",
+            "name_chirho": "Velvet Oven",
+            "blurb_chirho": "Near-black, gold foil, whispered capitals"
+          }
+        ],
+        "preview_label_chirho": "Preview of an invented bakery website",
+        "preview_note_chirho": "This frame shows a website for a bakery that does not exist. Nothing inside the frame can be clicked.",
+        "edition_mark_chirho": "Saturday edition · no. 41"
+      },
+      {
+        "key_chirho": "kiln-chirho",
+        "tab_label_chirho": "Kiln",
+        "tab_note_chirho": "Studio and classes",
+        "url_chirho": "held-ceramics.example",
+        "shop_name_chirho": "Held Ceramics",
+        "shop_meta_chirho": "Thu–Sat · by appointment",
+        "eyebrow_chirho": "Winter firing",
+        "headline_chirho": "Bowls that get better the more you use them.",
+        "body_chirho": "Small-batch stoneware thrown and fired by two people in one room. Wheel classes on Thursday evenings, four seats at a time.",
+        "cta_chirho": "Take a seat on Thursday",
+        "image_chirho": "ceramics-chirho.jpg",
+        "image_alt_chirho": "Unglazed stoneware bowls drying on a raw timber shelf beside a potter's wheel in north light.",
+        "items_chirho": [
+          {
+            "name_chirho": "Everyday bowl",
+            "note_chirho": "Ash glaze · 16 oz",
+            "price_chirho": "$38"
+          },
+          {
+            "name_chirho": "Six-week wheel",
+            "note_chirho": "Thursday evenings",
+            "price_chirho": "$340"
+          },
+          {
+            "name_chirho": "Seconds shelf",
+            "note_chirho": "Sound, slightly wrong",
+            "price_chirho": "$12"
+          }
+        ],
+        "foot_left_chirho": "Invented for this page",
+        "foot_right_chirho": "Second floor, above the laundry",
+        "designs_chirho": [
+          {
+            "key_chirho": "gallery-salt-chirho",
+            "name_chirho": "Gallery Salt",
+            "blurb_chirho": "One object, wall label, enormous quiet"
+          },
+          {
+            "key_chirho": "kiln-brutal-chirho",
+            "name_chirho": "Kiln Brutal",
+            "blurb_chirho": "Raw concrete grid, heavy grotesk, hard rules"
+          },
+          {
+            "key_chirho": "glaze-drift-chirho",
+            "name_chirho": "Glaze Drift",
+            "blurb_chirho": "Soft gradients, round forms, slow calm"
+          }
+        ],
+        "preview_label_chirho": "Preview of an invented ceramics studio website",
+        "preview_note_chirho": "This frame shows a website for a ceramics studio that does not exist. Nothing inside the frame can be clicked.",
+        "edition_mark_chirho": "Stoneware · winter firing · 2026"
+      },
+      {
+        "key_chirho": "stems-chirho",
+        "tab_label_chirho": "Stems",
+        "tab_note_chirho": "Standing orders",
+        "url_chirho": "ash-and-stem.example",
+        "shop_name_chirho": "Ash & Stem",
+        "shop_meta_chirho": "Tue–Sat · 9:00–5:00",
+        "eyebrow_chirho": "This week's bucket",
+        "headline_chirho": "Flowers that look like the month they were cut in.",
+        "body_chirho": "Seasonal stems, dried work, and a standing Friday delivery for eight restaurants and one very patient dentist.",
+        "cta_chirho": "Start a Friday standing order",
+        "image_chirho": "florist-chirho.jpg",
+        "image_alt_chirho": "Galvanised buckets of dried grasses and muted seasonal stems along a dark plaster wall.",
+        "items_chirho": [
+          {
+            "name_chirho": "Market bunch",
+            "note_chirho": "Whatever is best that day",
+            "price_chirho": "$28"
+          },
+          {
+            "name_chirho": "Dried arrangement",
+            "note_chirho": "Lasts the whole winter",
+            "price_chirho": "$65"
+          },
+          {
+            "name_chirho": "Standing Friday",
+            "note_chirho": "Weekly, same vase",
+            "price_chirho": "$45"
+          }
+        ],
+        "foot_left_chirho": "Invented for this page",
+        "foot_right_chirho": "Corner of Third and Vine",
+        "designs_chirho": [
+          {
+            "key_chirho": "botanical-plate-chirho",
+            "name_chirho": "Botanical Plate",
+            "blurb_chirho": "Arched plate, didone, engraved frame"
+          },
+          {
+            "key_chirho": "neon-meadow-chirho",
+            "name_chirho": "Neon Meadow",
+            "blurb_chirho": "Night market, electric colour, high contrast"
+          },
+          {
+            "key_chirho": "paper-petal-chirho",
+            "name_chirho": "Paper Petal",
+            "blurb_chirho": "Cut paper, pastel layers, soft shadow"
+          }
+        ],
+        "preview_label_chirho": "Preview of an invented florist website",
+        "preview_note_chirho": "This frame shows a website for a florist that does not exist. Nothing inside the frame can be clicked.",
+        "edition_mark_chirho": "Plate vii"
+      }
+    ],
+    "aside_chirho": "The shops and prices are invented. These design studies are real; the current private editor uses one page template.",
+    "stage_note_chirho": "One click · nothing sent · nothing stored",
+    "gallery_work_label_chirho": "Work"
+  },
+  "questions_chirho": {
+    "mark_chirho": "Questions",
+    "heading_chirho": "Fair questions, plain answers.",
+    "items_chirho": [
+      {
+        "question_chirho": "Is Perffection only for websites?",
+        "answer_chirho": "No. The website is our first available release. Our destination is a business platform: customer records, operations, business intelligence and AI-built tools, on Cairn’s accountable foundation. Those wider tools are not open to customers yet."
+      },
+      {
+        "question_chirho": "Do I need to be good with computers?",
+        "answer_chirho": "No. If you can fill in a form, you can make your page. Every box has an example, and you can take it one question at a time."
+      },
+      {
+        "question_chirho": "What if I make a mistake?",
+        "answer_chirho": "A saved draft stays private until you publish it. Earlier published content can be restored from the versions offered in your history. Restoring content does not erase something a visitor has already seen."
+      },
+      {
+        "question_chirho": "Can my AI assistant help?",
+        "answer_chirho": "That is being prepared. We have tested the page API locally, but customer keys are not available yet. Each assistant needs a key whose limits are actually enforced before we can offer that access."
+      },
+      {
+        "question_chirho": "Is it really secure?",
+        "answer_chirho": "Published pages use HTTPS, tell browsers to refuse scripts and have no plugins for you to patch. Cairn also supplies the controlled execution and signed publishing records underneath. None of that makes a service unbreakable; looking after it remains our responsibility."
+      },
+      {
+        "question_chirho": "Who owns my words?",
+        "answer_chirho": "You do. You can download a copy of your page's words and details whenever you like."
+      },
+      {
+        "question_chirho": "What does it cost?",
+        "answer_chirho": "Our direction is free building and hosting, with funded AI use kept separate. Production prices and purchase arrangements are not open yet; we will explain any charge before asking you to agree to it."
+      },
+      {
+        "question_chirho": "When can I start?",
+        "answer_chirho": "Perffection is opening to small businesses by invitation, a few at a time. If you have an invitation, sign in and start with your name."
+      }
+    ]
+  },
+  "closing_chirho": {
+    "mark_chirho": "A place to begin",
+    "heading_chirho": "Tell us about the work you do.",
+    "body_chirho": "We’re opening the first website release by invitation and building the wider platform with care. Tell us about your business and what would genuinely help. If you already have an invitation, welcome: sign in and begin.",
+    "signin_label_chirho": "Sign in",
+    "invitation_label_chirho": "Ask for an invitation",
+    "invitation_note_chirho": "“Let all your things be done with charity.” 1 Corinthians 16:14",
+    "because_chirho": "We follow Jesus Christ. We want this work to be useful, truthful and done with love. Technology should help you serve people, not make you a servant to it. With God’s help, that is the work we hope to do.",
+    "verse_chirho": "Establish thou the work of our hands upon us; yea, the work of our hands establish thou.",
+    "verse_source_chirho": "Psalm 90:17"
+  }
+}

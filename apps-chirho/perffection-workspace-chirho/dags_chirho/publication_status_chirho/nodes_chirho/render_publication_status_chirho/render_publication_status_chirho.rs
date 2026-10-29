@@ -1,0 +1,1 @@
+../../../../src/implementations_chirho/publication_nodes_chirho/render_publication_status_chirho.rs

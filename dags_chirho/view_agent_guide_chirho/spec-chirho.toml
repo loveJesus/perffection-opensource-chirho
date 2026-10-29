@@ -1,0 +1,9 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+schema_chirho = "dag-spec-v0-chirho"
+intent_chirho = "Render the generic shared answer contract for a customer's own agent."
+surface_chirho = { ins_chirho = ["request: http_request_v1"], outs_chirho = ["page: html_partial_v1"] }
+structure_chirho = ["One pure compiled-template render, no customer state or effect."]
+behaviors_chirho = [
+  "Bodyless public requests all receive the same generic guide.",
+  "The instruction comes from the same contract used for draft answers, not the strict export schema.",
+]

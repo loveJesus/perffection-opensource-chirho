@@ -1,0 +1,848 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+//
+// FIRST LIGHT components. Ground-aware where it matters: night bands get light glass and
+// starlight ink, morning and day bands get frosted paper and night ink.
+
+// ---- actions --------------------------------------------------------------------------------------
+// Square-shouldered, like a lettered shop sign. A rounded pill with an arrow was one of the template
+// habits L.J. read as AI (2026-10-01).
+.actions-chirho {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-block-start: 2.2rem;
+}
+
+.action-primary-chirho,
+.action-ghost-chirho {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  min-block-size: 3.25rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 3px;
+  font-family: var(--face-sans-chirho);
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: transform 220ms var(--ease-quint-chirho), box-shadow 320ms var(--ease-quint-chirho), background-color 220ms linear;
+}
+
+// Sunlight in a button: a gold body with a travelling sheen, and night ink on it. The ink is named
+// here and nowhere inherited; the label once took the night's starlight from a link default.
+.action-primary-chirho {
+  color: #1f1405;
+  background:
+    linear-gradient(110deg, transparent 0% calc(var(--sheen-chirho) - 18%), rgba(255, 255, 255, 0.55) var(--sheen-chirho), transparent calc(var(--sheen-chirho) + 18%) 100%),
+    linear-gradient(180deg, #ffe3a6 0%, var(--window-gold-chirho) 55%, #e9a94a 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 0 0 1px rgba(120, 72, 10, 0.3), 0 10px 30px -12px rgba(246, 197, 107, 0.75);
+}
+
+.action-primary-chirho::after {
+  content: "\2192";
+  font-weight: 500;
+  transition: transform 220ms var(--ease-quint-chirho);
+}
+
+.action-primary-chirho:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 0 0 1px rgba(120, 72, 10, 0.34), 0 18px 40px -14px rgba(246, 197, 107, 0.9);
+}
+
+.action-primary-chirho:hover::after {
+  transform: translateX(3px);
+}
+
+.action-ghost-chirho {
+  color: var(--starlight-chirho);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px rgba(238, 240, 255, 0.5);
+}
+
+.action-ghost-chirho:hover {
+  background: rgba(238, 240, 255, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(238, 240, 255, 0.8);
+  transform: translateY(-2px);
+}
+
+// On a light ground the plain button takes night ink and a night rule. The closing band is one (its sign-in sits
+// beside the invitation ask).
+:is(.band-morning-chirho, .band-day-chirho, .inner-hero-morning-chirho, .closing-chirho) .action-ghost-chirho {
+  color: var(--ink-night-chirho);
+  box-shadow: inset 0 0 0 1px rgba(18, 21, 46, 0.5);
+}
+
+:is(.band-morning-chirho, .band-day-chirho, .inner-hero-morning-chirho, .closing-chirho) .action-ghost-chirho:hover {
+  background: rgba(18, 21, 46, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(18, 21, 46, 0.8);
+}
+
+// ---- hero copy --------------------------------------------------------------------------------------
+// The column grows with very wide screens so the capped headline keeps its three lines (at 2560 px a
+// fixed 42rem column broke it into four, pass 3).
+.hero-copy-chirho {
+  max-inline-size: min(clamp(42rem, 40vw, 64rem), 100%);
+  margin-inline-start: max(var(--gutter-chirho), calc((100% - var(--page-max-chirho)) / 2));
+  margin-inline-end: auto;
+  inline-size: auto;
+}
+
+.hero-copy-chirho .eyebrow-chirho {
+  color: var(--window-gold-chirho);
+}
+
+.hero-heading-chirho {
+  margin-block-start: 1.4rem;
+  font-family: var(--face-serif-chirho);
+  font-weight: 400;
+  font-size: var(--size-hero-chirho);
+  line-height: 0.96;
+  letter-spacing: -0.006em;
+}
+
+.hero-line-chirho {
+  display: block;
+}
+
+// The last line is the promise, set in italic and lit like a window at dawn.
+.hero-line-chirho:last-child {
+  font-style: italic;
+  padding-inline-end: 0.08em;
+  background: linear-gradient(100deg, #fff6df 0%, var(--sun-gold-chirho) 40%, var(--window-gold-chirho) 65%, #ffb36b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero-lead-chirho {
+  margin-block-start: 1.6rem;
+  max-inline-size: 34rem;
+  font-size: var(--size-lead-chirho);
+  line-height: 1.55;
+  color: #d6daf6;
+  text-wrap: pretty;
+}
+
+.pillars-chirho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.8rem;
+  margin-block-start: 2.4rem;
+  padding-block-start: 1.4rem;
+  border-block-start: 1px solid var(--line-night-chirho);
+}
+
+.pillar-chirho {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--face-serif-chirho);
+  font-size: 1.65rem;
+  line-height: 1.2;
+  text-decoration: none;
+  color: var(--starlight-chirho);
+}
+
+// A small lit dot between the three words, never before the first.
+.pillar-chirho + .pillar-chirho::before {
+  content: "";
+  inline-size: 0.3rem;
+  block-size: 0.3rem;
+  border-radius: 50%;
+  background: var(--window-gold-chirho);
+}
+
+.pillar-chirho:hover {
+  color: var(--sun-gold-chirho);
+}
+
+.hero-note-chirho {
+  margin-block-start: 1.5rem;
+  font-size: var(--size-small-chirho);
+  color: var(--starlight-mute-chirho);
+}
+
+.hero-note-chirho a {
+  color: var(--starlight-chirho);
+  text-underline-offset: 0.22em;
+  text-decoration-color: rgba(246, 197, 107, 0.6);
+}
+
+// ---- Secure: the five reasons, as a ruled ledger --------------------------------------------------
+// Hairlines and the display face, no boxes and no glowing bullets: bordered cards with a gem in each
+// read as a template (L.J., 2026-10-01, "the border radius emoji text thing").
+.secure-chirho .eyebrow-chirho {
+  color: var(--moon-chirho);
+}
+
+.facets-chirho {
+  margin-block-start: 2.6rem;
+  border-block-start: 1px solid var(--line-night-chirho);
+}
+
+.facet-chirho {
+  padding-block: 1.1rem 1.25rem;
+  border-block-end: 1px solid var(--line-night-chirho);
+}
+
+.facet-title-chirho {
+  font-family: var(--face-serif-chirho);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 0.9vw + 1.1rem, 1.75rem);
+  line-height: 1.15;
+}
+
+.facet-body-chirho {
+  margin-block-start: 0.35rem;
+  color: var(--starlight-mute-chirho);
+  line-height: 1.55;
+}
+
+// ---- Abundant: the path of light -------------------------------------------------------------------
+.abundant-chirho .eyebrow-chirho {
+  color: #ffd0a8;
+}
+
+.abundant-chirho .band-body-chirho {
+  color: #f6e8f2;
+}
+
+.path-chirho {
+  position: relative;
+  margin-block-start: clamp(3rem, 8vh, 5.5rem);
+}
+
+// The line of light: viewBox 1200 x 160 stretched to the band's width and 8rem high, so x is a
+// fraction of the width and y = 80 sits exactly 4rem down. It passes through (200, 80), (600, 80)
+// and (1000, 80): the centres of three equal columns, where the nodes sit.
+.path-line-chirho {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 0;
+  inline-size: 100%;
+  block-size: 8rem;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.path-nodes-chirho {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 4rem;
+  pointer-events: none;
+}
+
+.path-nodes-chirho .path-node-chirho:nth-child(1) { inset-inline-start: 16.667%; }
+.path-nodes-chirho .path-node-chirho:nth-child(2) { inset-inline-start: 50%; }
+.path-nodes-chirho .path-node-chirho:nth-child(3) { inset-inline-start: 83.333%; }
+
+.path-glow-chirho,
+.path-stroke-chirho {
+  fill: none;
+  stroke-linecap: round;
+}
+
+// Glow from width and opacity, never a blur filter: shipping Safari 26 has a regression (WebKit
+// 316769) where CSS blur can push paint past ten seconds on iOS.
+.path-glow-chirho {
+  stroke: rgba(255, 217, 138, 0.22);
+  stroke-width: 12;
+}
+
+.path-stroke-chirho {
+  stroke: #fff3cf;
+  stroke-width: 2.4;
+}
+
+.path-steps-chirho {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.4vw, 2rem);
+  padding-block-start: 7.5rem;
+}
+
+// A wash of morning light behind the three stops, feathered so it has no edge. On a phone the stops
+// stack down through the dawn's mid-rose, where neither light nor dark ink reads (2.3:1, pass 2);
+// wide, they sit on apricot and need only a breath of it.
+.path-steps-chirho::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 4.5rem -3rem -3rem;
+  background: rgba(255, 244, 233, 0.32);
+  mask-image: linear-gradient(90deg, transparent 0, #000 3rem, #000 calc(100% - 3rem), transparent 100%), linear-gradient(180deg, transparent 0, #000 3rem, #000 calc(100% - 3rem), transparent 100%);
+  mask-composite: intersect;
+  pointer-events: none;
+}
+
+@media (max-width: 1000px) {
+  .path-steps-chirho::before {
+    background: rgba(255, 244, 233, 0.72);
+  }
+}
+
+// No cards: the three stops stand on the dawn itself, under a hairline, like captions to the line of
+// light above them.
+.path-step-chirho {
+  position: relative;
+  padding-block-start: 1.1rem;
+  border-block-start: 1px solid rgba(18, 21, 46, 0.28);
+  color: var(--ink-night-chirho);
+}
+
+.path-node-chirho {
+  position: absolute;
+  inset-block-start: 0;
+  translate: -50% -50%;
+  inline-size: 1.1rem;
+  block-size: 1.1rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fffbe8 0%, var(--sun-gold-chirho) 45%, rgba(255, 217, 138, 0) 72%);
+  box-shadow: 0 0 22px 6px rgba(255, 217, 138, 0.55);
+}
+
+.path-word-chirho {
+  font-family: var(--face-serif-chirho);
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  color: var(--wine-ink-chirho);
+}
+
+.path-title-chirho {
+  margin-block-start: 0.4rem;
+  font-family: var(--face-serif-chirho);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 2.4vw, 2.2rem);
+  line-height: 1.05;
+}
+
+.path-body-chirho {
+  margin-block-start: 0.7rem;
+  color: var(--ink-soft-chirho);
+  line-height: 1.55;
+}
+
+// The sun, rising behind the dawn band.
+// Capped: at 2560 px a 60vmax sun climbed behind the band's own words (3.1:1, pass 3).
+.dawn-sun-chirho {
+  position: absolute;
+  z-index: -1;
+  inset-inline-start: 50%;
+  inset-block-end: max(-18vmax, -270px);
+  inline-size: min(60vmax, 920px);
+  aspect-ratio: 1;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff6d8 0%, #ffd98a 14%, rgba(255, 170, 110, 0.55) 34%, rgba(255, 120, 120, 0.18) 55%, rgba(255, 120, 120, 0) 70%);
+  pointer-events: none;
+  // The band clips at its bottom edge; the glow fades out before it gets there, so the morning
+  // band below begins on the same honey without a seam.
+  mask-image: linear-gradient(180deg, #000 0%, #000 34%, transparent 58%);
+}
+
+// ---- Easy: steps and devices -------------------------------------------------------------------------
+.easy-chirho .eyebrow-chirho {
+  color: var(--rose-ink-chirho);
+}
+
+.easy-chirho .band-body-chirho {
+  color: var(--ink-soft-chirho);
+}
+
+.easy-grid-chirho {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
+}
+
+// The five questions as one line of type with italic numerals, not five pills with numbered discs.
+.steps-chirho {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-block-start: 2rem;
+  padding-block-start: 1.2rem;
+  border-block-start: 1px solid var(--line-day-chirho);
+  counter-reset: step-chirho;
+}
+
+.step-chirho {
+  counter-increment: step-chirho;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  font-family: var(--face-serif-chirho);
+  font-size: 1.4rem;
+  line-height: 1.25;
+  color: var(--ink-night-chirho);
+}
+
+// Numbers in the text face: Fell's old-style figures turn ambiguous small (its italic 4 reads as "+").
+.step-chirho::before {
+  content: counter(step-chirho);
+  font-family: var(--face-sans-chirho);
+  font-size: 0.72em;
+  font-weight: 600;
+  color: var(--rose-ink-chirho);
+}
+
+.easy-stage-chirho {
+  position: relative;
+  min-block-size: clamp(26rem, 48vw, 38rem);
+  perspective: 1400px;
+}
+
+.device-chirho {
+  position: absolute;
+  border-radius: 16px;
+  overflow: clip;
+  background: #fffdf8;
+  box-shadow: var(--float-day-chirho), 0 0 0 1px rgba(18, 21, 46, 0.08);
+}
+
+.device-chirho img {
+  inline-size: 100%;
+}
+
+// A caption under the picture, inside its frame, the way a book captions a plate.
+.device-chirho figcaption {
+  padding: 0.5rem 0.9rem 0.6rem;
+  border-block-start: 1px solid rgba(18, 21, 46, 0.1);
+  background: #fffdf8;
+  color: var(--ink-soft-chirho);
+  font-family: var(--face-serif-chirho);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.device-result-chirho {
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inline-size: 86%;
+}
+
+// The page's own caption sits in its browser bar, like a tab's title: at the bottom of the frame it was
+// covered by the editor and the phone (pass 1, 2026-10-01).
+.device-result-chirho figcaption {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  block-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.9rem;
+  border: 0;
+  background: none;
+  font-size: 0.98rem;
+}
+
+.device-bar-chirho {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.6rem 0.8rem;
+  background: #f1ebe0;
+  border-block-end: 1px solid rgba(18, 21, 46, 0.08);
+}
+
+.device-bar-chirho span {
+  inline-size: 0.6rem;
+  block-size: 0.6rem;
+  border-radius: 50%;
+  background: rgba(18, 21, 46, 0.18);
+}
+
+.device-question-chirho {
+  inset-block-end: 6%;
+  inset-inline-start: 0;
+  inline-size: 64%;
+  z-index: 2;
+}
+
+.phone-chirho {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-end: 3%;
+  inline-size: 22%;
+  z-index: 3;
+  padding: 0.45rem;
+  border-radius: 1.8rem;
+  background: #12152e;
+  box-shadow: var(--float-day-chirho);
+}
+
+.phone-chirho img {
+  inline-size: 100%;
+  border-radius: 1.4rem;
+}
+
+// ---- questions --------------------------------------------------------------------------------------
+.questions-chirho .eyebrow-chirho {
+  color: var(--rose-ink-chirho);
+}
+
+.questions-grid-chirho {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.question-list-chirho {
+  border-block-start: 1px solid var(--line-day-chirho);
+}
+
+.question-chirho {
+  border-block-end: 1px solid var(--line-day-chirho);
+}
+
+.question-summary-chirho {
+  position: relative;
+  display: block;
+  padding: 1.35rem 3rem 1.35rem 0;
+  font-family: var(--face-serif-chirho);
+  font-size: clamp(1.35rem, 1.9vw, 1.75rem);
+  line-height: 1.2;
+  cursor: pointer;
+  list-style: none;
+}
+
+.question-summary-chirho::-webkit-details-marker {
+  display: none;
+}
+
+// A plus that turns into a minus: two bars, one of which folds away.
+.question-summary-chirho::before,
+.question-summary-chirho::after {
+  content: "";
+  position: absolute;
+  inset-inline-end: 0.4rem;
+  inset-block-start: 50%;
+  inline-size: 1.05rem;
+  block-size: 2px;
+  border-radius: 2px;
+  background: var(--rose-mark-chirho);
+  transition: transform 260ms var(--ease-quint-chirho);
+}
+
+.question-summary-chirho::after {
+  transform: rotate(90deg);
+}
+
+.question-chirho[open] .question-summary-chirho::after {
+  transform: rotate(0deg);
+}
+
+.question-answer-chirho {
+  padding: 0 3rem 1.5rem 0;
+  max-inline-size: 40rem;
+  color: var(--ink-soft-chirho);
+  line-height: 1.6;
+}
+
+// ---- closing ----------------------------------------------------------------------------------------
+.closing-chirho {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  min-block-size: 100svh;
+  display: grid;
+  align-items: start;
+  padding-block: clamp(6rem, 14vh, 9rem);
+  background: #f7d9b0;
+  color: var(--ink-night-chirho);
+}
+
+// The morning town takes the right of the band and melts into the morning on its left, so the
+// words sit on a clean ground instead of over brickwork.
+.closing-chirho {
+  background: linear-gradient(180deg, var(--day-chirho) 0%, #fdeedd 100%);
+}
+
+.closing-town-chirho {
+  position: absolute;
+  inset: 0 0 0 34%;
+  z-index: -1;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 34%), linear-gradient(180deg, transparent 0%, #000 20%, #000 80%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.closing-town-chirho img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: 62% 70%;
+}
+
+// Below 1000 px the picture comes first and the words follow on clean ground: at 768 px the side-by-side
+// layout put the closing paragraph over brickwork (1.1:1, pass 3).
+@media (max-width: 1000px) {
+  .closing-chirho {
+    padding-block-start: calc(min(88vw, 660px) + 1rem);
+  }
+
+  .closing-town-chirho {
+    inset: 0 0 auto;
+    block-size: min(88vw, 660px);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 16%, #000 62%, transparent 96%);
+  }
+}
+
+.closing-copy-chirho {
+  max-inline-size: 40rem;
+  margin-inline-start: max(var(--gutter-chirho), calc((100% - var(--page-max-chirho)) / 2));
+  margin-inline-end: auto;
+  inline-size: auto;
+}
+
+.closing-chirho .eyebrow-chirho {
+  color: var(--rose-ink-chirho);
+}
+
+.closing-heading-chirho {
+  margin-block-start: 1.1rem;
+  font-family: var(--face-serif-chirho);
+  font-weight: 400;
+  font-size: var(--size-closing-chirho);
+  line-height: 0.94;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.closing-body-chirho {
+  max-inline-size: 33rem;
+  margin-block-start: 1.4rem;
+  font-size: var(--size-lead-chirho);
+  color: var(--ink-soft-chirho);
+  text-wrap: pretty;
+}
+
+// The line of Scripture under the ask: quiet, and close to the button it belongs to.
+.closing-ask-note-chirho {
+  margin-block-start: 0.9rem;
+  max-inline-size: 30rem;
+  color: var(--ink-soft-chirho);
+  font-size: var(--size-small-chirho);
+  font-style: italic;
+}
+
+.closing-because-chirho {
+  margin-block-start: 2.6rem;
+  max-inline-size: 30rem;
+  color: var(--ink-soft-chirho);
+  font-size: var(--size-small-chirho);
+}
+
+.verse-chirho {
+  margin-block-start: 1.4rem;
+  max-inline-size: 30rem;
+  padding-inline-start: 1rem;
+  border-inline-start: 2px solid rgba(180, 70, 95, 0.5);
+}
+
+.verse-chirho p {
+  font-family: var(--face-serif-chirho);
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.35;
+}
+
+.verse-chirho cite {
+  display: block;
+  margin-block-start: 0.4rem;
+  font-style: normal;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink-mute-day-chirho);
+}
+
+// ---- the three pillars, written large behind their bands -------------------------------------------
+// Decorative duplicates of each band's label (aria-hidden), an outline of light more felt than read.
+.band-word-chirho {
+  position: absolute;
+  z-index: -1;
+  inset-block-start: clamp(0.5rem, 3vh, 2.5rem);
+  inset-inline-start: -1.5vw;
+  margin: 0;
+  font-family: var(--face-serif-chirho);
+  font-style: italic;
+  font-size: clamp(7rem, 23vw, 25rem);
+  line-height: 0.8;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(238, 240, 255, 0.11);
+  background: linear-gradient(180deg, rgba(238, 240, 255, 0.07), rgba(238, 240, 255, 0) 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+// The words are wider than the page on purpose; their bands clip them. `clip`, not `hidden`: clip
+// makes no scroll container, so the sticky crystal in the Secure band still sticks.
+.secure-chirho,
+.easy-chirho {
+  overflow-x: clip;
+}
+
+.secure-chirho .band-word-chirho {
+  inset-inline-start: auto;
+  inset-inline-end: -2vw;
+}
+
+.abundant-chirho .band-word-chirho {
+  -webkit-text-stroke-color: rgba(255, 224, 205, 0.16);
+  background-image: linear-gradient(180deg, rgba(255, 224, 205, 0.1), rgba(255, 224, 205, 0) 80%);
+}
+
+.easy-chirho .band-word-chirho {
+  inset-inline-start: auto;
+  inset-inline-end: -2vw;
+  -webkit-text-stroke-color: rgba(180, 70, 95, 0.12);
+  background-image: linear-gradient(180deg, rgba(180, 70, 95, 0.06), rgba(180, 70, 95, 0) 80%);
+}
+
+// ---- the proof under Abundant ---------------------------------------------------------------------------
+// The one piece of outside evidence on the page, set a size up and in the text face: its numbers must
+// read at a glance, and the display italic's old-style figures made "0.1" look like "o.1". It sits where
+// the dawn turns rose (4.3:1 bare at 1440 px, pass 3), so a feathered pool of dusk with no edge evens the
+// ground under every line; the glass box with a rounded border that did this before read as a template.
+.proof-chirho {
+  position: relative;
+  isolation: isolate;
+  margin-block-start: 2.2rem;
+  max-inline-size: 38rem;
+  padding-block-start: 1.1rem;
+  border-block-start: 1px solid rgba(255, 217, 138, 0.65);
+  color: #fff8fb;
+  font-size: clamp(1.12rem, 0.3vw + 1.04rem, 1.3rem);
+  font-weight: 500;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.proof-chirho::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -3rem -3.5rem;
+  background: rgba(43, 22, 70, 0.5);
+  mask-image: linear-gradient(90deg, transparent 0, #000 3.5rem, #000 calc(100% - 3.5rem), transparent 100%), linear-gradient(180deg, transparent 0, #000 3rem, #000 calc(100% - 3rem), transparent 100%);
+  mask-composite: intersect;
+  pointer-events: none;
+}
+
+.proof-source-chirho {
+  display: block;
+  margin-block-start: 0.7rem;
+  font-family: var(--face-serif-chirho);
+  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #ffe2c6;
+}
+
+// ---- comets on the path: one bright dash each, carried along by its dash offset ---------------------------
+.path-comet-chirho {
+  fill: none;
+  stroke: #fffaf0;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 0.018 0.982;
+  stroke-dashoffset: 1;
+  opacity: 0.9;
+}
+
+// ---- the sun's slow rays -----------------------------------------------------------------------------------
+.dawn-sun-chirho::before {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  border-radius: 50%;
+  background: repeating-conic-gradient(from 0deg, rgba(255, 240, 210, 0.1) 0deg 3deg, rgba(255, 240, 210, 0) 3deg 15deg);
+  mask-image: radial-gradient(circle, #000 12%, transparent 60%);
+}
+
+// ---- a shooting star, now and then, over the sleeping town -------------------------------------------------
+.hero-star-chirho {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: clip;
+  pointer-events: none;
+}
+
+.hero-star-chirho::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 13%;
+  inset-inline-start: 74%;
+  inline-size: 170px;
+  block-size: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0.55) 18%, rgba(255, 255, 255, 0) 100%);
+  transform: rotate(-24deg);
+  opacity: 0;
+}
+
+// ---- Easy: what you decide, and what is taken care of ------------------------------------------------
+// L.J.'s principle (2026-10-01) in two ruled columns: the owner keeps control; connected automation
+// takes care of the details. The last handled line is coming, not here, and its title says so.
+.ledger-chirho {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 5vw, 5rem);
+  margin-block-start: clamp(4rem, 9vh, 6.5rem);
+  color: var(--ink-night-chirho);
+}
+
+.ledger-label-chirho {
+  padding-block-end: 0.8rem;
+  border-block-end: 2px solid currentColor;
+  font-family: var(--face-serif-chirho);
+  font-weight: 400;
+  font-size: clamp(2rem, 2.2vw + 1rem, 2.8rem);
+  line-height: 1.05;
+}
+
+.ledger-handled-chirho .ledger-label-chirho {
+  font-style: italic;
+}
+
+.ledger-item-chirho {
+  padding-block: 1rem 1.15rem;
+  border-block-end: 1px solid var(--line-day-chirho);
+}
+
+.ledger-title-chirho {
+  font-family: var(--face-serif-chirho);
+  font-weight: 400;
+  font-size: clamp(1.35rem, 0.6vw + 1.15rem, 1.6rem);
+  line-height: 1.2;
+}
+
+.ledger-body-chirho {
+  margin-block-start: 0.3rem;
+  color: var(--ink-soft-chirho);
+  line-height: 1.55;
+}
+
+.ledger-handled-chirho .ledger-item-chirho:last-child .ledger-title-chirho {
+  color: var(--rose-ink-chirho);
+}
+
+@media (max-width: 760px) {
+  .ledger-chirho {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

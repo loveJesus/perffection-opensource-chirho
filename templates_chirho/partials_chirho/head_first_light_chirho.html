@@ -1,0 +1,18 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+{# Document head for pages on the FIRST LIGHT system. Reads only `model_chirho.chrome_chirho`. No
+   script tags, ever. The display roman, its italic and the text face are preloaded because the
+   night band's headline is the first thing anyone sees, and its last line is set in the italic;
+   `crossorigin` is required even same-origin, since fonts are always fetched in CORS mode. -#}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0b1033">
+  <meta name="description" content="{{ model_chirho.chrome_chirho.page_description_chirho }}">
+  <title>{{ model_chirho.chrome_chirho.page_title_chirho }}</title>
+  <link rel="icon" type="image/png" sizes="64x64" href="/app-assets-chirho/perffection/by-name-chirho/seal-chirho.png">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/app-assets-chirho/perffection/by-name-chirho/fell-canon-chirho.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/app-assets-chirho/perffection/by-name-chirho/fell-canon-italic-chirho.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/app-assets-chirho/perffection/by-name-chirho/cabin-text-chirho.woff2">
+  <link rel="stylesheet" href="/app-assets-chirho/perffection/by-name-chirho/{{ model_chirho.chrome_chirho.stylesheet_name_chirho }}">
+</head>

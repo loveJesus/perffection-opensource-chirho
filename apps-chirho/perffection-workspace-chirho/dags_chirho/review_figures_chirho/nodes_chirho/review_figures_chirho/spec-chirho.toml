@@ -1,0 +1,8 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Read the bounded figures form and render the review or a safe refusal."
+behaviors_chirho = [
+  "unknown or duplicate fields make the form unreadable",
+  "her text never runs as HTML",
+  "no effect request is emitted",
+]

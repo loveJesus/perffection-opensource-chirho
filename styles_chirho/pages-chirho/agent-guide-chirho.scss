@@ -1,0 +1,27 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+// The same readable guide shell as Help; technical text stays selectable and wraps on small screens.
+// The prepare supplies Help's source explicitly before this extension (Cairn's bounded style ABI).
+
+.agent-instruction-chirho {
+  min-inline-size: 0;
+  padding: clamp(0.85rem, 2vw, 1.5rem);
+  border: 1px solid var(--line-day-chirho);
+  background: #fffdf8;
+  font-family: var(--face-mono-chirho, monospace);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  user-select: text;
+}
+
+.agent-limits-chirho {
+  inline-size: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  th, td { padding: 0.7rem 0.4rem; text-align: start; vertical-align: top; border-block-end: 1px solid var(--line-day-chirho); overflow-wrap: anywhere; }
+  th { font-weight: 650; }
+  thead { background: #fffdf8; }
+  code { unicode-bidi: isolate; font-size: 0.85rem; }
+}

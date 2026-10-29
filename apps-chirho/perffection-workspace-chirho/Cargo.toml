@@ -1,0 +1,259 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV)
+
+[package]
+name = "perffection-workspace-chirho"
+version.workspace = true
+edition.workspace = true
+description = "Typed private-workspace product layer and Cairn guest nodes for the Perffection invite beta."
+license.workspace = true
+
+[dependencies]
+askama.workspace = true
+base64.workspace = true
+blake3.workspace = true
+cairn-node-sdk-chirho.workspace = true
+perffection-page-template-chirho.workspace = true
+perffection-ui-chirho.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+# The credit view port and the pack catalog, for the held Credits page (credits_flow_chirho).
+perffection-credits-chirho = { path = "../../crates-chirho/perffection-credits-chirho" }
+
+# The tests' deterministic credit-view fixture. Under resolver 2 a dev-dependency's feature stays out of the default
+# normal and guest builds; served wiring uses UnconnectedCreditViewChirho until Cairn's ledger port exists.
+[dev-dependencies]
+perffection-credits-chirho = { path = "../../crates-chirho/perffection-credits-chirho", features = ["test-stub-chirho"] }
+
+# The native fuel probe's runner: conditioned on the host target, so the wasm32 guest builds the
+# prepare runs never see wasmtime (its errno crate cannot compile for wasm32). Never served.
+[target.'cfg(not(target_arch = "wasm32"))'.dev-dependencies]
+cairn-wasmtime-runner-chirho.workspace = true
+
+[[example]]
+name = "draft_review_fuel_probe_native_chirho"
+path = "examples/first_draft_guests_chirho/draft_review_fuel_probe_native_chirho.rs"
+
+[[example]]
+name = "render_page_document_import_guest_chirho"
+path = "examples/page_document_guests_chirho/render_page_document_import_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "review_page_document_guest_chirho"
+path = "examples/page_document_guests_chirho/review_page_document_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_account_guest_chirho"
+path = "examples/account_guests_chirho/render_account_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "build_own_keys_read_guest_chirho"
+path = "examples/account_guests_chirho/build_own_keys_read_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_account_keys_guest_chirho"
+path = "examples/account_guests_chirho/render_account_keys_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_account_connect_guest_chirho"
+path = "examples/account_guests_chirho/render_account_connect_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "build_draft_request_guest_chirho"
+path = "examples/first_draft_guests_chirho/build_draft_request_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_draft_brief_guest_chirho"
+path = "examples/first_draft_guests_chirho/render_draft_brief_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_draft_brief_rejection_guest_chirho"
+path = "examples/first_draft_guests_chirho/render_draft_brief_rejection_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_draft_review_guest_chirho"
+path = "examples/first_draft_guests_chirho/render_draft_review_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "build_page_read_guest_chirho"
+path = "examples/page_document_guests_chirho/build_page_read_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "build_agent_page_write_guest_chirho"
+path = "examples/agent_api_guests_chirho/build_agent_page_write_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_agent_page_guest_chirho"
+path = "examples/agent_api_guests_chirho/render_agent_page_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_agent_save_outcome_guest_chirho"
+path = "examples/agent_api_guests_chirho/render_agent_save_outcome_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_agent_save_refusal_guest_chirho"
+path = "examples/agent_api_guests_chirho/render_agent_save_refusal_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "build_page_write_guest_chirho"
+path = "examples/page_document_guests_chirho/build_page_write_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "build_page_restore_guest_chirho"
+path = "examples/page_document_guests_chirho/build_page_restore_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_workspace_state_guest_chirho"
+path = "examples/page_document_guests_chirho/render_workspace_state_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_private_preview_guest_chirho"
+path = "examples/page_document_guests_chirho/render_private_preview_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_page_rejection_guest_chirho"
+path = "examples/page_document_guests_chirho/render_page_rejection_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_page_document_export_guest_chirho"
+path = "examples/page_document_guests_chirho/render_page_document_export_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "build_publication_status_read_guest_chirho"
+path = "examples/publication_guests_chirho/build_publication_status_read_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_publication_status_guest_chirho"
+path = "examples/publication_guests_chirho/render_publication_status_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "build_publication_intent_guest_chirho"
+path = "examples/publication_guests_chirho/build_publication_intent_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_publication_form_rejection_guest_chirho"
+path = "examples/publication_guests_chirho/render_publication_form_rejection_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_publication_intent_guest_chirho"
+path = "examples/publication_guests_chirho/render_publication_intent_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+
+[[example]]
+name = "build_figures_read_guest_chirho"
+path = "examples/figures_guests_chirho/build_figures_read_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "build_figures_write_guest_chirho"
+path = "examples/figures_guests_chirho/build_figures_write_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_agent_figures_guest_chirho"
+path = "examples/figures_guests_chirho/render_agent_figures_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "build_agent_figures_write_guest_chirho"
+path = "examples/figures_guests_chirho/build_agent_figures_write_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_agent_figures_refusal_guest_chirho"
+path = "examples/figures_guests_chirho/render_agent_figures_refusal_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_agent_figures_saved_guest_chirho"
+path = "examples/figures_guests_chirho/render_agent_figures_saved_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_figures_page_guest_chirho"
+path = "examples/figures_guests_chirho/render_figures_page_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_figures_rejection_guest_chirho"
+path = "examples/figures_guests_chirho/render_figures_rejection_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_figures_saved_guest_chirho"
+path = "examples/figures_guests_chirho/render_figures_saved_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "review_figures_guest_chirho"
+path = "examples/figures_guests_chirho/review_figures_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+# Her figures' tests, grouped in their own folder (top-level files are found by cargo itself; these are
+# named here so their names, and the test programs they build, stay what they were).
+[[test]]
+name = "figures_core_chirho"
+path = "tests/figures_chirho/figures_core_chirho.rs"
+
+[[test]]
+name = "figures_contract_chirho"
+path = "tests/figures_chirho/figures_contract_chirho.rs"
+
+[[test]]
+name = "figures_pages_chirho"
+path = "tests/figures_chirho/figures_pages_chirho.rs"
+
+[[test]]
+name = "figures_upload_chirho"
+path = "tests/figures_chirho/figures_upload_chirho.rs"
+
+# Page document and publication tests, grouped like her figures' (names kept, so their programs are too).
+[[test]]
+name = "page_document_export_chirho"
+path = "tests/page_document_chirho/page_document_export_chirho.rs"
+
+[[test]]
+name = "page_document_import_chirho"
+path = "tests/page_document_chirho/page_document_import_chirho.rs"
+
+[[test]]
+name = "publication_intent_chirho"
+path = "tests/publication_chirho/publication_intent_chirho.rs"
+
+[[test]]
+name = "publication_status_chirho"
+path = "tests/publication_chirho/publication_status_chirho.rs"
+
+[[test]]
+name = "figures_agent_save_chirho"
+path = "tests/figures_chirho/figures_agent_save_chirho.rs"
+
+# The held Credits page and its return pages (credits_flow_chirho), grouped like her figures' tests.
+[[test]]
+name = "credits_pages_chirho"
+path = "tests/credits_chirho/credits_pages_chirho.rs"

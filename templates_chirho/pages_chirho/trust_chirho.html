@@ -1,0 +1,84 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV) -#}
+{# /trust-chirho on FIRST LIGHT: the night watch. Safe for the owner, safe for her visitors, in plain
+   words; the honest limits stay on the page, and the checks a developer can run sit in the folded
+   "For your web developer" note. The page walks the same sky as the front door: night, a short
+   daybreak, morning, day.
+
+   The rules of every public page hold here: no inline style attribute, and no script.
+   Workflow: spec-chirho/workflows-chirho/first-light-authoring-chirho.md -#}
+<!doctype html>
+<html lang="{{ model_chirho.lang_chirho }}" dir="{{ model_chirho.dir_chirho }}">
+{% include "partials_chirho/head_first_light_chirho.html" %}
+<body class="first-light-chirho">
+<a class="skip-chirho" href="#main-chirho">{{ model_chirho.hero_chirho.skip_label_chirho }}</a>
+{% include "partials_chirho/site_nav_chirho.html" %}
+
+<main id="main-chirho">
+
+  <section class="inner-hero-chirho inner-hero-night-chirho" aria-labelledby="hero-heading-chirho">
+    <div class="sky-stars-chirho" aria-hidden="true"><div class="stars-far-chirho"></div><div class="stars-near-chirho"></div></div>
+    {% include "partials_chirho/fl_page_hero_chirho.html" %}
+  </section>
+
+  <section class="band-night-chirho trust-band-chirho" id="protects-chirho" aria-labelledby="protects-heading-chirho">
+    <div class="page-chirho trust-grid-chirho">
+      <header class="band-head-chirho">
+        <p class="eyebrow-chirho">{{ model_chirho.protects_chirho.mark_chirho }}</p>
+        <h2 class="band-heading-chirho" id="protects-heading-chirho">{{ model_chirho.protects_chirho.heading_chirho }}</h2>
+        <p class="band-body-chirho">{{ model_chirho.protects_chirho.note_chirho }}</p>
+      </header>
+      <ul class="facets-chirho">
+        {% for point_chirho in model_chirho.protects_chirho.points_chirho %}
+          <li class="facet-chirho"><h3 class="facet-title-chirho">{{ point_chirho.title_chirho }}</h3><p class="facet-body-chirho">{{ point_chirho.body_chirho }}</p></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  {# Daybreak: the sky turns from night to morning with nothing to read on it, so no words ever sit on
+     the dawn's mid-rose. #}
+  <div class="band-dawn-chirho daybreak-chirho" aria-hidden="true"><div class="dawn-sun-chirho"></div></div>
+
+  <section class="band-morning-chirho trust-band-chirho" id="visitors-chirho" aria-labelledby="visitors-heading-chirho">
+    <div class="page-chirho trust-grid-chirho">
+      <header class="band-head-chirho">
+        <p class="eyebrow-chirho">{{ model_chirho.visitors_chirho.mark_chirho }}</p>
+        <h2 class="band-heading-chirho" id="visitors-heading-chirho">{{ model_chirho.visitors_chirho.heading_chirho }}</h2>
+        <p class="band-body-chirho">{{ model_chirho.visitors_chirho.note_chirho }}</p>
+      </header>
+      <ul class="trust-points-chirho">
+        {% for point_chirho in model_chirho.visitors_chirho.points_chirho %}
+          <li class="ledger-item-chirho"><h3 class="ledger-title-chirho">{{ point_chirho.title_chirho }}</h3><p class="ledger-body-chirho">{{ point_chirho.body_chirho }}</p></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <section class="band-day-chirho trust-band-chirho" id="limits-chirho" aria-labelledby="limits-heading-chirho">
+    <div class="page-chirho trust-grid-chirho">
+      <header class="band-head-chirho">
+        <p class="eyebrow-chirho">{{ model_chirho.limits_chirho.mark_chirho }}</p>
+        <h2 class="band-heading-chirho" id="limits-heading-chirho">{{ model_chirho.limits_chirho.heading_chirho }}</h2>
+        <p class="band-body-chirho">{{ model_chirho.limits_chirho.note_chirho }}</p>
+      </header>
+      <ul class="trust-points-chirho trust-limits-chirho">
+        {% for point_chirho in model_chirho.limits_chirho.points_chirho %}
+          <li class="ledger-item-chirho"><h3 class="ledger-title-chirho">{{ point_chirho.title_chirho }}</h3><p class="ledger-body-chirho">{{ point_chirho.body_chirho }}</p></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="page-chirho">
+      {% include "partials_chirho/fl_developer_fold_chirho.html" %}
+    </div>
+  </section>
+
+  {% include "partials_chirho/fl_page_close_chirho.html" %}
+
+</main>
+
+<div class="footer-night-chirho">
+  <div class="sky-stars-chirho" aria-hidden="true"><div class="stars-far-chirho"></div></div>
+  {% include "partials_chirho/site_footer_chirho.html" %}
+</div>
+</body>
+</html>

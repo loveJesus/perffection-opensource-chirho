@@ -1,0 +1,129 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+//
+// The front door on FIRST LIGHT: layout that belongs to this page only. Grounds, components and
+// motion live in styles_chirho/first-light-chirho/. Compile order: scripts-chirho/prepare-apps-chirho.sh.
+
+// ---- The business platform: a ruled spread, not another set of boxed feature cards ----------------
+.platform-chirho {
+  // Extend the night before Secure begins daybreak; do not restart the shared gradient twice.
+  background: var(--night-chirho);
+}
+
+.platform-chirho .eyebrow-chirho {
+  color: var(--window-gold-chirho);
+}
+
+.platform-examples-chirho {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  margin-block-start: 3rem;
+  border-block-start: 1px solid var(--line-night-chirho);
+}
+
+.platform-examples-chirho > li {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+.platform-note-chirho {
+  margin-block-start: 2rem;
+  max-inline-size: 54rem;
+  color: var(--starlight-mute-chirho);
+  line-height: 1.65;
+}
+
+.questions-chirho .question-summary-chirho:focus-visible {
+  // The outside ring otherwise crosses the next answer's first line box when the FAQ is open.
+  outline-offset: -2px;
+}
+
+// ---- Secure: the crystal beside the reasons ---------------------------------------------------------
+.secure-grid-chirho {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+// The stage, not the crystal, carries the screen blend: a sticky element is its own stacking
+// context, so a blend on the crystal inside it only ever met the halo and showed the sheet's black.
+.secure-stage-chirho {
+  position: sticky;
+  inset-block-start: 12vh;
+  block-size: 76vh;
+  display: grid;
+  place-items: center;
+  mix-blend-mode: screen;
+}
+
+.seal-chirho {
+  inline-size: min(100%, 30rem, 70vh);
+  aspect-ratio: 1;
+  background-image: url("/app-assets-chirho/perffection/by-name-chirho/seal-sheet-chirho.jpg");
+  background-size: 1200% 400%;
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+}
+
+.seal-halo-chirho {
+  position: absolute;
+  inline-size: min(110%, 34rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(246, 197, 107, 0.22) 0%, rgba(143, 184, 255, 0.12) 32%, rgba(20, 26, 74, 0) 68%);
+}
+
+.secure-copy-chirho {
+  padding-block: clamp(2rem, 10vh, 6rem);
+}
+
+// ---- Easy, questions: collapse to one column ------------------------------------------------------
+@media (max-width: 900px) {
+  .platform-examples-chirho {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .secure-grid-chirho,
+  .easy-grid-chirho,
+  .questions-grid-chirho {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .secure-stage-chirho {
+    position: relative;
+    inset-block-start: 0;
+    block-size: auto;
+  }
+
+  .seal-chirho {
+    inline-size: min(78vw, 22rem);
+    background-image: url("/app-assets-chirho/perffection/by-name-chirho/seal-sheet-small-chirho.jpg");
+    background-size: 1200% 300%;
+  }
+
+  .secure-copy-chirho {
+    padding-block: 0;
+  }
+
+  .path-steps-chirho {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3.2rem;
+    padding-block-start: 2.5rem;
+  }
+
+  // The wash of morning light starts where the first stop now starts (no line of light above it).
+  .path-steps-chirho::before {
+    inset-block-start: -0.5rem;
+  }
+
+  .path-line-chirho,
+  .path-nodes-chirho {
+    display: none;
+  }
+
+  .easy-stage-chirho {
+    min-block-size: clamp(22rem, 92vw, 32rem);
+  }
+}

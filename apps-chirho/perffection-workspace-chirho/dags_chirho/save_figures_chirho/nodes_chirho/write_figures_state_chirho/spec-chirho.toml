@@ -1,0 +1,8 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Append one validated optimistic private version of her figures for this authenticated viewer."
+behaviors_chirho = [
+  "derives app and viewer authority from the authenticated host context",
+  "appends only when the exact current version matches and refuses stale writes",
+  "returns the exact new current state without granting publication authority",
+]

@@ -1,0 +1,39 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV)
+#
+# Which routes open to LIMITED keys (Cairn K1, landed at c0a12269), and with which action and data. HELD:
+# nothing here is in app-chirho.toml, so no release opts the workspace in (an opt-in retires every old key
+# of the app for good). The K1 grant gate (scripts-chirho/tests-chirho/figures-chirho/key-grants-
+# rehearsal-chirho.sh) writes these into a scratch copy of the route stanzas, stage by stage (gpt #26625):
+# page actions stay page-only on her page document; her figures' read and Save are two separate actions
+# on business-figures-chirho alone, so a page key never reaches her figures and a read never saves.
+# Workflow: spec-chirho/workflows-chirho/invite-beta-chirho/her-figures-chirho.md
+
+[[opening_chirho]]
+stage_chirho = "page"
+route_chirho = "agent-page-chirho"
+action_chirho = "page-read-chirho"
+resources_chirho = ["page-document-chirho"]
+
+[[opening_chirho]]
+stage_chirho = "page"
+route_chirho = "agent-save-page-chirho"
+action_chirho = "page-save-chirho"
+resources_chirho = ["page-document-chirho"]
+
+[[opening_chirho]]
+stage_chirho = "page"
+route_chirho = "preview-chirho"
+action_chirho = "page-preview-chirho"
+resources_chirho = ["page-document-chirho"]
+
+[[opening_chirho]]
+stage_chirho = "figures"
+route_chirho = "agent-figures-chirho"
+action_chirho = "figures-read-chirho"
+resources_chirho = ["business-figures-chirho"]
+
+[[opening_chirho]]
+stage_chirho = "figures"
+route_chirho = "agent-save-figures-chirho"
+action_chirho = "figures-save-chirho"
+resources_chirho = ["business-figures-chirho"]

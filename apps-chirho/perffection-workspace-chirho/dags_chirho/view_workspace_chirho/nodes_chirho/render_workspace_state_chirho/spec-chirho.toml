@@ -1,0 +1,8 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Render the verified private page state through the bounded workspace template."
+behaviors_chirho = [
+  "renders missing state as one editable version-zero draft",
+  "renders current state with its exact optimistic version",
+  "renders malformed state actionless and never echoes unverified bytes",
+]

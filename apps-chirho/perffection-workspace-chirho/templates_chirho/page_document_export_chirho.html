@@ -1,0 +1,66 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+<!doctype html>
+<html lang="{{ model_chirho.copy_chirho.lang_chirho }}" dir="{{ model_chirho.copy_chirho.dir_chirho }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ model_chirho.chrome_chirho.page_description_chirho }}">
+  <title>{{ model_chirho.chrome_chirho.page_title_chirho }}</title>
+  <link rel="stylesheet" href="/app-assets-chirho/perffection-workspace/by-name-chirho/{{ model_chirho.chrome_chirho.stylesheet_name_chirho }}">
+</head>
+<body class="workspace-page-chirho">
+  {% include "partials_chirho/site_nav_chirho.html" %}
+
+  <main class="workspace-shell-chirho">
+    <section class="workspace-intro-chirho" aria-labelledby="export-heading-chirho">
+      <div>
+        <p class="workspace-eyebrow-chirho">{{ model_chirho.status_chirho }}</p>
+        <h1 id="export-heading-chirho">{{ model_chirho.copy_chirho.export_chirho.heading_chirho }}</h1>
+        <p class="workspace-lede-chirho">{{ model_chirho.copy_chirho.export_chirho.lede_chirho }}</p>
+      </div>
+      {% if model_chirho.current_version_chirho > 0 %}
+        <p class="workspace-version-chirho">{{ model_chirho.copy_chirho.export_chirho.version_label_chirho }} <strong>{{ model_chirho.current_version_chirho }}</strong></p>
+      {% endif %}
+    </section>
+
+    {% if let Some(document_json_chirho) = model_chirho.document_json_chirho.as_ref() %}
+      <section class="workspace-panel-chirho" aria-labelledby="export-document-heading-chirho">
+        <div class="workspace-panel-heading-chirho">
+          <p>{{ model_chirho.copy_chirho.export_chirho.panel_number_chirho }}</p>
+          <div>
+            <h2 id="export-document-heading-chirho">{{ model_chirho.copy_chirho.export_chirho.panel_heading_chirho }}</h2>
+            <p>{{ model_chirho.copy_chirho.export_chirho.panel_intro_chirho }}</p>
+          </div>
+        </div>
+
+        <div class="workspace-field-chirho">
+          <label for="page-document-chirho">{{ model_chirho.copy_chirho.export_chirho.document_label_chirho }} {{ model_chirho.current_version_chirho }}</label>
+          <textarea id="page-document-chirho" aria-describedby="page-document-help-chirho" class="workspace-export-json-chirho" rows="18" readonly spellcheck="false">{{ document_json_chirho }}</textarea>
+          <small id="page-document-help-chirho">{{ model_chirho.copy_chirho.export_chirho.document_help_chirho }}</small>
+        </div>
+
+        {% if let Some(download_href_chirho) = model_chirho.download_href_chirho.as_ref() %}
+          {% if let Some(download_name_chirho) = model_chirho.download_name_chirho.as_ref() %}
+            <p class="workspace-export-actions-chirho">
+              <a class="workspace-export-download-chirho" href="{{ download_href_chirho }}" download="{{ download_name_chirho }}">{{ model_chirho.copy_chirho.export_chirho.download_label_chirho }} {{ download_name_chirho }}</a>
+            </p>
+          {% endif %}
+        {% endif %}
+      </section>
+    {% else %}
+      <section class="workspace-unavailable-chirho" role="status">
+        <h2>{{ model_chirho.copy_chirho.export_chirho.unavailable_heading_chirho }}</h2>
+        <p>{{ model_chirho.status_chirho }}</p>
+        <p><a href="/app-chirho/perffection-workspace/">{{ model_chirho.copy_chirho.export_chirho.back_label_chirho }}</a></p>
+      </section>
+    {% endif %}
+
+    <aside id="workspace-help-chirho" class="workspace-help-chirho" aria-labelledby="workspace-help-heading-chirho">
+      <h2 id="workspace-help-heading-chirho">{{ model_chirho.copy_chirho.export_chirho.help_heading_chirho }}</h2>
+      <p>{{ model_chirho.copy_chirho.export_chirho.help_body_chirho }}</p>
+    </aside>
+  </main>
+
+  {% include "partials_chirho/site_footer_chirho.html" %}
+</body>
+</html>

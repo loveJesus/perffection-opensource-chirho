@@ -1,0 +1,16 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "dag-spec-v0-chirho"
+intent_chirho = "Validate and append one optimistic private page version for the authenticated viewer, or hand the form back with notices and no effect."
+surface_chirho = { ins_chirho = ["request: http_request_v1"], outs_chirho = ["page: html_partial_v1"] }
+structure_chirho = [
+  "the request feeds two pure builders that classify the same bytes with one shared function, so exactly one branch is live",
+  "the write branch: the pure builder emits the strict viewer-state write request or the Skipped stone; the private request-user edge reaches the least-authority viewer-state write door; the typed answer (state or conflict) reaches the editor renderer",
+  "the rejection branch: the pure renderer emits the editor around the submitted draft or the Skipped stone; it reaches no effect",
+  "a builtin phi merges the one live page and the private typed response remains private at the sink",
+]
+behaviors_chirho = [
+  "anonymous requests are refused before this DAG runs",
+  "invalid or oversized form input cannot become an authoritative viewer-state write and renders the editor with a notice per field",
+  "the host answers a stale optimistic version with a typed conflict instead of overwriting a newer draft; the editor renders at the head with the attempted words kept",
+  "a successful append renders the exact new private version without publishing it",
+]

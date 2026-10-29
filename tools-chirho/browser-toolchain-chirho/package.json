@@ -1,0 +1,17 @@
+{
+  "name": "perffection-browser-toolchain-chirho",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check-chirho": "bun node_modules/typescript/bin/tsc --project tsconfig.json",
+    "test-chirho": "bun test ../../scripts-chirho/tests-chirho/cairn-runtime-chirho.test.ts ../../scripts-chirho/tests-chirho/browser-runtime-chirho.test.ts ../agent-mcp-chirho/",
+    "signup-chirho": "bun ../browser-chirho/signup-browser-check-chirho.ts",
+    "reviewed-chirho": "bun ../browser-chirho/reviewed-product-check-chirho.ts"
+  },
+  "devDependencies": {
+    "@types/node": "26.5.1",
+    "bun-types": "1.4.2",
+    "playwright-core": "1.63.0",
+    "typescript": "7.0.2"
+  }
+}

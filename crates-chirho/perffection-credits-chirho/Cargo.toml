@@ -1,0 +1,22 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+[package]
+name = "perffection-credits-chirho"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Credit purchase intake, Stripe TEST mode: signature check, event read, idempotent stub top-up port"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+sha2 = "=0.10.9"
+constant_time_eq = "=0.4.2"
+
+[features]
+# The deterministic credit-view fixture, for tests only: an explicit opt-in that default builds exclude. Served wiring
+# uses UnconnectedCreditViewChirho until Cairn's ledger port exists (credit_view_port_chirho.rs).
+test-stub-chirho = []
+
+[dev-dependencies]
+# This crate's own tests see the fixture.
+perffection-credits-chirho = { path = ".", features = ["test-stub-chirho"] }

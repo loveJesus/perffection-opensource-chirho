@@ -1,0 +1,9 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+schema_chirho = "dag-spec-v0-chirho"
+intent_chirho = "Render public customer help for the deployed editing and publication journey."
+surface_chirho = { ins_chirho = ["request: http_request_v1"], outs_chirho = ["page: html_partial_v1"] }
+structure_chirho = ["One pure compiled-template render, no auth, state, provider or publication effect."]
+behaviors_chirho = [
+  "A bodyless request renders the same actionless guide regardless of visitor data.",
+  "Only product-owned destinations link to sign-in and existing workspace displays.",
+]

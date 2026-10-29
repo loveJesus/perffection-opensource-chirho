@@ -1,0 +1,11 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "dag-spec-v0-chirho"
+intent_chirho = "Render the public Set-up page of an emailed invitation; its one form posts straight to Cairn's recover road."
+surface_chirho = { ins_chirho = ["request: http_request_v1"], outs_chirho = ["page: html_partial_v1"] }
+structure_chirho = [
+  "Pure template render only; no identity, storage or publication effect.",
+]
+behaviors_chirho = [
+  "A bodyless GET displays the one set-up form: sign-in name, setup code, a first password and its confirmation.",
+  "Request content cannot alter the form action or be reflected into HTML, so a code in a URL is never rendered.",
+]

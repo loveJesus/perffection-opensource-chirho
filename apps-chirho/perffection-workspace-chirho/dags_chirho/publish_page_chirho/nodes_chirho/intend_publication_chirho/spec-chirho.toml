@@ -1,0 +1,7 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "The publication door: on a tenant root it records a signed intent bound to her verified head and declassifies exactly that version; it never deploys and never holds the platform key."
+behaviors_chirho = [
+  "refuses a version binding her verified head has moved past before anything public is written",
+  "answers queued, never live; the platform applier and the status road carry the outcome",
+]

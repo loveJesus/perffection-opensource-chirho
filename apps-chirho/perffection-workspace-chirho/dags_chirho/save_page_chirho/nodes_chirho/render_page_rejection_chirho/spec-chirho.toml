@@ -1,0 +1,8 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Render the editor around a form that must not be written: the submitted draft with a notice per field, or an actionless page for a body the form never produces."
+behaviors_chirho = [
+  "classifies the same request bytes as the write builder and is live exactly when the builder is skipped",
+  "returns the engine's Skipped stone for a valid form so the write branch is the one live path",
+  "renders the customer's submitted words and the optimistic version she sent, never stored state",
+]

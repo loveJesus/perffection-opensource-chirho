@@ -1,0 +1,13 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "dag-spec-v0-chirho"
+intent_chirho = "Offer the authenticated viewer the guided brief for her first draft only while nothing is saved yet; point at the editor once a version exists."
+surface_chirho = { ins_chirho = ["request: http_request_v1"], outs_chirho = ["page: html_partial_v1"] }
+structure_chirho = [
+  "the pure builder emits the one fixed viewer-state read and cannot choose the app, viewer or key",
+  "the private typed state reaches the brief renderer and remains private at the sink",
+]
+behaviors_chirho = [
+  "anonymous requests are refused before this DAG runs",
+  "a saved version means no brief form, a pointer to the editor instead",
+  "unverifiable state is not treated as empty; it renders an actionless page",
+]

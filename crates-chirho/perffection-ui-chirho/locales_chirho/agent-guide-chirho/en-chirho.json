@@ -1,0 +1,33 @@
+{
+  "lang_chirho": "en",
+  "dir_chirho": "ltr",
+  "page_title_chirho": "Use your own AI — Perffection",
+  "page_description_chirho": "Instructions your own agent can read to help you write a Perffection page. Review its answer before saving.",
+  "eyebrow_chirho": "A guide for you and your agent",
+  "heading_chirho": "Your agent. Your words.",
+  "introduction_chirho": "Use the AI you already work with to help write your page. Give it this public guide, then bring its answer back to Perffection. You keep the final say.",
+  "skip_label_chirho": "Skip to the agent instructions",
+  "steps_heading_chirho": "From an idea to your page",
+  "steps_chirho": [
+    "Give your agent this page's address, or copy the instructions below. Add what you want people to know about your business and the contact details you want on the page.",
+    "Ask for its answer as JSON text. You do not need to write code or give the agent access to your Perffection account.",
+    "Sign in, open Use your own AI, and paste the answer. Review and correct the words in the editor, then choose Save. Publishing is a separate choice."
+  ],
+  "instructions_heading_chirho": "Instructions for your agent",
+  "instructions_help_chirho": "Copy this whole block, or let your agent read it here. These instructions come from the same contract used to check its answer.",
+  "sample_heading_chirho": "An example answer",
+  "privacy_note_chirho": "Share only what your chosen agent needs. Never include your password, access keys or private customer records. This public guide contains no information from your account.",
+  "review_heading_chirho": "Bring the answer back",
+  "review_body_chirho": "Use your own AI accepts the answer described here. Recover page content is different: it restores an exported Perffection page document, not an agent's answer.",
+  "review_label_chirho": "Open Use your own AI",
+  "signin_needed_chirho": "Sign in first to review an answer in your workspace.",
+  "cost_note_chirho": "This path does not call Perffection's AI or spend its AI credits. Your own agent or provider may charge you under its terms.",
+  "limits_heading_chirho": "The answer at a glance",
+  "limits_body_chirho": "The keys stay exactly as written, whatever language your page uses. Text limits are in characters. Review any warnings before saving.",
+  "key_label_chirho": "JSON key",
+  "limit_label_chirho": "Character limit",
+  "handling_label_chirho": "What to put here",
+  "copied_label_chirho": "Copy the owner's value exactly, or leave empty",
+  "written_label_chirho": "Plain text based on the owner's information",
+  "services_label_chirho": "Maximum number of services"
+}

@@ -1,0 +1,92 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+[package]
+name = "perffection-site-chirho"
+version.workspace = true
+edition.workspace = true
+description = "Perffection public marketing and sign-in app, executed by Cairn."
+license.workspace = true
+
+[workspace]
+members = [
+    "apps-chirho/perffection-page-template-chirho",
+    "apps-chirho/perffection-workspace-chirho",
+    "crates-chirho/perffection-credits-chirho",
+    "crates-chirho/perffection-ui-chirho",
+]
+resolver = "2"
+
+# Shipped guests are release builds (prepare-apps-chirho.sh). Release defaults would wrap on integer
+# overflow where debug panics; a silent wrong result is worse than a refusal, so keep the checks on.
+[profile.release]
+overflow-checks = true
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "AGPL-3.0-only"
+[workspace.dependencies]
+askama = "=0.16.0"
+base64 = "=0.23.1"
+blake3 = "=1.8.5"
+cairn-node-sdk-chirho = { path = "../cairn-opensource-chirho/crates/cairn-node-sdk-chirho" }
+cairn-node-templating-chirho = { path = "../cairn-opensource-chirho/crates/authoring-chirho/cairn-node-templating-chirho" }
+cairn-wasmtime-runner-chirho = { path = "../cairn-opensource-chirho/crates/runtime-chirho/cairn-wasmtime-runner-chirho" }
+perffection-page-template-chirho = { path = "apps-chirho/perffection-page-template-chirho" }
+perffection-ui-chirho = { path = "crates-chirho/perffection-ui-chirho" }
+serde = { version = "=1.0.229", features = ["derive"] }
+serde_json = "=1.0.151"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+askama.workspace = true
+cairn-node-sdk-chirho = { workspace = true, features = ["json-chirho"] }
+cairn-node-templating-chirho.workspace = true
+perffection-page-template-chirho.workspace = true
+perffection-ui-chirho.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+
+[target.'cfg(not(target_arch = "wasm32"))'.dev-dependencies]
+cairn-wasmtime-runner-chirho.workspace = true
+
+[[example]]
+name = "render_home_guest_chirho"
+path = "examples/render_home_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_craft_guest_chirho"
+path = "examples/render_craft_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_trust_guest_chirho"
+path = "examples/render_trust_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_login_guest_chirho"
+path = "examples/render_login_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_setup_guest_chirho"
+path = "examples/render_setup_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_help_guest_chirho"
+path = "examples/render_help_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_auth_guest_chirho"
+path = "examples/render_auth_guest_chirho.rs"
+crate-type = ["cdylib"]
+
+[[example]]
+name = "render_agent_guide_guest_chirho"
+path = "examples/render_agent_guide_guest_chirho.rs"
+crate-type = ["cdylib"]

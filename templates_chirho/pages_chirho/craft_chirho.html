@@ -1,0 +1,59 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV) -#}
+{# /craft-chirho, "What's in it", on FIRST LIGHT: morning, inside the shop. The list reads like the
+   price list on a shop counter, where every line says "Included". The checks behind the lines sit in
+   the folded "For your web developer" note, so an owner is never asked to read them.
+
+   The rules of every public page hold here: no inline style attribute (the engine scans the rendered
+   payload for one and silently relaxes the route's style policy), and no script.
+   Workflow: spec-chirho/workflows-chirho/first-light-authoring-chirho.md -#}
+<!doctype html>
+<html lang="{{ model_chirho.lang_chirho }}" dir="{{ model_chirho.dir_chirho }}">
+{% include "partials_chirho/head_first_light_chirho.html" %}
+<body class="first-light-chirho">
+<a class="skip-chirho" href="#main-chirho">{{ model_chirho.hero_chirho.skip_label_chirho }}</a>
+{% include "partials_chirho/site_nav_chirho.html" %}
+
+<main id="main-chirho">
+
+  <section class="inner-hero-chirho inner-hero-morning-chirho" aria-labelledby="hero-heading-chirho">
+    {% include "partials_chirho/fl_page_hero_chirho.html" %}
+  </section>
+
+  <section class="band-morning-chirho inventory-chirho" id="list-chirho" aria-labelledby="inventory-heading-chirho">
+    <div class="page-chirho">
+      <header class="band-head-chirho inventory-head-chirho">
+        <p class="eyebrow-chirho">{{ model_chirho.inventory_chirho.mark_chirho }}</p>
+        <h2 class="band-heading-chirho" id="inventory-heading-chirho">{{ model_chirho.inventory_chirho.heading_chirho }}</h2>
+        <p class="band-body-chirho">{{ model_chirho.inventory_chirho.note_chirho }}</p>
+      </header>
+      <div class="inventory-groups-chirho">
+        {% for group_chirho in model_chirho.inventory_chirho.groups_chirho %}
+          <section class="inventory-group-chirho" aria-labelledby="inventory-group-{{ loop.index }}-chirho">
+            <h3 class="inventory-group-heading-chirho" id="inventory-group-{{ loop.index }}-chirho">{{ group_chirho.heading_chirho }}</h3>
+            <p class="inventory-group-intro-chirho">{{ group_chirho.intro_chirho }}</p>
+            <dl class="inventory-list-chirho">
+              {% for item_chirho in group_chirho.items_chirho %}
+                <div class="inventory-item-chirho{% if item_chirho.coming_next_chirho %} inventory-item-coming-chirho{% endif %}">
+                  <dt class="inventory-name-chirho">{{ item_chirho.name_chirho }}</dt>
+                  <dd class="inventory-status-chirho">{{ item_chirho.status_chirho }}</dd>
+                  <dd class="inventory-note-chirho">{{ item_chirho.note_chirho }}</dd>
+                </div>
+              {% endfor %}
+            </dl>
+          </section>
+        {% endfor %}
+      </div>
+      {% include "partials_chirho/fl_developer_fold_chirho.html" %}
+    </div>
+  </section>
+
+  {% include "partials_chirho/fl_page_close_chirho.html" %}
+
+</main>
+
+<div class="footer-night-chirho">
+  <div class="sky-stars-chirho" aria-hidden="true"><div class="stars-far-chirho"></div></div>
+  {% include "partials_chirho/site_footer_chirho.html" %}
+</div>
+</body>
+</html>

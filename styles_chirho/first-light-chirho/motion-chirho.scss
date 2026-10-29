@@ -1,0 +1,439 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+//
+// FIRST LIGHT motion. Two registers only:
+// - SCROLL: the visitor's own hand drives the story (the town waking, the crystal turning, the sun
+//   rising, the path drawing). All of it sits inside @supports (animation-timeline) and
+//   prefers-reduced-motion: no-preference. Without either, every element rests in its finished
+//   state, which is a complete, correct page (Firefox has not shipped scroll timelines).
+// - AMBIENT: slow, never consciously noticed (mist, a halo breathing, a sheen on the gold button).
+// Longhands throughout: the `animation` shorthand resets animation-timeline and -duration.
+//
+// Sprite sheets step with steps(N, jump-none): for a sheet of C columns at background-size C*100%,
+// column k sits at k/(C-1) * 100%, and jump-none lands exactly on 0% and 100% (jump-end would step
+// one cell past the last column at the very end of the range). x repeats once per row
+// (iteration-count = rows); y steps once over the whole range; one shared timeline keeps them in
+// lockstep. The sheets hold their first and last frames twice (Safari 26.0-26.4 misreads progress
+// near the ends).
+
+.first-light-chirho {
+  timeline-scope: --secure-chirho, --abundant-chirho;
+}
+
+.secure-chirho {
+  view-timeline-name: --secure-chirho;
+  view-timeline-axis: block;
+}
+
+.abundant-chirho {
+  view-timeline-name: --abundant-chirho;
+  view-timeline-axis: block;
+}
+
+// Ambient comes FIRST: the scroll block below lists some of the same elements with longhands, and
+// a later `animation` shorthand here would reset their timelines and silently cancel the scroll parts.
+// ---- ambient --------------------------------------------------------------------------------------
+@media (prefers-reduced-motion: no-preference) {
+  // The headline arrives line by line, once.
+  .hero-line-chirho {
+    animation: line-in-chirho 1.3s var(--ease-quint-chirho) both;
+  }
+
+  .hero-line-chirho:nth-child(2) { animation-delay: 0.12s; }
+  .hero-line-chirho:nth-child(3) { animation-delay: 0.28s; }
+
+  .hero-star-chirho::before {
+    animation: shoot-chirho 13s ease-in 3.5s infinite;
+  }
+
+  .dawn-sun-chirho::before {
+    animation: rays-chirho 90s linear infinite;
+  }
+
+  .path-comet-chirho {
+    animation: comet-chirho 7s linear infinite;
+  }
+
+  .path-comet-chirho:nth-of-type(4) { animation-delay: -2.33s; }
+  .path-comet-chirho:nth-of-type(5) { animation-delay: -4.66s; }
+
+  .action-primary-chirho {
+    animation: sheen-chirho 7s var(--ease-drift-chirho) infinite;
+  }
+
+  .hero-mist-chirho {
+    animation: mist-chirho 38s ease-in-out infinite alternate;
+  }
+
+  .seal-halo-chirho {
+    animation: halo-chirho 6.5s ease-in-out infinite alternate;
+  }
+
+  .stars-near-chirho {
+    animation: twinkle-chirho 5.5s ease-in-out infinite alternate;
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    // ---- night: the town wakes as the hero scrolls away --------------------------------------------
+    .hero-wake-chirho {
+      animation-name: wake-show-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 3vh;
+    }
+
+    .wake-a-chirho {
+      animation-name: wake-x-chirho, wake-y-chirho;
+      animation-duration: auto;
+      animation-timing-function: steps(6, jump-none), steps(3, jump-none);
+      animation-iteration-count: 3, 1;
+      animation-fill-mode: both;
+      animation-timeline: scroll(root block);
+      animation-range: 1vh 46vh;
+    }
+
+    .wake-b-chirho {
+      animation-name: wake-x-chirho, wake-y-chirho, wake-b-show-chirho;
+      animation-duration: auto;
+      animation-timing-function: steps(6, jump-none), steps(3, jump-none), step-end;
+      animation-iteration-count: 3, 1, 1;
+      animation-fill-mode: both;
+      animation-timeline: scroll(root block);
+      animation-range: 46vh 92vh, 46vh 92vh, 0 46vh;
+    }
+
+    .hero-chirho .sky-stars-chirho {
+      animation-name: stars-fade-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 90vh;
+    }
+
+    .hero-copy-chirho {
+      animation-name: hero-drift-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 85vh;
+    }
+
+    // ---- Secure: the crystal turns once across the band ---------------------------------------------
+    .seal-chirho {
+      animation-name: seal-x-chirho, seal-y-chirho;
+      animation-duration: auto;
+      animation-timing-function: steps(12, jump-none), steps(4, jump-none);
+      animation-iteration-count: 4, 1;
+      animation-fill-mode: both;
+      animation-timeline: --secure-chirho;
+      animation-range: cover 8% cover 92%;
+    }
+
+    .facet-chirho {
+      animation-name: rise-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+
+    // ---- Abundant: the sun rises and the path of light draws itself ------------------------------
+    .dawn-sun-chirho {
+      animation-name: sun-rise-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: --abundant-chirho;
+      animation-range: cover 0% cover 75%;
+    }
+
+    .path-glow-chirho,
+    .path-stroke-chirho {
+      stroke-dasharray: 1;
+      animation-name: draw-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: --abundant-chirho;
+      animation-range: cover 30% cover 62%;
+    }
+
+    .path-step-chirho {
+      animation-name: rise-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 90%;
+    }
+
+    .path-node-chirho {
+      animation-name: node-light-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 60% cover 40%;
+    }
+
+    // ---- Easy: the editor tilts in, the answers light up one by one ---------------------------------
+    .device-question-chirho {
+      animation-name: tilt-question-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+
+    .device-result-chirho {
+      animation-name: tilt-result-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+
+    .phone-chirho {
+      animation-name: phone-rise-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 50%;
+    }
+
+    // Scroll lights each of the five questions as it arrives.
+    .step-chirho {
+      animation-name: step-light-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 40% cover 35%;
+    }
+
+    // The ledger's lines rise into place as they arrive, like the Secure band's reasons.
+    .ledger-item-chirho {
+      animation-name: rise-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+
+    // The comets only set out once the line of light is drawn.
+    .path-comet-chirho {
+      animation-name: comet-chirho, comets-show-chirho;
+      animation-duration: 7s, auto;
+      animation-timing-function: linear, linear;
+      animation-iteration-count: infinite, 1;
+      animation-fill-mode: none, both;
+      animation-timeline: auto, --abundant-chirho;
+      animation-range: normal, cover 55% cover 68%;
+    }
+
+    .path-comet-chirho:nth-of-type(4) { animation-delay: -2.33s, 0s; }
+    .path-comet-chirho:nth-of-type(5) { animation-delay: -4.66s, 0s; }
+
+    // The big pillar words drift a little against the scroll, which is what makes them read as depth.
+    .band-word-chirho {
+      animation-name: word-drift-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+
+    .secure-chirho .band-word-chirho,
+    .easy-chirho .band-word-chirho {
+      animation-name: word-drift-back-chirho;
+    }
+
+    @media (max-width: 1000px) {
+      .hero-wake-chirho {
+        animation-name: wake-fade-chirho;
+        animation-range: 4vh 60vh;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .seal-chirho {
+        animation-timing-function: steps(12, jump-none), steps(3, jump-none);
+        animation-iteration-count: 3, 1;
+      }
+    }
+
+    // ---- every band: headings rise into place ---------------------------------------------------------
+    .band-head-chirho,
+    .secure-copy-chirho .band-heading-chirho,
+    .easy-copy-chirho .band-heading-chirho,
+    .closing-heading-chirho {
+      animation-name: rise-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
+}
+
+@keyframes wake-x-chirho {
+  from { background-position-x: 0%; }
+  to { background-position-x: 100%; }
+}
+
+@keyframes wake-y-chirho {
+  from { background-position-y: 0%; }
+  to { background-position-y: 100%; }
+}
+
+@keyframes wake-show-chirho {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+// The second sheet appears exactly at the midpoint: step-end holds 0 until the range ends.
+@keyframes wake-b-show-chirho {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes seal-x-chirho {
+  from { background-position-x: 0%; }
+  to { background-position-x: 100%; }
+}
+
+@keyframes seal-y-chirho {
+  from { background-position-y: 0%; }
+  to { background-position-y: 100%; }
+}
+
+// Phones: the town wakes by crossfading two crisp stills (a 36-frame sheet sharp enough for a phone
+// would blow the 12 MB decode budget of a low-end device), and the crystal has three rows.
+@keyframes wake-fade-chirho {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes stars-fade-chirho {
+  to { opacity: 0.18; transform: translateY(-6vh); }
+}
+
+@keyframes hero-drift-chirho {
+  to { opacity: 0.2; transform: translateY(-9vh); }
+}
+
+@keyframes rise-chirho {
+  from { opacity: 0; transform: translateY(2.2rem); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes sun-rise-chirho {
+  from { transform: translateY(28vmax) scale(0.82); opacity: 0.55; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes draw-chirho {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes node-light-chirho {
+  from { opacity: 0.15; transform: scale(0.4); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes tilt-question-chirho {
+  from { opacity: 0; transform: translate3d(-6%, 18%, 0) rotateY(24deg) rotateX(12deg); }
+  to { opacity: 1; transform: rotateY(9deg) rotateX(3deg); }
+}
+
+@keyframes tilt-result-chirho {
+  from { opacity: 0; transform: translate3d(6%, 10%, 0) rotateY(-18deg) rotateX(8deg); }
+  to { opacity: 1; transform: rotateY(-6deg) rotateX(2deg); }
+}
+
+@keyframes phone-rise-chirho {
+  from { opacity: 0; transform: translateY(30%) rotate(6deg); }
+  to { opacity: 1; transform: rotate(-2deg); }
+}
+
+@keyframes step-light-chirho {
+  from { opacity: 0.35; transform: translateX(-0.8rem); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes sheen-chirho {
+  0%, 62% { --sheen-chirho: -20%; }
+  100% { --sheen-chirho: 130%; }
+}
+
+@keyframes mist-chirho {
+  from { transform: translateX(-4%); }
+  to { transform: translateX(4%); }
+}
+
+@keyframes halo-chirho {
+  from { transform: scale(0.92); opacity: 0.75; }
+  to { transform: scale(1.06); opacity: 1; }
+}
+
+@keyframes twinkle-chirho {
+  from { opacity: 0.45; }
+  to { opacity: 0.95; }
+}
+
+@keyframes line-in-chirho {
+  from { opacity: 0; transform: translateY(0.32em); }
+  to { opacity: 1; transform: none; }
+}
+
+// A streak every 13 s, for about a second; the head (left, brightest) leads, down and to the left.
+@keyframes shoot-chirho {
+  0% { opacity: 0; translate: 0 0; }
+  1.5% { opacity: 1; }
+  7% { opacity: 0; translate: -420px 187px; }
+  100% { opacity: 0; translate: -420px 187px; }
+}
+
+@keyframes rays-chirho {
+  to { rotate: 360deg; }
+}
+
+@keyframes comet-chirho {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes comets-show-chirho {
+  from { opacity: 0; }
+  to { opacity: 0.9; }
+}
+
+@keyframes word-drift-chirho {
+  from { transform: translateX(5vw); }
+  to { transform: translateX(-5vw); }
+}
+
+@keyframes word-drift-back-chirho {
+  from { transform: translateX(-5vw); }
+  to { transform: translateX(5vw); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .path-comet-chirho,
+  .hero-star-chirho {
+    display: none;
+  }
+}

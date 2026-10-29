@@ -1,0 +1,18 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV) -#}
+{# The opening band of a FIRST LIGHT inner page: words on the left, the page's picture melting in on
+   the right (on top below 1000 px). Reads `model_chirho.hero_chirho` (PageHeroChirho); the enclosing
+   section and its tone class (night or morning) belong to the page. The picture is decoration, so it
+   has empty alt text and is hidden from assistive technology; the words carry the meaning.
+   Workflow: spec-chirho/workflows-chirho/first-light-authoring-chirho.md -#}
+<div class="inner-hero-picture-chirho" aria-hidden="true">
+  <img src="/app-assets-chirho/perffection/by-name-chirho/{{ model_chirho.hero_chirho.image_chirho }}" srcset="/app-assets-chirho/perffection/by-name-chirho/{{ model_chirho.hero_chirho.image_small_chirho }} 900w, /app-assets-chirho/perffection/by-name-chirho/{{ model_chirho.hero_chirho.image_chirho }} 1920w" sizes="(max-width: 1000px) 100vw, 68vw" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
+</div>
+<div class="page-chirho inner-hero-copy-chirho">
+  <p class="eyebrow-chirho">{{ model_chirho.hero_chirho.mark_chirho }}</p>
+  <h1 class="inner-hero-heading-chirho" id="hero-heading-chirho">{% for line_chirho in model_chirho.hero_chirho.headline_lines_chirho %}<span class="inner-hero-line-chirho">{{ line_chirho }}</span> {% endfor %}</h1>
+  <p class="inner-hero-lead-chirho">{{ model_chirho.hero_chirho.lead_chirho }}</p>
+  <div class="actions-chirho">
+    <a class="action-primary-chirho" href="{{ model_chirho.hero_chirho.primary_href_chirho }}">{{ model_chirho.hero_chirho.primary_label_chirho }}</a>
+    <a class="action-ghost-chirho" href="{{ model_chirho.hero_chirho.secondary_href_chirho }}">{{ model_chirho.hero_chirho.secondary_label_chirho }}</a>
+  </div>
+</div>

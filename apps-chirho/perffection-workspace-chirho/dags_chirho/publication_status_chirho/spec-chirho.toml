@@ -1,0 +1,15 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "dag-spec-v0-chirho"
+intent_chirho = "Show the authenticated viewer what is live at her address, what is on its way, and what could not be published."
+surface_chirho = { ins_chirho = ["request: http_request_v1"], outs_chirho = ["page: html_partial_v1"] }
+structure_chirho = [
+  "the pure builder emits one fixed read request and cannot choose the app, viewer or slug",
+  "the private request-user edge reaches the read-only publication-status door",
+  "the private typed response reaches the status renderer and remains private at the sink",
+  "every approval form (new address, republish, rollback) is rendered from this same read and carries the address's approval base; the editor only points here",
+]
+behaviors_chirho = [
+  "anonymous requests are refused before this DAG runs",
+  "the page reads state only and publishes nothing itself; its forms post to the publish door and appear only once that route is bound, never for the live record, never while a version is on its way",
+  "an applied record that fails platform verification is never rendered",
+]

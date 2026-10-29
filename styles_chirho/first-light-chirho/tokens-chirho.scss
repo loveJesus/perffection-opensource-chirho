@@ -1,0 +1,85 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+//
+// FIRST LIGHT: the public site's design system (2026-09-30).
+//
+// The page is one night becoming morning. Scrolling down IS daybreak: every band paints its own
+// stretch of one continuous sky, so the colours hold in reduced motion, in Firefox (no scroll
+// timelines) and in print, and scroll-driven touches (stars fading, a sun rising, a crystal turning)
+// only ever layer on top. Secure lives in the night, Abundant at dawn, Easy in the morning.
+//
+// Compiled after the shared tokens and chrome (the nav markup is shared with the workspace), before
+// the page stylesheet. Like every source here it may not name the Sass module or filesystem-import
+// at-rules, even in a comment: the compiler's guard scans comments too.
+
+// Registered so they interpolate. Each is consumed only by the element that animates it, so they do
+// not inherit: an animated inheriting property floods WebKit's matched-declarations cache.
+@property --sheen-chirho {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --halo-chirho {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 1;
+}
+
+@property --rise-chirho {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+:root {
+  // ---- the sky, top of the page to the bottom -------------------------------------------------
+  --night-deep-chirho: #03041a;
+  --night-chirho: #0b1033;
+  --night-blue-chirho: #141a4a;
+  --blue-hour-chirho: #232a66;
+  --dawn-violet-chirho: #4a2e6b;
+  --dawn-plum-chirho: #7a3a6e;
+  --dawn-rose-chirho: #c45e7c;
+  --dawn-apricot-chirho: #f2a06b;
+  --morning-honey-chirho: #ffd9a0;
+  --morning-cream-chirho: #fff1dc;
+  --day-chirho: #fffaf2;
+
+  // ---- light ----------------------------------------------------------------------------------
+  --starlight-chirho: #eef0ff;
+  --starlight-mute-chirho: #b4bae3;
+  --moon-chirho: #8fb8ff;
+  --window-gold-chirho: #f6c56b;
+  --sun-gold-chirho: #ffd98a;
+  --ember-chirho: #ff9a3d;
+
+  // ---- ink, for the morning and day bands ------------------------------------------------------
+  --ink-night-chirho: #12152e;
+  --ink-soft-chirho: #3d3f5c;
+  --ink-mute-day-chirho: #5d5f78;
+  --line-day-chirho: rgba(18, 21, 46, 0.14);
+  --line-night-chirho: rgba(238, 240, 255, 0.16);
+  // Rose for small labels on the light bands: #9e3550 holds 5:1 on honey, where the decorative
+  // #b4465f measured 4.1 (pass 3, 2026-09-30). The lighter rose stays for marks that are not text.
+  --rose-ink-chirho: #9e3550;
+  // Deeper still, for words set straight on the dawn's apricot (rose-ink measured 2.7:1 there, 2026-10-01).
+  --wine-ink-chirho: #6b1d33;
+  --rose-mark-chirho: #b4465f;
+
+  // ---- shape and depth ---------------------------------------------------------------------------
+  --round-chirho: 22px;
+  --round-small-chirho: 12px;
+  --pill-chirho: 999px;
+  --glass-night-chirho: rgba(20, 26, 74, 0.42);
+  --glass-edge-night-chirho: rgba(238, 240, 255, 0.14);
+  --glass-day-chirho: rgba(255, 255, 255, 0.62);
+  --glass-edge-day-chirho: rgba(18, 21, 46, 0.08);
+  --glow-gold-chirho: 0 0 0.5px rgba(255, 217, 138, 0.9), 0 0 24px rgba(246, 197, 107, 0.35), 0 0 80px rgba(246, 197, 107, 0.18);
+  --float-night-chirho: 0 1px 1px rgba(0, 0, 0, 0.35), 0 30px 80px -30px rgba(0, 0, 0, 0.85);
+  --float-day-chirho: 0 1px 2px rgba(18, 21, 46, 0.06), 0 24px 60px -24px rgba(18, 21, 46, 0.28), 0 60px 120px -60px rgba(196, 94, 124, 0.25);
+
+  // ---- measure ---------------------------------------------------------------------------------
+  --page-max-chirho: 1240px;
+  --gutter-chirho: clamp(1.25rem, 5vw, 4rem);
+  --band-pad-chirho: clamp(5rem, 12vh, 9rem);
+}

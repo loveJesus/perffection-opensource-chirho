@@ -1,0 +1,11 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+
+# Vendored third-party licence texts are reproduced BYTE-FOR-BYTE from upstream and must stay that
+# way: "copied unmodified" is a provenance claim we make in docs-chirho/licenses-chirho/README-chirho.md,
+# and it has to remain true. The upstream SIL OFL files carry trailing whitespace on a wrapped line
+# (verified present in the canonical google/fonts copies, not introduced here), which trips git's
+# whitespace checker. Exempt them rather than edit a legal text to satisfy a style warning.
+docs-chirho/licenses-chirho/*-OFL-chirho.txt -whitespace linguist-vendored
+
+# Byte-exact HTTP multipart fixtures retain protocol CRLF, never text normalization.
+apps-chirho/perffection-workspace-chirho/tests/figures_chirho/fixtures_chirho/*.bin binary

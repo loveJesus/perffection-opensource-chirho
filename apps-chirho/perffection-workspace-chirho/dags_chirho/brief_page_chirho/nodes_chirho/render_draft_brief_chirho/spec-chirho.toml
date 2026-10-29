@@ -1,0 +1,7 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Render the guided brief while nothing is saved, or a pointer to the editor once a version exists."
+behaviors_chirho = [
+  "a saved version offers no brief form",
+  "unverifiable state offers no form and names nothing of hers",
+]

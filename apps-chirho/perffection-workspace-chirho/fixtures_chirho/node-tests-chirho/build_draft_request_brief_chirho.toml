@@ -1,0 +1,14 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV)
+# The first-draft brief -> the ONE typed request the metered card receives (workflow first-draft-chirho.md).
+# Pinned on purpose: this is the wire contract cairn's stub keys off (the labelled lines), not page copy.
+schema_chirho = "tree-build-node-fixture-v1-chirho"
+fixture_chirho = "build_draft_request_brief_chirho"
+node_chirho = "draft_page_chirho/build_draft_request_chirho"
+wasm_chirho = "../../target/wasm32-unknown-unknown/release/examples/build_draft_request_guest_chirho.wasm"
+entry_chirho = "build_draft_request_chirho"
+input_chirho = "fixtures_chirho/node-inputs-chirho/build_draft_request_brief_chirho.txt"
+expected_output_chirho = "fixtures_chirho/node-expected-chirho/build_draft_request_output_chirho.json"
+expected_output_blake3_chirho = "c18d7d050b456309caa7a54c6ee85cf86277382e0167cc6472d9b509ec366dbc"
+fuel_limit_chirho = 10000000
+max_output_bytes_chirho = 1048576
+max_memory_bytes_chirho = 67108864

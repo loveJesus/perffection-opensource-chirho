@@ -1,0 +1,17 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+schema_chirho = "dag-spec-v0-chirho"
+intent_chirho = "Validate and append one optimistic private version of her figures for her own assistant's key, or refuse with the code named and no effect, answering JSON."
+surface_chirho = { ins_chirho = ["request: http_request_v1"], outs_chirho = ["answer: json_v1"] }
+structure_chirho = [
+  "the request feeds two pure builders that classify the same bytes with one shared function, so exactly one branch is live",
+  "the write branch: the pure builder emits the strict figures viewer-state write request or the Skipped stone; the private request-user edge reaches the least-authority viewer-state write door; the typed answer (state or conflict) reaches the JSON outcome renderer",
+  "the refusal branch: the pure renderer emits the JSON refusal or the Skipped stone; it reaches no effect",
+  "a builtin phi merges the one live answer and the private typed response remains private at the sink",
+]
+behaviors_chirho = [
+  "anonymous requests, invalid keys and keys without the figures Save action are refused before this DAG runs",
+  "a body over the bound, unreadable, of another schema, or not valid figures cannot become a viewer-state write; the refusal names the code and echoes nothing",
+  "the one figures validator decides, exactly as for her browser's Save; nothing is clamped or repaired",
+  "the host answers a stale optimistic version with a typed conflict instead of overwriting newer figures; the assistant is told the head version",
+  "a successful append answers the exact new private version, her figures as stored and their report",
+]

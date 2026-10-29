@@ -1,0 +1,7 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Read only this authenticated viewer exact current private page version."
+behaviors_chirho = [
+  "derives app and viewer authority from the authenticated host context",
+  "returns current state without granting mutation or publication authority",
+]

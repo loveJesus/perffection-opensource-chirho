@@ -1,0 +1,204 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+//
+// FIRST LIGHT inner pages ("What's in it", Trust): the opening band with its picture, the folded
+// note for a web developer, the closing band, and the daybreak that carries a page from night to
+// morning with nothing to read on it. Ground-aware like the rest of the system: each band names its
+// own ink for its own ground. Workflow: spec-chirho/workflows-chirho/first-light-authoring-chirho.md
+
+// ---- the opening band -------------------------------------------------------------------------------
+// The picture takes the right of the band and melts into the ground on its left, where the words sit
+// on a clean ground. Both pictures were generated with a calm left third (night sky, a plaster wall)
+// for exactly this.
+.inner-hero-chirho {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  min-block-size: min(100svh, 58rem);
+  display: grid;
+  align-items: center;
+  padding-block: clamp(7rem, 16vh, 10rem) clamp(4rem, 10vh, 7rem);
+}
+
+.inner-hero-night-chirho {
+  background: linear-gradient(180deg, var(--night-deep-chirho) 0%, #070a26 55%, var(--night-chirho) 100%);
+  color: var(--starlight-chirho);
+}
+
+.inner-hero-morning-chirho {
+  background: linear-gradient(180deg, #fbf3e6 0%, #f9e9d0 62%, var(--morning-honey-chirho) 100%);
+  color: var(--ink-night-chirho);
+}
+
+.inner-hero-picture-chirho {
+  position: absolute;
+  inset: 0 0 0 38%;
+  z-index: -1;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 42%), linear-gradient(180deg, transparent 0%, #000 12%, #000 84%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.inner-hero-picture-chirho img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: 68% 50%;
+}
+
+// Measured 2026-10-01: a hero line in Fell runs about 8.3 times its type size, so 5vw type capped at
+// 5.6rem keeps "Safe for your visitors." whole in this column from a phone to a 2560 px screen.
+.inner-hero-copy-chirho {
+  max-inline-size: min(48rem, 100%);
+  margin-inline-start: max(var(--gutter-chirho), calc((100% - var(--page-max-chirho)) / 2));
+  margin-inline-end: auto;
+  inline-size: auto;
+}
+
+.inner-hero-night-chirho .eyebrow-chirho {
+  color: var(--window-gold-chirho);
+}
+
+.inner-hero-morning-chirho .eyebrow-chirho {
+  color: var(--wine-ink-chirho);
+}
+
+.inner-hero-heading-chirho {
+  margin-block-start: 1.4rem;
+  font-family: var(--face-serif-chirho);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5vw, 5.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.005em;
+}
+
+.inner-hero-line-chirho {
+  display: block;
+}
+
+// The second line is the promise, set in the italic; a plain colour rather than painted text, so a
+// probe can measure it like any other words.
+.inner-hero-line-chirho:last-child {
+  font-style: italic;
+}
+
+.inner-hero-night-chirho .inner-hero-line-chirho:last-child {
+  color: var(--sun-gold-chirho);
+}
+
+.inner-hero-morning-chirho .inner-hero-line-chirho:last-child {
+  color: var(--wine-ink-chirho);
+}
+
+.inner-hero-lead-chirho {
+  margin-block-start: 1.6rem;
+  max-inline-size: 34rem;
+  font-size: var(--size-lead-chirho);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.inner-hero-night-chirho .inner-hero-lead-chirho {
+  color: #d6daf6;
+}
+
+.inner-hero-morning-chirho .inner-hero-lead-chirho {
+  color: var(--ink-soft-chirho);
+}
+
+// Below 1000 px the picture comes first and the words follow on clean ground, as in the front door's
+// closing band (side by side put words over the picture at tablet widths, 2026-09-30).
+@media (max-width: 1000px) {
+  .inner-hero-chirho {
+    align-items: start;
+    padding-block-start: calc(min(60vw, 30rem) + 4rem);
+  }
+
+  .inner-hero-picture-chirho {
+    inset: 0 0 auto;
+    block-size: calc(min(60vw, 30rem) + 5rem);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 24%, #000 66%, transparent 100%);
+  }
+}
+
+// ---- daybreak: night into morning, with nothing to read on it -------------------------------------------
+.daybreak-chirho {
+  min-block-size: clamp(14rem, 36vh, 24rem);
+  padding: 0;
+}
+
+.daybreak-chirho .dawn-sun-chirho {
+  inset-block-end: max(-30vmax, -420px);
+  inline-size: min(52vmax, 760px);
+}
+
+// ---- "For your web developer" -------------------------------------------------------------------------------
+.fold-chirho {
+  max-inline-size: 50rem;
+  margin: clamp(3rem, 7vh, 5rem) auto 0;
+  border-block: 1px solid var(--line-day-chirho);
+  color: var(--ink-night-chirho);
+}
+
+.fold-summary-chirho {
+  position: relative;
+  display: block;
+  padding: 1.2rem 3rem 1.2rem 0;
+  font-family: var(--face-serif-chirho);
+  font-style: italic;
+  font-size: clamp(1.3rem, 0.5vw + 1.15rem, 1.55rem);
+  line-height: 1.2;
+  cursor: pointer;
+  list-style: none;
+}
+
+.fold-summary-chirho::-webkit-details-marker {
+  display: none;
+}
+
+// A plus that turns into a minus, as on the front door's questions.
+.fold-summary-chirho::before,
+.fold-summary-chirho::after {
+  content: "";
+  position: absolute;
+  inset-inline-end: 0.4rem;
+  inset-block-start: 50%;
+  inline-size: 1.05rem;
+  block-size: 2px;
+  border-radius: 2px;
+  background: var(--rose-mark-chirho);
+  transition: transform 260ms var(--ease-quint-chirho);
+}
+
+.fold-summary-chirho::after {
+  transform: rotate(90deg);
+}
+
+.fold-chirho[open] .fold-summary-chirho::after {
+  transform: rotate(0deg);
+}
+
+.fold-body-chirho {
+  padding-block-end: 1.5rem;
+  color: var(--ink-soft-chirho);
+  line-height: 1.6;
+}
+
+.fold-list-chirho {
+  display: grid;
+  gap: 0.6rem;
+  margin-block-start: 0.9rem;
+  padding-inline-start: 1.2rem;
+  list-style: square;
+}
+
+.fold-list-chirho li::marker {
+  color: var(--rose-mark-chirho);
+}
+
+// ---- the closing band ---------------------------------------------------------------------------------------
+.inner-close-chirho .eyebrow-chirho {
+  color: var(--rose-ink-chirho);
+}
+
+.inner-close-chirho .band-body-chirho {
+  color: var(--ink-soft-chirho);
+}

@@ -1,0 +1,58 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV) -#}
+<!doctype html>
+<html lang="{{ model_chirho.copy_chirho.lang_chirho }}" dir="{{ model_chirho.copy_chirho.dir_chirho }}">
+{% include "partials_chirho/head_first_light_chirho.html" %}
+<body class="first-light-chirho login-page-chirho">
+  <div class="sky-stars-chirho page-stars-chirho" aria-hidden="true"><div class="stars-far-chirho"></div><div class="stars-near-chirho"></div></div>
+  <a class="login-skip-chirho" href="#login-form-chirho">{{ model_chirho.copy_chirho.skip_to_form_chirho }}</a>
+  {% include "partials_chirho/site_nav_chirho.html" %}
+  <main class="login-layout-chirho">
+    <section class="login-intro-chirho" aria-labelledby="login-heading-chirho">
+      <p class="login-eyebrow-chirho">{{ model_chirho.copy_chirho.eyebrow_chirho }}</p>
+      <h1 id="login-heading-chirho">{{ model_chirho.copy_chirho.heading_chirho }}</h1>
+      <p>{{ model_chirho.copy_chirho.intro_chirho }}</p>
+      <a class="login-help-link-chirho" href="#login-help-chirho">{{ model_chirho.copy_chirho.help_link_chirho }}</a>
+    </section>
+    <section class="login-card-chirho" aria-labelledby="login-heading-chirho">
+      {# Only fixed engine tokens select notices; no URL/request content is rendered. #}
+      {% for notice_chirho in model_chirho.notices_chirho %}
+      <section id="{{ notice_chirho.fragment_chirho }}" class="login-notice-chirho" role="alert" aria-labelledby="{{ notice_chirho.fragment_chirho }}-heading-chirho" tabindex="-1">
+        <h2 id="{{ notice_chirho.fragment_chirho }}-heading-chirho">{{ notice_chirho.heading_chirho }}</h2>
+        <p>{{ notice_chirho.body_chirho }}</p>
+        <a href="{{ model_chirho.display_path_chirho }}">{{ model_chirho.copy_chirho.dismiss_notice_chirho }}</a>
+      </section>
+      {% endfor %}
+      {% for ok_chirho in model_chirho.status_notices_chirho %}
+      <section id="{{ ok_chirho.fragment_chirho }}" class="login-notice-chirho login-notice-ok-chirho" role="status" aria-labelledby="{{ ok_chirho.fragment_chirho }}-heading-chirho" tabindex="-1">
+        <h2 id="{{ ok_chirho.fragment_chirho }}-heading-chirho">{{ ok_chirho.heading_chirho }}</h2>
+        <p>{{ ok_chirho.body_chirho }}</p>
+      </section>
+      {% endfor %}
+      <form id="login-form-chirho" tabindex="-1" method="post" action="{{ model_chirho.action_chirho }}">
+        <input type="hidden" name="redirect_chirho" value="{{ model_chirho.redirect_chirho }}">
+        <label class="login-field-chirho" for="principal-chirho">
+          <span>{{ model_chirho.copy_chirho.principal_label_chirho }}</span>
+          <input id="principal-chirho" type="text" dir="ltr" name="{{ model_chirho.principal_field_chirho }}" autocomplete="username" autocapitalize="none" spellcheck="false" aria-describedby="principal-help-chirho" required>
+          <small id="principal-help-chirho">{{ model_chirho.copy_chirho.principal_help_chirho }}</small>
+        </label>
+        <label class="login-field-chirho" for="credential-chirho">
+          <span>{{ model_chirho.copy_chirho.credential_label_chirho }}</span>
+          <input id="credential-chirho" type="password" dir="ltr" name="{{ model_chirho.credential_field_chirho }}" autocomplete="current-password" aria-describedby="credential-help-chirho" required>
+          <small id="credential-help-chirho">{{ model_chirho.copy_chirho.credential_help_chirho }}</small>
+        </label>
+        <button class="login-submit-chirho" type="submit">{{ model_chirho.copy_chirho.submit_label_chirho }}</button>
+      </form>
+      <aside id="login-help-chirho" class="login-help-chirho" tabindex="-1" aria-labelledby="login-help-heading-chirho">
+        <h2 id="login-help-heading-chirho">{{ model_chirho.copy_chirho.help_heading_chirho }}</h2>
+        <p>{{ model_chirho.copy_chirho.help_body_chirho }}</p>
+        <h3>{{ model_chirho.copy_chirho.setup_heading_chirho }}</h3>
+        <p>{{ model_chirho.copy_chirho.setup_body_chirho }}</p>
+        <p><a href="{{ model_chirho.setup_path_chirho }}">{{ model_chirho.copy_chirho.setup_link_chirho }}</a></p>
+        <h3>{{ model_chirho.copy_chirho.retry_heading_chirho }}</h3>
+        <p>{{ model_chirho.copy_chirho.retry_body_chirho }}</p>
+      </aside>
+    </section>
+  </main>
+  {% include "partials_chirho/site_footer_chirho.html" %}
+</body>
+</html>

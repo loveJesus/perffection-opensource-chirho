@@ -1,0 +1,7 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Turn the helper's completion into a bounded page-document candidate and render the existing editor in its imported state at version 0."
+behaviors_chirho = [
+  "clamps every field to the document's limits, strips markup, drops unknown keys, validates again in the editor",
+  "an answer that is not a page renders no-draft; nothing is saved here",
+]

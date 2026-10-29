@@ -1,0 +1,14 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+schema_chirho = "dag-spec-v0-chirho"
+intent_chirho = "Answer the authenticated caller's assistant with her saved figures, their one deterministic report, the version and the month they are as of, as JSON."
+surface_chirho = { ins_chirho = ["request: http_request_v1"], outs_chirho = ["answer: json_v1"] }
+structure_chirho = [
+  "the pure builder chooses the one fixed figures key but cannot choose the app or viewer scope",
+  "the private request-user edge reaches the least-authority viewer-state read door",
+  "the private typed response reaches the JSON renderer and remains private at the sink",
+]
+behaviors_chirho = [
+  "anonymous requests and invalid keys are refused before this DAG runs",
+  "read-only: it never writes, publishes or changes her page",
+  "missing figures answer version 0 with none; unverifiable state answers no version and no figures",
+]

@@ -1,0 +1,8 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+{# Shared product footer. A page opts out by leaving SiteChromeChirho.footer_note_chirho empty. -#}
+{% if let Some(footer_note_chirho) = model_chirho.chrome_chirho.footer_note_chirho.as_ref() %}
+  <footer class="site-footer-chirho">
+    <p>{{ footer_note_chirho }}</p>
+    <p>Built by <a href="{{ model_chirho.chrome_chirho.builder_url_chirho() }}">loveJesus software</a></p>
+  </footer>
+{% endif %}

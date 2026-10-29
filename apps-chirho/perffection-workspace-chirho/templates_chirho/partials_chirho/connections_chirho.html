@@ -1,0 +1,69 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) #}
+{# Her AI-assistant connections (src/connections_chirho.rs). Held: what a connection will do, and no control.
+   Unavailable: said plainly, never as "none". Listed: each row names the app it reaches and what it may do;
+   each live row may be disconnected, only while the disconnect road is bound; and, only on the page bound for
+   creating too, one link to the engine's own form (the key is never shown here). Workflow: spec-chirho/workflows-chirho/invite-beta-chirho/agent-api-chirho.md #}
+<section class="workspace-panel-chirho workspace-connections-chirho" aria-labelledby="connections-heading-chirho">
+  <div class="workspace-panel-heading-chirho">
+    <p>{{ model_chirho.connections_number_chirho }}</p>
+    <div>
+      <h2 id="connections-heading-chirho">{{ model_chirho.copy_chirho.connections_chirho.heading_chirho }}</h2>
+      <p>{{ model_chirho.copy_chirho.connections_chirho.intro_chirho }}</p>
+    </div>
+  </div>
+  <div class="workspace-connections-scope-chirho">
+    <div>
+      <h3>{{ model_chirho.copy_chirho.connections_chirho.can_heading_chirho }}</h3>
+      <ul>
+        {% for item_chirho in model_chirho.copy_chirho.connections_chirho.can_items_chirho %}<li>{{ item_chirho }}</li>{% endfor %}
+      </ul>
+    </div>
+    <div>
+      <h3>{{ model_chirho.copy_chirho.connections_chirho.never_heading_chirho }}</h3>
+      <ul>
+        {% for item_chirho in model_chirho.copy_chirho.connections_chirho.never_items_chirho %}<li>{{ item_chirho }}</li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% if model_chirho.connections_chirho.held_chirho %}
+    <p class="workspace-publication-note-chirho">{{ model_chirho.copy_chirho.connections_chirho.held_chirho }}</p>
+  {% else if model_chirho.connections_chirho.unavailable_chirho %}
+    <p class="workspace-connections-unavailable-chirho" role="status">{{ model_chirho.copy_chirho.connections_chirho.unavailable_chirho }}</p>
+  {% else %}
+    {% if model_chirho.connections_chirho.disconnect_bound_chirho() %}
+      <p id="{{ model_chirho.connections_chirho.ended_id_chirho }}" class="workspace-connections-ended-chirho" role="status">{{ model_chirho.copy_chirho.connections_chirho.ended_notice_chirho }}</p>
+    {% endif %}
+    {% if let Some(connect_href_chirho) = model_chirho.connections_chirho.connect_href_chirho.as_ref() %}
+      <div class="workspace-save-chirho workspace-connections-connect-chirho">
+        <p>{{ model_chirho.copy_chirho.connections_chirho.connect_note_chirho }}</p>
+        <a class="workspace-button-link-chirho" href="{{ connect_href_chirho }}">{{ model_chirho.copy_chirho.connections_chirho.connect_link_chirho }}</a>
+      </div>
+    {% endif %}
+    {% if model_chirho.connections_chirho.rows_chirho.is_empty() %}
+      <p>{{ model_chirho.copy_chirho.connections_chirho.empty_chirho }}</p>
+    {% else %}
+      <ul class="workspace-history-list-chirho" aria-label="{{ model_chirho.copy_chirho.connections_chirho.list_label_chirho }}">
+        {% for row_chirho in model_chirho.connections_chirho.rows_chirho %}
+          <li class="workspace-history-item-chirho{% if !row_chirho.live_chirho %} workspace-connections-ended-row-chirho{% endif %}">
+            <div>
+              <p>{% if row_chirho.live_chirho %}{{ model_chirho.copy_chirho.connections_chirho.connected_label_chirho }}{% else %}{{ model_chirho.copy_chirho.connections_chirho.ended_label_chirho }}{% endif %}</p>
+              <h3>{{ row_chirho.app_chirho }}</h3>
+              <span>{% for action_chirho in row_chirho.actions_chirho %}{% if !loop.first %} · {% endif %}{{ action_chirho }}{% endfor %}</span>
+              <span>{{ model_chirho.copy_chirho.connections_chirho.since_label_chirho }} {{ row_chirho.since_chirho }} · {{ model_chirho.copy_chirho.connections_chirho.until_label_chirho }} {{ row_chirho.until_chirho }}</span>
+            </div>
+            {% if row_chirho.live_chirho %}{% if let Some(disconnect_action_chirho) = model_chirho.connections_chirho.disconnect_action_chirho.as_ref() %}
+              <form method="post" action="{{ disconnect_action_chirho }}">
+                <input type="hidden" name="key_id_chirho" value="{{ row_chirho.key_id_chirho }}">
+                <input type="hidden" name="redirect_chirho" value="{{ model_chirho.return_href_chirho }}">
+                <button type="submit">{{ model_chirho.copy_chirho.connections_chirho.disconnect_submit_chirho }}</button>
+              </form>
+            {% endif %}{% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+      {% if model_chirho.connections_chirho.disconnect_bound_chirho() %}
+        <p class="workspace-publication-note-chirho">{{ model_chirho.copy_chirho.connections_chirho.disconnect_boundary_chirho }}</p>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+</section>

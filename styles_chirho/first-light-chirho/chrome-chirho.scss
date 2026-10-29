@@ -1,0 +1,174 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+//
+// The shared nav and footer markup (crates-chirho/perffection-ui-chirho) dressed for FIRST LIGHT.
+// Everything is scoped to `.first-light-chirho`, so the private workspace keeps its own chrome.
+// A starlit glass rail, mostly clear over the night hero, firming up as the page scrolls. No
+// backdrop-filter (WebKit 316769, and a fixed blur re-blurs everything beneath it every frame).
+
+@property --fl-rail-veil-chirho {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0.35;
+}
+
+// The rail and the night footer are always dark, so their keyboard ring stays gold even on a page
+// whose body sets the light-ground ring.
+.first-light-chirho :is(.site-nav-chirho, .footer-night-chirho) {
+  --focus-ring-chirho: var(--sun-gold-chirho);
+}
+
+.first-light-chirho .site-nav-chirho {
+  color: var(--starlight-chirho);
+  background-color: rgba(7, 10, 38, var(--fl-rail-veil-chirho));
+  border-block-end: 1px solid rgba(238, 240, 255, 0.08);
+}
+
+.first-light-chirho .site-brand-chirho {
+  align-items: center;
+  font-family: var(--face-serif-chirho);
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-variation-settings: normal;
+  letter-spacing: 0;
+  color: var(--starlight-chirho);
+  text-decoration: none;
+}
+
+// The mark: the same cut lozenge as the Secure band's crystal, in starlight and gold.
+.first-light-chirho .site-brand-chirho::before {
+  inline-size: 0.7rem;
+  block-size: 0.7rem;
+  background-image: linear-gradient(135deg, #ffffff 0%, var(--moon-chirho) 38%, var(--window-gold-chirho) 100%);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25), 0 0 16px rgba(143, 184, 255, 0.55);
+}
+
+// Said in the display italic, beside the name, with no badge around it (a pill badge in spaced
+// capitals was a template habit, L.J., 2026-10-01).
+.first-light-chirho .site-preview-marker-chirho {
+  font-family: var(--face-serif-chirho);
+  font-style: italic;
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--window-gold-chirho);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+
+.first-light-chirho .site-nav-link-chirho,
+.first-light-chirho .site-nav-cta-chirho {
+  font-family: var(--face-sans-chirho);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--starlight-mute-chirho);
+  text-decoration: none;
+}
+
+.first-light-chirho .site-nav-link-chirho:hover,
+.first-light-chirho .site-nav-link-chirho[aria-current="page"] {
+  color: var(--starlight-chirho);
+}
+
+.first-light-chirho .site-nav-link-chirho::after {
+  background-color: var(--window-gold-chirho);
+}
+
+// Sign in, the last link: a quiet gold outline, since it is the one door that is open.
+.first-light-chirho .site-nav-link-chirho:last-child {
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  color: var(--starlight-chirho);
+  box-shadow: inset 0 0 0 1px rgba(246, 197, 107, 0.5);
+}
+
+.first-light-chirho .site-nav-link-chirho:last-child::after {
+  display: none;
+}
+
+.first-light-chirho .site-nav-link-chirho:last-child:hover {
+  background: rgba(246, 197, 107, 0.12);
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .first-light-chirho .site-nav-chirho {
+      animation-name: fl-rail-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 60vh;
+    }
+  }
+}
+
+@keyframes fl-rail-chirho {
+  from {
+    --rail-pad-chirho: 1.35rem;
+    --fl-rail-veil-chirho: 0.25;
+  }
+  to {
+    --rail-pad-chirho: 0.75rem;
+    --fl-rail-veil-chirho: 0.9;
+  }
+}
+
+// A page that opens on a light ground (the "What's in it" morning) gets the solid rail from the first
+// pixel: the clear night rail put starlight links on cream there (pass 1, 2026-10-01).
+.first-light-chirho:has(.inner-hero-morning-chirho) .site-nav-chirho {
+  animation: none;
+  --fl-rail-veil-chirho: 0.94;
+}
+
+// Without scroll timelines (or with reduced motion) the rail is simply solid enough to read over
+// any band.
+@supports not (animation-timeline: scroll()) {
+  .first-light-chirho .site-nav-chirho {
+    --fl-rail-veil-chirho: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .first-light-chirho .site-nav-chirho {
+    --fl-rail-veil-chirho: 0.9;
+  }
+}
+
+@media (max-width: 40rem) {
+  .first-light-chirho .site-nav-chirho {
+    --fl-rail-veil-chirho: 0.94;
+  }
+
+  .first-light-chirho .site-nav-link-chirho,
+  .first-light-chirho .site-nav-cta-chirho {
+    font-size: 0.82rem;
+  }
+
+  .first-light-chirho .site-nav-link-chirho:last-child {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.78rem;
+    color: var(--starlight-chirho);
+    border: 0;
+  }
+}
+
+.first-light-chirho .site-footer-chirho {
+  background: none;
+  border: 0;
+  padding: 3rem var(--gutter-chirho) 0;
+  color: var(--starlight-mute-chirho);
+}
+
+.first-light-chirho .site-footer-chirho p {
+  font-family: var(--face-serif-chirho);
+  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  text-transform: none;
+}

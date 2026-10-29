@@ -1,0 +1,16 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV) -#}
+{# The closing band of a FIRST LIGHT inner page: a statement, the one open door (sign-in for
+   invitees) and the way on to the next page. Reads `model_chirho.close_chirho` (PageCloseChirho) and
+   `model_chirho.signin_href_chirho`, the canonical sign-in route.
+   Workflow: spec-chirho/workflows-chirho/first-light-authoring-chirho.md -#}
+<section class="band-day-chirho inner-close-chirho" id="close-chirho" aria-labelledby="close-heading-chirho">
+  <div class="page-chirho">
+    <p class="eyebrow-chirho">{{ model_chirho.close_chirho.mark_chirho }}</p>
+    <h2 class="band-heading-chirho" id="close-heading-chirho">{{ model_chirho.close_chirho.heading_chirho }}</h2>
+    <p class="band-body-chirho">{{ model_chirho.close_chirho.body_chirho }}</p>
+    <div class="actions-chirho">
+      <a class="action-primary-chirho" href="{{ model_chirho.signin_href_chirho }}">{{ model_chirho.close_chirho.signin_label_chirho }}</a>
+      <a class="action-ghost-chirho" href="{{ model_chirho.close_chirho.secondary_href_chirho }}">{{ model_chirho.close_chirho.secondary_label_chirho }}</a>
+    </div>
+  </div>
+</section>

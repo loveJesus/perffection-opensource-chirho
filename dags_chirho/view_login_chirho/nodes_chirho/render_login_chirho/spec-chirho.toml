@@ -1,0 +1,7 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Render catalog copy through the compiled login template, ignoring request content."
+behaviors_chirho = [
+  "Never reflects request fields into the static sign-in document.",
+  "Posts credentials only to canonical engine auth with a fixed workspace redirect.",
+]

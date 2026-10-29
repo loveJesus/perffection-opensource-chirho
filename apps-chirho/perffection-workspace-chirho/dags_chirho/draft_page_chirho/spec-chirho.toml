@@ -1,0 +1,15 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "dag-spec-v0-chirho"
+intent_chirho = "Turn the authenticated viewer's guided brief into one bounded request for the metered writing helper and show the helper's answer as a reviewable draft at version 0, or say why the brief could not be sent."
+surface_chirho = { ins_chirho = ["request: http_request_v1"], outs_chirho = ["page: html_partial_v1"] }
+structure_chirho = [
+  "the request feeds two pure builders that parse the same brief with one shared parser, so exactly one branch is live",
+  "the request branch reaches the blessed llm card scoped first-draft-chirho, whose reviewed ceilings bound tokens and price; the card sees her brief and nothing else of hers",
+  "the review branch renders the existing editor in its imported state at version 0: nothing is saved until she saves through the existing door",
+  "a builtin phi merges the one live page and every edge stays private at the sink",
+]
+behaviors_chirho = [
+  "anonymous requests are refused before this DAG runs",
+  "a nameless, wordless, contact-less or over-long brief skips the card and comes back as the brief form around her own words, every problem beside its control; an unreadable body gets a sentence and nothing of hers",
+  "a completion that is not a page renders an honest no-draft page; nothing is saved by this DAG under any answer",
+]

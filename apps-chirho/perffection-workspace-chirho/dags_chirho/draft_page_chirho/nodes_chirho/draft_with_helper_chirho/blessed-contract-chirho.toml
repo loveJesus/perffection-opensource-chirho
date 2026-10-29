@@ -1,0 +1,9 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "blessed-card-v2-chirho"
+contract_chirho = "llm"
+contract_hash_chirho = "ef3cb8e43acc061f5d76196060ecd6eeaf7921d312fc00577e5eea15297b8742"
+scope_chirho = "first-draft-chirho"
+caller_chirho = "perffection-workspace"
+max_tokens_chirho = 1200
+max_price_per_token_chirho = 100
+intent_chirho = "Ask the metered writing helper for one bounded first draft of her page from her own brief; the reviewed card caps tokens and price, and nothing is saved until she saves."

@@ -1,0 +1,8 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV)
+
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Render only revalidated host-injected page params through the vetted customer template."
+behaviors_chirho = [
+  "has no capability and cannot read private viewer state or choose a publication target",
+  "rejects direct top-level page fields and renders invalid params without customer data",
+]

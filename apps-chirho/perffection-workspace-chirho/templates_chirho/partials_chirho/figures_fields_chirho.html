@@ -1,0 +1,18 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+{#- The fields both figures forms carry beside her figures (figures_chirho.html): the version she saw,
+    the currency and her note. One rendering for the paste form and the file form; prefix_chirho keeps
+    every id unique on the page. The server validates them once, the same way for both.
+    Call sites wrap model arguments in their own parentheses (see field_state_chirho.html). -#}
+{%- macro meta_chirho(prefix_chirho, version_chirho, currency_chirho, note_chirho, copy_chirho) -%}
+<input type="hidden" name="expected_version_chirho" value="{{ version_chirho }}">
+<div class="workspace-field-chirho">
+  <label for="figures-{{ prefix_chirho }}-currency-chirho">{{ copy_chirho.currency_label_chirho }}</label>
+  <input id="figures-{{ prefix_chirho }}-currency-chirho" name="currency_chirho" value="{{ currency_chirho }}" maxlength="3" autocomplete="off" aria-describedby="figures-{{ prefix_chirho }}-currency-help-chirho" required>
+  <small id="figures-{{ prefix_chirho }}-currency-help-chirho">{{ copy_chirho.currency_help_chirho }}</small>
+</div>
+<div class="workspace-field-chirho">
+  <label for="figures-{{ prefix_chirho }}-note-chirho">{{ copy_chirho.source_note_label_chirho }}</label>
+  <input id="figures-{{ prefix_chirho }}-note-chirho" name="note_chirho" value="{{ note_chirho }}" maxlength="120" aria-describedby="figures-{{ prefix_chirho }}-note-help-chirho">
+  <small id="figures-{{ prefix_chirho }}-note-help-chirho">{{ copy_chirho.source_note_help_chirho }}</small>
+</div>
+{%- endmacro -%}

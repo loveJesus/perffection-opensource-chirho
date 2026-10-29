@@ -1,0 +1,8 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Parse the exact bounded editor form into one optimistic private-page write request."
+behaviors_chirho = [
+  "refuses duplicate, unknown, missing, malformed, or oversized form fields",
+  "emits the strict viewer-state request schema, one fixed logical key, and an exact expected version",
+  "contains no caller-selected app, viewer, workspace, or publication scope",
+]

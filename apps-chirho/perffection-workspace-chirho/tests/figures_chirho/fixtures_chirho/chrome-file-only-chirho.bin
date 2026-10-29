@@ -1,0 +1,25 @@
+------WebKitFormBoundary398s0G8ZIFLmlOEz
+Content-Disposition: form-data; name="csv_file_chirho"; filename="upload-figures.csv"
+Content-Type: text/csv
+
+month,kind,money_in,costs,jobs
+2026-01,Café,1200.50,400,300
+2026-02,Café,1300,450,320
+
+------WebKitFormBoundary398s0G8ZIFLmlOEz
+Content-Disposition: form-data; name="csv_chirho"
+
+
+------WebKitFormBoundary398s0G8ZIFLmlOEz
+Content-Disposition: form-data; name="currency_chirho"
+
+USD
+------WebKitFormBoundary398s0G8ZIFLmlOEz
+Content-Disposition: form-data; name="note_chirho"
+
+from my books
+------WebKitFormBoundary398s0G8ZIFLmlOEz
+Content-Disposition: form-data; name="expected_version_chirho"
+
+0
+------WebKitFormBoundary398s0G8ZIFLmlOEz--

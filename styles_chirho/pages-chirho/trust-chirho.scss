@@ -1,0 +1,38 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+//
+// Trust on FIRST LIGHT: each band sets its words beside its points, night ledger first, then the
+// visitors and the limits in daylight. Workflow: spec-chirho/workflows-chirho/first-light-authoring-chirho.md
+
+.trust-grid-chirho {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.trust-band-chirho.band-night-chirho .eyebrow-chirho {
+  color: var(--moon-chirho);
+}
+
+.trust-band-chirho:is(.band-morning-chirho, .band-day-chirho) .eyebrow-chirho {
+  color: var(--rose-ink-chirho);
+}
+
+.trust-band-chirho:is(.band-morning-chirho, .band-day-chirho) .band-body-chirho {
+  color: var(--ink-soft-chirho);
+}
+
+// The facet ledger opens on its own rule here, level with the band's heading.
+.trust-band-chirho .facets-chirho {
+  margin-block-start: 0;
+}
+
+.trust-points-chirho {
+  border-block-start: 2px solid currentColor;
+}
+
+@media (max-width: 900px) {
+  .trust-grid-chirho {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,39 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+{#- A control's validation state, from its typed field view (editor_validation_chirho.rs).
+    attrs_chirho goes inside the control's tag; messages_chirho goes after its help text.
+    Call sites wrap the argument in its own parentheses: Askama 0.16 panics binding a bare
+    field path of the template's model as a macro argument, and a grouped expression is bound
+    by reference instead. -#}
+{%- macro attrs_chirho(field_chirho) -%}
+{%- if !field_chirho.described_by_chirho.is_empty() %} aria-describedby="{{ field_chirho.described_by_chirho }}"{% endif -%}
+{%- if field_chirho.invalid_chirho %} aria-invalid="true"{% endif -%}
+{%- endmacro -%}
+
+{%- macro messages_chirho(field_chirho) -%}
+{%- if !field_chirho.messages_chirho.is_empty() %}
+<p id="{{ field_chirho.message_id_chirho }}" class="workspace-field-error-chirho">
+  {%- for message_chirho in field_chirho.messages_chirho %}{% if !loop.first %} {% endif %}{{ message_chirho }}{% endfor -%}
+</p>
+{%- endif -%}
+{%- endmacro -%}
+
+{#- The summary at the top of a refused form: every problem once, each line linking to the control
+    it is about (a line with no control to point at stays words). One shape for the editor, the
+    first-draft brief and Publishing; the message beside the control comes from messages_chirho. -#}
+{%- macro summary_chirho(heading_id_chirho, heading_chirho, body_chirho, notices_chirho) -%}
+<section class="workspace-errors-chirho" role="alert" aria-labelledby="{{ heading_id_chirho }}">
+  <h2 id="{{ heading_id_chirho }}">{{ heading_chirho }}</h2>
+  <p>{{ body_chirho }}</p>
+  <ul>
+    {%- for notice_chirho in notices_chirho %}
+    <li>
+      {%- if let Some(control_id_chirho) = notice_chirho.control_id_chirho.as_ref() -%}
+        <a href="#{{ control_id_chirho }}">{{ notice_chirho.field_label_chirho }}</a>
+      {%- else -%}
+        <strong>{{ notice_chirho.field_label_chirho }}</strong>
+      {%- endif -%}
+      : {{ notice_chirho.message_chirho }}</li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endmacro -%}

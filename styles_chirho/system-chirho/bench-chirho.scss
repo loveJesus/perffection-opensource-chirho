@@ -1,0 +1,1410 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+//
+// VELLUM & OBSIDIAN — THE BENCH.
+//
+// The one interactive component on the site, and it runs on `:checked` and `:has()` because the
+// route CSP is `script-src 'none'`. Two radio groups drive nine states:
+//
+//   TRADE  chooses the content AND the typographic voice — which face sets the headline, how
+//          tight it is tracked, whether the eyebrow is spoken in capitals.
+//   MOOD   chooses the palette only — ground, ink, rule, accent.
+//
+// Keeping those two axes orthogonal is the whole point of the demonstration: it shows a visitor,
+// in two clicks, that voice and palette are separate decisions a designer makes on purpose.
+// Compile order: tokens, base, surfaces, motion, chrome, then this file.
+
+.lab-bench-chirho {
+  display: grid;
+  gap: var(--sp-6-chirho);
+  align-items: start;
+}
+
+// The picker sits ABOVE the stage rather than beside it. Three business boxes want the full
+// measure to read as three columns; squeezed into a sidebar they stack back into a list of nine,
+// which is the layout this replaced.
+@media (min-width: 60rem) {
+  .lab-bench-chirho {
+    gap: var(--sp-5-chirho);
+  }
+}
+
+// ---------------------------------------------------------------------------------------------
+// Controls.
+// ---------------------------------------------------------------------------------------------
+
+.lab-controls-chirho {
+  display: grid;
+  gap: var(--sp-4-chirho);
+}
+
+.lab-set-chirho {
+  display: grid;
+  gap: var(--sp-3-chirho);
+}
+
+.lab-set-chirho legend {
+  color: var(--gold-text-chirho);
+  margin-block-end: var(--sp-2-chirho);
+}
+
+// The radio itself is removed from view but never from the tab order; the label is the control and
+// the focus ring is drawn on the label when the input behind it is focused.
+.lab-input-chirho {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Three boxes across on desktop — one per business — each holding that business's three directions
+// stacked as a column of swatch dots. Reading down a box is reading one shop's options; reading
+// across is comparing three different shops. A flat list of nine did neither.
+.lab-directions-chirho {
+  display: grid;
+  gap: var(--sp-3-chirho);
+}
+
+@media (min-width: 60rem) {
+  .lab-directions-chirho {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--sp-3-chirho);
+    align-items: start;
+  }
+}
+
+.lab-direction-group-chirho {
+  display: grid;
+  gap: 0.45rem;
+  align-content: start;
+  padding: var(--sp-3-chirho);
+  border: 1px solid var(--rule-chirho);
+  border-radius: var(--radius-chirho);
+  background-color: var(--ground-chirho);
+}
+
+.lab-direction-trade-chirho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.45rem;
+  font-family: var(--face-mono-chirho);
+  font-size: var(--t-micro-chirho);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-text-chirho);
+  padding-block-end: 0.45rem;
+  margin-block-end: 0.2rem;
+  border-block-end: 1px solid var(--rule-chirho);
+}
+
+.lab-direction-trade-chirho span {
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-mute-chirho);
+  opacity: 0.75;
+}
+
+.lab-choice-chirho {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.6rem 0.7rem;
+  cursor: pointer;
+  background-color: var(--ground-raise-chirho);
+  border: 1px solid transparent;
+  border-radius: var(--radius-chirho);
+}
+
+.lab-choice-text-chirho {
+  display: grid;
+  gap: 0.1rem;
+  min-inline-size: 0;
+}
+
+.lab-choice-name-chirho {
+  font-family: var(--face-display-chirho);
+  font-size: 1rem;
+  font-weight: 480;
+  font-variation-settings: "opsz" 24, "SOFT" 0, "WONK" 0;
+  line-height: 1.15;
+  color: var(--ink-chirho);
+}
+
+.lab-choice-note-chirho {
+  font-family: var(--face-mono-chirho);
+  font-size: 0.58rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 1.35;
+  color: var(--ink-mute-chirho);
+}
+
+// The dot IS the preview of the palette. A visitor should be able to guess which world they are
+// picking before the stage redraws, which is what makes nine options browsable instead of tiring.
+.lab-swatch-chirho {
+  inline-size: 1.6rem;
+  block-size: 1.6rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1px solid rgba(20, 18, 13, 0.18);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.35);
+}
+
+.swatch-morning-broadsheet-chirho {
+  background-image: linear-gradient(135deg, #f7f2e6 0 52%, #14120d 52% 100%);
+}
+
+.swatch-marmalade-riso-chirho {
+  background-image: linear-gradient(135deg, #ef6f2c 0 52%, #2b3a8f 52% 100%);
+}
+
+.swatch-velvet-oven-chirho {
+  background-image: linear-gradient(135deg, #12100e 0 52%, #c9a227 52% 100%);
+}
+
+.swatch-gallery-salt-chirho {
+  background-image: linear-gradient(135deg, #fbfbf9 0 52%, #cfcdc7 52% 100%);
+}
+
+.swatch-kiln-brutal-chirho {
+  background-image: linear-gradient(135deg, #d8d6d1 0 52%, #14140f 52% 100%);
+}
+
+.swatch-glaze-drift-chirho {
+  background-image: linear-gradient(135deg, #8fb9a8 0 52%, #e2cdad 52% 100%);
+}
+
+.swatch-botanical-plate-chirho {
+  background-image: linear-gradient(135deg, #1f2b22 0 52%, #e8e2d2 52% 100%);
+}
+
+.swatch-neon-meadow-chirho {
+  background-image: linear-gradient(135deg, #0a0b10 0 40%, #c6ff3d 40% 72%, #ff4fa3 72% 100%);
+}
+
+.swatch-paper-petal-chirho {
+  background-image: linear-gradient(135deg, #fdf2f4 0 52%, #d98aa4 52% 100%);
+}
+
+.lab-input-chirho:focus-visible + .lab-choice-chirho {
+  outline: 2px solid var(--au-core-chirho);
+  outline-offset: 3px;
+}
+
+.lab-input-chirho:checked + .lab-choice-chirho {
+  border-color: var(--au-deep-chirho);
+  box-shadow: var(--shadow-lift-chirho);
+}
+
+.lab-input-chirho:checked + .lab-choice-chirho .lab-swatch-chirho {
+  outline: 2px solid var(--au-core-chirho);
+  outline-offset: 2px;
+}
+
+.lab-input-chirho:checked + .lab-choice-chirho .lab-choice-note-chirho {
+  color: var(--gold-text-chirho);
+}
+
+.lab-slab-chirho {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid var(--rule-chirho);
+  // An eased eight-stop ramp rather than one big blur: alpha-accurate contact shadow at the top of
+  // the stack, long soft falloff at the bottom. Costs nothing next to a filter.
+  box-shadow:
+    0 1px 1px rgba(20, 18, 13, 0.05),
+    0 2px 3px rgba(20, 18, 13, 0.05),
+    0 5px 8px rgba(20, 18, 13, 0.06),
+    0 10px 16px rgba(20, 18, 13, 0.06),
+    0 20px 34px -8px rgba(20, 18, 13, 0.12),
+    0 44px 74px -26px rgba(20, 18, 13, 0.34),
+    0 72px 120px -44px rgba(20, 18, 13, 0.4);
+  // The slab itself is transformed inside the parent's perspective. It carries NO preserve-3d:
+  // `overflow: hidden` is a grouping property and would flatten it anyway, and nothing inside the
+  // frame needs its own depth.
+  transform: rotateY(-3.4deg) rotateX(1.4deg);
+  transform-origin: 50% 50%;
+  transition: transform 700ms var(--ease-quint-chirho), box-shadow 700ms var(--ease-quint-chirho);
+
+  // Mood defaults. The mood axis sets the palette and nothing else.
+  --shop-ground-chirho: #f7f1e6;
+  --shop-ink-chirho: #241d14;
+  --shop-mute-chirho: #6f6455;
+  --shop-rule-chirho: #ddd2bd;
+  --shop-accent-chirho: #b3521a;
+  --shop-accent-ink-chirho: #fffaf3;
+  --shop-chrome-ink-chirho: #574e40;
+}
+
+.lab-slab-chirho:hover,
+.lab-slab-chirho:focus-within {
+  transform: rotateY(0deg) rotateX(0deg);
+  box-shadow:
+    0 1px 1px rgba(20, 18, 13, 0.05),
+    0 2px 3px rgba(20, 18, 13, 0.06),
+    0 6px 10px rgba(20, 18, 13, 0.07),
+    0 13px 21px rgba(20, 18, 13, 0.08),
+    0 26px 44px -8px rgba(20, 18, 13, 0.14),
+    0 58px 98px -26px rgba(20, 18, 13, 0.4),
+    0 96px 158px -44px rgba(20, 18, 13, 0.46);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-slab-chirho {
+    transform: none;
+    transition: none;
+  }
+
+  .lab-slab-chirho:hover,
+  .lab-slab-chirho:focus-within {
+    transform: none;
+  }
+}
+
+.lab-stage-note-chirho {
+  text-align: end;
+  color: var(--ink-mute-chirho);
+}
+
+
+// ---------------------------------------------------------------------------------------------
+// THREE PIECES OF DESIGN WORK, NOT ONE SKIN.
+//
+// The previous version was one component with swapped custom properties. It was efficient and it
+// was the wrong argument: a visitor reading three recolours of the same layout correctly concludes
+// "template". So each preview below owns its layout, its type system, its colour world and its
+// ornament, and they share only the browser chrome and the show/hide switch.
+//
+// A broadsheet, a gallery wall and a botanical plate do not share a grid. That difference IS the
+// pitch: yours would be a fourth thing, not a fourth colourway.
+// ---------------------------------------------------------------------------------------------
+
+.shop-chirho {
+  display: none;
+}
+
+.lab-chirho:has(#design-morning-broadsheet-chirho:checked) .shop-broadsheet-chirho,
+.lab-chirho:has(#design-marmalade-riso-chirho:checked) .shop-riso-chirho,
+.lab-chirho:has(#design-velvet-oven-chirho:checked) .shop-velvet-chirho,
+.lab-chirho:has(#design-gallery-salt-chirho:checked) .shop-gallery-chirho,
+.lab-chirho:has(#design-kiln-brutal-chirho:checked) .shop-brutal-chirho,
+.lab-chirho:has(#design-glaze-drift-chirho:checked) .shop-glaze-chirho,
+.lab-chirho:has(#design-botanical-plate-chirho:checked) .shop-plate-chirho,
+.lab-chirho:has(#design-neon-meadow-chirho:checked) .shop-neon-chirho,
+.lab-chirho:has(#design-paper-petal-chirho:checked) .shop-paper-chirho {
+  display: block;
+  animation: fade-in-chirho var(--dur-reveal-chirho) var(--ease-quint-chirho) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shop-chirho {
+    animation: none !important;
+  }
+}
+
+.lab-bar-chirho {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.9rem;
+  border-block-end: 1px solid currentColor;
+}
+
+.lab-dot-chirho {
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-radius: 50%;
+  background-color: currentColor;
+  opacity: 0.35;
+}
+
+.lab-url-chirho {
+  margin-inline-start: auto;
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+}
+
+// =============================================================================================
+// ONE — THE BAKEHOUSE. A morning broadsheet: nameplate, dateline, ruled columns, a price list set
+// like a menu board with leader dots. Print logic, not web logic. Almost no motion, because a
+// newspaper does not move.
+// =============================================================================================
+
+.shop-broadsheet-chirho {
+  background-color: #f4efe4;
+  color: #1a1410;
+  --bake-red-chirho: #a8331c;
+  --bake-rule-chirho: #1a1410;
+}
+
+.shop-broadsheet-chirho .lab-bar-chirho {
+  color: #6b6154;
+  background-color: #ece5d6;
+  border-block-end-color: rgba(26, 20, 16, 0.16);
+}
+
+.broadsheet-masthead-chirho {
+  padding: var(--sp-5-chirho) var(--sp-5-chirho) var(--sp-3-chirho);
+  text-align: center;
+  border-block-end: 3px double var(--bake-rule-chirho);
+}
+
+.broadsheet-rule-line-chirho {
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 92, "wght" 500;
+  font-size: 0.6rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: #6b6154;
+  padding-block-end: var(--sp-3-chirho);
+  border-block-end: 1px solid rgba(26, 20, 16, 0.25);
+  margin-block-end: var(--sp-3-chirho);
+}
+
+// The nameplate: Archivo squeezed to a condensed black, the way a newspaper masthead is drawn.
+.broadsheet-name-chirho {
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 66, "wght" 850;
+  font-size: clamp(2.1rem, 5.4vw, 3.6rem);
+  line-height: 0.92;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  color: var(--bake-rule-chirho);
+}
+
+.broadsheet-dateline-chirho {
+  margin-block-start: var(--sp-2-chirho);
+  font-family: var(--face-mono-chirho);
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bake-red-chirho);
+}
+
+.broadsheet-body-chirho {
+  padding: var(--sp-5-chirho);
+  border-block-end: 1px solid rgba(26, 20, 16, 0.2);
+}
+
+// A newspaper cut: small, floated into the text, not a hero banner.
+.broadsheet-cut-chirho {
+  float: inline-start;
+  inline-size: 42%;
+  max-inline-size: 15rem;
+  block-size: 9.5rem;
+  object-fit: cover;
+  margin: 0.35rem var(--sp-4-chirho) var(--sp-3-chirho) 0;
+  filter: grayscale(0.55) contrast(1.12) sepia(0.16);
+  border: 1px solid rgba(26, 20, 16, 0.35);
+}
+
+.broadsheet-lede-chirho {
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 88, "wght" 620;
+  font-size: clamp(1.05rem, 1.7vw, 1.32rem);
+  line-height: 1.24;
+  margin-block-end: var(--sp-3-chirho);
+}
+
+.broadsheet-drop-chirho {
+  display: block;
+  font-family: var(--face-mono-chirho);
+  font-size: 0.6rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--bake-red-chirho);
+  margin-block-end: 0.35rem;
+}
+
+.broadsheet-copy-chirho {
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 96, "wght" 400;
+  font-size: 0.9rem;
+  line-height: 1.58;
+  text-align: justify;
+  hyphens: auto;
+}
+
+// The price list, set as a menu board with leader dots between name and price.
+.broadsheet-prices-chirho {
+  padding: var(--sp-4-chirho) var(--sp-5-chirho);
+  display: grid;
+  gap: var(--sp-3-chirho);
+}
+
+.broadsheet-price-row-chirho {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.broadsheet-price-row-chirho dt {
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 90, "wght" 620;
+  font-size: 0.95rem;
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.broadsheet-price-row-chirho dt::after {
+  content: "";
+  flex: 1;
+  border-block-end: 1px dotted rgba(26, 20, 16, 0.45);
+  transform: translateY(-0.25em);
+}
+
+.broadsheet-price-note-chirho {
+  order: 3;
+  flex: none;
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 96, "wght" 400;
+  font-size: 0.74rem;
+  color: #6b6154;
+  white-space: nowrap;
+}
+
+.broadsheet-price-row-chirho dd {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--bake-red-chirho);
+}
+
+.broadsheet-foot-chirho {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--sp-3-chirho);
+  padding: var(--sp-3-chirho) var(--sp-5-chirho);
+  border-block-start: 3px double var(--bake-rule-chirho);
+  font-family: var(--face-mono-chirho);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6b6154;
+}
+
+// =============================================================================================
+// TWO — THE KILN. A gallery wall. One object, enormous quiet, and a wall label. The design idea is
+// restraint: almost everything is margin, and the type is light and wide where the bakery's is
+// black and condensed — the SAME face, pushed to the opposite end of its width axis.
+// =============================================================================================
+
+.shop-gallery-chirho {
+  background-color: #f3f3f1;
+  color: #17181a;
+  --kiln-clay-chirho: #9d6a4a;
+}
+
+.shop-gallery-chirho .lab-bar-chirho {
+  color: #8c8d8f;
+  background-color: #eaeae7;
+  border-block-end-color: rgba(23, 24, 26, 0.1);
+}
+
+.gallery-room-chirho {
+  padding: clamp(1.75rem, 5vw, 4rem) clamp(1.5rem, 6vw, 5.5rem) clamp(1.75rem, 4vw, 3rem);
+  display: grid;
+  justify-items: center;
+  gap: var(--sp-5-chirho);
+  text-align: center;
+}
+
+.gallery-marque-chirho {
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 118, "wght" 300;
+  font-size: 0.66rem;
+  letter-spacing: 0.46em;
+  text-transform: uppercase;
+  color: #6f7174;
+}
+
+.gallery-object-chirho {
+  inline-size: 100%;
+  max-inline-size: 24rem;
+  block-size: clamp(11rem, 22vw, 16rem);
+  object-fit: cover;
+  border: 1px solid rgba(23, 24, 26, 0.14);
+}
+
+.gallery-title-chirho {
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 112, "wght" 200;
+  font-size: clamp(1.35rem, 2.6vw, 2.1rem);
+  line-height: 1.2;
+  letter-spacing: 0.005em;
+  max-inline-size: 22ch;
+}
+
+.gallery-body-chirho {
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 100, "wght" 380;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: #55575a;
+  max-inline-size: 34ch;
+}
+
+// The wall label: left-aligned inside a centred room, exactly as a museum caption is.
+.gallery-label-chirho {
+  inline-size: 100%;
+  max-inline-size: 24rem;
+  display: grid;
+  gap: 0.55rem;
+  text-align: start;
+  padding-block-start: var(--sp-4-chirho);
+  border-block-start: 1px solid rgba(23, 24, 26, 0.16);
+}
+
+.gallery-label-row-chirho {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: var(--sp-3-chirho);
+  align-items: baseline;
+}
+
+.gallery-label-row-chirho dt {
+  font-family: var(--face-mono-chirho);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8c8d8f;
+}
+
+.gallery-label-row-chirho dd {
+  margin: 0;
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 100, "wght" 420;
+  font-size: 0.82rem;
+  color: #17181a;
+}
+
+.gallery-price-chirho {
+  color: var(--kiln-clay-chirho);
+  margin-inline-start: 0.35rem;
+}
+
+.gallery-foot-chirho {
+  font-family: var(--face-mono-chirho);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8c8d8f;
+}
+
+// =============================================================================================
+// THREE — THE STEMS. A botanical plate: dark ground, an arched image, a high-contrast didone, and
+// a plate number in the corner. Symmetrical where the bakery is ragged and the gallery is spare.
+// =============================================================================================
+
+.shop-plate-chirho {
+  background-color: #121a15;
+  color: #efe8d8;
+  --stem-rose-chirho: #c08a76;
+  --stem-rule-chirho: rgba(239, 232, 216, 0.22);
+}
+
+.shop-plate-chirho .lab-bar-chirho {
+  color: #8fa295;
+  background-color: #0d1310;
+  border-block-end-color: var(--stem-rule-chirho);
+}
+
+.plate-chirho {
+  position: relative;
+  padding: var(--sp-6-chirho) clamp(1.25rem, 5vw, 3.5rem) var(--sp-5-chirho);
+  display: grid;
+  justify-items: center;
+  gap: var(--sp-3-chirho);
+  text-align: center;
+}
+
+// The engraved frame of a printed plate.
+.plate-chirho::before {
+  content: "";
+  position: absolute;
+  inset: var(--sp-3-chirho);
+  border: 1px solid var(--stem-rule-chirho);
+  pointer-events: none;
+}
+
+.plate-number-chirho {
+  font-family: var(--face-mono-chirho);
+  font-size: 0.6rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--stem-rose-chirho);
+}
+
+// The arch. A printed botanical plate frames its subject; a rectangle would make this a card.
+.plate-arch-chirho {
+  inline-size: 100%;
+  max-inline-size: 19rem;
+  block-size: clamp(11rem, 24vw, 17rem);
+  overflow: hidden;
+  border-radius: 50% 50% 4px 4px / 34% 34% 4px 4px;
+  border: 1px solid var(--stem-rule-chirho);
+}
+
+.plate-image-chirho {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  filter: saturate(0.88) contrast(1.05);
+}
+
+.plate-title-chirho {
+  font-family: var(--face-didone-chirho);
+  font-variation-settings: "opsz" 88, "wght" 500;
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  line-height: 1.06;
+  letter-spacing: 0.005em;
+}
+
+.plate-latin-chirho {
+  font-family: var(--face-didone-chirho);
+  font-variation-settings: "opsz" 16, "wght" 400;
+  font-style: italic;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  color: var(--stem-rose-chirho);
+}
+
+.plate-body-chirho {
+  font-family: var(--face-didone-chirho);
+  font-variation-settings: "opsz" 14, "wght" 400;
+  font-size: 0.92rem;
+  line-height: 1.72;
+  color: rgba(239, 232, 216, 0.78);
+  max-inline-size: 38ch;
+}
+
+.plate-list-chirho {
+  inline-size: 100%;
+  max-inline-size: 26rem;
+  display: grid;
+  gap: 0.7rem;
+  padding-block-start: var(--sp-4-chirho);
+  margin-block-start: var(--sp-2-chirho);
+  border-block-start: 1px solid var(--stem-rule-chirho);
+}
+
+.plate-list-chirho li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.15rem var(--sp-3-chirho);
+  align-items: baseline;
+  text-align: start;
+}
+
+.plate-item-name-chirho {
+  font-family: var(--face-didone-chirho);
+  font-variation-settings: "opsz" 18, "wght" 600;
+  font-size: 0.95rem;
+}
+
+.plate-item-note-chirho {
+  grid-column: 1;
+  font-family: var(--face-mono-chirho);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(239, 232, 216, 0.5);
+}
+
+.plate-item-price-chirho {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  align-self: center;
+  font-size: 0.9rem;
+  color: var(--stem-rose-chirho);
+}
+
+.plate-foot-chirho {
+  font-family: var(--face-mono-chirho);
+  font-size: 0.6rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(239, 232, 216, 0.45);
+  margin-block-start: var(--sp-2-chirho);
+}
+
+// =============================================================================================
+// MARMALADE RISO — a two-ink riso print. Off-white stock, marmalade and deep blue, a deliberately
+// misregistered second plate, halftone photography, poster type squeezed wide. Loud where the
+// broadsheet is orderly, and printed on the same imaginary press.
+// =============================================================================================
+
+.shop-riso-chirho {
+  background-color: #fbf5e8;
+  color: #22285c;
+  --riso-ink-chirho: #ef6f2c;
+  --riso-blue-chirho: #2b3a8f;
+}
+
+.shop-riso-chirho .lab-bar-chirho {
+  color: #6d74a6;
+  background-color: #f2ebdb;
+  border-block-end-color: rgba(43, 58, 143, 0.2);
+}
+
+.riso-sheet-chirho {
+  padding: var(--sp-5-chirho);
+  display: grid;
+  gap: var(--sp-3-chirho);
+}
+
+.riso-kicker-chirho {
+  font-family: var(--face-mono-chirho);
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--riso-ink-chirho);
+}
+
+.riso-shout-chirho {
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 74, "wght" 900;
+  font-size: clamp(2.4rem, 7vw, 4.6rem);
+  line-height: 0.86;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--riso-blue-chirho);
+}
+
+.riso-plate-chirho {
+  position: relative;
+  isolation: isolate;
+  // The sheet runs through the press twice. The orange plate lands square; the blue plate lands a
+  // few millimetres out. That misregistration is the whole look — do not "fix" the offset.
+  transform: rotate(-0.5deg);
+}
+
+// Ink one: the photograph crushed to a single orange, no midtones left in it.
+.riso-image-chirho {
+  display: block;
+  inline-size: 100%;
+  block-size: clamp(9rem, 20vw, 14rem);
+  object-fit: cover;
+  filter: grayscale(1) brightness(1.95) contrast(1.05) sepia(1) saturate(5.5) hue-rotate(-20deg);
+  mix-blend-mode: multiply;
+}
+
+// Ink two: a flat blue plate, offset, multiplying into the orange where the two overlap.
+.riso-blob-chirho {
+  position: absolute;
+  inset-block-start: 8%;
+  inset-inline-start: -1.4rem;
+  inline-size: 9.5rem;
+  block-size: 9.5rem;
+  border-radius: 50%;
+  background-color: var(--riso-blue-chirho);
+  mix-blend-mode: multiply;
+  opacity: 0.66;
+  z-index: 1;
+}
+
+// The screen itself. A 4px dot grid multiplied over both plates so the ink reads as halftone
+// rather than as flat colour — the cheapest honest imitation of a duplicator there is.
+.riso-plate-chirho::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.55) 0.9px, transparent 1.3px);
+  background-size: 4px 4px;
+  mix-blend-mode: multiply;
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.riso-line-chirho {
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 92, "wght" 650;
+  font-size: clamp(1rem, 1.9vw, 1.3rem);
+  line-height: 1.22;
+  max-inline-size: 30ch;
+}
+
+.riso-chips-chirho {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.riso-chips-chirho li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.4rem 0.7rem;
+  border: 2px solid var(--riso-blue-chirho);
+  border-radius: 999px;
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 96, "wght" 620;
+  font-size: 0.8rem;
+}
+
+.riso-chips-chirho b {
+  color: var(--riso-ink-chirho);
+}
+
+.riso-foot-chirho {
+  font-family: var(--face-mono-chirho);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--riso-blue-chirho);
+  opacity: 0.7;
+}
+
+// =============================================================================================
+// VELVET OVEN — the late-night patisserie. Near-black, gold, whispered capitals, hairline rules,
+// the photograph reduced to a slim band. Everything the riso shouts, this one murmurs.
+// =============================================================================================
+
+.shop-velvet-chirho {
+  background-color: #12100e;
+  color: #ece2d2;
+  --velvet-gold-chirho: #c9a227;
+}
+
+.shop-velvet-chirho .lab-bar-chirho {
+  color: #7d7365;
+  background-color: #0c0a09;
+  border-block-end-color: rgba(201, 162, 39, 0.24);
+}
+
+.velvet-room-chirho {
+  margin: clamp(0.75rem, 2vw, 1.35rem);
+  border: 1px solid rgba(201, 162, 39, 0.28);
+  padding: var(--sp-7-chirho) clamp(1.5rem, 6vw, 4.5rem);
+  display: grid;
+  justify-items: center;
+  gap: var(--sp-3-chirho);
+  text-align: center;
+}
+
+.velvet-caps-chirho {
+  font-family: var(--face-mono-chirho);
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--velvet-gold-chirho);
+}
+
+.velvet-rule-chirho {
+  inline-size: 3rem;
+  block-size: 1px;
+  border: 0;
+  margin: 0;
+  background-color: rgba(201, 162, 39, 0.5);
+}
+
+.velvet-title-chirho {
+  font-family: var(--face-didone-chirho);
+  font-variation-settings: "opsz" 96, "wght" 400;
+  font-size: clamp(2rem, 4.6vw, 3.4rem);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  max-inline-size: 16ch;
+}
+
+.velvet-band-chirho {
+  inline-size: 100%;
+  block-size: clamp(5rem, 11vw, 7.5rem);
+  overflow: hidden;
+  border-block: 1px solid rgba(201, 162, 39, 0.3);
+}
+
+.velvet-image-chirho {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  filter: brightness(0.72) saturate(0.8) contrast(1.1);
+}
+
+.velvet-body-chirho {
+  font-family: var(--face-didone-chirho);
+  font-variation-settings: "opsz" 14, "wght" 400;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: rgba(236, 226, 210, 0.72);
+  max-inline-size: 40ch;
+}
+
+.velvet-list-chirho {
+  inline-size: 100%;
+  max-inline-size: 24rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.velvet-list-chirho > div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem;
+  align-items: baseline;
+  padding-block-end: 0.4rem;
+  border-block-end: 1px solid rgba(236, 226, 210, 0.12);
+}
+
+.velvet-list-chirho dt {
+  font-family: var(--face-mono-chirho);
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.velvet-list-chirho dd {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--velvet-gold-chirho);
+}
+
+.velvet-foot-chirho {
+  font-family: var(--face-mono-chirho);
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(236, 226, 210, 0.38);
+}
+
+// =============================================================================================
+// KILN BRUTAL — raw concrete. Hard 2px rules, no rounding anywhere, the face crushed to its
+// narrowest and heaviest, numbers doing the ornament. The gallery's opposite twin.
+// =============================================================================================
+
+.shop-brutal-chirho {
+  background-color: #d8d6d1;
+  color: #14140f;
+  --brutal-line-chirho: #14140f;
+}
+
+.shop-brutal-chirho .lab-bar-chirho {
+  color: #5d5b56;
+  background-color: #cbc9c3;
+  border-block-end: 2px solid var(--brutal-line-chirho);
+}
+
+.brutal-grid-chirho {
+  display: grid;
+  gap: 0;
+}
+
+.brutal-name-chirho {
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 62, "wght" 900;
+  font-size: clamp(2.2rem, 7.4vw, 4.8rem);
+  line-height: 0.84;
+  text-transform: uppercase;
+  padding: var(--sp-4-chirho) var(--sp-5-chirho) var(--sp-2-chirho);
+}
+
+.brutal-meta-chirho {
+  font-family: var(--face-mono-chirho);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 0 var(--sp-5-chirho) var(--sp-3-chirho);
+  border-block-end: 2px solid var(--brutal-line-chirho);
+}
+
+.brutal-image-chirho {
+  inline-size: 100%;
+  block-size: clamp(9rem, 20vw, 13rem);
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.3);
+  border-block-end: 2px solid var(--brutal-line-chirho);
+}
+
+.brutal-lede-chirho {
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 80, "wght" 700;
+  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  line-height: 1.16;
+  text-transform: uppercase;
+  padding: var(--sp-4-chirho) var(--sp-5-chirho);
+  border-block-end: 2px solid var(--brutal-line-chirho);
+}
+
+.brutal-list-chirho {
+  display: grid;
+}
+
+.brutal-list-chirho li {
+  display: grid;
+  grid-template-columns: 3rem 1fr auto;
+  gap: var(--sp-3-chirho);
+  align-items: center;
+  padding: var(--sp-3-chirho) var(--sp-5-chirho);
+  border-block-end: 1px solid rgba(20, 20, 15, 0.28);
+}
+
+.brutal-num-chirho {
+  font-size: 1.1rem;
+  font-weight: 700;
+  opacity: 0.42;
+}
+
+.brutal-item-chirho {
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 78, "wght" 720;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+
+.brutal-price-chirho {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.brutal-foot-chirho {
+  font-family: var(--face-mono-chirho);
+  font-size: 0.6rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  padding: var(--sp-3-chirho) var(--sp-5-chirho);
+  background-color: var(--brutal-line-chirho);
+  color: #d8d6d1;
+}
+
+// =============================================================================================
+// GLAZE DRIFT — everything round and slow. A soft celadon field, a circular photograph, generous
+// wonky serif, pill-shaped prices. No straight rule anywhere in it.
+// =============================================================================================
+
+.shop-glaze-chirho {
+  background-color: #eef3ef;
+  color: #22302b;
+  --glaze-celadon-chirho: #8fb9a8;
+}
+
+.shop-glaze-chirho .lab-bar-chirho {
+  color: #7d9188;
+  background-color: #e4ece7;
+  border-block-end-color: rgba(34, 48, 43, 0.1);
+}
+
+.glaze-field-chirho {
+  position: relative;
+  overflow: hidden;
+  min-block-size: 26rem;
+  align-content: center;
+  padding: var(--sp-7-chirho) clamp(1.25rem, 5vw, 3rem);
+  display: grid;
+  justify-items: center;
+  gap: var(--sp-3-chirho);
+  text-align: center;
+  background-image:
+    radial-gradient(60% 48% at 18% 12%, rgba(143, 185, 168, 0.5) 0%, rgba(143, 185, 168, 0) 70%),
+    radial-gradient(52% 44% at 86% 82%, rgba(226, 205, 173, 0.55) 0%, rgba(226, 205, 173, 0) 72%);
+}
+
+.glaze-orb-chirho {
+  position: absolute;
+  inset-block-start: -18%;
+  inset-inline-end: -12%;
+  inline-size: 16rem;
+  block-size: 16rem;
+  border-radius: 50%;
+  background-image: radial-gradient(circle at 34% 30%, rgba(255, 255, 255, 0.75), rgba(143, 185, 168, 0.28));
+  pointer-events: none;
+}
+
+.glaze-marque-chirho {
+  position: relative;
+  font-family: var(--face-mono-chirho);
+  font-size: 0.6rem;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: #5d7a6e;
+}
+
+.glaze-title-chirho {
+  position: relative;
+  font-family: var(--face-display-chirho);
+  font-variation-settings: "opsz" 96, "SOFT" 100, "WONK" 1;
+  font-size: clamp(1.5rem, 3.2vw, 2.35rem);
+  line-height: 1.1;
+  font-weight: 360;
+  max-inline-size: 20ch;
+}
+
+.glaze-round-chirho {
+  position: relative;
+  inline-size: clamp(9rem, 20vw, 13rem);
+  block-size: clamp(9rem, 20vw, 13rem);
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 18px 40px -18px rgba(34, 48, 43, 0.45);
+}
+
+.glaze-image-chirho {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  filter: saturate(0.9) brightness(1.04);
+}
+
+.glaze-body-chirho {
+  position: relative;
+  font-family: var(--face-display-chirho);
+  font-variation-settings: "opsz" 18, "SOFT" 60, "WONK" 0;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: #4a5f56;
+  max-inline-size: 36ch;
+}
+
+.glaze-pills-chirho {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.glaze-pills-chirho li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.7);
+  font-size: 0.82rem;
+  box-shadow: 0 2px 8px -3px rgba(34, 48, 43, 0.28);
+}
+
+.glaze-pills-chirho b {
+  color: #3d7a63;
+}
+
+// =============================================================================================
+// NEON MEADOW — the night market. Near-black with electric lime and magenta, the photograph lit
+// like a stall at 9pm, outlined tags. The botanical plate after dark and off its leash.
+// =============================================================================================
+
+.shop-neon-chirho {
+  background-color: #0a0b10;
+  color: #eef1e6;
+  --neon-lime-chirho: #c6ff3d;
+  --neon-rose-chirho: #ff4fa3;
+}
+
+.shop-neon-chirho .lab-bar-chirho {
+  color: #6b7080;
+  background-color: #06070b;
+  border-block-end-color: rgba(198, 255, 61, 0.24);
+}
+
+.neon-night-chirho {
+  padding: var(--sp-5-chirho);
+  display: grid;
+  gap: var(--sp-3-chirho);
+}
+
+.neon-head-chirho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-3-chirho);
+  padding-block-end: var(--sp-3-chirho);
+  border-block-end: 1px solid rgba(198, 255, 61, 0.3);
+}
+
+.neon-name-chirho {
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 104, "wght" 820;
+  font-size: clamp(1.5rem, 3.4vw, 2.3rem);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  color: var(--neon-lime-chirho);
+}
+
+.neon-open-chirho {
+  font-family: var(--face-mono-chirho);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--neon-rose-chirho);
+}
+
+.neon-frame-chirho {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(198, 255, 61, 0.35);
+}
+
+.neon-image-chirho {
+  inline-size: 100%;
+  block-size: clamp(9rem, 20vw, 13.5rem);
+  object-fit: cover;
+  filter: saturate(1.35) contrast(1.2) brightness(0.86) hue-rotate(-8deg);
+}
+
+.neon-flash-chirho {
+  position: absolute;
+  inset-block-end: 0.6rem;
+  inset-inline-start: 0.7rem;
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 88, "wght" 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #0a0b10;
+  background-color: var(--neon-lime-chirho);
+  padding: 0.24rem 0.55rem;
+}
+
+.neon-lede-chirho {
+  font-family: var(--face-grotesk-chirho);
+  font-variation-settings: "wdth" 96, "wght" 560;
+  font-size: clamp(1rem, 1.9vw, 1.28rem);
+  line-height: 1.3;
+  max-inline-size: 32ch;
+}
+
+.neon-tags-chirho {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.neon-tags-chirho li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--neon-rose-chirho);
+  font-family: var(--face-mono-chirho);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.neon-tags-chirho b {
+  color: var(--neon-lime-chirho);
+}
+
+.neon-foot-chirho {
+  font-family: var(--face-mono-chirho);
+  font-size: 0.6rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(238, 241, 230, 0.45);
+}
+
+// =============================================================================================
+// PAPER PETAL — cut paper. Pastel stock, layered cards each tilted a degree or two, soft shadows,
+// rounded everything. The one design in the set that looks handmade rather than printed.
+// =============================================================================================
+
+.shop-paper-chirho {
+  background-color: #fdf2f4;
+  color: #4a3540;
+  --paper-rose-chirho: #d98aa4;
+}
+
+.shop-paper-chirho .lab-bar-chirho {
+  color: #a98b96;
+  background-color: #f8e7ec;
+  border-block-end-color: rgba(74, 53, 64, 0.12);
+}
+
+.paper-stack-chirho {
+  padding: var(--sp-5-chirho);
+  display: grid;
+  gap: var(--sp-4-chirho);
+  justify-items: center;
+  text-align: center;
+}
+
+.paper-marque-chirho {
+  font-family: var(--face-display-chirho);
+  font-variation-settings: "opsz" 40, "SOFT" 90, "WONK" 1;
+  font-size: 1.5rem;
+  font-weight: 420;
+  color: var(--paper-rose-chirho);
+}
+
+.paper-card-chirho {
+  background-color: #fffafb;
+  border-radius: 1.1rem;
+  box-shadow: 0 2px 4px rgba(74, 53, 64, 0.06), 0 14px 28px -14px rgba(74, 53, 64, 0.24);
+}
+
+.paper-card-image-chirho {
+  inline-size: 100%;
+  max-inline-size: 20rem;
+  overflow: hidden;
+  transform: rotate(-1.6deg);
+}
+
+.paper-image-chirho {
+  inline-size: 100%;
+  block-size: clamp(8.5rem, 18vw, 12rem);
+  object-fit: cover;
+  filter: saturate(0.92) brightness(1.06);
+}
+
+.paper-card-copy-chirho {
+  inline-size: 100%;
+  max-inline-size: 26rem;
+  padding: var(--sp-4-chirho) var(--sp-5-chirho);
+  transform: rotate(0.7deg);
+}
+
+.paper-title-chirho {
+  font-family: var(--face-display-chirho);
+  font-variation-settings: "opsz" 72, "SOFT" 80, "WONK" 1;
+  font-size: clamp(1.3rem, 2.6vw, 1.85rem);
+  line-height: 1.16;
+  font-weight: 380;
+  margin-block-end: var(--sp-2-chirho);
+}
+
+.paper-body-chirho {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: #7a6470;
+}
+
+.paper-tiles-chirho {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.paper-tiles-chirho li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.paper-tiles-chirho b {
+  color: var(--paper-rose-chirho);
+}
+
+.paper-foot-chirho {
+  font-family: var(--face-mono-chirho);
+  font-size: 0.58rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #a98b96;
+}

@@ -1,0 +1,287 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+#
+# App-level descriptor for perffection.com — the product, built as a cairn app on the generic engine.
+# tree-build combines this with the dag tree to emit the app-source manifest.
+schema_chirho = "app-descriptor-v0-chirho"
+app_chirho = "perffection"
+owner_chirho = "owner/replace-with-local-owner-principal"
+package_chirho = "perffection-site-chirho"
+request_access_policy_chirho = "public"
+
+# The one compiled stylesheet for the front door. Source is styles_chirho/system-chirho/*.scss plus
+# styles_chirho/pages-chirho/home-chirho.scss, compiled in the order set by
+# scripts-chirho/build-site-chirho.sh. Never hand-edit the .css.
+[[asset_chirho]]
+name_chirho = "home-chirho.css"
+path_chirho = "assets_chirho/home-chirho.css"
+content_type_chirho = "text/css"
+
+# The compiled stylesheet for /craft-chirho. Same ordered system sources as the front door, plus
+# styles_chirho/pages-chirho/craft-chirho.scss. Never hand-edit the .css.
+[[asset_chirho]]
+name_chirho = "craft-chirho.css"
+path_chirho = "assets_chirho/craft-chirho.css"
+content_type_chirho = "text/css"
+
+# The compiled stylesheet for /trust-chirho. Same ordered system sources as the other pages, plus
+# styles_chirho/pages-chirho/trust-chirho.scss. Never hand-edit the .css.
+[[asset_chirho]]
+name_chirho = "trust-chirho.css"
+path_chirho = "assets_chirho/trust-chirho.css"
+content_type_chirho = "text/css"
+
+# The issued-account sign-in page shares the site's ordered system styles.
+[[asset_chirho]]
+name_chirho = "login-chirho.css"
+path_chirho = "assets_chirho/login-chirho.css"
+content_type_chirho = "text/css"
+
+[[asset_chirho]]
+name_chirho = "help-chirho.css"
+path_chirho = "assets_chirho/help-chirho.css"
+content_type_chirho = "text/css"
+
+[[asset_chirho]]
+name_chirho = "agent-guide-chirho.css"
+path_chirho = "assets_chirho/agent-guide-chirho.css"
+content_type_chirho = "text/css"
+
+# Three subset variable typefaces. `font-src 'self'` appears in the route CSP only because these
+# asset records verify -- if a record breaks, the directive disappears and the page loses its type.
+[[asset_chirho]]
+name_chirho = "fraunces-display-chirho.woff2"
+path_chirho = "assets_chirho/fraunces-display-chirho.woff2"
+content_type_chirho = "font/woff2"
+
+[[asset_chirho]]
+name_chirho = "bodoni-display-chirho.woff2"
+path_chirho = "assets_chirho/bodoni-display-chirho.woff2"
+content_type_chirho = "font/woff2"
+
+[[asset_chirho]]
+name_chirho = "archivo-grotesk-chirho.woff2"
+path_chirho = "assets_chirho/archivo-grotesk-chirho.woff2"
+content_type_chirho = "font/woff2"
+
+[[asset_chirho]]
+name_chirho = "jetbrains-mono-chirho.woff2"
+path_chirho = "assets_chirho/jetbrains-mono-chirho.woff2"
+content_type_chirho = "font/woff2"
+
+# The tab mark. Same gilt lozenge the rail draws in CSS, rasterised once so the browser tab has it
+# — a site this deliberate should not answer a favicon request with a 404.
+[[asset_chirho]]
+name_chirho = "seal-chirho.png"
+path_chirho = "assets_chirho/seal-chirho.png"
+content_type_chirho = "image/png"
+
+# A 160px grain tile, repeated. It replaces a full-band SVG turbulence filter, which Chromium
+# renders on a CPU path, and doubles as a dither over the large gradients.
+[[asset_chirho]]
+name_chirho = "tooth-chirho.png"
+path_chirho = "assets_chirho/tooth-chirho.png"
+content_type_chirho = "image/png"
+
+# Key art and showcase photography.
+
+[[asset_chirho]]
+name_chirho = "bakehouse-chirho.jpg"
+path_chirho = "assets_chirho/bakehouse-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+[[asset_chirho]]
+name_chirho = "ceramics-chirho.jpg"
+path_chirho = "assets_chirho/ceramics-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+[[asset_chirho]]
+name_chirho = "florist-chirho.jpg"
+path_chirho = "assets_chirho/florist-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+# ---- FIRST LIGHT (2026-09-30). Sources and prompts: tools-chirho/site-art-chirho/. ----------------
+# Two OFL faces, subset to Latin (2026-10-01): IM FELL French Canon (display, roman and italic;
+# renamed inside per its Reserved Font Name) and Cabin (text, weight 400-700). Licences:
+# docs-chirho/licenses-chirho/.
+[[asset_chirho]]
+name_chirho = "fell-canon-chirho.woff2"
+path_chirho = "assets_chirho/fell-canon-chirho.woff2"
+content_type_chirho = "font/woff2"
+
+[[asset_chirho]]
+name_chirho = "fell-canon-italic-chirho.woff2"
+path_chirho = "assets_chirho/fell-canon-italic-chirho.woff2"
+content_type_chirho = "font/woff2"
+
+[[asset_chirho]]
+name_chirho = "cabin-text-chirho.woff2"
+path_chirho = "assets_chirho/cabin-text-chirho.woff2"
+content_type_chirho = "font/woff2"
+
+# The floating town: night (the hero's poster) and morning (the closing), each in two widths.
+[[asset_chirho]]
+name_chirho = "town-night-chirho.jpg"
+path_chirho = "assets_chirho/town-night-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+[[asset_chirho]]
+name_chirho = "town-night-small-chirho.jpg"
+path_chirho = "assets_chirho/town-night-small-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+[[asset_chirho]]
+name_chirho = "town-morning-chirho.jpg"
+path_chirho = "assets_chirho/town-morning-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+[[asset_chirho]]
+name_chirho = "town-morning-small-chirho.jpg"
+path_chirho = "assets_chirho/town-morning-small-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+# The inner pages' opening pictures (2026-10-01, GPT Image 2.5 Flare on Runware): inside the shop at
+# first light for "What's in it", the locked door at night for Trust. Prompts in
+# tools-chirho/site-art-chirho/prompts-chirho/.
+[[asset_chirho]]
+name_chirho = "shop-inside-chirho.jpg"
+path_chirho = "assets_chirho/shop-inside-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+[[asset_chirho]]
+name_chirho = "shop-inside-small-chirho.jpg"
+path_chirho = "assets_chirho/shop-inside-small-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+[[asset_chirho]]
+name_chirho = "door-night-chirho.jpg"
+path_chirho = "assets_chirho/door-night-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+[[asset_chirho]]
+name_chirho = "door-night-small-chirho.jpg"
+path_chirho = "assets_chirho/door-night-small-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+# Sprite sheets: the engine serves no video, so motion is a grid of frames stepped by CSS. The wake is
+# 36 frames of night turning to dawn (scrubbed by scrolling the hero away), split into two sheets of
+# 18 because the engine refuses any asset over 1 MiB; the seal sheet
+# is 48 frames of the crystal turning once (scrubbed through the Secure band; 36 on phones). On a
+# phone the town crossfades from the night still to the dawn still instead, which is lighter and
+# sharper than any sheet within a low-end phone's decode budget.
+[[asset_chirho]]
+name_chirho = "town-wake-a-chirho.jpg"
+path_chirho = "assets_chirho/town-wake-a-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+[[asset_chirho]]
+name_chirho = "town-wake-b-chirho.jpg"
+path_chirho = "assets_chirho/town-wake-b-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+[[asset_chirho]]
+name_chirho = "town-dawn-chirho.jpg"
+path_chirho = "assets_chirho/town-dawn-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+[[asset_chirho]]
+name_chirho = "town-dawn-small-chirho.jpg"
+path_chirho = "assets_chirho/town-dawn-small-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+[[asset_chirho]]
+name_chirho = "seal-sheet-chirho.jpg"
+path_chirho = "assets_chirho/seal-sheet-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+[[asset_chirho]]
+name_chirho = "seal-sheet-small-chirho.jpg"
+path_chirho = "assets_chirho/seal-sheet-small-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+# Two seamless starfield tiles (far and near), moved at two speeds over the night bands.
+[[asset_chirho]]
+name_chirho = "stars-far-chirho.png"
+path_chirho = "assets_chirho/stars-far-chirho.png"
+content_type_chirho = "image/png"
+
+[[asset_chirho]]
+name_chirho = "stars-near-chirho.png"
+path_chirho = "assets_chirho/stars-near-chirho.png"
+content_type_chirho = "image/png"
+
+# The real editor and the page it made, captured from a local copy with an invented bakery.
+[[asset_chirho]]
+name_chirho = "easy-question-chirho.jpg"
+path_chirho = "assets_chirho/easy-question-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+[[asset_chirho]]
+name_chirho = "easy-result-chirho.jpg"
+path_chirho = "assets_chirho/easy-result-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+[[asset_chirho]]
+name_chirho = "easy-phone-chirho.jpg"
+path_chirho = "assets_chirho/easy-phone-chirho.jpg"
+content_type_chirho = "image/jpeg"
+
+# The public root keeps its private-by-default input mode and explicitly refuses request bodies before
+# body collection, sealing, or runtime persistence. Cairn's empty-body guard converts a bodyless GET
+# to one constant public input before sealing. Measured on the release engine: a cold first render is
+# finite and repeated warm GETs have zero full-root content delta.
+# The sign-in-only route below posts to canonical Cairn auth, never to a product effect.
+
+# The landing page served at the app root.
+[root_chirho]
+dag_chirho = "view_home_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "app/perffection/home-intake-chirho"
+request_body_policy_chirho = "no-body"
+route_label_chirho = "perffection-chirho"
+
+# The craft page. Same policy posture as the root: it renders no form, accepts no request body, and
+# keeps the private-by-default input mode so nothing a visitor sends could be persisted in plaintext.
+[[route_chirho]]
+route_chirho = "craft-chirho"
+dag_chirho = "view_craft_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "app/perffection/craft-intake-chirho"
+request_body_policy_chirho = "no-body"
+
+# The trust page. Same policy posture as every other route here: it renders no form, accepts no
+# request body, and keeps the private-by-default input mode.
+[[route_chirho]]
+route_chirho = "trust-chirho"
+dag_chirho = "view_trust_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "app/perffection/trust-intake-chirho"
+request_body_policy_chirho = "no-body"
+
+# Public form display only. Credentials go directly to Cairn's canonical login POST, not this DAG.
+[[route_chirho]]
+route_chirho = "login-chirho"
+dag_chirho = "view_login_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "app/perffection/login-display-chirho"
+request_body_policy_chirho = "no-body"
+
+# The emailed invitation's Set-up page (R12): public form display only. Its one form posts the sign-in name, the
+# setup code and a first password straight to Cairn's recover road (R2b), never to this DAG; it ships with the
+# engine release that serves that road.
+[[route_chirho]]
+route_chirho = "setup-chirho"
+dag_chirho = "view_setup_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "app/perffection/setup-display-chirho"
+request_body_policy_chirho = "no-body"
+
+# Public, actionless customer guidance. This display cannot read a private draft or take an action.
+[[route_chirho]]
+route_chirho = "help-chirho"
+dag_chirho = "view_help_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "app/perffection/help-display-chirho"
+request_body_policy_chirho = "no-body"
+
+# The former manual agent guide is deliberately unbound. Reusable rendering source and the
+# shared instruction remain; authenticated JSON authoring belongs to the workspace app.

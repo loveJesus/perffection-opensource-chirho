@@ -1,0 +1,131 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+<!doctype html>
+<html lang="{{ model_chirho.copy_chirho.lang_chirho }}" dir="{{ model_chirho.copy_chirho.dir_chirho }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ model_chirho.chrome_chirho.page_description_chirho }}">
+  <title>{{ model_chirho.chrome_chirho.page_title_chirho }}</title>
+  <link rel="stylesheet" href="/app-assets-chirho/perffection-workspace/by-name-chirho/{{ model_chirho.chrome_chirho.stylesheet_name_chirho }}">
+</head>
+<body class="workspace-page-chirho">
+  {% include "partials_chirho/site_nav_chirho.html" %}
+
+  <main class="workspace-shell-chirho">
+    <section class="workspace-intro-chirho" aria-labelledby="account-heading-chirho">
+      <div>
+        <p class="workspace-eyebrow-chirho">{{ model_chirho.status_chirho }}</p>
+        <h1 id="account-heading-chirho">{{ model_chirho.copy_chirho.account_chirho.heading_chirho }}</h1>
+        <p class="workspace-lede-chirho">{{ model_chirho.copy_chirho.account_chirho.lede_chirho }}</p>
+      </div>
+    </section>
+
+    {% if model_chirho.binding_chirho.change_password_action_chirho.is_none() %}
+      <section class="workspace-panel-chirho" aria-labelledby="account-held-heading-chirho">
+        <div class="workspace-panel-heading-chirho">
+          <p>{{ model_chirho.copy_chirho.account_chirho.password_number_chirho }}</p>
+          <div>
+            <h2 id="account-held-heading-chirho">{{ model_chirho.copy_chirho.account_chirho.held_heading_chirho }}</h2>
+            <p>{{ model_chirho.copy_chirho.account_chirho.held_body_chirho }}</p>
+          </div>
+        </div>
+        <p class="workspace-publication-note-chirho"><a href="/app-chirho/perffection-workspace/">{{ model_chirho.copy_chirho.account_chirho.back_label_chirho }}</a></p>
+      </section>
+    {% endif %}
+
+    {% for refusal_chirho in model_chirho.refusals_chirho %}
+      <section id="{{ refusal_chirho.id_chirho }}" class="workspace-errors-chirho workspace-refusal-chirho" role="alert" aria-labelledby="{{ refusal_chirho.id_chirho }}-heading-chirho">
+        <h2 id="{{ refusal_chirho.id_chirho }}-heading-chirho">{{ model_chirho.copy_chirho.account_chirho.refusal_heading_chirho }}</h2>
+        <p>{{ refusal_chirho.sentence_chirho }}</p>
+      </section>
+    {% endfor %}
+
+    {% if let Some(change_password_action_chirho) = model_chirho.binding_chirho.change_password_action_chirho.as_ref() %}
+      <form class="workspace-form-chirho" method="post" action="{{ change_password_action_chirho }}" autocomplete="on">
+        <input type="hidden" name="redirect_chirho" value="{{ model_chirho.return_href_chirho }}">
+        <section class="workspace-panel-chirho" aria-labelledby="account-password-heading-chirho">
+          <div class="workspace-panel-heading-chirho">
+            <p>{{ model_chirho.copy_chirho.account_chirho.password_number_chirho }}</p>
+            <div>
+              <h2 id="account-password-heading-chirho">{{ model_chirho.copy_chirho.account_chirho.password_heading_chirho }}</h2>
+              <p>{{ model_chirho.copy_chirho.account_chirho.password_intro_chirho }}</p>
+            </div>
+          </div>
+          <div class="workspace-field-chirho">
+            <label for="current-password-chirho">{{ model_chirho.copy_chirho.account_chirho.current_password_label_chirho }}</label>
+            <input id="current-password-chirho" type="password" name="credential_chirho" autocomplete="current-password" required>
+          </div>
+          <div class="workspace-field-chirho">
+            <label for="new-password-chirho">{{ model_chirho.copy_chirho.account_chirho.new_password_label_chirho }}</label>
+            <input id="new-password-chirho" type="password" name="new_credential_chirho" autocomplete="new-password" minlength="{{ model_chirho.new_password_min_characters_chirho }}" aria-describedby="new-password-help-chirho" required>
+            <small id="new-password-help-chirho">{{ model_chirho.copy_chirho.account_chirho.new_password_help_chirho }}</small>
+          </div>
+          <footer class="workspace-save-chirho">
+            <p>{{ model_chirho.copy_chirho.account_chirho.password_boundary_chirho }}</p>
+            <button type="submit">{{ model_chirho.copy_chirho.account_chirho.password_submit_chirho }}</button>
+          </footer>
+        </section>
+      </form>
+    {% endif %}
+
+    {% if let Some(recovery_code_action_chirho) = model_chirho.binding_chirho.recovery_code_action_chirho.as_ref() %}
+      <form class="workspace-form-chirho" method="post" action="{{ recovery_code_action_chirho }}">
+        <input type="hidden" name="redirect_chirho" value="{{ model_chirho.return_href_chirho }}">
+        <section class="workspace-panel-chirho" aria-labelledby="account-recovery-heading-chirho">
+          <div class="workspace-panel-heading-chirho">
+            <p>{{ model_chirho.copy_chirho.account_chirho.recovery_number_chirho }}</p>
+            <div>
+              <h2 id="account-recovery-heading-chirho">{{ model_chirho.copy_chirho.account_chirho.recovery_heading_chirho }}</h2>
+              <p>{{ model_chirho.copy_chirho.account_chirho.recovery_intro_chirho }}</p>
+            </div>
+          </div>
+          <div class="workspace-field-chirho">
+            <label for="recovery-password-chirho">{{ model_chirho.copy_chirho.account_chirho.recovery_password_label_chirho }}</label>
+            <input id="recovery-password-chirho" type="password" name="credential_chirho" autocomplete="current-password" required>
+          </div>
+          <footer class="workspace-save-chirho">
+            <p>{{ model_chirho.copy_chirho.account_chirho.recovery_boundary_chirho }}</p>
+            <button type="submit">{{ model_chirho.copy_chirho.account_chirho.recovery_submit_chirho }}</button>
+          </footer>
+        </section>
+      </form>
+    {% endif %}
+
+    {% if let Some(close_account_action_chirho) = model_chirho.binding_chirho.close_account_action_chirho.as_ref() %}
+      <form class="workspace-form-chirho" method="post" action="{{ close_account_action_chirho }}">
+        <input type="hidden" name="redirect_chirho" value="{{ model_chirho.return_href_chirho }}">
+        <section class="workspace-panel-chirho" aria-labelledby="account-close-heading-chirho">
+          <div class="workspace-panel-heading-chirho">
+            <p>{{ model_chirho.copy_chirho.account_chirho.close_number_chirho }}</p>
+            <div>
+              <h2 id="account-close-heading-chirho">{{ model_chirho.copy_chirho.account_chirho.close_heading_chirho }}</h2>
+              <p>{{ model_chirho.copy_chirho.account_chirho.close_intro_chirho }}</p>
+            </div>
+          </div>
+          <div class="workspace-field-chirho">
+            <label for="close-password-chirho">{{ model_chirho.copy_chirho.account_chirho.close_password_label_chirho }}</label>
+            <input id="close-password-chirho" type="password" name="credential_chirho" autocomplete="current-password" required>
+          </div>
+          <label class="workspace-consent-chirho" for="close-consent-chirho">
+            <input id="close-consent-chirho" type="checkbox" name="consent_chirho" value="{{ model_chirho.close_account_consent_chirho }}" required>
+            <span>{{ model_chirho.copy_chirho.account_chirho.close_consent_label_chirho }}</span>
+          </label>
+          <footer class="workspace-save-chirho">
+            <p>{{ model_chirho.copy_chirho.account_chirho.close_boundary_chirho }}</p>
+            <button type="submit">{{ model_chirho.copy_chirho.account_chirho.close_submit_chirho }}</button>
+          </footer>
+        </section>
+      </form>
+    {% endif %}
+
+    {% include "partials_chirho/connections_chirho.html" %}
+
+    <aside id="workspace-help-chirho" class="workspace-help-chirho" aria-labelledby="workspace-help-heading-chirho">
+      <h2 id="workspace-help-heading-chirho">{{ model_chirho.copy_chirho.account_chirho.help_heading_chirho }}</h2>
+      <p>{{ model_chirho.copy_chirho.account_chirho.help_body_chirho }}</p>
+    </aside>
+  </main>
+
+  {% include "partials_chirho/site_footer_chirho.html" %}
+</body>
+</html>

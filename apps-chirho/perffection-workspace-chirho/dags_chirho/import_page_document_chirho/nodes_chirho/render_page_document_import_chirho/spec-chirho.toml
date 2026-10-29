@@ -1,0 +1,4 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Render the import form with the verified optimistic version, or no form on corrupt state."
+behaviors_chirho = ["empty verified state starts at version zero", "unverifiable state offers no review form"]

@@ -1,0 +1,7 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Render her verified figures as the report and the paste form."
+behaviors_chirho = [
+  "integer money only; an unknown is written as unknown",
+  "renders unverifiable state as unavailable and echoes no unverified bytes",
+]

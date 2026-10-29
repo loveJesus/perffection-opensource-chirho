@@ -1,0 +1,233 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+//
+// VELLUM & OBSIDIAN — the one Perffection design system.
+//
+// Two grounds, one vocabulary. Every component is written against ground-relative custom
+// properties (--ground-*, --ink-*, --rule-*), so the SAME markup renders correctly on warm
+// vellum or on cold obsidian by changing one class on an ancestor. Gold is the constant that
+// binds both faces.
+//
+// Compile order matters: `tree-build-chirho style-compile` concatenates its `--style` sources in
+// the order given, and v1 refuses Sass module and filesystem-import at-rules outright — the
+// cascade is an explicit ordered list on the command line, in scripts-chirho/build-site-chirho.sh.
+// This file is always first. It is a compile input, never a served asset: do not list it in
+// app-chirho.toml.
+//
+// (Do not name those at-rules literally in a comment here. The v1 guard scans raw source without
+// skipping comments, so writing them even inside a note fails the compile with a filesystem-import
+// error on the comment's own line. Reported to CAIRN.)
+
+// ---------------------------------------------------------------------------------------------
+// Registered custom properties. Registering a property is what makes it ANIMATABLE and what lets
+// it interpolate smoothly inside gradients and transforms. This is the engine behind the gold
+// shimmer, the aurora drift, and the variable-font breathing — all with zero JavaScript.
+// ---------------------------------------------------------------------------------------------
+
+@property --leaf-angle-chirho {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@property --leaf-shift-chirho {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --aurora-drift-chirho {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+// These two are consumed ONLY by the element that animates them, and they are declared
+// `inherits: false` on purpose: an animated custom property that inherits into many descendants
+// floods WebKit's matched-declarations cache (WebKit bug 315656) and costs memory for nothing.
+@property --wonk-chirho {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+// The rail's three condense inputs. Registering them is not decoration: an UNregistered custom
+// property animates DISCRETELY, so the scroll-driven condense could never interpolate — it sat on
+// its start value and the nav bar stayed nearly transparent over light content.
+@property --rail-pad-chirho {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 1.35rem;
+}
+
+@property --rail-veil-chirho {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0.92;
+}
+
+@property --rail-thread-chirho {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0.14;
+}
+
+@property --soft-chirho {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --halo-chirho {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+// ---------------------------------------------------------------------------------------------
+// Palette. Authored in oklch where a perceptual step matters, hex where a designer would pick it.
+// ---------------------------------------------------------------------------------------------
+
+:root {
+  // Obsidian — the cold face. Warm-black undertone, never blue-black.
+  --ob-void-chirho: #06070a;
+  --ob-stone-chirho: #0c0e13;
+  --ob-slab-chirho: #14171d;
+  --ob-raise-chirho: #1c2028;
+  --ob-ink-chirho: #ece7dd;
+  --ob-mute-chirho: #949aa5;
+  --ob-rule-chirho: #2a2f38;
+
+  // Vellum — the warm face. Aged cotton paper, not white.
+  --ve-page-chirho: #f6f2ea;
+  --ve-leaf-chirho: #fffdf7;
+  --ve-tone-chirho: #ece5d6;
+  --ve-ink-chirho: #14120d;
+  --ve-mute-chirho: #665f52;
+  --ve-rule-chirho: #d8cdb8;
+
+  // Gold — the constant. Binds both faces; the colour of a thing that has been weighed.
+  --au-core-chirho: #f0b429;
+  --au-light-chirho: #ffd980;
+  --au-pale-chirho: #fff0cb;
+  --au-deep-chirho: #8a6a1f;
+  // Terminal action-fill stop: dark enough for gilt depth, light enough for 4.5:1 ink.
+  --au-action-deep-chirho: #9c7925;
+  --au-on-vellum-chirho: #75570f; // darkened for AA body text on --ve-page-chirho
+
+  // Aurora — atmosphere only, never a text colour, obsidian side only.
+  --nb-teal-chirho: #3ee6c4;
+  --nb-indigo-chirho: #5b4bff;
+  --nb-violet-chirho: #a855f7;
+
+  // Rubrication — the manuscript red. Marks, numerals, marginalia. Never large fields.
+  --rb-core-chirho: #b3391a;
+  --rb-pale-chirho: #e8dbd2;
+
+  // ---------------------------------------------------------------------------------------------
+  // Type. Fluid scale — every step is a clamp so the page is composed, not merely responsive.
+  // ---------------------------------------------------------------------------------------------
+
+  --face-display-chirho: "Fraunces Chirho", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --face-text-chirho: "Inter Chirho", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --face-mono-chirho: "JetBrains Mono Chirho", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  // The bench's two extra voices. Neither is used by the site's own chrome — they exist so a
+  // preview can be set in a face the rest of the page never wears, which is most of what makes a
+  // preview look like somebody else's website rather than ours in a frame.
+  --face-didone-chirho: "Bodoni Chirho", "Bodoni 72", Didot, "Playfair Display", Georgia, serif;
+  --face-grotesk-chirho: "Archivo Chirho", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --t-monument-chirho: clamp(3rem, 9.4vw, 9rem);
+  --t-display-chirho: clamp(2.35rem, 4.7vw, 4.35rem);
+  --t-title-chirho: clamp(2rem, 4.2vw, 3.5rem);
+  --t-heading-chirho: clamp(1.45rem, 2.2vw, 2.1rem);
+  --t-lead-chirho: clamp(1.1rem, 0.5vw + 1rem, 1.4rem);
+  --t-body-chirho: clamp(1rem, 0.28vw + 0.94rem, 1.125rem);
+  --t-small-chirho: 0.9rem;
+  --t-micro-chirho: 0.735rem;
+
+  --lh-tight-chirho: 0.94;
+  --lh-snug-chirho: 1.12;
+  --lh-body-chirho: 1.62;
+  --lh-loose-chirho: 1.78;
+
+  --track-monument-chirho: -0.035em;
+  --track-display-chirho: -0.022em;
+  --track-micro-chirho: 0.16em;
+
+  // ---------------------------------------------------------------------------------------------
+  // Space. One modular scale; components never invent a value outside it.
+  // ---------------------------------------------------------------------------------------------
+
+  --sp-1-chirho: 0.25rem;
+  --sp-2-chirho: 0.5rem;
+  --sp-3-chirho: 0.75rem;
+  --sp-4-chirho: 1rem;
+  --sp-5-chirho: 1.5rem;
+  --sp-6-chirho: 2rem;
+  --sp-7-chirho: 3rem;
+  --sp-8-chirho: 4.5rem;
+  --sp-9-chirho: 7rem;
+  --sp-10-chirho: 11rem;
+
+  --measure-chirho: 34rem; // reading measure, ~68 characters at body size
+  --measure-wide-chirho: 46rem; // for a heading, which reads at a glance rather than by the line
+  --gutter-chirho: clamp(1.25rem, 4.5vw, 5rem);
+  --page-max-chirho: 82rem;
+
+  // ---------------------------------------------------------------------------------------------
+  // Motion. A grammar, not a grab bag: ambient drifts slowly, interaction snaps precisely.
+  // ---------------------------------------------------------------------------------------------
+
+  --ease-quint-chirho: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-quart-chirho: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-drift-chirho: cubic-bezier(0.44, 0.04, 0.36, 0.98);
+
+  --dur-snap-chirho: 180ms;
+  --dur-move-chirho: 420ms;
+  --dur-reveal-chirho: 900ms;
+  --dur-ambient-chirho: 26s;
+  --dur-slow-chirho: 64s;
+
+  --radius-chirho: 2px; // near-square. This system is cut, not rounded.
+  --radius-slab-chirho: 4px;
+
+  // ---------------------------------------------------------------------------------------------
+  // Ground-relative aliases. Components read ONLY these. Default ground is vellum.
+  // ---------------------------------------------------------------------------------------------
+
+  --ground-chirho: var(--ve-page-chirho);
+  --ground-raise-chirho: var(--ve-leaf-chirho);
+  --ground-sink-chirho: var(--ve-tone-chirho);
+  --ink-chirho: var(--ve-ink-chirho);
+  --ink-mute-chirho: var(--ve-mute-chirho);
+  --rule-chirho: var(--ve-rule-chirho);
+  --gold-text-chirho: var(--au-on-vellum-chirho);
+  --shadow-cast-chirho: 0 1px 2px rgba(20, 18, 13, 0.07), 0 8px 24px -12px rgba(20, 18, 13, 0.22);
+  --shadow-lift-chirho: 0 2px 4px rgba(20, 18, 13, 0.08), 0 28px 60px -28px rgba(20, 18, 13, 0.34);
+}
+
+// Obsidian ground. Applied to a section; every descendant component follows without edits.
+.on-obsidian-chirho {
+  --ground-chirho: var(--ob-void-chirho);
+  --ground-raise-chirho: var(--ob-slab-chirho);
+  --ground-sink-chirho: var(--ob-stone-chirho);
+  --ink-chirho: var(--ob-ink-chirho);
+  --ink-mute-chirho: var(--ob-mute-chirho);
+  --rule-chirho: var(--ob-rule-chirho);
+  --gold-text-chirho: var(--au-light-chirho);
+  --shadow-cast-chirho: 0 1px 2px rgba(0, 0, 0, 0.5), 0 10px 30px -14px rgba(0, 0, 0, 0.8);
+  --shadow-lift-chirho: 0 2px 6px rgba(0, 0, 0, 0.55), 0 40px 80px -32px rgba(0, 0, 0, 0.9);
+}
+
+// Vellum ground. Declared explicitly so a vellum island can sit inside an obsidian section.
+.on-vellum-chirho {
+  --ground-chirho: var(--ve-page-chirho);
+  --ground-raise-chirho: var(--ve-leaf-chirho);
+  --ground-sink-chirho: var(--ve-tone-chirho);
+  --ink-chirho: var(--ve-ink-chirho);
+  --ink-mute-chirho: var(--ve-mute-chirho);
+  --rule-chirho: var(--ve-rule-chirho);
+  --gold-text-chirho: var(--au-on-vellum-chirho);
+  --shadow-cast-chirho: 0 1px 2px rgba(20, 18, 13, 0.07), 0 8px 24px -12px rgba(20, 18, 13, 0.22);
+  --shadow-lift-chirho: 0 2px 4px rgba(20, 18, 13, 0.08), 0 28px 60px -28px rgba(20, 18, 13, 0.34);
+}

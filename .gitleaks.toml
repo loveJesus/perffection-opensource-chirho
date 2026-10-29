@@ -1,0 +1,14 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV)
+[extend]
+useDefault = true
+
+# A fixed canary in a pure test of hidden caller-key non-disclosure, not a credential.
+# Both the exact path and the exact complete source line must match.
+[[rules]]
+id = "generic-api-key"
+[[rules.allowlists]]
+description = "Reviewed synthetic caller-key canary in a pure product test"
+condition = "AND"
+regexTarget = "line"
+paths = ['''^apps-chirho/perffection-workspace-chirho/tests/first_draft_chirho\.rs$''']
+regexes = ['''^\s*let key_chirho = "KEY-marker-7f3a9c";\s*$''']

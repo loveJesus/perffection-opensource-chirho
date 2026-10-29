@@ -1,0 +1,395 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV) -#}
+{# The Perffection front door, authored on the FIRST LIGHT system: one night becoming morning.
+
+   Two rules govern every line below.
+   1. No inline style attribute, anywhere. The engine scans the rendered payload for an inline
+      style marker and silently relaxes this route's style policy when it finds one. Per-item
+      variation comes from :nth-child() and state classes, never from an element-level attribute.
+   2. No script, anywhere. The route serves `script-src 'none'`: every animation is CSS, every
+      state is :target, :checked or :has(), and the "video" in the hero is a JPEG sprite sheet
+      scrubbed by a scroll timeline.
+   Workflow: spec-chirho/workflows-chirho/first-light-authoring-chirho.md -#}
+<!doctype html>
+<html lang="{{ model_chirho.lang_chirho }}" dir="{{ model_chirho.dir_chirho }}">
+{% include "partials_chirho/head_first_light_chirho.html" %}
+<body class="first-light-chirho">
+<a class="skip-chirho" href="#main-chirho">{{ model_chirho.hero_chirho.skip_label_chirho }}</a>
+{% include "partials_chirho/site_nav_chirho.html" %}
+
+<main id="main-chirho">
+
+  {# ---- NIGHT: the town before it wakes ------------------------------------------------------ #}
+  <section class="hero-chirho" aria-labelledby="hero-heading-chirho">
+    <div class="sky-stars-chirho" aria-hidden="true"><div class="stars-far-chirho"></div><div class="stars-near-chirho"></div></div>
+    <div class="hero-town-chirho" aria-hidden="true">
+      <div class="hero-frame-chirho">
+        <img class="hero-poster-chirho" src="/app-assets-chirho/perffection/by-name-chirho/town-night-chirho.jpg" srcset="/app-assets-chirho/perffection/by-name-chirho/town-night-small-chirho.jpg 900w, /app-assets-chirho/perffection/by-name-chirho/town-night-chirho.jpg 1920w" sizes="(max-width: 1000px) 170vw, 112vw" alt="" width="1920" height="1072" fetchpriority="high" decoding="async">
+        <div class="hero-wake-chirho"><div class="wake-a-chirho"></div><div class="wake-b-chirho"></div></div>
+      </div>
+      <div class="hero-mist-chirho"></div>
+    </div>
+    <div class="hero-star-chirho" aria-hidden="true"></div>
+    <div class="page-chirho hero-copy-chirho">
+      <p class="eyebrow-chirho">{{ model_chirho.hero_chirho.mark_chirho }}</p>
+      <h1 class="hero-heading-chirho" id="hero-heading-chirho">{% for line_chirho in model_chirho.hero_chirho.headline_lines_chirho %}<span class="hero-line-chirho">{{ line_chirho }}</span> {% endfor %}</h1>
+      <p class="hero-lead-chirho">{{ model_chirho.hero_chirho.lead_chirho }}</p>
+      <div class="actions-chirho">
+        <a class="action-primary-chirho" href="{{ model_chirho.hero_chirho.primary_href_chirho }}">{{ model_chirho.hero_chirho.primary_label_chirho }}</a>
+        <a class="action-ghost-chirho" href="{{ model_chirho.hero_chirho.secondary_href_chirho }}">{{ model_chirho.hero_chirho.secondary_label_chirho }}</a>
+      </div>
+      <nav class="pillars-chirho" aria-label="{{ model_chirho.hero_chirho.pillars_label_chirho }}">
+        {% for pillar_chirho in model_chirho.hero_chirho.pillars_chirho %}<a class="pillar-chirho" href="{{ pillar_chirho.href_chirho }}">{{ pillar_chirho.label_chirho }}</a>{% endfor %}
+      </nav>
+      <p class="hero-note-chirho">{{ model_chirho.hero_chirho.quiet_note_chirho }} <a href="{{ model_chirho.signin_href_chirho }}">{{ model_chirho.hero_chirho.signin_label_chirho }}</a></p>
+    </div>
+  </section>
+
+  {# The website is an entry into the business-platform vision, not its whole destination.
+     Future examples are introduced as future work in the catalog, never as active controls. #}
+  <section class="band-night-chirho platform-chirho" id="platform-chirho" aria-labelledby="platform-heading-chirho">
+    <div class="page-chirho">
+      <header class="band-head-chirho">
+        <p class="eyebrow-chirho">{{ model_chirho.platform_chirho.mark_chirho }}</p>
+        <h2 class="band-heading-chirho" id="platform-heading-chirho">{{ model_chirho.platform_chirho.heading_chirho }}</h2>
+        <p class="band-body-chirho">{{ model_chirho.platform_chirho.body_chirho }}</p>
+      </header>
+      <ul class="platform-examples-chirho">
+        {% for example_chirho in model_chirho.platform_chirho.examples_chirho %}
+          <li class="facet-chirho"><h3 class="facet-title-chirho">{{ example_chirho.title_chirho }}</h3><p class="facet-body-chirho">{{ example_chirho.body_chirho }}</p></li>
+        {% endfor %}
+      </ul>
+      <p class="platform-note-chirho">{{ model_chirho.platform_chirho.note_chirho }}</p>
+    </div>
+  </section>
+
+  {# ---- SECURE: the seal turning in the night ------------------------------------------------- #}
+  <section class="band-night-chirho secure-chirho" id="secure-chirho" aria-labelledby="secure-heading-chirho">
+    <p class="band-word-chirho" aria-hidden="true">{{ model_chirho.secure_chirho.mark_chirho }}</p>
+    <div class="page-chirho secure-grid-chirho">
+      <div class="secure-stage-chirho" aria-hidden="true">
+        <div class="seal-halo-chirho"></div>
+        <div class="seal-chirho"></div>
+      </div>
+      <div class="secure-copy-chirho">
+        <p class="eyebrow-chirho">{{ model_chirho.secure_chirho.mark_chirho }}</p>
+        <h2 class="band-heading-chirho" id="secure-heading-chirho">{{ model_chirho.secure_chirho.heading_chirho }}</h2>
+        <p class="band-body-chirho">{{ model_chirho.secure_chirho.body_chirho }}</p>
+        <ul class="facets-chirho">
+          {% for point_chirho in model_chirho.secure_chirho.points_chirho %}
+            <li class="facet-chirho"><h3 class="facet-title-chirho">{{ point_chirho.title_chirho }}</h3><p class="facet-body-chirho">{{ point_chirho.body_chirho }}</p></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {# ---- ABUNDANT: dawn, and the path of light to the door -------------------------------------- #}
+  <section class="band-dawn-chirho abundant-chirho" id="abundant-chirho" aria-labelledby="abundant-heading-chirho">
+    <div class="dawn-sun-chirho" aria-hidden="true"></div>
+    <p class="band-word-chirho" aria-hidden="true">{{ model_chirho.abundant_chirho.mark_chirho }}</p>
+    <div class="page-chirho">
+      <header class="band-head-chirho">
+        <p class="eyebrow-chirho">{{ model_chirho.abundant_chirho.mark_chirho }}</p>
+        <h2 class="band-heading-chirho" id="abundant-heading-chirho">{{ model_chirho.abundant_chirho.heading_chirho }}</h2>
+        <p class="band-body-chirho">{{ model_chirho.abundant_chirho.body_chirho }}</p>
+        <p class="proof-chirho">{{ model_chirho.abundant_chirho.proof_chirho }} <span class="proof-source-chirho">{{ model_chirho.abundant_chirho.proof_source_chirho }}</span></p>
+      </header>
+      <div class="path-chirho">
+        <svg class="path-line-chirho" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <path class="path-glow-chirho" pathLength="1" d="M 0 112 Q 100 56 200 80 T 400 88 T 600 80 T 800 68 T 1000 80 T 1200 56"/>
+          <path class="path-stroke-chirho" pathLength="1" d="M 0 112 Q 100 56 200 80 T 400 88 T 600 80 T 800 68 T 1000 80 T 1200 56"/>
+          <path class="path-comet-chirho" pathLength="1" d="M 0 112 Q 100 56 200 80 T 400 88 T 600 80 T 800 68 T 1000 80 T 1200 56"/>
+          <path class="path-comet-chirho" pathLength="1" d="M 0 112 Q 100 56 200 80 T 400 88 T 600 80 T 800 68 T 1000 80 T 1200 56"/>
+          <path class="path-comet-chirho" pathLength="1" d="M 0 112 Q 100 56 200 80 T 400 88 T 600 80 T 800 68 T 1000 80 T 1200 56"/>
+        </svg>
+        <div class="path-nodes-chirho" aria-hidden="true"><span class="path-node-chirho"></span><span class="path-node-chirho"></span><span class="path-node-chirho"></span></div>
+        <ol class="path-steps-chirho">
+          {% for step_chirho in model_chirho.abundant_chirho.path_chirho %}
+            <li class="path-step-chirho">
+              <p class="path-word-chirho">{{ step_chirho.step_chirho }}</p>
+              <h3 class="path-title-chirho">{{ step_chirho.title_chirho }}</h3>
+              <p class="path-body-chirho">{{ step_chirho.body_chirho }}</p>
+            </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  {# ---- EASY: morning, the real editor and the page it makes ----------------------------------- #}
+  <section class="band-morning-chirho easy-chirho" id="easy-chirho" aria-labelledby="easy-heading-chirho">
+    <p class="band-word-chirho" aria-hidden="true">{{ model_chirho.easy_chirho.mark_chirho }}</p>
+    <div class="page-chirho easy-grid-chirho">
+      <div class="easy-copy-chirho">
+        <p class="eyebrow-chirho">{{ model_chirho.easy_chirho.mark_chirho }}</p>
+        <h2 class="band-heading-chirho" id="easy-heading-chirho">{{ model_chirho.easy_chirho.heading_chirho }}</h2>
+        <p class="band-body-chirho">{{ model_chirho.easy_chirho.body_chirho }}</p>
+        <ol class="steps-chirho" aria-label="{{ model_chirho.easy_chirho.steps_label_chirho }}">
+          {% for step_chirho in model_chirho.easy_chirho.steps_chirho %}<li class="step-chirho">{{ step_chirho }}</li>{% endfor %}
+        </ol>
+      </div>
+      <div class="easy-stage-chirho">
+        <figure class="device-chirho device-question-chirho">
+          <img src="/app-assets-chirho/perffection/by-name-chirho/{{ model_chirho.easy_chirho.question_image_chirho }}" alt="{{ model_chirho.easy_chirho.question_alt_chirho }}" width="1120" height="428" loading="lazy" decoding="async">
+          <figcaption>{{ model_chirho.easy_chirho.question_caption_chirho }}</figcaption>
+        </figure>
+        <figure class="device-chirho device-result-chirho">
+          <div class="device-bar-chirho" aria-hidden="true"><span></span><span></span><span></span></div>
+          <img src="/app-assets-chirho/perffection/by-name-chirho/{{ model_chirho.easy_chirho.result_image_chirho }}" alt="{{ model_chirho.easy_chirho.result_alt_chirho }}" width="1280" height="830" loading="lazy" decoding="async">
+          <figcaption>{{ model_chirho.easy_chirho.result_caption_chirho }}</figcaption>
+        </figure>
+        <figure class="phone-chirho">
+          <img src="/app-assets-chirho/perffection/by-name-chirho/{{ model_chirho.easy_chirho.phone_image_chirho }}" alt="{{ model_chirho.easy_chirho.phone_alt_chirho }}" width="520" height="1125" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </div>
+    {# The owner decides; the details are taken care of (L.J., 2026-10-01). Two ruled columns, like a
+       ledger: what stays in her hands, and what is done for her. #}
+    <div class="page-chirho ledger-chirho">
+      <section class="ledger-column-chirho ledger-decide-chirho" aria-labelledby="ledger-decide-chirho">
+        <h3 class="ledger-label-chirho" id="ledger-decide-chirho">{{ model_chirho.easy_chirho.decide_label_chirho }}</h3>
+        <ul class="ledger-list-chirho">
+          {% for point_chirho in model_chirho.easy_chirho.decide_chirho %}
+            <li class="ledger-item-chirho"><h4 class="ledger-title-chirho">{{ point_chirho.title_chirho }}</h4><p class="ledger-body-chirho">{{ point_chirho.body_chirho }}</p></li>
+          {% endfor %}
+        </ul>
+      </section>
+      <section class="ledger-column-chirho ledger-handled-chirho" aria-labelledby="ledger-handled-chirho">
+        <h3 class="ledger-label-chirho" id="ledger-handled-chirho">{{ model_chirho.easy_chirho.handled_label_chirho }}</h3>
+        <ul class="ledger-list-chirho">
+          {% for point_chirho in model_chirho.easy_chirho.handled_chirho %}
+            <li class="ledger-item-chirho"><h4 class="ledger-title-chirho">{{ point_chirho.title_chirho }}</h4><p class="ledger-body-chirho">{{ point_chirho.body_chirho }}</p></li>
+          {% endfor %}
+        </ul>
+      </section>
+    </div>
+  </section>
+
+  {# ---- EXAMPLES: nine design studies, a :checked state machine (markup kept from VELLUM) ------- #}
+  <section class="band-day-chirho examples-chirho lab-chirho on-vellum-chirho" id="examples-chirho" aria-labelledby="lab-heading-chirho">
+    <div class="page-chirho">
+      <header class="band-head-chirho">
+        <p class="eyebrow-chirho">{{ model_chirho.lab_chirho.mark_chirho }}</p>
+        <h2 class="band-heading-chirho" id="lab-heading-chirho">{{ model_chirho.lab_chirho.heading_chirho }}</h2>
+        <p class="band-body-chirho">{{ model_chirho.lab_chirho.note_chirho }}</p>
+      </header>
+
+      <div class="lab-bench-chirho">
+        <div class="lab-controls-chirho">
+          <fieldset class="lab-set-chirho">
+            <legend class="mark-chirho">{{ model_chirho.lab_chirho.trade_legend_chirho }}</legend>
+            <div class="lab-directions-chirho">
+              {% for trade_chirho in model_chirho.lab_chirho.trades_chirho %}
+                <div class="lab-direction-group-chirho">
+                  <p class="lab-direction-trade-chirho">{{ trade_chirho.tab_label_chirho }}<span>{{ trade_chirho.tab_note_chirho }}</span></p>
+                  {% for design_chirho in trade_chirho.designs_chirho %}
+                    <input class="lab-input-chirho" type="radio" name="design-chirho" id="design-{{ design_chirho.key_chirho }}"{% if design_chirho.key_chirho == "morning-broadsheet-chirho" %} checked{% endif %}>
+                    <label class="lab-choice-chirho lift-chirho" for="design-{{ design_chirho.key_chirho }}">
+                      <span class="lab-swatch-chirho swatch-{{ design_chirho.key_chirho }}" aria-hidden="true"></span>
+                      <span class="lab-choice-text-chirho">
+                        <span class="lab-choice-name-chirho">{{ design_chirho.name_chirho }}</span>
+                        <span class="lab-choice-note-chirho">{{ design_chirho.blurb_chirho }}</span>
+                      </span>
+                    </label>
+                  {% endfor %}
+                </div>
+              {% endfor %}
+            </div>
+          </fieldset>
+
+          <p class="prose-chirho lab-aside-chirho">{{ model_chirho.lab_chirho.aside_chirho }}</p>
+        </div>
+
+        <div class="lab-stage-chirho scene-near-chirho">
+          {# Above the frame, not below it: the frame's long shadow put the note at 1.6:1 (2026-10-01). #}
+          <p class="mark-chirho lab-stage-note-chirho">{{ model_chirho.lab_chirho.stage_note_chirho }}</p>
+          <div class="lab-slab-chirho">
+              {% for t in model_chirho.lab_chirho.trades_chirho %}{% for d in t.designs_chirho %}{% if d.key_chirho == "morning-broadsheet-chirho" %}
+                <article class="shop-chirho shop-broadsheet-chirho" aria-label="{{ t.preview_label_chirho }}">
+                  <p class="visually-hidden-chirho">{{ t.preview_note_chirho }}</p>
+                  <div class="lab-bar-chirho" aria-hidden="true"><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-url-chirho figure-chirho">{{ t.url_chirho }}</span></div>
+                  <header class="broadsheet-masthead-chirho">
+                    <p class="broadsheet-rule-line-chirho">{{ t.shop_meta_chirho }}</p>
+                    <h3 class="broadsheet-name-chirho">{{ t.shop_name_chirho }}</h3>
+                    <p class="broadsheet-dateline-chirho">{{ t.edition_mark_chirho }}</p>
+                  </header>
+                  <div class="broadsheet-body-chirho">
+                    <img class="broadsheet-cut-chirho" src="/app-assets-chirho/perffection/by-name-chirho/{{ t.image_chirho }}" alt="{{ t.image_alt_chirho }}" width="1200" height="800" loading="eager" decoding="async">
+                    <p class="broadsheet-lede-chirho"><span class="broadsheet-drop-chirho" aria-hidden="true">{{ t.eyebrow_chirho }}</span>{{ t.headline_chirho }}</p>
+                    <p class="broadsheet-copy-chirho">{{ t.body_chirho }}</p>
+                  </div>
+                  <dl class="broadsheet-prices-chirho">
+                    {% for i in t.items_chirho %}<div class="broadsheet-price-row-chirho"><dt>{{ i.name_chirho }}<span class="broadsheet-price-note-chirho">{{ i.note_chirho }}</span></dt><dd class="figure-chirho">{{ i.price_chirho }}</dd></div>{% endfor %}
+                  </dl>
+                  <footer class="broadsheet-foot-chirho"><span>{{ t.cta_chirho }}</span><span>{{ t.foot_right_chirho }}</span></footer>
+                </article>
+              {% endif %}{% endfor %}{% endfor %}
+              {% for t in model_chirho.lab_chirho.trades_chirho %}{% for d in t.designs_chirho %}{% if d.key_chirho == "marmalade-riso-chirho" %}
+                <article class="shop-chirho shop-riso-chirho" aria-label="{{ t.preview_label_chirho }}">
+                  <p class="visually-hidden-chirho">{{ t.preview_note_chirho }}</p>
+                  <div class="lab-bar-chirho" aria-hidden="true"><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-url-chirho figure-chirho">{{ t.url_chirho }}</span></div>
+                  <div class="riso-sheet-chirho">
+                    <p class="riso-kicker-chirho">{{ t.eyebrow_chirho }}</p>
+                    <h3 class="riso-shout-chirho">{{ t.shop_name_chirho }}</h3>
+                    <div class="riso-plate-chirho"><img class="riso-image-chirho" src="/app-assets-chirho/perffection/by-name-chirho/{{ t.image_chirho }}" alt="{{ t.image_alt_chirho }}" width="1200" height="800" loading="eager" decoding="async"><span class="riso-blob-chirho" aria-hidden="true"></span></div>
+                    <p class="riso-line-chirho">{{ t.headline_chirho }}</p>
+                    <ul class="riso-chips-chirho">{% for i in t.items_chirho %}<li><span>{{ i.name_chirho }}</span><b class="figure-chirho">{{ i.price_chirho }}</b></li>{% endfor %}</ul>
+                    <p class="riso-foot-chirho">{{ t.cta_chirho }} — {{ t.shop_meta_chirho }}</p>
+                  </div>
+                </article>
+              {% endif %}{% endfor %}{% endfor %}
+              {% for t in model_chirho.lab_chirho.trades_chirho %}{% for d in t.designs_chirho %}{% if d.key_chirho == "velvet-oven-chirho" %}
+                <article class="shop-chirho shop-velvet-chirho" aria-label="{{ t.preview_label_chirho }}">
+                  <p class="visually-hidden-chirho">{{ t.preview_note_chirho }}</p>
+                  <div class="lab-bar-chirho" aria-hidden="true"><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-url-chirho figure-chirho">{{ t.url_chirho }}</span></div>
+                  <div class="velvet-room-chirho">
+                    <p class="velvet-caps-chirho">{{ t.shop_name_chirho }}</p>
+                    <hr class="velvet-rule-chirho">
+                    <h3 class="velvet-title-chirho">{{ t.headline_chirho }}</h3>
+                    <div class="velvet-band-chirho"><img class="velvet-image-chirho" src="/app-assets-chirho/perffection/by-name-chirho/{{ t.image_chirho }}" alt="{{ t.image_alt_chirho }}" width="1200" height="800" loading="eager" decoding="async"></div>
+                    <p class="velvet-body-chirho">{{ t.body_chirho }}</p>
+                    <dl class="velvet-list-chirho">{% for i in t.items_chirho %}<div><dt>{{ i.name_chirho }}</dt><dd class="figure-chirho">{{ i.price_chirho }}</dd></div>{% endfor %}</dl>
+                    <p class="velvet-foot-chirho">{{ t.shop_meta_chirho }}</p>
+                  </div>
+                </article>
+              {% endif %}{% endfor %}{% endfor %}
+              {% for t in model_chirho.lab_chirho.trades_chirho %}{% for d in t.designs_chirho %}{% if d.key_chirho == "gallery-salt-chirho" %}
+                <article class="shop-chirho shop-gallery-chirho" aria-label="{{ t.preview_label_chirho }}">
+                  <p class="visually-hidden-chirho">{{ t.preview_note_chirho }}</p>
+                  <div class="lab-bar-chirho" aria-hidden="true"><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-url-chirho figure-chirho">{{ t.url_chirho }}</span></div>
+                  <div class="gallery-room-chirho">
+                    <p class="gallery-marque-chirho">{{ t.shop_name_chirho }}</p>
+                    <img class="gallery-object-chirho" src="/app-assets-chirho/perffection/by-name-chirho/{{ t.image_chirho }}" alt="{{ t.image_alt_chirho }}" width="1200" height="800" loading="eager" decoding="async">
+                    <h3 class="gallery-title-chirho">{{ t.headline_chirho }}</h3>
+                    <p class="gallery-body-chirho">{{ t.body_chirho }}</p>
+                    <dl class="gallery-label-chirho">
+                      <div class="gallery-label-row-chirho"><dt>{{ model_chirho.lab_chirho.gallery_work_label_chirho }}</dt><dd>{{ t.edition_mark_chirho }}</dd></div>
+                      {% for i in t.items_chirho %}<div class="gallery-label-row-chirho"><dt>{{ i.name_chirho }}</dt><dd>{{ i.note_chirho }} <span class="gallery-price-chirho figure-chirho">{{ i.price_chirho }}</span></dd></div>{% endfor %}
+                    </dl>
+                    <p class="gallery-foot-chirho">{{ t.shop_meta_chirho }}</p>
+                  </div>
+                </article>
+              {% endif %}{% endfor %}{% endfor %}
+              {% for t in model_chirho.lab_chirho.trades_chirho %}{% for d in t.designs_chirho %}{% if d.key_chirho == "kiln-brutal-chirho" %}
+                <article class="shop-chirho shop-brutal-chirho" aria-label="{{ t.preview_label_chirho }}">
+                  <p class="visually-hidden-chirho">{{ t.preview_note_chirho }}</p>
+                  <div class="lab-bar-chirho" aria-hidden="true"><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-url-chirho figure-chirho">{{ t.url_chirho }}</span></div>
+                  <div class="brutal-grid-chirho">
+                    <h3 class="brutal-name-chirho">{{ t.shop_name_chirho }}</h3>
+                    <p class="brutal-meta-chirho">{{ t.shop_meta_chirho }}</p>
+                    <img class="brutal-image-chirho" src="/app-assets-chirho/perffection/by-name-chirho/{{ t.image_chirho }}" alt="{{ t.image_alt_chirho }}" width="1200" height="800" loading="eager" decoding="async">
+                    <p class="brutal-lede-chirho">{{ t.headline_chirho }}</p>
+                    <ol class="brutal-list-chirho">{% for i in t.items_chirho %}<li><span class="brutal-num-chirho figure-chirho" aria-hidden="true">0{{ loop.index }}</span><span class="brutal-item-chirho">{{ i.name_chirho }}</span><span class="brutal-price-chirho figure-chirho">{{ i.price_chirho }}</span></li>{% endfor %}</ol>
+                    <p class="brutal-foot-chirho">{{ t.cta_chirho }}</p>
+                  </div>
+                </article>
+              {% endif %}{% endfor %}{% endfor %}
+              {% for t in model_chirho.lab_chirho.trades_chirho %}{% for d in t.designs_chirho %}{% if d.key_chirho == "glaze-drift-chirho" %}
+                <article class="shop-chirho shop-glaze-chirho" aria-label="{{ t.preview_label_chirho }}">
+                  <p class="visually-hidden-chirho">{{ t.preview_note_chirho }}</p>
+                  <div class="lab-bar-chirho" aria-hidden="true"><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-url-chirho figure-chirho">{{ t.url_chirho }}</span></div>
+                  <div class="glaze-field-chirho">
+                    <span class="glaze-orb-chirho" aria-hidden="true"></span>
+                    <p class="glaze-marque-chirho">{{ t.shop_name_chirho }}</p>
+                    <h3 class="glaze-title-chirho">{{ t.headline_chirho }}</h3>
+                    <div class="glaze-round-chirho"><img class="glaze-image-chirho" src="/app-assets-chirho/perffection/by-name-chirho/{{ t.image_chirho }}" alt="{{ t.image_alt_chirho }}" width="1200" height="800" loading="eager" decoding="async"></div>
+                    <p class="glaze-body-chirho">{{ t.body_chirho }}</p>
+                    <ul class="glaze-pills-chirho">{% for i in t.items_chirho %}<li><span>{{ i.name_chirho }}</span><b class="figure-chirho">{{ i.price_chirho }}</b></li>{% endfor %}</ul>
+                  </div>
+                </article>
+              {% endif %}{% endfor %}{% endfor %}
+              {% for t in model_chirho.lab_chirho.trades_chirho %}{% for d in t.designs_chirho %}{% if d.key_chirho == "botanical-plate-chirho" %}
+                <article class="shop-chirho shop-plate-chirho" aria-label="{{ t.preview_label_chirho }}">
+                  <p class="visually-hidden-chirho">{{ t.preview_note_chirho }}</p>
+                  <div class="lab-bar-chirho" aria-hidden="true"><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-url-chirho figure-chirho">{{ t.url_chirho }}</span></div>
+                  <div class="plate-chirho">
+                    <p class="plate-number-chirho">{{ t.edition_mark_chirho }}</p>
+                    <div class="plate-arch-chirho"><img class="plate-image-chirho" src="/app-assets-chirho/perffection/by-name-chirho/{{ t.image_chirho }}" alt="{{ t.image_alt_chirho }}" width="1200" height="800" loading="eager" decoding="async"></div>
+                    <h3 class="plate-title-chirho">{{ t.shop_name_chirho }}</h3>
+                    <p class="plate-latin-chirho">{{ t.eyebrow_chirho }}</p>
+                    <p class="plate-body-chirho">{{ t.body_chirho }}</p>
+                    <ul class="plate-list-chirho">{% for i in t.items_chirho %}<li><span class="plate-item-name-chirho">{{ i.name_chirho }}</span><span class="plate-item-note-chirho">{{ i.note_chirho }}</span><span class="plate-item-price-chirho figure-chirho">{{ i.price_chirho }}</span></li>{% endfor %}</ul>
+                    <p class="plate-foot-chirho">{{ t.shop_meta_chirho }}</p>
+                  </div>
+                </article>
+              {% endif %}{% endfor %}{% endfor %}
+              {% for t in model_chirho.lab_chirho.trades_chirho %}{% for d in t.designs_chirho %}{% if d.key_chirho == "neon-meadow-chirho" %}
+                <article class="shop-chirho shop-neon-chirho" aria-label="{{ t.preview_label_chirho }}">
+                  <p class="visually-hidden-chirho">{{ t.preview_note_chirho }}</p>
+                  <div class="lab-bar-chirho" aria-hidden="true"><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-url-chirho figure-chirho">{{ t.url_chirho }}</span></div>
+                  <div class="neon-night-chirho">
+                    <div class="neon-head-chirho"><h3 class="neon-name-chirho">{{ t.shop_name_chirho }}</h3><p class="neon-open-chirho">{{ t.shop_meta_chirho }}</p></div>
+                    <div class="neon-frame-chirho"><img class="neon-image-chirho" src="/app-assets-chirho/perffection/by-name-chirho/{{ t.image_chirho }}" alt="{{ t.image_alt_chirho }}" width="1200" height="800" loading="eager" decoding="async"><p class="neon-flash-chirho">{{ t.eyebrow_chirho }}</p></div>
+                    <p class="neon-lede-chirho">{{ t.headline_chirho }}</p>
+                    <ul class="neon-tags-chirho">{% for i in t.items_chirho %}<li>{{ i.name_chirho }} <b class="figure-chirho">{{ i.price_chirho }}</b></li>{% endfor %}</ul>
+                    <p class="neon-foot-chirho">{{ t.cta_chirho }}</p>
+                  </div>
+                </article>
+              {% endif %}{% endfor %}{% endfor %}
+              {% for t in model_chirho.lab_chirho.trades_chirho %}{% for d in t.designs_chirho %}{% if d.key_chirho == "paper-petal-chirho" %}
+                <article class="shop-chirho shop-paper-chirho" aria-label="{{ t.preview_label_chirho }}">
+                  <p class="visually-hidden-chirho">{{ t.preview_note_chirho }}</p>
+                  <div class="lab-bar-chirho" aria-hidden="true"><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-dot-chirho"></span><span class="lab-url-chirho figure-chirho">{{ t.url_chirho }}</span></div>
+                  <div class="paper-stack-chirho">
+                    <p class="paper-marque-chirho">{{ t.shop_name_chirho }}</p>
+                    <div class="paper-card-chirho paper-card-image-chirho"><img class="paper-image-chirho" src="/app-assets-chirho/perffection/by-name-chirho/{{ t.image_chirho }}" alt="{{ t.image_alt_chirho }}" width="1200" height="800" loading="eager" decoding="async"></div>
+                    <div class="paper-card-chirho paper-card-copy-chirho">
+                      <h3 class="paper-title-chirho">{{ t.headline_chirho }}</h3>
+                      <p class="paper-body-chirho">{{ t.body_chirho }}</p>
+                    </div>
+                    <ul class="paper-tiles-chirho">{% for i in t.items_chirho %}<li class="paper-card-chirho"><span>{{ i.name_chirho }}</span><b class="figure-chirho">{{ i.price_chirho }}</b></li>{% endfor %}</ul>
+                    <p class="paper-foot-chirho">{{ t.shop_meta_chirho }}</p>
+                  </div>
+                </article>
+              {% endif %}{% endfor %}{% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ---- QUESTIONS: native disclosure, no script -------------------------------------------------- #}
+  <section class="band-day-chirho questions-chirho" id="questions-chirho" aria-labelledby="questions-heading-chirho">
+    <div class="page-chirho questions-grid-chirho">
+      <header class="band-head-chirho">
+        <p class="eyebrow-chirho">{{ model_chirho.questions_chirho.mark_chirho }}</p>
+        <h2 class="band-heading-chirho" id="questions-heading-chirho">{{ model_chirho.questions_chirho.heading_chirho }}</h2>
+      </header>
+      <div class="question-list-chirho">
+        {% for item_chirho in model_chirho.questions_chirho.items_chirho %}
+          <details class="question-chirho"{% if loop.first %} open{% endif %}>
+            <summary class="question-summary-chirho">{{ item_chirho.question_chirho }}</summary>
+            <p class="question-answer-chirho">{{ item_chirho.answer_chirho }}</p>
+          </details>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ---- CLOSING: the town in full morning -------------------------------------------------------- #}
+  <section class="closing-chirho" id="closing-chirho" aria-labelledby="closing-heading-chirho">
+    <div class="closing-town-chirho" aria-hidden="true">
+      <img src="/app-assets-chirho/perffection/by-name-chirho/town-morning-chirho.jpg" srcset="/app-assets-chirho/perffection/by-name-chirho/town-morning-small-chirho.jpg 900w, /app-assets-chirho/perffection/by-name-chirho/town-morning-chirho.jpg 1920w" sizes="(max-width: 1000px) 100vw, 66vw" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+    </div>
+    <div class="page-chirho closing-copy-chirho">
+      <p class="eyebrow-chirho">{{ model_chirho.closing_chirho.mark_chirho }}</p>
+      <h2 class="closing-heading-chirho" id="closing-heading-chirho">{{ model_chirho.closing_chirho.heading_chirho }}</h2>
+      <p class="closing-body-chirho">{{ model_chirho.closing_chirho.body_chirho }}</p>
+      <div class="actions-chirho"><a class="action-primary-chirho" href="{{ model_chirho.invitation_href_chirho }}">{{ model_chirho.closing_chirho.invitation_label_chirho }}</a><a class="action-ghost-chirho" href="{{ model_chirho.signin_href_chirho }}">{{ model_chirho.closing_chirho.signin_label_chirho }}</a></div>
+      <p class="closing-ask-note-chirho">{{ model_chirho.closing_chirho.invitation_note_chirho }}</p>
+      <p class="closing-because-chirho">{{ model_chirho.closing_chirho.because_chirho }}</p>
+      <blockquote class="verse-chirho">
+        <p>{{ model_chirho.closing_chirho.verse_chirho }}</p>
+        <footer><cite>{{ model_chirho.closing_chirho.verse_source_chirho }}</cite></footer>
+      </blockquote>
+    </div>
+  </section>
+
+</main>
+
+<div class="footer-night-chirho">
+  <div class="sky-stars-chirho" aria-hidden="true"><div class="stars-far-chirho"></div></div>
+  {% include "partials_chirho/site_footer_chirho.html" %}
+</div>
+</body>
+</html>

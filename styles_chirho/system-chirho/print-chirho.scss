@@ -1,0 +1,168 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+//
+// VELLUM & OBSIDIAN — printing, and high-contrast.
+//
+// A site whose whole argument is craft should not print as forty pages of black rectangles. On
+// paper the obsidian face becomes vellum, the weather is dismissed, and the document sets itself
+// as what it always was underneath: an ordinary, well-set page.
+// Compile order: last, so it can override anything.
+
+@media print {
+  :root {
+    --ground-chirho: #ffffff;
+    --ground-raise-chirho: #ffffff;
+    --ground-sink-chirho: #ffffff;
+    --ink-chirho: #101010;
+    --ink-mute-chirho: #3a3a3a;
+    --rule-chirho: #b8b8b8;
+    --gold-text-chirho: #5a4410;
+  }
+
+  // On paper there is only one ground.
+  .on-obsidian-chirho,
+  .on-vellum-chirho {
+    --ground-chirho: #ffffff;
+    --ground-raise-chirho: #ffffff;
+    --ground-sink-chirho: #ffffff;
+    --ink-chirho: #101010;
+    --ink-mute-chirho: #3a3a3a;
+    --rule-chirho: #b8b8b8;
+    --gold-text-chirho: #5a4410;
+    --shadow-cast-chirho: none;
+    --shadow-lift-chirho: none;
+  }
+
+  body {
+    background: #ffffff;
+    color: #101010;
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+
+  // Weather, ornament, and anything that only exists to be looked at.
+  .aurora-chirho,
+  .vignette-chirho,
+  .grain-chirho,
+  .shaft-chirho,
+  .close-glow-chirho,
+  .deckle-chirho,
+  .gutter-thread-chirho,
+  .folio-chirho,
+  .threshold-field-chirho,
+  .cairn-field-chirho,
+  .craft-field-chirho,
+  .measure-field-chirho,
+  .site-nav-chirho {
+    display: none !important;
+  }
+
+  // Gilt is a light effect. On paper it is simply dark gold ink.
+  .gilt-chirho {
+    background-image: none;
+    color: #5a4410;
+    -webkit-text-fill-color: #5a4410;
+  }
+
+  .band-chirho {
+    padding-block: 1.2cm;
+    break-inside: auto;
+  }
+
+  .threshold-chirho,
+  .craft-threshold-chirho {
+    min-block-size: auto;
+    padding-block: 0 1.2cm;
+  }
+
+  // Headings keep at least two lines of what follows with them.
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+    color: #101010;
+  }
+
+  .slab-chirho,
+  .promise-leaf-chirho,
+  .cairn-course-chirho,
+  .figure-cell-chirho,
+  .stage-chirho,
+  .refusal-row-chirho,
+  .lab-slab-chirho {
+    break-inside: avoid;
+    box-shadow: none;
+    transform: none;
+    background-color: #ffffff;
+    border-color: #b8b8b8;
+  }
+
+  // Where a link goes matters on paper, where it cannot be followed.
+  main a[href^="/"]::after {
+    content: " (" attr(href) ")";
+    font-family: var(--face-mono-chirho);
+    font-size: 0.72em;
+    color: #5a4410;
+  }
+
+  main a[href^="#"]::after {
+    content: "";
+  }
+
+  .action-gilt-chirho,
+  .action-quiet-chirho {
+    background-image: none;
+    border: 1px solid #b8b8b8;
+    color: #101010;
+    box-shadow: none;
+  }
+
+  // The bench prints as the one preview that was selected, which is what a reader would want.
+  .lab-controls-chirho,
+  .lab-bar-chirho {
+    display: none;
+  }
+
+  img {
+    max-block-size: 8cm;
+    object-fit: contain;
+  }
+
+  @page {
+    margin: 1.6cm;
+  }
+}
+
+// ---------------------------------------------------------------------------------------------
+// High contrast. A reader who has asked for more of it gets the muted greys retired, the rules
+// strengthened, and the atmosphere dialled back so type sits on flat ground.
+// ---------------------------------------------------------------------------------------------
+
+@media (prefers-contrast: more) {
+  :root {
+    --ve-mute-chirho: #4a4438;
+    --ve-rule-chirho: #b3a68c;
+    --ob-mute-chirho: #c3c8d0;
+    --ob-rule-chirho: #4b525d;
+    --au-on-vellum-chirho: #5e4409;
+  }
+
+  .aurora-chirho {
+    --aurora-strength-chirho: 0.3;
+  }
+
+  .grain-chirho {
+    opacity: 0.18;
+  }
+
+  .threshold-stone-chirho,
+  .cairn-strata-chirho,
+  .measure-strata-chirho {
+    opacity: 0.28;
+  }
+
+  .gilt-chirho {
+    background-image: none;
+    color: var(--gold-text-chirho);
+    -webkit-text-fill-color: currentColor;
+  }
+}

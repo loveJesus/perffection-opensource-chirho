@@ -1,0 +1,12 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV)
+schema_chirho = "tree-build-node-fixture-v1-chirho"
+fixture_chirho = "build_page_read_request_chirho"
+node_chirho = "view_workspace_chirho/build_page_read_chirho"
+wasm_chirho = "../../target/wasm32-unknown-unknown/release/examples/build_page_read_guest_chirho.wasm"
+entry_chirho = "build_page_read_chirho"
+input_chirho = "fixtures_chirho/node-inputs-chirho/build_page_read_request_chirho.json"
+expected_output_chirho = "fixtures_chirho/node-expected-chirho/build_page_read_output_chirho.json"
+expected_output_blake3_chirho = "92d2e5c94853b69495196d9846adec1e9498e31f941b1ed6f9af09a67950b11b"
+fuel_limit_chirho = 10000000
+max_output_bytes_chirho = 1048576
+max_memory_bytes_chirho = 67108864

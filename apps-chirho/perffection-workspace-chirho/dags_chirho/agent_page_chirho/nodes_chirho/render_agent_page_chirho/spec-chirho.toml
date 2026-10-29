@@ -1,0 +1,8 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV)
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Render the surface description with the caller's verified current private page and version as JSON."
+behaviors_chirho = [
+  "describes the strict page document with the validator's own limits and the stated normalization",
+  "carries the exact current version as the page document a save accepts back",
+  "answers missing state as version 0 with no page, and malformed state with no page and no version",
+]

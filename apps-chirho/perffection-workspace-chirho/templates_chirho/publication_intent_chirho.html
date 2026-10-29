@@ -1,0 +1,53 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+{%- import "partials_chirho/field_state_chirho.html" as field_state_chirho -%}
+{%- import "partials_chirho/new_address_form_chirho.html" as new_address_form_chirho -%}
+<!doctype html>
+<html lang="{{ model_chirho.copy_chirho.lang_chirho }}" dir="{{ model_chirho.copy_chirho.dir_chirho }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ model_chirho.chrome_chirho.page_description_chirho }}">
+  <title>{{ model_chirho.chrome_chirho.page_title_chirho }}</title>
+  <link rel="stylesheet" href="/app-assets-chirho/perffection-workspace/by-name-chirho/{{ model_chirho.chrome_chirho.stylesheet_name_chirho }}">
+</head>
+<body class="workspace-page-chirho">
+  {% include "partials_chirho/site_nav_chirho.html" %}
+
+  <main class="workspace-shell-chirho">
+    {% include "partials_chirho/carrier_refusals_chirho.html" %}
+    <section class="workspace-intro-chirho" aria-labelledby="intent-heading-chirho">
+      <div>
+        <p class="workspace-eyebrow-chirho{% if !model_chirho.queued_chirho %} workspace-eyebrow-alert-chirho{% endif %}">{{ model_chirho.status_chirho }}</p>
+        <h1 id="intent-heading-chirho">{{ model_chirho.heading_chirho }}</h1>
+        <p class="workspace-lede-chirho">{{ model_chirho.body_chirho }}</p>
+      </div>
+    </section>
+
+    {# The door refused the name as another account's: the address form again, around the name
+       she typed, with the reason linked from the top and said beside the field. Everything in
+       it is hers (publication_intent_chirho.rs, address_retry_chirho). #}
+    {% if let Some(retry_chirho) = model_chirho.address_retry_chirho.as_ref() %}
+      {% call field_state_chirho::summary_chirho("publication-address-refused-heading-chirho", (model_chirho.copy_chirho.publication_chirho.address_refused_heading_chirho), (model_chirho.copy_chirho.publication_chirho.address_refused_body_chirho), (retry_chirho.notices_chirho)) %}{% endcall %}
+      {% call new_address_form_chirho::form_chirho((retry_chirho.publish_action_chirho), ("01"), (retry_chirho.version_chirho), (retry_chirho.dark_base_chirho), (retry_chirho.slug_chirho), (retry_chirho.field_chirho), (retry_chirho.publish_button_label_chirho), (model_chirho.copy_chirho.publication_chirho)) %}{% endcall %}
+    {% endif %}
+
+    <section class="{% if model_chirho.queued_chirho %}workspace-panel-chirho{% else %}workspace-errors-chirho{% endif %}" role="status">
+      {% if let Some(address_chirho) = model_chirho.address_chirho.as_ref() %}
+        <p>{{ model_chirho.copy_chirho.publication_chirho.address_label_chirho }}: {{ address_chirho }}</p>
+      {% endif %}
+      <p><a href="{{ model_chirho.status_href_chirho }}">{{ model_chirho.copy_chirho.publication_chirho.status_link_label_chirho }}</a></p>
+      <p><a href="/app-chirho/perffection-workspace/">{{ model_chirho.copy_chirho.publication_chirho.back_label_chirho }}</a></p>
+      {% if model_chirho.queued_chirho %}
+        <p class="workspace-publication-note-chirho">{{ model_chirho.copy_chirho.publication_chirho.retention_note_chirho }}</p>
+      {% endif %}
+    </section>
+
+    <aside id="workspace-help-chirho" class="workspace-help-chirho" aria-labelledby="workspace-help-heading-chirho">
+      <h2 id="workspace-help-heading-chirho">{{ model_chirho.copy_chirho.publication_chirho.help_heading_chirho }}</h2>
+      <p>{{ model_chirho.copy_chirho.publication_chirho.help_body_chirho }}</p>
+    </aside>
+  </main>
+
+  {% include "partials_chirho/site_footer_chirho.html" %}
+</body>
+</html>

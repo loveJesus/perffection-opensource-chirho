@@ -1,0 +1,45 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV)
+#
+# Her figures' routes, HELD. They are not in app-chirho.toml until Cairn's K disposition for monthly
+# figures (gpt #26554, choice A), so no release can carry them. The synthetic served gate
+# (scripts-chirho/tests-chirho/figures-rehearsal-chirho.sh) appends exactly these stanzas to a scratch
+# copy of app-chirho.toml; on the ruling they move into app-chirho.toml as written.
+# Workflow: spec-chirho/workflows-chirho/invite-beta-chirho/her-figures-chirho.md
+
+[[route_chirho]]
+route_chirho = "figures-chirho"
+dag_chirho = "view_figures_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "no-body"
+
+[[route_chirho]]
+route_chirho = "review-figures-chirho"
+dag_chirho = "review_figures_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "accept-body"
+
+[[route_chirho]]
+route_chirho = "save-figures-chirho"
+dag_chirho = "save_figures_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "accept-body"
+
+[[route_chirho]]
+route_chirho = "agent-figures-chirho"
+dag_chirho = "agent_figures_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "no-body"
+response_content_type_chirho = "application/json"
+
+# Her own assistant saves her figures (F6c, gpt #26625): the complete figures document, JSON in and out.
+[[route_chirho]]
+route_chirho = "agent-save-figures-chirho"
+dag_chirho = "agent_save_figures_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "accept-body"
+response_content_type_chirho = "application/json"

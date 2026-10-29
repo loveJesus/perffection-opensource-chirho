@@ -1,0 +1,282 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+//
+// VELLUM & OBSIDIAN — the shared shell: rail and footer.
+//
+// The class vocabulary (site-nav-chirho / site-brand-chirho / site-nav-links-chirho /
+// site-nav-link-chirho / site-nav-cta-chirho / site-footer-chirho) is the typed chrome contract
+// already carried by SiteChromeChirho. This file gives that contract ONE look across every page,
+// replacing the previous arrangement where each page restated the chrome in its own stylesheet.
+// Compile order: tokens, base, surfaces, motion, then this file.
+
+// ---------------------------------------------------------------------------------------------
+// The rail. Fixed, dark, and quiet. It condenses as the page scrolls — driven by a scroll
+// timeline on the document root, so the effect that normally costs a scroll listener costs
+// nothing here and cannot jank.
+//
+// It deliberately uses NO `backdrop-filter`. A blurred backdrop on a fixed element re-captures and
+// re-blurs everything beneath it on every scrolled frame, and shipping Safari 26 has a live
+// regression (WebKit 316769) where any CSS blur can push paint past ten seconds on iOS. A veil
+// that darkens with scroll position gets the same read for the price of a background colour.
+// ---------------------------------------------------------------------------------------------
+
+.site-nav-chirho {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-5-chirho);
+  padding-block: var(--rail-pad-chirho, 1.35rem);
+  padding-inline: var(--gutter-chirho);
+  color: var(--ob-ink-chirho);
+  background-color: rgba(6, 7, 10, var(--rail-veil-chirho, 0.92));
+  border-block-end: 1px solid rgba(240, 180, 41, var(--rail-thread-chirho, 0.14));
+}
+
+.site-brand-chirho {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-family: var(--face-display-chirho);
+  font-size: 1.06rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  font-variation-settings: "opsz" 24, "SOFT" 0, "WONK" 1;
+  color: var(--ob-ink-chirho);
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+// The seal. A small gilt lozenge standing in for a maker's mark, drawn in CSS so the brand needs
+// no image and no markup change.
+.site-brand-chirho::before {
+  content: "";
+  inline-size: 0.62rem;
+  block-size: 0.62rem;
+  flex: none;
+  align-self: center;
+  transform: rotate(45deg);
+  background-image: linear-gradient(135deg, var(--au-light-chirho), var(--au-deep-chirho));
+  box-shadow: 0 0 0 1px rgba(240, 180, 41, 0.32), 0 0 14px rgba(240, 180, 41, 0.42);
+}
+
+.site-nav-links-chirho {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.9rem, 2vw, 2rem);
+}
+
+.site-nav-link-chirho,
+.site-nav-cta-chirho {
+  position: relative;
+  font-family: var(--face-mono-chirho);
+  font-size: var(--t-micro-chirho);
+  letter-spacing: var(--track-micro-chirho);
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--ob-mute-chirho);
+  padding-block: 0.5rem;
+  transition: color var(--dur-snap-chirho) linear;
+}
+
+.site-nav-link-chirho:hover,
+.site-nav-cta-chirho:hover {
+  color: var(--ob-ink-chirho);
+}
+
+// The underline draws from the centre outward rather than sliding in from one side.
+.site-nav-link-chirho::after {
+  content: "";
+  position: absolute;
+  inset-block-end: 0.15rem;
+  inset-inline: 0;
+  block-size: 1px;
+  background-color: var(--au-core-chirho);
+  transform: scaleX(0);
+  transition: transform var(--dur-move-chirho) var(--ease-quint-chirho);
+}
+
+.site-nav-link-chirho:hover::after,
+.site-nav-link-chirho:focus-visible::after,
+.site-nav-link-chirho[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.site-nav-link-chirho[aria-current="page"] {
+  color: var(--ob-ink-chirho);
+}
+
+.site-nav-cta-chirho {
+  color: var(--ob-void-chirho);
+  background-image: linear-gradient(135deg, var(--au-light-chirho), var(--au-core-chirho));
+  padding-inline: 0.95rem;
+  padding-block: 0.55rem;
+  border-radius: var(--radius-chirho);
+  font-weight: 600;
+  box-shadow: 0 0 0 1px rgba(240, 180, 41, 0.4), 0 8px 26px -12px rgba(240, 180, 41, 0.7);
+  transition:
+    box-shadow var(--dur-move-chirho) var(--ease-quint-chirho),
+    color var(--dur-snap-chirho) linear;
+}
+
+.site-nav-cta-chirho:hover {
+  color: var(--ob-void-chirho);
+  box-shadow: 0 0 0 1px rgba(255, 217, 128, 0.7), 0 12px 34px -10px rgba(240, 180, 41, 0.9);
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .site-nav-chirho {
+      // Longhands, not the shorthand: the shorthand resets animation-duration, and a
+      // progress-based timeline needs `auto` for the keyframes to span the range.
+      animation-name: rail-condense-chirho;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 22rem;
+    }
+  }
+}
+
+@keyframes rail-condense-chirho {
+  from {
+    --rail-pad-chirho: 1.35rem;
+    --rail-veil-chirho: 0.88;
+    --rail-thread-chirho: 0.1;
+  }
+  to {
+    --rail-pad-chirho: 0.7rem;
+    --rail-veil-chirho: 0.97;
+    --rail-thread-chirho: 0.24;
+  }
+}
+
+.site-nav-links-chirho a {
+  white-space: nowrap;
+}
+
+// On a phone navigation wraps instead of hiding destinations. A sticky in-flow rail avoids
+// covering content when translated labels need extra lines; no script or duplicate menu is needed.
+@media (max-width: 40rem) {
+  .site-nav-chirho {
+    position: sticky;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding-block: 0.85rem;
+    animation: none;
+  }
+
+  .site-nav-links-chirho {
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    inline-size: 100%;
+  }
+
+  .site-nav-links-chirho a {
+    display: inline-flex;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .site-nav-link-chirho:last-child,
+  .site-nav-cta-chirho {
+    font-size: 0.68rem;
+    padding-inline: 0.85rem;
+  }
+
+  .site-nav-link-chirho:last-child {
+    color: var(--au-light-chirho);
+    border: 1px solid rgba(240, 180, 41, 0.42);
+    border-radius: var(--radius-chirho);
+    padding-block: 0.45rem;
+  }
+
+  .site-nav-link-chirho:last-child::after {
+    display: none;
+  }
+
+  .site-brand-chirho {
+    font-size: 1rem;
+  }
+}
+
+// ---------------------------------------------------------------------------------------------
+// The footer. Deliberately plain: after a page of atmosphere, the last thing the visitor reads
+// should be quiet and unornamented.
+// ---------------------------------------------------------------------------------------------
+
+.site-footer-chirho {
+  background-color: var(--ob-void-chirho);
+  color: var(--ob-mute-chirho);
+  padding-block: var(--sp-7-chirho) var(--sp-8-chirho);
+  padding-inline: var(--gutter-chirho);
+  border-block-start: 1px solid var(--ob-rule-chirho);
+  text-align: center;
+}
+
+.site-footer-chirho p {
+  font-family: var(--face-mono-chirho);
+  font-size: var(--t-micro-chirho);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-inline: auto;
+  max-inline-size: 44rem;
+  line-height: 2;
+}
+
+.site-footer-chirho a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+// ---------------------------------------------------------------------------------------------
+// The development-preview marker.
+//
+// It rides beside the wordmark on every page, and it is the reason the rest of the site may speak
+// in the present tense about a product still being built. It is styled to be READ, not to be
+// pretty: vermilion rule, mono capitals, no decoration competing with it. If a future change makes
+// this quiet enough to miss, that change has broken the site's honesty, not its layout.
+// ---------------------------------------------------------------------------------------------
+
+.site-brand-group-chirho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.7rem;
+  min-inline-size: 0;
+}
+
+.site-preview-marker-chirho {
+  flex: 0 1 auto;
+  min-inline-size: 0;
+  font-family: var(--face-mono-chirho);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #ffb9a3;
+  padding: 0.28rem 0.5rem;
+  border: 1px solid rgba(255, 122, 88, 0.55);
+  border-radius: var(--radius-chirho);
+  background-color: rgba(179, 57, 26, 0.22);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 52rem) {
+  .site-brand-group-chirho {
+    gap: 0.45rem;
+  }
+
+  .site-preview-marker-chirho {
+    font-size: 0.5rem;
+    letter-spacing: 0.12em;
+    padding: 0.22rem 0.36rem;
+  }
+}

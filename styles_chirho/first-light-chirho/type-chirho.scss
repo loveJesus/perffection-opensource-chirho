@@ -1,0 +1,187 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+//
+// FIRST LIGHT type and document base. Two faces, both SIL OFL, subset to Latin:
+// - IM FELL French Canon (roman and italic): Igino Marini's digitisation of a 17th-century type
+//   Bishop Fell bought for Oxford. Hand-cut, slightly rough at large sizes, so the page reads as made
+//   by hands, which is the point of the whole site. Renamed inside the files ("Perffection Canon
+//   Chirho") because its licence reserves the name for unmodified copies, and a subset is modified.
+// - Cabin (weight 400-700): a warm humanist sans in the Johnston and Gill line, for every word that
+//   has to be read rather than looked at.
+// L.J., 2026-10-01: the previous display face (Instrument Serif) read as "boilerplate AI".
+// The nine design studies keep their own four faces (declared in bench-frame-chirho.scss), because
+// a preview set in the surrounding page's type reads as the same site in a picture frame.
+
+@font-face {
+  font-family: "Fell Canon Chirho";
+  src: url("/app-assets-chirho/perffection/by-name-chirho/fell-canon-chirho.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fell Canon Chirho";
+  src: url("/app-assets-chirho/perffection/by-name-chirho/fell-canon-italic-chirho.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabin Chirho";
+  src: url("/app-assets-chirho/perffection/by-name-chirho/cabin-text-chirho.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Snapshot-free navigation throughout: a page that opts in, navigating into an auth or private page
+// that does not, raises a native browser error (learned on VELLUM; see public-signin-chirho.md).
+@view-transition {
+  navigation: none;
+}
+
+:root {
+  --face-serif-chirho: "Fell Canon Chirho", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --face-sans-chirho: "Cabin Chirho", "Gill Sans", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  // Fell is wider than the condensed face it replaced: about 0.86 of the old sizes keeps the lines.
+  --size-hero-chirho: clamp(2.85rem, 7.2vw, 8.3rem);
+  --size-band-chirho: clamp(2.25rem, 4.8vw, 5rem);
+  --size-closing-chirho: clamp(2.6rem, 6vw, 6.4rem);
+  --size-lead-chirho: clamp(1.1rem, 0.55vw + 0.98rem, 1.42rem);
+  --size-body-chirho: clamp(1rem, 0.22vw + 0.95rem, 1.12rem);
+  --size-small-chirho: 0.92rem;
+  --size-eyebrow-chirho: clamp(1.15rem, 0.4vw + 1.05rem, 1.4rem);
+  --measure-text-chirho: 38rem;
+}
+
+.first-light-chirho {
+  margin: 0;
+  background-color: var(--night-deep-chirho);
+  color: var(--starlight-chirho);
+  font-family: var(--face-sans-chirho);
+  font-size: var(--size-body-chirho);
+  line-height: 1.62;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+.first-light-chirho *,
+.first-light-chirho *::before,
+.first-light-chirho *::after {
+  box-sizing: border-box;
+}
+
+.first-light-chirho img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+.first-light-chirho :where(h1, h2, h3, h4, p, ul, ol, figure, blockquote) {
+  margin: 0;
+}
+
+.first-light-chirho :where(ul, ol) {
+  padding: 0;
+  list-style: none;
+}
+
+// Zero specificity on purpose: at (0,1,1) this rule outranked every component's own ink, and the
+// gold button's label inherited the night's starlight (L.J., 2026-10-01: "the button contrast ... is
+// a bit low"). A default must lose to anything that names a colour.
+:where(.first-light-chirho a) {
+  color: inherit;
+}
+
+// The keyboard's ring is gold on the night and wine ink on light grounds: gold on cream is too faint
+// to find (2026-10-01). A light ground sets --focus-ring-chirho for everything inside it.
+.band-morning-chirho,
+.band-day-chirho,
+.inner-hero-morning-chirho,
+.help-page-chirho {
+  --focus-ring-chirho: var(--wine-ink-chirho);
+}
+
+.first-light-chirho :focus-visible {
+  outline: 2px solid var(--focus-ring-chirho, var(--sun-gold-chirho));
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.first-light-chirho ::selection {
+  background: rgba(246, 197, 107, 0.36);
+  color: inherit;
+}
+
+// The way past the navigation: invisible until a keyboard reaches it.
+.skip-chirho {
+  position: absolute;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 0.75rem;
+  z-index: 120;
+  padding: 0.7rem 1.1rem;
+  border-radius: 3px;
+  background: var(--sun-gold-chirho);
+  color: var(--ink-night-chirho);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-160%);
+}
+
+.skip-chirho:focus-visible {
+  transform: none;
+}
+
+.page-chirho {
+  position: relative;
+  inline-size: min(100% - 2 * var(--gutter-chirho), var(--page-max-chirho));
+  margin-inline: auto;
+}
+
+// The label above every heading: a short rule and a word in the display italic, the way a printed
+// book marks a part. It replaced spaced capitals behind a glowing diamond, one of the template
+// habits L.J. read as AI (2026-10-01).
+.eyebrow-chirho {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: var(--face-serif-chirho);
+  font-style: italic;
+  font-size: var(--size-eyebrow-chirho);
+  line-height: 1.2;
+  letter-spacing: 0.005em;
+}
+
+.eyebrow-chirho::before {
+  content: "";
+  inline-size: 2.6rem;
+  block-size: 1px;
+  background: currentColor;
+  opacity: 0.75;
+}
+
+.band-heading-chirho {
+  margin-block-start: 1.1rem;
+  font-family: var(--face-serif-chirho);
+  font-weight: 400;
+  font-size: var(--size-band-chirho);
+  line-height: 1;
+  letter-spacing: -0.004em;
+  text-wrap: balance;
+}
+
+.band-body-chirho {
+  margin-block-start: 1.5rem;
+  max-inline-size: var(--measure-text-chirho);
+  font-size: var(--size-lead-chirho);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.band-head-chirho {
+  max-inline-size: 52rem;
+}

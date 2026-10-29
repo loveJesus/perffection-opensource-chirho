@@ -1,0 +1,22 @@
+{
+  "lang_chirho": "en",
+  "dir_chirho": "ltr",
+  "skip_label_chirho": "Skip to content",
+  "preview_label_chirho": "Private preview",
+  "preview_note_chirho": "You are previewing your saved draft. Publishing is a separate action.",
+  "preview_return_label_chirho": "Back to workspace",
+  "preview_title_template_chirho": "Private preview — {business_name_chirho}",
+  "nav_label_chirho": "Page sections",
+  "services_label_chirho": "Services",
+  "contact_label_chirho": "Contact",
+  "welcome_label_chirho": "Welcome",
+  "contact_action_label_chirho": "Get in touch",
+  "services_eyebrow_chirho": "What we do",
+  "services_heading_chirho": "What we can do for you.",
+  "contact_eyebrow_chirho": "Let’s talk",
+  "call_label_chirho": "Call",
+  "email_label_chirho": "Email",
+  "footer_note_chirho": "Made with Perffection.",
+  "unavailable_title_chirho": "Page unavailable",
+  "unavailable_heading_chirho": "This page is not available right now."
+}

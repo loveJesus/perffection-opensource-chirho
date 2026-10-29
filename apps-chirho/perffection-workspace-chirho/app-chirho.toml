@@ -1,0 +1,108 @@
+# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV)
+
+schema_chirho = "app-descriptor-v0-chirho"
+app_chirho = "perffection-workspace"
+owner_chirho = "owner/replace-with-local-owner-principal"
+package_chirho = "perffection-workspace-chirho"
+request_access_policy_chirho = "authenticated"
+
+[[asset_chirho]]
+name_chirho = "workspace-chirho.css"
+path_chirho = "assets_chirho/workspace-chirho.css"
+content_type_chirho = "text/css"
+
+[root_chirho]
+dag_chirho = "view_workspace_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "no-body"
+route_label_chirho = "workspace-chirho"
+
+[[route_chirho]]
+route_chirho = "edit-page-chirho"
+dag_chirho = "save_page_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "accept-body"
+
+[[route_chirho]]
+route_chirho = "restore-page-chirho"
+dag_chirho = "restore_page_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "accept-body"
+
+[[route_chirho]]
+route_chirho = "preview-chirho"
+dag_chirho = "preview_page_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "no-body"
+
+[[route_chirho]]
+route_chirho = "page-document-chirho"
+dag_chirho = "export_page_document_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "no-body"
+
+[[route_chirho]]
+route_chirho = "import-page-document-chirho"
+dag_chirho = "import_page_document_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "no-body"
+
+[[route_chirho]]
+route_chirho = "review-page-document-chirho"
+dag_chirho = "review_page_document_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "accept-body"
+
+# Publishing (cairn publication road, CAIRN #21808): the status read and the approval door. Both
+# bind together; the editor's Publishing pointer and every approval form assume both routes exist.
+[[route_chirho]]
+route_chirho = "publication-status-chirho"
+dag_chirho = "publication_status_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "no-body"
+
+[[route_chirho]]
+route_chirho = "publish-chirho"
+dag_chirho = "publish_page_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "accept-body"
+# The Account page (cairn's credential-change road, CAIRN #21925): password change today; the
+# recovery-code and close-account forms stay unbound until their roads land.
+[[route_chirho]]
+route_chirho = "account-chirho"
+dag_chirho = "account_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "no-body"
+
+# The first-draft routes (dag brief_page_chirho: the guided brief GET; dag draft_page_chirho: the
+# brief POST through the blessed llm card scoped first-draft-chirho) are wired only once cairn's
+# served, spend-bounded llm card runs for real (L.J.'s rulings M, CAIRN's contract in cairn
+# #22278); until then both DAGs exist unrouted and the brief form stays unbound.
+
+# The agent API (spec-chirho/workflows-chirho/invite-beta-chirho/agent-api-chirho.md): the same
+# authentication, subject and input mode as her browser's routes; the answers are JSON.
+[[route_chirho]]
+route_chirho = "agent-page-chirho"
+dag_chirho = "agent_page_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "no-body"
+response_content_type_chirho = "application/json"
+
+[[route_chirho]]
+route_chirho = "agent-save-page-chirho"
+dag_chirho = "agent_save_page_chirho"
+input_mode_chirho = "private-blob-ref"
+subject_chirho = "request-user-chirho"
+request_body_policy_chirho = "accept-body"
+response_content_type_chirho = "application/json"

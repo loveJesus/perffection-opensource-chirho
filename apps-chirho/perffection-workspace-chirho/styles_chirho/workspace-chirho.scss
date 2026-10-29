@@ -1,0 +1,971 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV)
+
+$ink-chirho: var(--ve-ink-chirho);
+$muted-chirho: var(--ve-mute-chirho);
+$paper-chirho: var(--ve-page-chirho);
+$surface-chirho: var(--ve-leaf-chirho);
+$line-chirho: var(--ve-rule-chirho);
+$moss-chirho: #31543b;
+$moss-dark-chirho: #213c2a;
+$gilt-chirho: #b37a16;
+// Gilt as TEXT: 5.6:1 on the leaf ground and 5.1:1 on the page ground (the decorative gilt is 3.6:1).
+$gilt-ink-chirho: #8a5d0f;
+$error-chirho: #842d25;
+$error-surface-chirho: #fff1ed;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  scroll-padding-block-start: 1rem;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(rgba(49, 84, 59, 0.045) 1px, transparent 1px),
+    $paper-chirho;
+  background-size: 100% 28px;
+  color: $ink-chirho;
+  font-family: var(--face-text-chirho);
+  line-height: 1.55;
+}
+
+a {
+  color: $moss-chirho;
+}
+
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+  outline: 3px solid $gilt-chirho;
+  outline-offset: 3px;
+}
+
+/* The shared header stays in normal flow on every workspace page, as Help keeps it: a fixed or
+   sticky bar would cover a refusal notice the road returns her to by URL fragment (gpt #22472). */
+.site-nav-chirho {
+  position: relative;
+  flex-wrap: wrap;
+  animation: none;
+}
+
+/* The workspace rail carries more destinations than the public one; the link list wraps at every
+   width instead of running past the viewport between the phone block and the wide rail. */
+.site-nav-links-chirho {
+  flex-wrap: wrap;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  row-gap: 0.5rem;
+}
+
+.workspace-shell-chirho {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(2rem, 4vw, 3rem) 0 96px;
+}
+
+.workspace-intro-chirho {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 36px;
+  align-items: end;
+  margin-bottom: 38px;
+}
+
+.workspace-eyebrow-chirho,
+.workspace-version-chirho {
+  color: $moss-chirho;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.workspace-intro-chirho h1 {
+  max-width: 760px;
+  margin: 8px 0 12px;
+  font-family: var(--face-display-chirho);
+  font-size: clamp(2.5rem, 7vw, 5.4rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.96;
+}
+
+.workspace-lede-chirho {
+  max-width: 660px;
+  margin: 0;
+  color: $muted-chirho;
+  font-size: clamp(1rem, 2vw, 1.18rem);
+}
+
+.workspace-version-chirho {
+  margin: 0 0 8px;
+  white-space: nowrap;
+}
+
+/* "Saved version N is ready to publish. Look at the saved version first" — a sentence with a
+   link, so it wraps like prose (measured 2026-09-09 at 390px: the eyebrow's nowrap overflowed). */
+.workspace-saved-version-chirho {
+  max-width: 62ch;
+  margin: 0 0 8px;
+  color: $moss-chirho;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.workspace-saved-version-chirho a {
+  color: inherit;
+}
+
+.workspace-errors-chirho {
+  margin-bottom: 24px;
+  padding: 20px 24px;
+  border: 2px solid $error-chirho;
+  background: $error-surface-chirho;
+}
+
+.workspace-errors-chirho h2 {
+  margin: 0 0 8px;
+  color: $error-chirho;
+  font-size: 1.05rem;
+}
+
+.workspace-errors-chirho ul {
+  margin: 0;
+  padding-inline-start: 22px;
+}
+
+.workspace-errors-chirho li + li {
+  margin-top: 4px;
+}
+
+/* Each line of the summary links to the control it is about. */
+.workspace-errors-chirho a {
+  color: $error-chirho;
+  font-weight: 800;
+}
+
+.workspace-form-chirho {
+  display: grid;
+  gap: 22px;
+}
+
+.workspace-panel-chirho,
+.workspace-unavailable-chirho,
+.workspace-readback-chirho {
+  margin: 0;
+  padding: clamp(24px, 5vw, 52px);
+  border: 1px solid $line-chirho;
+  background: $surface-chirho;
+  box-shadow: 0 18px 55px rgba(32, 37, 28, 0.07);
+}
+
+fieldset.workspace-panel-chirho {
+  min-width: 0;
+}
+
+// A legend is laid out on the fieldset's border by default, which put the "02" heading above its
+// card. Floating it full-width keeps the group semantics and renders it inside the card like the
+// other panel headings.
+legend.workspace-panel-legend-chirho {
+  float: inline-start;
+  width: 100%;
+  padding-inline: 0;
+}
+
+fieldset.workspace-panel-chirho > .workspace-service-grid-chirho {
+  clear: both;
+}
+
+/* "At least one service": the group's message, under the floated legend and above the pairs. */
+fieldset.workspace-panel-chirho > .workspace-field-error-chirho {
+  clear: both;
+  margin: 0 0 24px;
+}
+
+.workspace-eyebrow-alert-chirho {
+  color: $error-chirho;
+}
+
+.workspace-export-json-chirho {
+  width: 100%;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  white-space: pre;
+  overflow: auto;
+}
+
+.workspace-export-actions-chirho {
+  margin: 22px 0 0;
+}
+
+.workspace-panel-heading-chirho {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  margin: 0 0 32px;
+  padding: 0 0 20px;
+  border: 0;
+  border-bottom: 1px solid $line-chirho;
+}
+
+.workspace-panel-heading-chirho > p,
+.workspace-panel-heading-chirho > span:first-child {
+  margin: 2px 0 0;
+  color: $gilt-ink-chirho;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.workspace-panel-heading-chirho h2,
+.workspace-panel-heading-chirho strong {
+  display: block;
+  margin: 0;
+  font-family: var(--face-display-chirho);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.workspace-panel-heading-chirho div > p,
+.workspace-panel-heading-chirho small {
+  display: block;
+  margin: 7px 0 0;
+  color: $muted-chirho;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+}
+
+.workspace-field-chirho {
+  display: block;
+  max-width: 760px;
+  margin-bottom: 24px;
+}
+
+/* The wrapper holds the label, the control, its help text and its message, so help and message
+   describe the control (aria-describedby) instead of lengthening its name. */
+.workspace-field-chirho > span,
+.workspace-field-chirho > label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 800;
+}
+
+.workspace-field-chirho input,
+.workspace-field-chirho select,
+.workspace-field-chirho textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #857f70;
+  border-radius: 0;
+  background: #ffffff;
+  color: $ink-chirho;
+  font: inherit;
+  line-height: 1.4;
+}
+
+.workspace-field-chirho textarea {
+  resize: vertical;
+}
+
+/* A summary link lands on the control; keep its label in view above it. */
+.workspace-field-chirho input,
+.workspace-field-chirho select,
+.workspace-field-chirho textarea {
+  scroll-margin-block-start: 4rem;
+}
+
+/* The inset line thickens the edge without moving the box, and the message carries the words:
+   the state never rests on colour alone. */
+.workspace-field-chirho [aria-invalid="true"] {
+  border-color: $error-chirho;
+  box-shadow: inset 0 0 0 1px $error-chirho;
+}
+
+.workspace-field-error-chirho {
+  max-width: 760px;
+  margin: 8px 0 0;
+  padding-inline-start: 12px;
+  border-inline-start: 4px solid $error-chirho;
+  color: $error-chirho;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* A rule over several controls (a phone number or an email): a plain fieldset whose legend reads
+   as the group's label. */
+.workspace-field-group-chirho {
+  min-width: 0;
+  max-width: 760px;
+  margin: 0 0 24px;
+  padding: 0;
+  padding-inline-start: 18px;
+  border: 0;
+  border-inline-start: 3px solid $line-chirho;
+}
+
+.workspace-field-group-chirho > legend {
+  float: inline-start;
+  width: 100%;
+  padding: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.workspace-field-group-help-chirho {
+  clear: both;
+  margin: 0 0 18px;
+  padding-top: 4px;
+  color: $muted-chirho;
+  font-size: 0.92rem;
+}
+
+.workspace-field-group-chirho > .workspace-field-error-chirho {
+  margin: 0 0 18px;
+}
+
+.workspace-field-group-chirho > .workspace-field-chirho:last-child {
+  margin-bottom: 0;
+}
+
+/* A select sits on the same box as a text field; the browser arrow gives way to one chevron. */
+.workspace-field-chirho select {
+  appearance: none;
+  padding-right: 46px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='10' viewBox='0 0 16 10'><path d='M1.5 1.5 8 8l6.5-6.5' fill='none' stroke='%2331543b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px 10px;
+  cursor: pointer;
+}
+
+/* A file input sits on the same box as a text field; its button is one of the workspace's quiet
+   controls rather than the browser's grey one. */
+.workspace-field-chirho input[type="file"] {
+  padding: 9px 10px;
+  cursor: pointer;
+}
+
+.workspace-field-chirho input[type="file"]::file-selector-button {
+  margin-inline-end: 12px;
+  padding: 6px 12px;
+  border: 1px solid $moss-chirho;
+  border-radius: 0;
+  background: #ffffff;
+  color: $moss-chirho;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.workspace-field-chirho input:hover,
+.workspace-field-chirho select:hover,
+.workspace-field-chirho textarea:hover {
+  border-color: $moss-chirho;
+}
+
+/* A refusal the credential road sends her back to as a URL fragment: only the targeted one shows. */
+.workspace-refusal-chirho {
+  display: none;
+}
+
+.workspace-refusal-chirho:target {
+  display: block;
+  scroll-margin-block-start: 1rem;
+}
+
+.workspace-consent-chirho {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 0 0 18px;
+  font-weight: 600;
+}
+
+.workspace-consent-chirho input {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin: 2px 0 0;
+  accent-color: $ink-chirho;
+}
+
+.workspace-field-chirho small {
+  display: block;
+  margin-top: 7px;
+  color: $muted-chirho;
+  font-size: 0.84rem;
+}
+
+.workspace-service-grid-chirho {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.workspace-service-chirho {
+  padding: 20px;
+  border: 1px solid $line-chirho;
+  background: #faf7ee;
+}
+
+/* The brief's service names are one group among single fields: it keeps their rhythm. */
+fieldset.workspace-service-chirho {
+  margin-bottom: 24px;
+}
+
+.workspace-service-chirho h3 {
+  margin: 0 0 18px;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.workspace-service-chirho .workspace-field-chirho:last-child {
+  margin-bottom: 0;
+}
+
+.workspace-save-chirho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 26px clamp(24px, 5vw, 52px);
+  background: $ink-chirho;
+  color: #ffffff;
+}
+
+.workspace-save-chirho p {
+  max-width: 580px;
+  margin: 0;
+  color: #ddd8cb;
+}
+
+.workspace-save-chirho button,
+.workspace-save-chirho .workspace-button-link-chirho {
+  flex: 0 0 auto;
+  display: inline-block;
+  padding: 13px 20px;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #f4cf76;
+  border-radius: 0;
+  background: #f4cf76;
+  color: #171913;
+  font: inherit;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.workspace-save-chirho button:hover,
+.workspace-save-chirho .workspace-button-link-chirho:hover {
+  background: #ffe49e;
+}
+
+.workspace-unavailable-chirho {
+  margin-bottom: 22px;
+  border-inline-start: 6px solid $error-chirho;
+}
+
+.workspace-unavailable-chirho h2,
+.workspace-readback-chirho h2 {
+  margin: 0 0 12px;
+  font-family: var(--face-display-chirho);
+  font-size: 1.8rem;
+}
+
+.workspace-unavailable-chirho p:last-child {
+  margin-bottom: 0;
+  color: $muted-chirho;
+}
+
+.workspace-readback-chirho dl {
+  margin: 0;
+}
+
+.workspace-readback-chirho dl > div {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.28fr) minmax(0, 1fr);
+  gap: 20px;
+  padding: 14px 0;
+  border-top: 1px solid $line-chirho;
+}
+
+.workspace-readback-chirho dt {
+  color: $muted-chirho;
+  font-weight: 750;
+}
+
+.workspace-readback-chirho dd {
+  margin: 0;
+  white-space: pre-line;
+}
+
+.workspace-history-chirho {
+  margin-top: 30px;
+  padding: clamp(24px, 5vw, 48px);
+  border: 1px solid $line-chirho;
+  background: $paper-chirho;
+  box-shadow: 0 16px 44px rgba(39, 47, 37, 0.08);
+}
+
+.workspace-history-heading-chirho {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(280px, 1fr);
+  gap: 28px;
+  align-items: end;
+  margin-bottom: 24px;
+}
+
+.workspace-history-heading-chirho p {
+  margin: 0;
+  color: $muted-chirho;
+}
+
+.workspace-history-heading-chirho > div > p {
+  margin-bottom: 7px;
+  color: $moss-chirho;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.workspace-history-heading-chirho h2 {
+  margin: 0;
+  font-family: var(--face-display-chirho);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.workspace-history-empty-chirho {
+  margin: 0;
+  padding: 18px;
+  border: 1px dashed $line-chirho;
+  color: $muted-chirho;
+}
+
+.workspace-history-list-chirho {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.workspace-history-item-chirho {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  padding: 18px 20px;
+  border: 1px solid $line-chirho;
+  background: #faf7ee;
+}
+
+// Her own words ride in these cards. A long unbroken name must wrap inside the card, never widen
+// the page (gpt's consumer at 320px, 2026-09-21: a valid 44-character name overflowed every card).
+.workspace-history-item-chirho > div {
+  min-inline-size: 0;
+}
+
+.workspace-history-item-chirho p,
+.workspace-history-item-chirho h3,
+.workspace-history-item-chirho span {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.workspace-history-item-chirho p {
+  color: $moss-chirho;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.workspace-history-item-chirho h3 {
+  margin-top: 4px;
+  font-size: 1rem;
+}
+
+.workspace-history-item-chirho span {
+  display: block;
+  margin-top: 3px;
+  color: $muted-chirho;
+  font-size: 0.9rem;
+}
+
+.workspace-history-item-chirho form {
+  margin: 0;
+}
+
+.workspace-history-item-chirho button {
+  padding: 11px 15px;
+  border: 1px solid $ink-chirho;
+  border-radius: 0;
+  background: transparent;
+  color: $ink-chirho;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.workspace-history-item-chirho button:hover {
+  background: $ink-chirho;
+  color: #ffffff;
+}
+
+.workspace-history-current-chirho {
+  padding: 8px 11px;
+  background: #e9efe5;
+  color: #264528;
+  font-size: 0.82rem;
+}
+
+.workspace-help-chirho {
+  margin-block-start: 30px;
+  padding: clamp(22px, 4vw, 36px);
+  border: 1px solid $line-chirho;
+  background: $surface-chirho;
+}
+
+.workspace-help-chirho h2 {
+  margin: 0 0 8px;
+  font-family: var(--face-display-chirho);
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+
+.workspace-help-chirho p {
+  max-inline-size: 68ch;
+  margin: 0;
+  color: $muted-chirho;
+}
+
+// The first minute: one form, two ways to fill it (workspace_chirho.html). Without a targeted
+// step every field shows; with one, only that step, its progress line, its Back/Next links, and
+// the Save footer on the last step. Browsers without :has() show every field: nothing is lost.
+.workspace-how-chirho {
+  margin: 0;
+  padding: 22px clamp(20px, 4vw, 32px);
+  border: 1px solid $line-chirho;
+  border-inline-start: 4px solid $moss-chirho;
+  background: #faf7ee;
+}
+
+.workspace-how-chirho h2 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+
+.workspace-how-chirho p {
+  margin: 0;
+  max-width: 62ch;
+  color: $muted-chirho;
+}
+
+.workspace-how-links-chirho {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+  margin-top: 14px;
+}
+
+// Inside a panel heading, where `.workspace-panel-heading-chirho div > p` (0,1,2) would otherwise
+// out-rank a lone class (0,1,0) and show the line in the all-fields view (seen 2026-09-26 at 1440).
+.workspace-panel-heading-chirho .workspace-step-progress-chirho {
+  display: none;
+  margin: 0 0 4px;
+  color: $moss-chirho;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.workspace-step-nav-chirho {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid $line-chirho;
+}
+
+fieldset.workspace-step-chirho > .workspace-step-nav-chirho {
+  clear: both;
+}
+
+// One step at a time. At the LAST step, where Save is, an earlier step that still has a missing or
+// invalid answer is not hidden (and stays open while she types in it), so Save can take her to the
+// field and the browser can say what it needs. Hidden, such a field cannot take focus, and the browser
+// refuses the save without a word: measured 2026-09-30 in Chrome ("An invalid form control ... is not
+// focusable"), no navigation, no message. The step keeps its own layout: this rule only stops hiding it.
+.workspace-form-chirho:has(.workspace-step-chirho:target):not(:has(#step-5-chirho:target)) .workspace-step-chirho:not(:target),
+.workspace-form-chirho:has(#step-5-chirho:target) .workspace-step-chirho:not(:target):not(:has(:invalid)):not(:focus-within) {
+  display: none;
+}
+
+.workspace-form-chirho:has(#step-5-chirho:target) .workspace-step-chirho:not(:target) .workspace-step-nav-chirho {
+  display: none;
+}
+
+// Scoped under the heading class for the same reason as the progress line above: the heading's own
+// paragraph rule (0,1,2) out-ranks a lone class and showed the note even with nothing missing
+// (measured 2026-09-30 on the probe fixture before this scope).
+.workspace-panel-heading-chirho .workspace-still-needed-chirho {
+  display: none;
+  margin: 10px 0 0;
+  font-weight: 600;
+  color: $moss-chirho;
+}
+
+.workspace-form-chirho:has(#step-5-chirho:target):has(.workspace-step-chirho:not(#step-5-chirho) :invalid) .workspace-still-needed-chirho {
+  display: block;
+}
+
+.workspace-form-chirho:has(.workspace-step-chirho:target) .workspace-panel-heading-chirho .workspace-step-progress-chirho {
+  display: block;
+}
+
+.workspace-form-chirho:has(.workspace-step-chirho:target) .workspace-step-nav-chirho {
+  display: flex;
+}
+
+.workspace-form-chirho:has(.workspace-step-chirho:target) > .workspace-save-chirho {
+  display: none;
+}
+
+.workspace-form-chirho:has(#step-5-chirho:target) > .workspace-save-chirho {
+  display: flex;
+}
+
+@media (max-width: 840px) {
+  .workspace-service-grid-chirho {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .workspace-shell-chirho {
+    width: min(100% - 28px, 1120px);
+    padding-block-start: 42px;
+  }
+
+  .workspace-intro-chirho {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .workspace-panel-heading-chirho {
+    grid-template-columns: 36px minmax(0, 1fr);
+  }
+
+  .workspace-save-chirho {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .workspace-save-chirho button,
+  .workspace-save-chirho .workspace-button-link-chirho {
+    width: 100%;
+  }
+
+  .workspace-readback-chirho dl > div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .workspace-history-heading-chirho,
+  .workspace-history-item-chirho {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .workspace-history-item-chirho button {
+    width: 100%;
+  }
+}
+
+@media (forced-colors: active) {
+  .workspace-panel-chirho,
+  .workspace-unavailable-chirho,
+  .workspace-readback-chirho,
+  .workspace-history-chirho,
+  .workspace-history-item-chirho,
+  .workspace-service-chirho,
+  .workspace-save-chirho {
+    border: 1px solid CanvasText;
+    box-shadow: none;
+  }
+
+  .workspace-save-chirho button,
+  .workspace-save-chirho .workspace-button-link-chirho,
+  .workspace-history-item-chirho button {
+    forced-color-adjust: auto;
+  }
+
+  /* The system arrow returns: a moss chevron on a forced canvas may not show. */
+  .workspace-field-chirho select {
+    appearance: auto;
+    padding-right: 14px;
+    background-image: none;
+  }
+}
+
+@media print {
+  .site-nav-chirho,
+  .site-footer-chirho,
+  .workspace-form-chirho,
+  .workspace-history-chirho {
+    display: none;
+  }
+
+  body {
+    background: #ffffff;
+  }
+}
+
+
+/* Her AI connections (partials_chirho/connections_chirho.html): what a connection may and may never do,
+   side by side, then her connections as rows in the version-history pattern. */
+.workspace-connections-scope-chirho {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem 2rem;
+  margin-block: 1rem;
+}
+
+.workspace-connections-scope-chirho h3 {
+  margin-block-end: 0.4rem;
+  font-size: 1rem;
+}
+
+.workspace-connections-scope-chirho ul {
+  margin: 0;
+  padding-inline-start: 1.2rem;
+}
+
+/* The way to connect one is the page's action band, as her password change is, set apart from her list below. */
+.workspace-connections-connect-chirho {
+  margin-block: 1.25rem;
+}
+
+/* An ended connection reads as ended, not as good news. */
+.workspace-connections-ended-row-chirho > div > p {
+  color: $muted-chirho;
+}
+
+/* The disconnect road sends her back to this fragment: shown only when targeted. */
+.workspace-connections-ended-chirho {
+  display: none;
+}
+
+.workspace-connections-ended-chirho:target {
+  display: block;
+  scroll-margin-block-start: 1rem;
+}
+
+/* Her figures (figures_chirho.html, figures_review_chirho.html): plain, readable tables. A table wider
+   than the screen scrolls inside its own keyboard-reachable region; the page itself never does. */
+.workspace-table-scroll-chirho {
+  max-width: 100%;
+  margin-block: 1.25rem;
+  overflow-x: auto;
+}
+
+.workspace-table-scroll-chirho:focus-visible {
+  outline: 3px solid $gilt-ink-chirho;
+  outline-offset: 2px;
+}
+
+.workspace-figures-table-chirho {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.workspace-figures-table-chirho caption {
+  padding-block-end: 0.5rem;
+  font-weight: 800;
+  text-align: start;
+}
+
+.workspace-figures-table-chirho th,
+.workspace-figures-table-chirho td {
+  padding: 0.55rem 0.75rem;
+  border-block-end: 1px solid $line-chirho;
+  text-align: end;
+  white-space: nowrap;
+}
+
+.workspace-figures-table-chirho th[scope="row"],
+.workspace-figures-table-chirho thead th:first-child {
+  text-align: start;
+  white-space: normal;
+}
+
+/* A month is one unit: 2026-01 never breaks across lines. */
+.workspace-figures-table-chirho .workspace-figures-month-chirho {
+  white-space: nowrap;
+}
+
+.workspace-figures-table-chirho tfoot th,
+.workspace-figures-table-chirho tfoot td {
+  border-block-end: 0;
+  font-weight: 800;
+}
+
+.workspace-figures-notice-chirho,
+.workspace-figures-note-chirho {
+  margin-block: 1rem;
+  padding: 0.85rem 1rem;
+  border-inline-start: 3px solid $gilt-ink-chirho;
+  background: $surface-chirho;
+}
+
+.workspace-figures-flags-chirho,
+.workspace-figures-lines-chirho {
+  margin: 0.5rem 0 0;
+  padding-inline-start: 1.2rem;
+}
+
+/* The file her figures came from, on the review: display only, so plain and quiet. */
+.workspace-figures-source-chirho {
+  margin: 0.75rem 0 0;
+  overflow-wrap: anywhere;
+}
+
+.workspace-figures-flags-chirho li + li,
+.workspace-figures-lines-chirho li + li {
+  margin-block-start: 0.4rem;
+}
+
+.workspace-figures-kept-meta-chirho {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 1rem;
+  margin: 0.75rem 0 0;
+}
+
+.workspace-figures-kept-meta-chirho dt {
+  font-weight: 800;
+}
+
+.workspace-figures-kept-meta-chirho dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,7 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Render catalog copy through the compiled set-up template, ignoring request content."
+behaviors_chirho = [
+  "Never reflects request fields, so a code in a URL is never rendered back.",
+  "Posts only to Cairn's canonical recover road, with the page itself as the redirect.",
+]

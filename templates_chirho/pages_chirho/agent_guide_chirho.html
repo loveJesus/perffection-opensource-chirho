@@ -1,0 +1,57 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+<!doctype html>
+<html lang="{{ model_chirho.copy_chirho.lang_chirho }}" dir="{{ model_chirho.copy_chirho.dir_chirho }}">
+{% include "partials_chirho/head_first_light_chirho.html" %}
+<body class="first-light-chirho help-page-chirho agent-guide-page-chirho">
+  <a class="help-skip-chirho" href="#agent-instructions-chirho">{{ model_chirho.copy_chirho.skip_label_chirho }}</a>
+  {% include "partials_chirho/site_nav_chirho.html" %}
+  <main class="help-main-chirho">
+    <header class="help-intro-chirho">
+      <p class="help-eyebrow-chirho">{{ model_chirho.copy_chirho.eyebrow_chirho }}</p>
+      <h1>{{ model_chirho.copy_chirho.heading_chirho }}</h1>
+      <p>{{ model_chirho.copy_chirho.introduction_chirho }}</p>
+    </header>
+    <div class="help-layout-chirho">
+      <aside class="help-start-chirho" aria-labelledby="agent-review-heading-chirho">
+        <h2 id="agent-review-heading-chirho">{{ model_chirho.copy_chirho.review_heading_chirho }}</h2>
+        <p>{{ model_chirho.copy_chirho.review_body_chirho }}</p>
+        <small>{{ model_chirho.copy_chirho.signin_needed_chirho }}</small>
+        <a href="{{ model_chirho.signin_href_chirho }}">{{ model_chirho.signin_label_chirho }}</a>
+        <p>{{ model_chirho.copy_chirho.cost_note_chirho }}</p>
+      </aside>
+      <div class="help-guides-chirho">
+        <section class="help-guide-chirho" aria-labelledby="agent-steps-heading-chirho">
+          <h2 id="agent-steps-heading-chirho">{{ model_chirho.copy_chirho.steps_heading_chirho }}</h2>
+          <ol>{% for step_chirho in model_chirho.copy_chirho.steps_chirho %}<li>{{ step_chirho }}</li>{% endfor %}</ol>
+          <p>{{ model_chirho.copy_chirho.privacy_note_chirho }}</p>
+        </section>
+        <section id="agent-instructions-chirho" class="help-guide-chirho" aria-labelledby="agent-instructions-heading-chirho" tabindex="-1">
+          <h2 id="agent-instructions-heading-chirho">{{ model_chirho.copy_chirho.instructions_heading_chirho }}</h2>
+          <p>{{ model_chirho.copy_chirho.instructions_help_chirho }}</p>
+          <pre class="agent-instruction-chirho" lang="en" dir="ltr" tabindex="0" role="region" aria-labelledby="agent-instructions-heading-chirho">{{ model_chirho.instruction_chirho }}</pre>
+        </section>
+        <section class="help-guide-chirho" aria-labelledby="agent-sample-heading-chirho">
+          <h2 id="agent-sample-heading-chirho">{{ model_chirho.copy_chirho.sample_heading_chirho }}</h2>
+          <p lang="en" dir="ltr">{{ model_chirho.sample_preface_chirho }}</p>
+          <pre class="agent-instruction-chirho" lang="en" dir="ltr" tabindex="0" role="region" aria-labelledby="agent-sample-heading-chirho">{{ model_chirho.sample_answer_chirho }}</pre>
+        </section>
+        <section class="help-guide-chirho" aria-labelledby="agent-limits-heading-chirho">
+          <h2 id="agent-limits-heading-chirho">{{ model_chirho.copy_chirho.limits_heading_chirho }}</h2>
+          <p>{{ model_chirho.copy_chirho.limits_body_chirho }}</p>
+          <p>{{ model_chirho.copy_chirho.services_label_chirho }}: <bdi>{{ model_chirho.service_count_chirho }}</bdi></p>
+          <table class="agent-limits-chirho">
+            <thead><tr><th scope="col">{{ model_chirho.copy_chirho.key_label_chirho }}</th><th scope="col">{{ model_chirho.copy_chirho.limit_label_chirho }}</th><th scope="col">{{ model_chirho.copy_chirho.handling_label_chirho }}</th></tr></thead>
+            <tbody>{% for key_chirho in model_chirho.keys_chirho %}
+              <tr><th scope="row"><code dir="ltr">{{ key_chirho.key_chirho }}</code></th><td>{{ key_chirho.max_characters_chirho }}</td><td>{% if key_chirho.copied_exactly_chirho %}{{ model_chirho.copy_chirho.copied_label_chirho }}{% else %}{{ model_chirho.copy_chirho.written_label_chirho }}{% endif %}</td></tr>
+            {% endfor %}</tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </main>
+  <div class="footer-night-chirho">
+    <div class="sky-stars-chirho" aria-hidden="true"><div class="stars-far-chirho"></div></div>
+    {% include "partials_chirho/site_footer_chirho.html" %}
+  </div>
+</body>
+</html>

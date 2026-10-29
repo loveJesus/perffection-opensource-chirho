@@ -1,0 +1,7 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Turn her explicit approval form into one publication intent request, or the Skipped stone when the form cannot be sent."
+behaviors_chirho = [
+  "carries only slug, kind, a deterministic idempotency key and the version binding; never the document and never a principal",
+  "refuses an invalid address, a missing saved version, an unknown kind or a bad rollback target by skipping so the door is not invoked",
+]

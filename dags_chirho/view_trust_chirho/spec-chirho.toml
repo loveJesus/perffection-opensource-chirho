@@ -1,0 +1,11 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "dag-spec-v0-chirho"
+intent_chirho = "Serve the perffection.com trust page — what is promised, how to check it, and what is not open."
+surface_chirho = { ins_chirho = ["request: http_request_v1"], outs_chirho = ["page: html_partial_v1"] }
+structure_chirho = [
+  "a single pure render node; no effect doors or persistence surfaces",
+  "HTML is authored from a template and styled by a declared reviewed CSS asset",
+]
+behaviors_chirho = [
+  "renders each promise beside the test that checks it, the exact scope of recovery, and the closed surfaces",
+]

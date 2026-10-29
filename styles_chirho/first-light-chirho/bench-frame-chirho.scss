@@ -1,0 +1,120 @@
+// For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV)
+//
+// The nine design studies, framed for FIRST LIGHT. Their own stylesheet (system-chirho/bench-chirho.scss)
+// is unchanged; it reads the shared ground tokens set by `.on-vellum-chirho` on the band. What the
+// VELLUM base used to give them, and nothing else, is restated here: their four faces and six
+// helper classes, scoped to the examples band so they cannot leak into the new system.
+
+@font-face {
+  font-family: "Fraunces Chirho";
+  src: url("/app-assets-chirho/perffection/by-name-chirho/fraunces-display-chirho.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bodoni Chirho";
+  src: url("/app-assets-chirho/perffection/by-name-chirho/bodoni-display-chirho.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Archivo Chirho";
+  src: url("/app-assets-chirho/perffection/by-name-chirho/archivo-grotesk-chirho.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono Chirho";
+  src: url("/app-assets-chirho/perffection/by-name-chirho/jetbrains-mono-chirho.woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+.examples-chirho {
+  background: var(--day-chirho);
+}
+
+.examples-chirho .eyebrow-chirho {
+  color: var(--rose-ink-chirho);
+}
+
+.examples-chirho .band-body-chirho {
+  color: var(--ink-soft-chirho);
+}
+
+.examples-chirho .lab-bench-chirho {
+  margin-block-start: clamp(2.5rem, 6vh, 4rem);
+}
+
+.examples-chirho .prose-chirho {
+  max-inline-size: 38rem;
+  color: var(--ink-mute-chirho);
+  text-wrap: pretty;
+}
+
+.examples-chirho .mark-chirho {
+  font-family: var(--face-sans-chirho);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute-day-chirho);
+}
+
+.examples-chirho .figure-chirho {
+  font-family: var(--face-mono-chirho);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.examples-chirho .visually-hidden-chirho {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.examples-chirho .lift-chirho {
+  transition: transform 420ms var(--ease-quint-chirho), box-shadow 420ms var(--ease-quint-chirho);
+}
+
+.examples-chirho .lift-chirho:hover,
+.examples-chirho .lift-chirho:focus-within {
+  transform: translate3d(0, -3px, 0);
+}
+
+.examples-chirho .scene-near-chirho {
+  perspective: 900px;
+}
+
+// The picker in the new language: rounded, soft paper chips instead of ruled index cards.
+.examples-chirho .lab-choice-chirho {
+  border-radius: var(--round-small-chirho);
+}
+
+.examples-chirho .lab-direction-group-chirho {
+  border-radius: var(--round-chirho);
+}
+
+// The preview swap fades in (bench-chirho.scss names this keyframe; VELLUM's motion file held it).
+@keyframes fade-in-chirho {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

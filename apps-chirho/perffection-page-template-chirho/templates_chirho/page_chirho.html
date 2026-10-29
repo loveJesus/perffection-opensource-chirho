@@ -1,0 +1,85 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. - John 3:16 (KJV) -#}
+<!doctype html>
+<html lang="{{ model_chirho.copy_chirho.lang_chirho }}" dir="{{ model_chirho.copy_chirho.dir_chirho }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ model_chirho.page_description_chirho }}">
+  <title>{{ model_chirho.page_title_chirho }}</title>
+  <link rel="stylesheet" href="{{ model_chirho.stylesheet_href_chirho }}">
+</head>
+<body>
+  <a class="page-skip-link-chirho" href="#top-chirho">{{ model_chirho.copy_chirho.skip_label_chirho }}</a>
+  {% if let Some(preview_return_href_chirho) = model_chirho.preview_return_href_chirho.as_ref() %}
+    <aside class="page-preview-rail-chirho" aria-label="{{ model_chirho.copy_chirho.preview_label_chirho }}">
+      <strong>{{ model_chirho.copy_chirho.preview_label_chirho }}</strong>
+      <span>{{ model_chirho.copy_chirho.preview_note_chirho }}</span>
+      <a href="{{ preview_return_href_chirho }}">{{ model_chirho.copy_chirho.preview_return_label_chirho }}</a>
+    </aside>
+  {% endif %}
+
+  {% match model_chirho.document_chirho %}
+    {% when Some with (document_chirho) %}
+      <header class="page-masthead-chirho">
+        <a class="page-wordmark-chirho" href="#top-chirho"><bdi>{{ document_chirho.business_name_chirho }}</bdi></a>
+        <nav aria-label="{{ model_chirho.copy_chirho.nav_label_chirho }}">
+          <a href="#services-chirho">{{ model_chirho.copy_chirho.services_label_chirho }}</a>
+          <a href="#contact-chirho">{{ model_chirho.copy_chirho.contact_label_chirho }}</a>
+        </nav>
+      </header>
+
+      <main id="top-chirho" tabindex="-1">
+        <section class="page-hero-chirho" aria-labelledby="page-heading-chirho">
+          <p class="page-kicker-chirho">{{ model_chirho.copy_chirho.welcome_label_chirho }}</p>
+          <h1 id="page-heading-chirho" dir="auto">{{ document_chirho.headline_chirho }}</h1>
+          <p class="page-summary-chirho" dir="auto">{{ document_chirho.summary_chirho }}</p>
+          <a class="page-primary-action-chirho" href="#contact-chirho">{{ model_chirho.copy_chirho.contact_action_label_chirho }}</a>
+        </section>
+
+        <section class="page-services-chirho" id="services-chirho" aria-labelledby="services-heading-chirho">
+          <header>
+            <p>{{ model_chirho.copy_chirho.services_eyebrow_chirho }}</p>
+            <h2 id="services-heading-chirho">{{ model_chirho.copy_chirho.services_heading_chirho }}</h2>
+          </header>
+          <div class="page-service-grid-chirho">
+            {% for service_chirho in document_chirho.services_chirho %}
+              <article class="page-service-chirho">
+                <p class="page-service-number-chirho" aria-hidden="true">0{{ loop.index }}</p>
+                <h3 dir="auto">{{ service_chirho.title_chirho }}</h3>
+                <p dir="auto">{{ service_chirho.body_chirho }}</p>
+              </article>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="page-contact-chirho" id="contact-chirho" aria-labelledby="contact-heading-chirho">
+          <p>{{ model_chirho.copy_chirho.contact_eyebrow_chirho }}</p>
+          <h2 id="contact-heading-chirho" dir="auto">{{ document_chirho.contact_heading_chirho }}</h2>
+          <div class="page-contact-actions-chirho">
+            {% if let Some(contact_phone_chirho) = document_chirho.contact_phone_chirho.as_ref() %}
+              <a class="page-contact-action-chirho" href="{{ contact_phone_chirho.href_chirho }}"><span>{{ model_chirho.copy_chirho.call_label_chirho }}</span><bdi dir="ltr">{{ contact_phone_chirho.display_chirho }}</bdi></a>
+            {% endif %}
+            {% if let Some(contact_email_chirho) = document_chirho.contact_email_chirho.as_ref() %}
+              <a class="page-contact-action-chirho" href="{{ contact_email_chirho.href_chirho }}"><span>{{ model_chirho.copy_chirho.email_label_chirho }}</span><bdi dir="ltr">{{ contact_email_chirho.display_chirho }}</bdi></a>
+            {% endif %}
+          </div>
+          {% if !document_chirho.contact_details_chirho.is_empty() %}
+            <p class="page-contact-details-chirho" dir="auto">{{ document_chirho.contact_details_chirho }}</p>
+          {% endif %}
+        </section>
+      </main>
+
+      <footer class="page-footer-chirho">
+        <p><bdi>{{ document_chirho.business_name_chirho }}</bdi></p>
+        <p>{{ model_chirho.copy_chirho.footer_note_chirho }}</p>
+      </footer>
+    {% when None %}
+      {# Do not fall back to customer contact data here: failed verification means those bytes are not trusted to display. #}
+      <main class="page-unavailable-chirho" id="top-chirho" tabindex="-1">
+        <section aria-labelledby="page-unavailable-heading-chirho">
+          <h1 id="page-unavailable-heading-chirho">{{ model_chirho.copy_chirho.unavailable_heading_chirho }}</h1>
+        </section>
+      </main>
+  {% endmatch %}
+</body>
+</html>

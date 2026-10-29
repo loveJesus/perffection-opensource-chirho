@@ -1,0 +1,8 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "node-spec-v0-chirho"
+intent_chirho = "Parse the exact bounded restore form into one optimistic append-only private restore request."
+behaviors_chirho = [
+  "refuses duplicate, unknown, missing, malformed, current, zero, or oversized restore fields",
+  "emits one fixed logical key with exact current and earlier retained target versions",
+  "contains no caller-selected app, viewer, workspace, page bytes, or publication scope",
+]

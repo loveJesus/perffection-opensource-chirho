@@ -1,0 +1,107 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+{# The review of her pasted figures (src/figures_flow_chirho/figures_page_chirho.rs): exactly what would be kept, every
+   line added together and every line left out with its reason. Save posts the exact reviewed fields, only when
+   something can be kept. No script. Workflow: spec-chirho/workflows-chirho/invite-beta-chirho/her-figures-chirho.md #}
+<!doctype html>
+<html lang="{{ model_chirho.copy_chirho.lang_chirho }}" dir="{{ model_chirho.copy_chirho.dir_chirho }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ model_chirho.chrome_chirho.page_description_chirho }}">
+  <title>{{ model_chirho.chrome_chirho.page_title_chirho }}</title>
+  <link rel="stylesheet" href="/app-assets-chirho/perffection-workspace/by-name-chirho/{{ model_chirho.chrome_chirho.stylesheet_name_chirho }}">
+</head>
+<body class="workspace-page-chirho">
+  {% include "partials_chirho/site_nav_chirho.html" %}
+
+  <main class="workspace-shell-chirho">
+    {% include "partials_chirho/carrier_refusals_chirho.html" %}
+    <section class="workspace-intro-chirho" aria-labelledby="figures-review-heading-chirho">
+      <div>
+        <p class="workspace-eyebrow-chirho">{{ model_chirho.kept_summary_chirho }}</p>
+        <h1 id="figures-review-heading-chirho">{{ model_chirho.copy_chirho.figures_chirho.review_heading_chirho }}</h1>
+        <p class="workspace-lede-chirho">{{ model_chirho.copy_chirho.figures_chirho.review_lede_chirho }}</p>
+        {% if let Some(file_name_chirho) = model_chirho.kept_file_name_chirho.as_ref() %}
+          <p class="workspace-figures-source-chirho">{{ model_chirho.copy_chirho.figures_chirho.from_file_label_chirho }}: <strong>{{ file_name_chirho }}</strong></p>
+        {% endif %}
+      </div>
+    </section>
+
+    {% if let Some((refusal_chirho, refusal_code_chirho)) = model_chirho.refusal_chirho.as_ref() %}
+      <section class="workspace-errors-chirho" role="alert" data-refusal-chirho="{{ refusal_code_chirho }}" aria-labelledby="figures-refusal-heading-chirho">
+        <h2 id="figures-refusal-heading-chirho">{{ model_chirho.copy_chirho.figures_chirho.nothing_kept_heading_chirho }}</h2>
+        <p>{{ refusal_chirho }}</p>
+      </section>
+    {% endif %}
+
+    {% if !model_chirho.kept_tables_chirho.is_empty() %}
+      <section class="workspace-panel-chirho" aria-labelledby="figures-kept-heading-chirho">
+        <h2 id="figures-kept-heading-chirho">{{ model_chirho.copy_chirho.figures_chirho.kept_heading_chirho }}</h2>
+        <dl class="workspace-figures-kept-meta-chirho">
+          <dt>{{ model_chirho.copy_chirho.figures_chirho.currency_label_chirho }}</dt>
+          <dd>{{ model_chirho.kept_currency_chirho }}</dd>
+          <dt>{{ model_chirho.copy_chirho.figures_chirho.note_label_chirho }}</dt>
+          <dd>{% if model_chirho.kept_note_chirho.is_empty() %}—{% else %}{{ model_chirho.kept_note_chirho }}{% endif %}</dd>
+        </dl>
+        {% for table_chirho in model_chirho.kept_tables_chirho %}
+          <div class="workspace-table-scroll-chirho" role="region" tabindex="0" aria-labelledby="figures-kept-caption-{{ loop.index }}-chirho">
+            <table class="workspace-figures-table-chirho">
+              <caption id="figures-kept-caption-{{ loop.index }}-chirho">{{ table_chirho.caption_chirho }}</caption>
+              <thead>
+                <tr>
+                  <th scope="col">{{ model_chirho.copy_chirho.figures_chirho.kind_column_chirho }}</th>
+                  {% for month_chirho in model_chirho.kept_months_chirho %}<th scope="col" class="workspace-figures-month-chirho">{{ month_chirho }}</th>{% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+                {% for row_chirho in table_chirho.rows_chirho %}
+                  <tr>
+                    <th scope="row">{{ row_chirho.kind_chirho }}</th>
+                    {% for cell_chirho in row_chirho.cells_chirho %}<td>{{ cell_chirho }}</td>{% endfor %}
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% endfor %}
+      </section>
+    {% endif %}
+
+    {% if !model_chirho.combined_chirho.is_empty() %}
+      <section class="workspace-panel-chirho" aria-labelledby="figures-combined-heading-chirho">
+        <h2 id="figures-combined-heading-chirho">{{ model_chirho.copy_chirho.figures_chirho.combined_heading_chirho }}</h2>
+        <ul class="workspace-figures-lines-chirho">
+          {% for line_chirho in model_chirho.combined_chirho %}<li><strong>{{ line_chirho.label_chirho }}</strong>: {{ line_chirho.sentence_chirho }}</li>{% endfor %}
+        </ul>
+      </section>
+    {% endif %}
+
+    {% if !model_chirho.refused_chirho.is_empty() %}
+      <section class="workspace-panel-chirho" aria-labelledby="figures-refused-heading-chirho">
+        <h2 id="figures-refused-heading-chirho">{{ model_chirho.copy_chirho.figures_chirho.refused_heading_chirho }}</h2>
+        <ul class="workspace-figures-lines-chirho">
+          {% for line_chirho in model_chirho.refused_chirho %}<li><strong>{{ line_chirho.label_chirho }}</strong> {{ line_chirho.sentence_chirho }}</li>{% endfor %}
+        </ul>
+      </section>
+    {% endif %}
+
+    {% if let Some(form_chirho) = model_chirho.save_form_chirho.as_ref() %}
+      <form class="workspace-form-chirho" method="post" action="{{ model_chirho.save_action_chirho }}">
+        {% include "partials_chirho/form_caller_key_chirho.html" %}
+        <input type="hidden" name="csv_chirho" value="{{ form_chirho.csv_chirho }}">
+        <input type="hidden" name="currency_chirho" value="{{ form_chirho.currency_chirho }}">
+        <input type="hidden" name="note_chirho" value="{{ form_chirho.note_chirho }}">
+        <input type="hidden" name="expected_version_chirho" value="{{ form_chirho.expected_version_chirho }}">
+        <footer class="workspace-save-chirho">
+          <p>{{ model_chirho.copy_chirho.figures_chirho.save_boundary_chirho }}</p>
+          <button type="submit">{{ model_chirho.copy_chirho.figures_chirho.save_submit_chirho }}</button>
+        </footer>
+      </form>
+    {% endif %}
+
+    <p class="workspace-publication-note-chirho"><a href="{{ model_chirho.back_href_chirho }}">{{ model_chirho.copy_chirho.figures_chirho.back_label_chirho }}</a></p>
+  </main>
+
+  {% include "partials_chirho/site_footer_chirho.html" %}
+</body>
+</html>

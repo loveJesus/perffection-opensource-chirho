@@ -1,0 +1,14 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+{# Shared product navigation. Every including model exposes the typed SiteChromeChirho contract at
+   `model_chirho.chrome_chirho`. Destinations are supplied by the owning app, never by copy data. -#}
+<header class="site-nav-chirho">
+  <div class="site-brand-group-chirho">
+    <a href="{{ model_chirho.chrome_chirho.brand_href_chirho }}" class="site-brand-chirho">{{ model_chirho.chrome_chirho.brand_chirho }}</a>
+    <p class="site-preview-marker-chirho">{{ model_chirho.chrome_chirho.preview_marker_chirho }}</p>
+  </div>
+  <nav class="site-nav-links-chirho" aria-label="{{ model_chirho.chrome_chirho.nav_label_chirho }}">
+    {% for link_chirho in model_chirho.chrome_chirho.nav_links_chirho %}
+      <a href="{{ link_chirho.href_chirho }}" class="{% if link_chirho.is_cta_chirho %}site-nav-cta-chirho{% else %}site-nav-link-chirho{% endif %}{% if link_chirho.is_current_chirho %} site-nav-current-chirho{% endif %}"{% if link_chirho.is_current_chirho %} aria-current="page"{% endif %}>{{ link_chirho.label_chirho }}</a>
+    {% endfor %}
+  </nav>
+</header>

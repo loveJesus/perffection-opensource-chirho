@@ -1,0 +1,302 @@
+{# For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. — John 3:16 (KJV) -#}
+{%- import "partials_chirho/field_state_chirho.html" as field_state_chirho -%}
+<!doctype html>
+<html lang="{{ model_chirho.copy_chirho.lang_chirho }}" dir="{{ model_chirho.copy_chirho.dir_chirho }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ model_chirho.chrome_chirho.page_description_chirho }}">
+  <title>{{ model_chirho.chrome_chirho.page_title_chirho }}</title>
+  <link rel="stylesheet" href="/app-assets-chirho/perffection-workspace/by-name-chirho/{{ model_chirho.chrome_chirho.stylesheet_name_chirho }}">
+</head>
+<body class="workspace-page-chirho">
+  {% include "partials_chirho/site_nav_chirho.html" %}
+
+  <main class="workspace-shell-chirho">
+    {% include "partials_chirho/carrier_refusals_chirho.html" %}
+    <section class="workspace-intro-chirho" aria-labelledby="workspace-heading-chirho">
+      <div>
+        <p class="workspace-eyebrow-chirho{% if !model_chirho.validation_notices_chirho.is_empty() || model_chirho.page_notice_chirho.is_some() %} workspace-eyebrow-alert-chirho{% endif %}">{{ model_chirho.status_chirho }}</p>
+        <h1 id="workspace-heading-chirho">{{ model_chirho.copy_chirho.editor_chirho.heading_chirho }}</h1>
+        <p class="workspace-lede-chirho">{{ model_chirho.copy_chirho.editor_chirho.lede_chirho }}</p>
+      </div>
+      <p class="workspace-version-chirho">{{ model_chirho.copy_chirho.editor_chirho.current_version_label_chirho }} <strong>{{ model_chirho.current_version_chirho }}</strong></p>
+    </section>
+
+    {% if let Some(page_notice_chirho) = model_chirho.page_notice_chirho.as_ref() %}
+      <section class="workspace-errors-chirho" role="alert" aria-labelledby="workspace-notice-heading-chirho">
+        <h2 id="workspace-notice-heading-chirho">{{ model_chirho.copy_chirho.editor_chirho.not_saved_heading_chirho }}</h2>
+        <p>{{ page_notice_chirho }}</p>
+      </section>
+    {% endif %}
+
+    {% if !model_chirho.validation_notices_chirho.is_empty() %}
+      {% call field_state_chirho::summary_chirho("workspace-errors-heading-chirho", (model_chirho.copy_chirho.editor_chirho.validation_heading_chirho), (model_chirho.copy_chirho.editor_chirho.validation_body_chirho), (model_chirho.validation_notices_chirho)) %}{% endcall %}
+    {% endif %}
+
+    {% if let Some(binding_chirho) = model_chirho.binding_chirho.as_ref() %}
+      <form class="workspace-form-chirho" id="all-fields-chirho" method="post" action="{{ binding_chirho.save_action_chirho }}">
+        {% include "partials_chirho/form_caller_key_chirho.html" %}
+        <input type="hidden" name="schema_version_chirho" value="{{ model_chirho.draft_chirho.schema_version_chirho }}">
+        <input type="hidden" name="expected_version_chirho" value="{{ model_chirho.current_version_chirho }}">
+
+        {# The first minute: two ways to fill the ONE form (L.J. 2026-09-20, the shape of his Genesis
+           intake). "One thing at a time" targets a step; the stylesheet then shows that step alone,
+           its progress line and its Back/Next links, and keeps the Save footer for the last step.
+           "Everything at once" targets the form itself, which shows every field. Every control
+           stays mounted either way, so a save always carries the whole page and switching never
+           loses what she typed. No script: a :target stepper. #}
+        <nav class="workspace-how-chirho" aria-labelledby="workspace-how-heading-chirho">
+          <h2 id="workspace-how-heading-chirho">{{ model_chirho.copy_chirho.guided_chirho.choose_heading_chirho }}</h2>
+          <p>{{ model_chirho.copy_chirho.guided_chirho.choose_body_chirho }}</p>
+          <p class="workspace-how-links-chirho">
+            <a class="workspace-button-link-chirho" href="#step-1-chirho">{{ model_chirho.copy_chirho.guided_chirho.guided_action_chirho }}</a>
+            <a href="#all-fields-chirho">{{ model_chirho.copy_chirho.guided_chirho.all_action_chirho }}</a>
+          </p>
+        </nav>
+
+        <section class="workspace-panel-chirho workspace-step-chirho" id="step-1-chirho" aria-labelledby="step-1-heading-chirho">
+          <div class="workspace-panel-heading-chirho">
+            <p>01</p>
+            <div>
+              <p class="workspace-step-progress-chirho">{{ model_chirho.copy_chirho.guided_chirho.progress_chirho(1) }}</p>
+              <h2 id="step-1-heading-chirho">{{ model_chirho.copy_chirho.guided_chirho.name_heading_chirho }}</h2>
+              <p>{{ model_chirho.copy_chirho.guided_chirho.name_intro_chirho }}</p>
+            </div>
+          </div>
+          <div class="workspace-field-chirho">
+            <label for="business-name-chirho">{{ model_chirho.copy_chirho.editor_chirho.business_name_label_chirho }}</label>
+            <input id="business-name-chirho" placeholder="{{ model_chirho.copy_chirho.guided_chirho.example_business_name_chirho }}" name="business_name_chirho" maxlength="{{ model_chirho.limits_chirho.business_name_chirho }}" value="{{ model_chirho.draft_chirho.business_name_chirho }}" autocomplete="organization" required{% call field_state_chirho::attrs_chirho((model_chirho.fields_chirho.business_name_chirho)) %}{% endcall %}>
+            <small id="business-name-help-chirho">{{ model_chirho.copy_chirho.editor_chirho.business_name_help_chirho }}</small>
+            {% call field_state_chirho::messages_chirho((model_chirho.fields_chirho.business_name_chirho)) %}{% endcall %}
+          </div>
+          <nav class="workspace-step-nav-chirho" aria-label="{{ model_chirho.copy_chirho.guided_chirho.progress_chirho(1) }}">
+            <span></span>
+            <a class="workspace-button-link-chirho" href="#step-2-chirho">{{ model_chirho.copy_chirho.guided_chirho.next_label_chirho }}</a>
+          </nav>
+        </section>
+
+        <section class="workspace-panel-chirho workspace-step-chirho" id="step-2-chirho" aria-labelledby="step-2-heading-chirho">
+          <div class="workspace-panel-heading-chirho">
+            <p>02</p>
+            <div>
+              <p class="workspace-step-progress-chirho">{{ model_chirho.copy_chirho.guided_chirho.progress_chirho(2) }}</p>
+              <h2 id="step-2-heading-chirho">{{ model_chirho.copy_chirho.guided_chirho.headline_heading_chirho }}</h2>
+              <p>{{ model_chirho.copy_chirho.guided_chirho.headline_intro_chirho }}</p>
+            </div>
+          </div>
+          <div class="workspace-field-chirho">
+            <label for="headline-chirho">{{ model_chirho.copy_chirho.editor_chirho.headline_label_chirho }}</label>
+            <input id="headline-chirho" placeholder="{{ model_chirho.copy_chirho.guided_chirho.example_headline_chirho }}" name="headline_chirho" maxlength="{{ model_chirho.limits_chirho.headline_chirho }}" value="{{ model_chirho.draft_chirho.headline_chirho }}" required{% call field_state_chirho::attrs_chirho((model_chirho.fields_chirho.headline_chirho)) %}{% endcall %}>
+            <small id="headline-help-chirho">{{ model_chirho.copy_chirho.editor_chirho.headline_help_chirho }}</small>
+            {% call field_state_chirho::messages_chirho((model_chirho.fields_chirho.headline_chirho)) %}{% endcall %}
+          </div>
+          <nav class="workspace-step-nav-chirho" aria-label="{{ model_chirho.copy_chirho.guided_chirho.progress_chirho(2) }}">
+            <a href="#step-1-chirho">{{ model_chirho.copy_chirho.guided_chirho.previous_label_chirho }}</a>
+            <a class="workspace-button-link-chirho" href="#step-3-chirho">{{ model_chirho.copy_chirho.guided_chirho.next_label_chirho }}</a>
+          </nav>
+        </section>
+
+        <section class="workspace-panel-chirho workspace-step-chirho" id="step-3-chirho" aria-labelledby="step-3-heading-chirho">
+          <div class="workspace-panel-heading-chirho">
+            <p>03</p>
+            <div>
+              <p class="workspace-step-progress-chirho">{{ model_chirho.copy_chirho.guided_chirho.progress_chirho(3) }}</p>
+              <h2 id="step-3-heading-chirho">{{ model_chirho.copy_chirho.guided_chirho.summary_heading_chirho }}</h2>
+              <p>{{ model_chirho.copy_chirho.guided_chirho.summary_intro_chirho }}</p>
+            </div>
+          </div>
+          <div class="workspace-field-chirho">
+            <label for="summary-chirho">{{ model_chirho.copy_chirho.editor_chirho.summary_label_chirho }}</label>
+            <textarea id="summary-chirho" placeholder="{{ model_chirho.copy_chirho.guided_chirho.example_summary_chirho }}" name="summary_chirho" maxlength="{{ model_chirho.limits_chirho.summary_chirho }}" rows="5" required{% call field_state_chirho::attrs_chirho((model_chirho.fields_chirho.summary_chirho)) %}{% endcall %}>{{ model_chirho.draft_chirho.summary_chirho }}</textarea>
+            <small id="summary-help-chirho">{{ model_chirho.copy_chirho.editor_chirho.summary_help_chirho }}</small>
+            {% call field_state_chirho::messages_chirho((model_chirho.fields_chirho.summary_chirho)) %}{% endcall %}
+          </div>
+          <nav class="workspace-step-nav-chirho" aria-label="{{ model_chirho.copy_chirho.guided_chirho.progress_chirho(3) }}">
+            <a href="#step-2-chirho">{{ model_chirho.copy_chirho.guided_chirho.previous_label_chirho }}</a>
+            <a class="workspace-button-link-chirho" href="#step-4-chirho">{{ model_chirho.copy_chirho.guided_chirho.next_label_chirho }}</a>
+          </nav>
+        </section>
+
+        <fieldset class="workspace-panel-chirho workspace-step-chirho" id="step-4-chirho"{% if model_chirho.fields_chirho.services_group_chirho.is_invalid_chirho() %} aria-describedby="{{ model_chirho.fields_chirho.services_group_chirho.message_id_chirho }}"{% endif %}>
+          <legend class="workspace-panel-heading-chirho workspace-panel-legend-chirho">
+            <span>04</span>
+            <span>
+              <small class="workspace-step-progress-chirho">{{ model_chirho.copy_chirho.guided_chirho.progress_chirho(4) }}</small>
+              <strong>{{ model_chirho.copy_chirho.editor_chirho.services_heading_chirho }}</strong>
+              <small>{{ model_chirho.copy_chirho.editor_chirho.services_help_chirho }}</small>
+            </span>
+          </legend>
+          {% call field_state_chirho::messages_chirho((model_chirho.fields_chirho.services_group_chirho)) %}{% endcall %}
+
+          <div class="workspace-service-grid-chirho">
+            {% for service_chirho in model_chirho.draft_chirho.services_chirho %}
+              <section class="workspace-service-chirho" aria-labelledby="service-{{ loop.index }}-heading-chirho">
+                <h3 id="service-{{ loop.index }}-heading-chirho">{{ model_chirho.copy_chirho.editor_chirho.service_label_chirho }} {{ loop.index }}</h3>
+                <div class="workspace-field-chirho">
+                  <label for="service-{{ loop.index }}-title-chirho">{{ model_chirho.copy_chirho.editor_chirho.service_title_label_chirho }}</label>
+                  <input id="service-{{ loop.index }}-title-chirho" placeholder="{{ model_chirho.copy_chirho.guided_chirho.example_service_chirho(loop.index0).title_chirho }}" name="service_{{ loop.index }}_title_chirho" maxlength="{{ model_chirho.limits_chirho.service_title_chirho }}" value="{{ service_chirho.title_chirho }}"{% if loop.first %} required{% endif %}{% call field_state_chirho::attrs_chirho((model_chirho.fields_chirho.services_chirho[loop.index0].title_chirho)) %}{% endcall %}>
+                  {% call field_state_chirho::messages_chirho((model_chirho.fields_chirho.services_chirho[loop.index0].title_chirho)) %}{% endcall %}
+                </div>
+                <div class="workspace-field-chirho">
+                  <label for="service-{{ loop.index }}-body-chirho">{{ model_chirho.copy_chirho.editor_chirho.service_body_label_chirho }}</label>
+                  <textarea id="service-{{ loop.index }}-body-chirho" placeholder="{{ model_chirho.copy_chirho.guided_chirho.example_service_chirho(loop.index0).body_chirho }}" name="service_{{ loop.index }}_body_chirho" maxlength="{{ model_chirho.limits_chirho.service_body_chirho }}" rows="4"{% if loop.first %} required{% endif %}{% call field_state_chirho::attrs_chirho((model_chirho.fields_chirho.services_chirho[loop.index0].body_chirho)) %}{% endcall %}>{{ service_chirho.body_chirho }}</textarea>
+                  {% call field_state_chirho::messages_chirho((model_chirho.fields_chirho.services_chirho[loop.index0].body_chirho)) %}{% endcall %}
+                </div>
+              </section>
+            {% endfor %}
+          </div>
+          <nav class="workspace-step-nav-chirho" aria-label="{{ model_chirho.copy_chirho.guided_chirho.progress_chirho(4) }}">
+            <a href="#step-3-chirho">{{ model_chirho.copy_chirho.guided_chirho.previous_label_chirho }}</a>
+            <a class="workspace-button-link-chirho" href="#step-5-chirho">{{ model_chirho.copy_chirho.guided_chirho.next_label_chirho }}</a>
+          </nav>
+        </fieldset>
+
+        <section class="workspace-panel-chirho workspace-step-chirho" id="step-5-chirho" aria-labelledby="step-5-heading-chirho">
+          <div class="workspace-panel-heading-chirho">
+            <p>05</p>
+            <div>
+              <p class="workspace-step-progress-chirho">{{ model_chirho.copy_chirho.guided_chirho.progress_chirho(5) }}</p>
+              <h2 id="step-5-heading-chirho">{{ model_chirho.copy_chirho.editor_chirho.contact_section_heading_chirho }}</h2>
+              <p>{{ model_chirho.copy_chirho.editor_chirho.contact_section_intro_chirho }}</p>
+              <p class="workspace-still-needed-chirho">{{ model_chirho.copy_chirho.guided_chirho.still_needed_chirho }}</p>
+            </div>
+          </div>
+          <div class="workspace-field-chirho">
+            <label for="contact-heading-chirho">{{ model_chirho.copy_chirho.editor_chirho.contact_heading_label_chirho }}</label>
+            <input id="contact-heading-chirho" placeholder="{{ model_chirho.copy_chirho.guided_chirho.example_contact_heading_chirho }}" name="contact_heading_chirho" maxlength="{{ model_chirho.limits_chirho.contact_heading_chirho }}" value="{{ model_chirho.draft_chirho.contact_heading_chirho }}" required{% call field_state_chirho::attrs_chirho((model_chirho.fields_chirho.contact_heading_chirho)) %}{% endcall %}>
+            {% call field_state_chirho::messages_chirho((model_chirho.fields_chirho.contact_heading_chirho)) %}{% endcall %}
+          </div>
+
+          {# One of the pair is required, so the rule and its message live on the group and are
+             described into both controls (editor_validation_chirho.rs). #}
+          <fieldset class="workspace-field-group-chirho" aria-describedby="contact-method-help-chirho{% if model_chirho.fields_chirho.contact_method_group_chirho.is_invalid_chirho() %} {{ model_chirho.fields_chirho.contact_method_group_chirho.message_id_chirho }}{% endif %}">
+            <legend>{{ model_chirho.copy_chirho.editor_chirho.contact_method_label_chirho }}</legend>
+            <p id="contact-method-help-chirho" class="workspace-field-group-help-chirho">{{ model_chirho.copy_chirho.editor_chirho.contact_method_help_chirho }}</p>
+            {% call field_state_chirho::messages_chirho((model_chirho.fields_chirho.contact_method_group_chirho)) %}{% endcall %}
+
+            <div class="workspace-field-chirho">
+              <label for="contact-phone-chirho">{{ model_chirho.copy_chirho.editor_chirho.contact_phone_label_chirho }}</label>
+              <input id="contact-phone-chirho" placeholder="{{ model_chirho.copy_chirho.guided_chirho.example_contact_phone_chirho }}" name="contact_phone_chirho" type="tel" inputmode="tel" autocomplete="tel" maxlength="{{ model_chirho.limits_chirho.contact_phone_chirho }}" pattern="\+?(?:[ \-\(\).]*[0-9]){7,15}[ \-\(\).]*" title="{{ model_chirho.copy_chirho.editor_chirho.contact_phone_title_chirho }}" value="{{ model_chirho.draft_chirho.contact_phone_chirho }}"{% call field_state_chirho::attrs_chirho((model_chirho.fields_chirho.contact_phone_chirho)) %}{% endcall %}>
+              <small id="contact-phone-help-chirho">{{ model_chirho.copy_chirho.editor_chirho.contact_phone_help_chirho }}</small>
+              {% call field_state_chirho::messages_chirho((model_chirho.fields_chirho.contact_phone_chirho)) %}{% endcall %}
+            </div>
+
+            <div class="workspace-field-chirho">
+              <label for="contact-email-chirho">{{ model_chirho.copy_chirho.editor_chirho.contact_email_label_chirho }}</label>
+              <input id="contact-email-chirho" placeholder="{{ model_chirho.copy_chirho.guided_chirho.example_contact_email_chirho }}" name="contact_email_chirho" type="email" inputmode="email" autocomplete="email" maxlength="{{ model_chirho.limits_chirho.contact_email_chirho }}" value="{{ model_chirho.draft_chirho.contact_email_chirho }}"{% call field_state_chirho::attrs_chirho((model_chirho.fields_chirho.contact_email_chirho)) %}{% endcall %}>
+              <small id="contact-email-help-chirho">{{ model_chirho.copy_chirho.editor_chirho.contact_email_help_chirho }}</small>
+              {% call field_state_chirho::messages_chirho((model_chirho.fields_chirho.contact_email_chirho)) %}{% endcall %}
+            </div>
+          </fieldset>
+
+          <div class="workspace-field-chirho">
+            <label for="contact-details-chirho">{{ model_chirho.copy_chirho.editor_chirho.contact_details_label_chirho }}</label>
+            <textarea id="contact-details-chirho" placeholder="{{ model_chirho.copy_chirho.guided_chirho.example_contact_details_chirho }}" name="contact_details_chirho" maxlength="{{ model_chirho.limits_chirho.contact_details_chirho }}" rows="4"{% call field_state_chirho::attrs_chirho((model_chirho.fields_chirho.contact_details_chirho)) %}{% endcall %}>{{ model_chirho.draft_chirho.contact_details_chirho }}</textarea>
+            <small id="contact-details-help-chirho">{{ model_chirho.copy_chirho.editor_chirho.contact_details_help_chirho }}</small>
+            {% call field_state_chirho::messages_chirho((model_chirho.fields_chirho.contact_details_chirho)) %}{% endcall %}
+          </div>
+          <nav class="workspace-step-nav-chirho" aria-label="{{ model_chirho.copy_chirho.guided_chirho.progress_chirho(5) }}">
+            <a href="#step-4-chirho">{{ model_chirho.copy_chirho.guided_chirho.previous_label_chirho }}</a>
+            <span></span>
+          </nav>
+        </section>
+
+        <footer class="workspace-save-chirho">
+          <p>{{ model_chirho.copy_chirho.editor_chirho.save_boundary_chirho }}</p>
+          <button type="submit">{{ model_chirho.copy_chirho.editor_chirho.save_label_chirho }}</button>
+        </footer>
+      </form>
+
+      {% if let Some(publication_href_chirho) = binding_chirho.publication_href_chirho.as_ref() %}
+        {% if model_chirho.publishable_chirho %}
+          <section class="workspace-panel-chirho workspace-publish-pointer-chirho" aria-labelledby="workspace-publish-heading-chirho">
+            <div class="workspace-panel-heading-chirho">
+              <p>{{ model_chirho.copy_chirho.publication_chirho.form_number_chirho }}</p>
+              <div>
+                <h2 id="workspace-publish-heading-chirho">{{ model_chirho.copy_chirho.publication_chirho.form_heading_chirho }}</h2>
+                <p>{{ model_chirho.publish_pointer_body_chirho }}</p>
+              </div>
+            </div>
+            <footer class="workspace-save-chirho">
+              <p>{{ model_chirho.copy_chirho.publication_chirho.retention_note_chirho }}</p>
+              <a class="workspace-button-link-chirho" href="{{ publication_href_chirho }}">{{ model_chirho.publish_link_label_chirho }}</a>
+            </footer>
+          </section>
+        {% endif %}
+      {% endif %}
+
+      <section class="workspace-history-chirho" aria-labelledby="workspace-history-heading-chirho">
+        <header class="workspace-history-heading-chirho">
+          <div>
+            <p>{{ model_chirho.copy_chirho.editor_chirho.recovery_eyebrow_chirho }}</p>
+            <h2 id="workspace-history-heading-chirho">{{ model_chirho.copy_chirho.editor_chirho.history_heading_chirho }}</h2>
+          </div>
+          <p>{{ model_chirho.copy_chirho.editor_chirho.history_intro_chirho }}</p>
+        </header>
+
+        {% if !model_chirho.history_available_chirho %}
+          <p class="workspace-history-empty-chirho">{{ model_chirho.copy_chirho.editor_chirho.history_unknown_chirho }}</p>
+        {% else if model_chirho.history_chirho.is_empty() %}
+          <p class="workspace-history-empty-chirho">{{ model_chirho.copy_chirho.editor_chirho.history_empty_chirho }}</p>
+        {% else %}
+          <ol class="workspace-history-list-chirho">
+            {% for history_chirho in model_chirho.history_chirho %}
+              <li class="workspace-history-item-chirho">
+                <div>
+                  <p>{{ model_chirho.copy_chirho.editor_chirho.version_label_chirho }} {{ history_chirho.version_chirho }}</p>
+                  <h3>{{ history_chirho.business_name_chirho }}</h3>
+                  <span>{{ history_chirho.headline_chirho }}</span>
+                </div>
+                {% if history_chirho.is_current_chirho %}
+                  <strong class="workspace-history-current-chirho">{{ model_chirho.copy_chirho.editor_chirho.current_draft_label_chirho }}</strong>
+                {% else %}
+                  <form method="post" action="{{ binding_chirho.restore_action_chirho }}">
+                    {% include "partials_chirho/form_caller_key_chirho.html" %}
+                    <input type="hidden" name="expected_version_chirho" value="{{ model_chirho.current_version_chirho }}">
+                    <input type="hidden" name="restore_from_version_chirho" value="{{ history_chirho.version_chirho }}">
+                    <button type="submit">{{ model_chirho.copy_chirho.editor_chirho.restore_version_label_chirho }} {{ history_chirho.version_chirho }}</button>
+                  </form>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ol>
+        {% endif %}
+      </section>
+    {% else %}
+      <section class="workspace-unavailable-chirho" role="status">
+        <h2>{{ model_chirho.copy_chirho.editor_chirho.unavailable_heading_chirho }}</h2>
+        <p>{{ model_chirho.status_chirho }}</p>
+        <p>{{ model_chirho.copy_chirho.editor_chirho.unavailable_safety_chirho }}</p>
+      </section>
+
+      {% if model_chirho.current_version_chirho > 0 %}
+        <section class="workspace-readback-chirho" aria-labelledby="workspace-readback-heading-chirho">
+          <h2 id="workspace-readback-heading-chirho">{{ model_chirho.copy_chirho.editor_chirho.current_draft_heading_chirho }}</h2>
+          <dl>
+            <div><dt>{{ model_chirho.copy_chirho.editor_chirho.readback_business_label_chirho }}</dt><dd>{{ model_chirho.draft_chirho.business_name_chirho }}</dd></div>
+            <div><dt>{{ model_chirho.copy_chirho.editor_chirho.readback_headline_label_chirho }}</dt><dd>{{ model_chirho.draft_chirho.headline_chirho }}</dd></div>
+            <div><dt>{{ model_chirho.copy_chirho.editor_chirho.readback_summary_label_chirho }}</dt><dd>{{ model_chirho.draft_chirho.summary_chirho }}</dd></div>
+            {% if !model_chirho.draft_chirho.contact_phone_chirho.is_empty() %}
+              <div><dt>{{ model_chirho.copy_chirho.editor_chirho.readback_phone_label_chirho }}</dt><dd>{{ model_chirho.draft_chirho.contact_phone_chirho }}</dd></div>
+            {% endif %}
+            {% if !model_chirho.draft_chirho.contact_email_chirho.is_empty() %}
+              <div><dt>{{ model_chirho.copy_chirho.editor_chirho.readback_email_label_chirho }}</dt><dd>{{ model_chirho.draft_chirho.contact_email_chirho }}</dd></div>
+            {% endif %}
+            {% if !model_chirho.draft_chirho.contact_details_chirho.is_empty() %}
+              <div><dt>{{ model_chirho.copy_chirho.editor_chirho.readback_details_label_chirho }}</dt><dd>{{ model_chirho.draft_chirho.contact_details_chirho }}</dd></div>
+            {% endif %}
+          </dl>
+        </section>
+      {% endif %}
+    {% endif %}
+
+    <aside id="workspace-help-chirho" class="workspace-help-chirho" aria-labelledby="workspace-help-heading-chirho">
+      <h2 id="workspace-help-heading-chirho">{{ model_chirho.copy_chirho.editor_chirho.help_heading_chirho }}</h2>
+      <p>{{ model_chirho.copy_chirho.editor_chirho.help_body_chirho }}</p>
+    </aside>
+  </main>
+
+  {% include "partials_chirho/site_footer_chirho.html" %}
+</body>
+</html>

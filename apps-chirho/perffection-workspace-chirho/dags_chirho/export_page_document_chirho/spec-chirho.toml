@@ -1,0 +1,14 @@
+# For God so loved the world, that He gave His only begotten Son, that whoever believes in Him should not perish but have eternal life. - John 3:16
+schema_chirho = "dag-spec-v0-chirho"
+intent_chirho = "Hand the authenticated viewer her exact current private page document in the form the operator publishes."
+surface_chirho = { ins_chirho = ["request: http_request_v1"], outs_chirho = ["page: html_partial_v1"] }
+structure_chirho = [
+  "the pure builder chooses one fixed logical key but cannot choose the app or viewer scope",
+  "the private request-user edge reaches the least-authority viewer-state read door",
+  "the private typed response reaches the export renderer and remains private at the sink",
+]
+behaviors_chirho = [
+  "anonymous requests are refused before this DAG runs",
+  "the export carries only the verified current private version as PageDocumentV2 JSON and never publishes it",
+  "missing or malformed state renders an actionless unavailable surface",
+]
