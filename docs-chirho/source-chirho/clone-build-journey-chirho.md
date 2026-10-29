@@ -13,9 +13,9 @@ Use the committed Rust `1.93.0` toolchain with `rustfmt`, `clippy` and `wasm32-u
 
 Required CLI format is `cairn-chirho <version> (<actual-clean-engine-commit>)`, using the existing full-commit stamp. Source preparation compares the linked SDK/templating source with the selected commit. Runtime selection validates installed binaries without building, tolerating only the existing documented Markdown-only descendant case. A stamp is consistency metadata, not binary/source attestation: retain executable SHA-256 alongside the engine commit, lockfiles and product source commit at final gates. Candidate journeys require explicit commit/path and, for the reviewed runtime consumer, delivered SHA-256; they are not a silent pin move.
 
-## After Parent Build GO
+## Build And Test
 
-The initial engine import gate and product build allocation are recorded in readiness. Coordinate future competing builds, serialize engine/product compilation and use only this product's own `target/`; this guide is not a standing resource allocation for a shared machine.
+Build the pinned engine before preparing the product. On a shared machine, coordinate competing builds and keep the engine and product targets separate. The commands below use only the product's own `target/`; they do not need the original private repositories or their build artifacts.
 
 ```sh
 # From perffection-opensource-chirho:
@@ -30,8 +30,7 @@ export CAIRN_REPO_CHIRHO="$(cd ../cairn-opensource-chirho && pwd)"
 export TREE_BUILD_CHIRHO="$CAIRN_REPO_CHIRHO/target/debug/tree-build-chirho"
 export CAIRN_CLI_CHIRHO="$CAIRN_REPO_CHIRHO/target/debug/cairn-chirho"
 
-# Engine owner first builds its tree-build-chirho and cairn-chirho tools in its own repository.
-# No Perffection invocation of --build-cairn-chirho during this serialized gate.
+# First build tree-build-chirho and cairn-chirho in the sibling engine repository.
 cargo metadata --locked --offline --no-deps --format-version 1
 cargo fmt --all --check
 cargo test --locked --workspace -j2
@@ -59,13 +58,13 @@ The reviewed browser journey stages/previews source, promotes all three app cand
 ./scripts-chirho/dev-serve-tenant-chirho.sh --issue-synthetic-account-chirho
 ```
 
-After GO this starts the existing two Cairn roots and a loopback Caddy composition. Default edge/public/tenant/admin ports are 8840/8841/8842/8843; set the corresponding `PORT_CHIRHO`, `PORT_PUBLIC_CHIRHO`, `PORT_TENANT_CHIRHO` and `CADDY_ADMIN_PORT_CHIRHO` when occupied. The helper verifies closed registration and prints only owner-private disposable credential file paths. Its stdout gives the local URL. Ctrl-C stops owned processes. No public hostname, signup activation or real credentials are needed. It uses unreviewed-development deployment for UI iteration; use the separate reviewed journey for review-mechanism proof.
+This starts the existing two Cairn roots and a loopback Caddy composition. Default edge/public/tenant/admin ports are 8840/8841/8842/8843; set the corresponding `PORT_CHIRHO`, `PORT_PUBLIC_CHIRHO`, `PORT_TENANT_CHIRHO` and `CADDY_ADMIN_PORT_CHIRHO` when occupied. The helper verifies closed registration and prints only owner-private disposable credential file paths. Its stdout gives the local URL. Ctrl-C stops owned processes. No public hostname, signup activation or real credentials are needed. It uses unreviewed-development deployment for UI iteration; use the separate reviewed journey for review-mechanism proof.
 
 Signup browser consumers remain imported test source, not an instruction to run or activate signup in this gate. They explicitly open registration only on their own synthetic local candidate configuration. Public signup, money/provider spending, real email, public webhooks, hosted releases and production visibility stay separately held.
 
 ```mermaid
 flowchart TD
-  PinChirho[Real clean engine commit and parent GO] --> EngineChirho[Engine owner builds tools]
+  PinChirho[Actual clean engine commit] --> EngineChirho[Build pinned engine tools]
   EngineChirho --> NativeChirho[Product native tests and lint]
   NativeChirho --> WasmChirho[Prepare three apps and node fixtures]
   WasmChirho --> HttpChirho[Two-root local HTTP rehearsal]

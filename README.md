@@ -9,6 +9,13 @@ The source distribution retains product code, authored assets and synthetic loca
 
 Clone `cairn-opensource-chirho/` and `perffection-opensource-chirho/` side by side. Use the pinned Rust toolchain with `wasm32-unknown-unknown`, Bash and Python 3.11 or later. Local serving additionally requires Caddy; browser tooling uses Bun and installed Chrome.
 
+```sh
+git clone --branch main_chirho https://github.com/loveJesus/cairn-opensource-chirho.git
+git clone --branch main_chirho https://github.com/loveJesus/perffection-opensource-chirho.git
+cd perffection-opensource-chirho
+git -C ../cairn-opensource-chirho checkout "$(cat CAIRN-PIN-chirho.txt)"
+```
+
 Follow `docs-chirho/source-chirho/clone-build-journey-chirho.md` to build the exact engine identified in `CAIRN-PIN-chirho.txt`, run native tests, prepare the three apps and start the local closed-registration product loop. The engine version must report its actual clean Git commit, not an old private pin or fabricated build override. `docs-chirho/source-chirho/readiness-chirho.md` separates executed verification from remaining limits.
 
 ## The Good News Of Jesus Christ
